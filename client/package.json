@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.25.1",
     "cross-env": "^7.0.3",
     "next": "12.0.1",
     "react": "17.0.2",
