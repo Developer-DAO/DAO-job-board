@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 export default function Landing() {
   return (
-      <>
-
-      </>
+    <Hero>
+      <Copy>
+        <Title>
+          Find development talent from DeveloperDAO
+        </Title>
+      </Copy>
+    </Hero>
   )
 }
 
@@ -14,8 +18,7 @@ const Hero = styled.div`
   height: 100%;
 `
 const Copy = styled.div`
-  position: relative;
-  margin-left: 10rem;
+  margin: auto;
   max-width: 60%;
 
   @media (max-width: 650px) {

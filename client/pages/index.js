@@ -13,7 +13,6 @@ export default function Home() {
       </Head>
       <Navbar/>
       <Landing/>
-      <h1>This is a job board</h1>
     </div>
   )
 }

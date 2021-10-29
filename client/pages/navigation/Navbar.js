@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import icon from '../../public/DevDAO.svg';
+import Icon from '../UI-Components/Icon';
 
 export default function Navbar() {
   return (
     <NavBox>
       <NavbarTitle>
-        <svg src={icon}/>DevDAO Job Board
+        <DevDAOIcon/>
+        <Span>DevDAO Job Board</Span>
       </NavbarTitle>
       <MainMenu>
         <Navs
@@ -43,7 +44,20 @@ const NavBox = styled.nav`
   overflow: hidden;
 `;
 
+const DevDAOIcon = styled(Icon)`
+  border-radius: 180px;
+`;
+
+const Span = styled.span`
+  display: inline;
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  bottom: 2px;
+`;
+
 const NavbarTitle = styled.h1`
+  position: relative;
   display: block;
   float: left;
   font-size: 0.875rem;
