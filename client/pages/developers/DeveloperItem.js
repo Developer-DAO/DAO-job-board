@@ -1,13 +1,14 @@
+//CSS and UI
 import styled from 'styled-components';
-
 import Button from '../UI-Components/Button';
+import Link from 'next/link';
 import devdao from '../../public/DevDAO.png'
 
 export default function DeveloperItem() {
   return (
   <>
     <DeveloperItemBox>
-      <LinkCover>
+      <LinkCover href='/developers'>
         <ProfileItemTop>
           <NameSection>
             Developer #1
@@ -73,7 +74,7 @@ const DeveloperItemBox = styled.div`
 const ProfileItemTop = styled.div`
 `;
 
-const LinkCover = styled.a`
+const LinkCover = styled(Link)`
   text-decoration: none;
   color: black;
 `;

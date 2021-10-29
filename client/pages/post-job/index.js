@@ -7,19 +7,19 @@ import PostJobSummary from './PostJobSummary';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
-      jobname: '',
-      jobwebsite: '',
-      jobdescription: '',
-      jobskills: '',
-      jobreward: '',
-      joblocation: '',
-      jobduration: ''
+      projectname: '',
+      projectwebsite: '',
+      projectdescription: '',
+      projectskills: '',
+      projectreward: '',
+      projectlocation: '',
+      projectduration: ''
     });
 
     const {
-      jobname,
-      jobdescription,
-      jobskills,
+      projectname,
+      projectdescription,
+      projectskills,
     } = formData;
 
     const [locationActive, setLocationActive] = useState(false)
