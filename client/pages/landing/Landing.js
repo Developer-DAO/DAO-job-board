@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../UI-Components/Button';
 
 export default function Landing() {
   return (
@@ -7,6 +8,15 @@ export default function Landing() {
         <Title>
           Find development talent from DeveloperDAO
         </Title>
+          <Button>
+            Search for Devs
+          </Button>
+        <Title>
+          Find jobs from the best companies
+        </Title>
+          <Button>
+            Search for Jobs
+          </Button>
       </Copy>
     </Hero>
   )
@@ -20,6 +30,7 @@ const Hero = styled.div`
 const Copy = styled.div`
   margin: auto;
   max-width: 60%;
+  text-align: center;
 
   @media (max-width: 650px) {
     margin: auto;
@@ -27,10 +38,11 @@ const Copy = styled.div`
   }
 `
 const Title = styled.h1`
+  text-align: center;
 `;
 
-const CopyBottom = styled.h2`
-color: gray;
+const Title2 = styled.h2`
+  color: gray;
 `;
 
 const List = styled.li`
