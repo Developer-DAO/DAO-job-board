@@ -5,21 +5,18 @@ import { createClient } from '@supabase/supabase-js'
 const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key")
 
 const GlobalStyle = createGlobalStyle`
-html {
-  background: #F7FAFC;
-  display:block;
+html,
+body {
   height: 100%;
-  max-width: 100%;
-  margin:0 auto;
-  padding: 0;
+  font-family: InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;background-color:#F7FAFC;
 }
 
-body {
-  background-color:#F7FAFC;
-  min-height: 100%;
-  padding: 1rem;
-  margin-top:0;
-  font-family: InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+footer {
+  position: absolute;
+  display: block;
+  left:0;
+  bottom:0;
+  right:0;
 }
 `;
 

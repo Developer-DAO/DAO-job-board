@@ -1,25 +1,25 @@
 import {useState} from 'react';
 import styled from 'styled-components';
 
-import CreateProjectBasics from './CreateProjectBasics';
-import CreateProjectDetails from './CreateProjectDetails';
-import CreateProjectSummary from './CreateProjectSummary';
+import PostJobBasics from './PostJobBasics';
+import PostJobDetails from './PostJobDetails';
+import PostJobSummary from './PostJobSummary';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
-      projectname: '',
-      projectwebsite: '',
-      projectdescription: '',
-      projectskills: '',
-      projectreward: '',
-      projectlocation: '',
-      projectduration: ''
+      jobname: '',
+      jobwebsite: '',
+      jobdescription: '',
+      jobskills: '',
+      jobreward: '',
+      joblocation: '',
+      jobduration: ''
     });
 
     const {
-      projectname,
-      projectdescription,
-      projectskills,
+      jobname,
+      jobdescription,
+      jobskills,
     } = formData;
 
     const [locationActive, setLocationActive] = useState(false)
@@ -60,21 +60,22 @@ export default function CreateProject() {
 
     const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
-    const updateProjectSkills = (e) => {
-      setFormData({...formData, projectskills: e})
+    const updateJobSkills = (e) => {
+      setFormData({...formData, jobskills: e})
     }
 
     const deleteSkills = (e) => {
-      if (formData.projectskills) {
+      if (formData.jobskills) {
         setFormData(prevSkills => {
-          const updatedSkills = prevSkills.projectskills.filter(skill => skill !== e);
+          const updatedSkills = prevSkills.jobskills.filter(skill => skill !== e);
           return updatedSkills;
         })
       }
     };
 
-    const createProject = async (e) => {
+    const createJob = async (e) => {
       e.preventDefault();
+      console.log(formData);
     }
 
   return (
@@ -82,37 +83,34 @@ export default function CreateProject() {
     <CreateProjectBox>
       <form onSubmit={e => createProject(e)}>
       {basicsPage ? <
-        CreateProjectBasics
+        PostJobBasics
         goToDetails={goToDetails}
         goBack={goBack}
         formData={formData}
         onChange={onChange}
-        setAlert={setAlert}
         /> : null}
 
       {detailsPage ?
-      <CreateProjectDetails
+      <PostJobDetails
         goToBasics={goToBasics}
         goToSummary={goToSummary}
         formData={formData}
         setFormData={setFormData}
-        updateProjectSkills={updateProjectSkills}
+        updateJobSkills={updateJobSkills}
         deleteSkills={deleteSkills}
         locationActive={locationActive}
         durationActive={durationActive}
         addLocation={addLocation}
         addDuration={addDuration}
         onChange={onChange}
-        setAlert={setAlert}
         /> : null}
 
       {summaryPage ?
-        <CreateProjectSummary
+        <PostJobSummary
         formData={formData}
         goToDetails={goToDetails}
         goToBasics={goToBasics}
         createProject={createProject}
-        setAlert={setAlert}
         /> : null}
       </form>
     </CreateProjectBox>
