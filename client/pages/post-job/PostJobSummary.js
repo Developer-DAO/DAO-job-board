@@ -1,5 +1,12 @@
 // UI & CSS
 import Button from '../UI-Components/Button'
+import {Top,
+  InputSection,
+  Input,
+  InputTitles,
+  Textarea,
+  ButtonSection
+} from './styles';
 
 export default function PostJobSummary ({
   formData,
@@ -20,10 +27,10 @@ const {
 
   return (
     <>
-    <div className='cp-top'>
-      <h1>Project Summary</h1>
+    <Top>
+      <h1>Job Summary</h1>
       <h2><em>Check that everything is correct {'(click edit if not)'}</em></h2>
-    </div>
+    </Top>
 
       <div className='cp-summary-sections'>
         <h2>Project Basics</h2>
@@ -55,7 +62,7 @@ const {
       </div>
 
         <h4>Skills:</h4>
-        <div className='cp-skills-section'>
+        <SkillList>
         {projectskills.length > 0 && projectskills.map((skill, index) => (
           <>
           <div key={index}>
@@ -63,7 +70,7 @@ const {
           </div>
           </>
         ))}
-        </div>
+        </SkillList>
       <br/>
       {formData && projectreward && projectamount ? (<div className='cp-summary-sections'>
         <h4>Project Reward:</h4>{' '} <p>{projectamount}{' '}{projectreward}</p>
@@ -78,18 +85,15 @@ const {
       </div>) : null}
 
 
-
-      <div className='cp-button-section'>
+      <ButtonSection>
         <Button
           onClick={goToDetails}
-          className="bad"
         >Back</Button>
         <Button
           type='submit'
-          className='button primary'
           onClick={createProject}
         >Create Project</Button>
-      </div>
+      </ButtonSection>
     </>
   )
 }

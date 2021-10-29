@@ -66,6 +66,14 @@ export const Description = styled.div`
   text-align: justify;
 `;
 
+export const SkillsSection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  grid-auto-rows: 2rem;
+  grid-gap: 1.5rem;
+  width: 100%;
+`;
+
 export const ButtonSection = styled.div`
   margin-top: 10px;
   width: 100%;
