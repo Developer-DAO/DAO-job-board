@@ -3,12 +3,20 @@ import React from 'react'
 // UI & CSS
 import Button from '../UI-Components/Button';
 
-const PostJobBasics = ({
+import {Top,
+  InputSection,
+  Input,
+  InputTitles,
+  Textarea,
+  ButtonSection
+} from './styles';
+
+export default function PostJobBasics ({
 goToDetails,
 goBack,
 formData,
 onChange,
-history}) => {
+history}) {
 
   const {
     jobname,
@@ -21,53 +29,51 @@ history}) => {
   }
 
   return (
-    <div>
-    <div className='cp-top'>
-      <h1>Job Basics</h1>
-      <h2><em>What kind of dev help are you looking for?</em></h2>
-    </div>
+    <>
+      <Top>
+        <h1>Job Basics</h1>
+        <p><em>What kind of dev help are you looking for?</em></p>
+      </Top>
 
-      <div className='cp-input-section'>
-        <h2 className='cp-input-titles'>Pick the best name for your project</h2>
-        <input
-          placeholder='e.g. Looking for Smart Contract Developer for an NFT Project'
-          name='projectname'
-          value={projectname}
-          onChange={e => onChange(e)}
-        />
-      <br/>
-        <small>Max 20 words</small>
-        <h2 className='cp-input-titles'>Describe your project clearly</h2>
-        <textarea
-          minlength='30'
-          placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
-          name='projectdescription'
-          value={projectdescription}
-          onChange={e => onChange(e)}
-        />
-      <br/>
-        <small>Max 300 words</small>
-        <h2 className='cp-input-titles'>Have a website or repo? {'(optional)'}</h2>
-        <input
-          placeholder='e.g. www.projectsite.com'
-          name='projectwebsite'
-          value={projectwebsite}
-          onChange={e => onChange(e)}
-        />
-      </div>
+        <InputSection>
+          <InputTitles>Write a name for your job post</InputTitles>
+          <Input
+            placeholder='e.g. Smart Contract Developer for an NFT Game'
+            name='jobname'
+            value={jobname}
+            onChange={e => onChange(e)}
+          />
+        <br/>
+          <small>Max 20 words</small>
+          <InputTitles>Describe your project clearly</InputTitles>
+          <Textarea
+            minlength='30'
+            placeholder='e.g. I am building an NFT game and need smart contract developers with experience in Solidity and Hardhat...'
+            name='jobdescription'
+            value={jobdescription}
+            onChange={e => onChange(e)}
+          />
+        <br/>
+          <small>Max 300 words</small>
+          <InputTitles>Have a website or repo? {'(optional)'}</InputTitles>
+          <Input
+            placeholder='e.g. www.projectsite.com'
+            name='jobwebsite'
+            value={jobwebsite}
+            onChange={e => onChange(e)}
+          />
+        </InputSection>
 
-    <div className='cp-button-section'>
-      <Button
-        className="button bad"
-        onClick={goBack}
-      >Cancel</Button>
-      <Button
-        onClick={nextPage}
-        className='button primary'
-      >Continue</Button>
-  </div>
-    </div>
+      <ButtonSection>
+        <Button
+          className="button bad"
+          onClick={goBack}
+        >Cancel</Button>
+        <Button
+          onClick={nextPage}
+          className='button primary'
+        >Continue</Button>
+    </ButtonSection>
+  </>
   )
 }
-
-export default BasicsSection
