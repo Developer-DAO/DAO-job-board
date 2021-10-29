@@ -5,6 +5,7 @@ import devdao from '../../public/DevDAO.png'
 
 export default function DeveloperItem() {
   return (
+  <>
     <DeveloperItemBox>
       <LinkCover>
         <ProfileItemTop>
@@ -26,6 +27,30 @@ export default function DeveloperItem() {
         <SkillButton>Rust</SkillButton>
       </DeveloperSkills>
     </DeveloperItemBox>
+
+
+    <DeveloperItemBox>
+      <LinkCover>
+        <ProfileItemTop>
+          <NameSection>
+            Developer #2
+          </NameSection>
+          <ProfileImageCover>
+            <ProfileImage src='/DevDAO.png'/>
+          </ProfileImageCover>
+        </ProfileItemTop>
+        <DeveloperItemStatus>
+          Not Available
+        </DeveloperItemStatus>
+      </LinkCover>
+
+      <DeveloperSkills>
+        <SkillButton>Web3</SkillButton>
+        <SkillButton>FullStack</SkillButton>
+        <SkillButton>Discord</SkillButton>
+      </DeveloperSkills>
+    </DeveloperItemBox>
+  </>
   )
 }
 

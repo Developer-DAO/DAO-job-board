@@ -123,8 +123,8 @@ const CreateProjectBox = styled.div`
   border: 0px solid #000000;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
-  width: 80%;
+  width: 90%;
   height: fit-content;
-  padding: 5%;
+  padding: 2%;
   margin: auto;
 `;
