@@ -8,7 +8,6 @@ export default function Navbar() {
         <DevDAOIcon>
           <Icon/>
         </DevDAOIcon>
-        <Span>DevDAO Job Board</Span>
       </NavbarTitle>
       <MainMenu>
         <Navs
@@ -51,10 +50,6 @@ const DevDAOIcon = styled.div`
   height: 25px;
   width: 25px;
   overflow: hidden;
-`;
-
-const Span = styled.span`
-  font-size: 0.875rem;
 `;
 
 const NavbarTitle = styled.h1`
