@@ -70,7 +70,6 @@ const Navs = styled.a`
   margin: 0 0.25rem;
   cursor: pointer;
   float: left;
-  align-items: right;
   text-decoration: none;
   border-radius: 18px;
 

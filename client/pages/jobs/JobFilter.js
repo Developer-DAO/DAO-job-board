@@ -3,7 +3,6 @@ import styled from 'styled-components';
 function JobFilter() {
   return (
     <>
-      <p>YES</p>
     </>
   )
 };
