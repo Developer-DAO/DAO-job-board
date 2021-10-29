@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import Button from '../UI-Components/Button';
 
 //Components and Utils
-import ProjectSkills from './ProjectSkills'
+import SelectSkills from './SelectSkills'
 
-function CreateProjectDetails({
+function PostJobDetails({
   goToBasics,
   goToSummary,
   formData,

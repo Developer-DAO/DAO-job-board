@@ -22,15 +22,13 @@ export default function Landing() {
   )
 }
 
-const Hero = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
+const Hero = styled.section`
+  text-align: center;
+  margin: auto;
 `
 const Copy = styled.div`
   margin: auto;
   max-width: 60%;
-  text-align: center;
 
   @media (max-width: 650px) {
     margin: auto;

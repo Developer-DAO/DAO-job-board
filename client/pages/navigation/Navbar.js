@@ -5,7 +5,9 @@ export default function Navbar() {
   return (
     <NavBox>
       <NavbarTitle>
-        <DevDAOIcon/>
+        <DevDAOIcon>
+          <Icon/>
+        </DevDAOIcon>
         <Span>DevDAO Job Board</Span>
       </NavbarTitle>
       <MainMenu>
@@ -44,22 +46,19 @@ const NavBox = styled.nav`
   overflow: hidden;
 `;
 
-const DevDAOIcon = styled(Icon)`
+const DevDAOIcon = styled.div`
   border-radius: 180px;
+  height: 25px;
+  width: 25px;
+  overflow: hidden;
 `;
 
 const Span = styled.span`
-  display: inline;
-  width: 100px;
-  height: 30px;
-  position: absolute;
-  bottom: 2px;
+  font-size: 0.875rem;
 `;
 
 const NavbarTitle = styled.h1`
-  position: relative;
-  display: block;
-  float: left;
+  display: inline;
   font-size: 0.875rem;
   color: #4A5568;
 `;
