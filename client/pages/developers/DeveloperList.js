@@ -16,7 +16,6 @@ export default function DeveloperList() {
 }
 
 const DevListBox = styled.div`
-  overflow: hidden;
   height: 100vh;
   z-index: 1;
 

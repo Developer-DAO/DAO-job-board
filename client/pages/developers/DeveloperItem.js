@@ -8,7 +8,7 @@ export default function DeveloperItem() {
   return (
   <>
     <DeveloperItemBox>
-      <LinkCover href='/developers'>
+      <LinkCover href='/'>
         <ProfileItemTop>
           <NameSection>
             Developer #1
@@ -60,11 +60,11 @@ const DeveloperItemBox = styled.div`
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: fit-content;
   height: fit-content;
   padding: 0.5rem;
-  box-shadow: 0 2px 5px grey;
-  background: #C4C4C4;
+  box-shadow: 0px 0px 4px 2px #E2E8F0;
+  background: #FFFFFF;
   border-radius: 18px;
   background-color: white;
   overflow: hidden;
@@ -74,7 +74,7 @@ const DeveloperItemBox = styled.div`
 const ProfileItemTop = styled.div`
 `;
 
-const LinkCover = styled(Link)`
+const LinkCover = styled.a`
   text-decoration: none;
   color: black;
 `;

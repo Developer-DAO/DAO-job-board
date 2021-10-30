@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styled from 'styled-components';
+import {CreateProjectBox} from './styles';
 
 import PostJobBasics from './PostJobBasics';
 import PostJobDetails from './PostJobDetails';
@@ -117,14 +117,3 @@ export default function CreateProject() {
   </>
   )
 }
-
-const CreateProjectBox = styled.div`
-  box-sizing: border-box;
-  border: 0px solid #000000;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
-  border-radius: 18px;
-  width: 90%;
-  height: fit-content;
-  padding: 2%;
-  margin: auto;
-`;
