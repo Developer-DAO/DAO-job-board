@@ -1,5 +1,6 @@
 import { createGlobalStyle} from 'styled-components';
 import { createClient } from '@supabase/supabase-js'
+import Navbar from './navigation/Navbar';
 
 // Create a single supabase client for interacting with your database
 const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key")
@@ -23,8 +24,10 @@ footer {
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Navbar/>
       <GlobalStyle/>
       <Component {...pageProps} />
+
     </>
   )
 }

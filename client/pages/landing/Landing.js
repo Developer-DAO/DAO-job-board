@@ -6,17 +6,21 @@ export default function Landing() {
     <Hero>
       <Copy>
         <Title>
-          Find development talent from DeveloperDAO
+          Find the best talent from DevDAO
         </Title>
-          <Button>
-            Search for Devs
-          </Button>
+          <LandingLink href='/developers'>
+            <Button>
+              Search for Devs
+            </Button>
+          </LandingLink>
         <Title>
-          Find jobs from the best companies
+          Find the best Web3 jobs
         </Title>
-          <Button>
-            Search for Jobs
-          </Button>
+          <LandingLink href='/jobs'>
+            <Button>
+              Search for Jobs
+            </Button>
+          </LandingLink>
       </Copy>
     </Hero>
   )
@@ -34,7 +38,7 @@ const Copy = styled.div`
     margin: auto;
     top: 5rem;
   }
-`
+`;
 const Title = styled.h1`
   text-align: center;
 `;
@@ -53,6 +57,14 @@ const ButtonSection = styled.div`
   @media (max-width: 650px) {
     margin-left: 25%;
     margin-top: 7rem;
+  }
+`;
+
+const LandingLink = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 

@@ -5,9 +5,11 @@ export default function Navbar() {
   return (
     <NavBox>
       <NavbarTitle>
+      <NavLink href='/'>
         <DevDAOIcon>
-          <Icon/>
+            <Icon/>
         </DevDAOIcon>
+      </NavLink>
       </NavbarTitle>
       <MainMenu>
         <Navs
@@ -43,6 +45,14 @@ const NavBox = styled.nav`
   border-bottom: solid 2px #E2E8F0;
   opacity: 0.8;
   overflow: hidden;
+`;
+
+const NavLink = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const DevDAOIcon = styled.div`

@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const CreateProjectBox = styled.div`
+  box-sizing: border-box;
+  border: 0px solid #000000;
+  box-shadow: 0px 0px 4px 2px #E2E8F0;
+  background: #FFFFFF;
+  border-radius: 18px;
+  width: 90%;
+  height: fit-content;
+  padding: 2%;
+  margin: auto;
+  margin-top: 5%;
+`;
+
 export const Top = styled.div`
   position: relative;
   top: -20%;
