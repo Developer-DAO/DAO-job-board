@@ -1,6 +1,6 @@
 // UI & CSS
 import Button from '../UI-Components/Button'
-import {Top,
+import {BoxTop,
   InputSection,
   Input,
   InputTitles,
@@ -28,10 +28,10 @@ const {
 
   return (
     <>
-    <Top>
+    <BoxTop>
       <h1>Job Summary</h1>
       <h2><em>Check that everything is correct {'(click edit if not)'}</em></h2>
-    </Top>
+    </BoxTop>
 
       <div className='cp-summary-sections'>
         <h2>Project Basics</h2>

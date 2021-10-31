@@ -3,7 +3,7 @@ import React from 'react'
 // UI & CSS
 import Button from '../UI-Components/Button';
 
-import {Top,
+import {BoxTop,
   InputSection,
   Input,
   InputTitles,
@@ -30,10 +30,10 @@ history}) {
 
   return (
     <>
-      <Top>
+      <BoxTop>
         <h1>Project Basics</h1>
         <p><em>Let devs know what you are working on</em></p>
-      </Top>
+      </BoxTop>
 
         <InputSection>
           <InputTitles>Write a name for your job post</InputTitles>

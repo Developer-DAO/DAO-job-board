@@ -78,12 +78,13 @@ const Navs = styled.a`
   border-radius: 18px;
 
   &:focus {
-    background-color: lightgray;
+    background-color: #E6EBF2;
     color: black;
   }
 
   &:hover {
     color: gray;
+    transition: 0.1s;
   }
 `;
 

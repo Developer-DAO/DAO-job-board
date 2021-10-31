@@ -11,15 +11,16 @@ function About() {
 export default About;
 
 const AboutBox = styled.div`
-  box-sizing: border-box;
-  background-color: white;
-  font-size: 14px;
-  width: 95%;
-  height: 100%;
-  box-shadow: 1px 0px 6px 2px gray;
-  border-radius: 8px;
-  padding: 10px;
-  margin: auto;
+box-sizing: border-box;
+border: 0px solid #000000;
+box-shadow: 0px 0px 4px 2px #E2E8F0;
+background: #FFFFFF;
+border-radius: 18px;
+width: 90%;
+height: fit-content;
+padding: 2%;
+margin: auto;
+margin-top: 5%;
 `;
 
 const Title = styled.h1`

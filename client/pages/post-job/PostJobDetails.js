@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import styled from 'styled-components';
 import Button from '../UI-Components/Button';
-import {Top,
+import {BoxTop,
   InputSection,
   Input,
   InputTitles,
@@ -61,10 +61,10 @@ export default function PostJobDetails({
 
   return (
     <>
-      <Top>
+      <BoxTop>
         <h1>Project Details</h1>
         <em>Describe your perfect dev</em>
-      </Top>
+      </BoxTop>
 
         <InputSection>
           <h2 className='cp-input-titles'>Pick the skills</h2>

@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
-export const CreateProjectBox = styled.div`
+export const Box = styled.div`
   box-sizing: border-box;
   border: 0px solid #000000;
   box-shadow: 0px 0px 4px 2px #E2E8F0;
   background: #FFFFFF;
   border-radius: 18px;
-  width: 90%;
+  width: 50%;
   height: fit-content;
   padding: 2%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 2.5%;
 `;
 
-export const Top = styled.div`
+export const BoxTop = styled.div`
   position: relative;
   top: -20%;
   font-size: 1rem;
@@ -28,12 +28,16 @@ export const InputSection = styled.div`
 export const Input = styled.input`
   position: relative;
   border-radius: 6px;
-  border: 1px solid #000000;
-  width: 89%;
+  border: 1px solid #E2E8F0;
+  width: 90%;
   height: 50px;
   font-size: 1rem;
-  font-family: 'Inter';
+  font-family: 'InterVariable';
   padding: 5px;
+
+  &:focus {
+    border-color: #97C0E6;
+  }
 `;
 
 export const InputTitles = styled.h2`
@@ -44,17 +48,17 @@ export const InputTitles = styled.h2`
 export const Selector = styled.select`
   background-color: white;
   border-radius: 6px;
-  border: 1px solid #000000;
+  border: 1px solid #E2E8F0;
   height: 63px;
   padding: 5px;
   margin-right: 5px;
-  font-family: 'Inter';
+  font-family: 'InterVariable';
 `;
 
 export const Checkbox = styled.input`
   position: relative;
   border-radius: 6px;
-  border: 1px solid #000000;
+  border: 1px solid #E2E8F0;
   font-size: 1rem;
   padding: 5px;
 `;
@@ -63,12 +67,12 @@ export const Textarea = styled.textarea`
   resize: vertical;
   border-radius: 6px;
   background: white;
-  border: 1px solid #000000;
+  border: 1px solid #E2E8F0;
   box-sizing: border-box;
-  width: 90%;
+  width: 91.5%;
   height: 8rem;
   padding: 5px;
-  font: 1rem 'Inter';
+  font: 1rem 'InterVariable';
 `;
 
 export const Description = styled.div`
