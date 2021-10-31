@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {CreateProjectBox} from '../../styles/styles';
+import {Box} from '../../styles/styles';
 
 import PostJobBasics from './PostJobBasics';
 import PostJobDetails from './PostJobDetails';
@@ -80,7 +80,7 @@ export default function CreateProject() {
 
   return (
   <>
-    <CreateProjectBox>
+    <Box>
       <form onSubmit={e => createProject(e)}>
       {basicsPage ? <
         PostJobBasics
@@ -113,7 +113,7 @@ export default function CreateProject() {
         createProject={createProject}
         /> : null}
       </form>
-    </CreateProjectBox>
+    </Box>
   </>
   )
 }
