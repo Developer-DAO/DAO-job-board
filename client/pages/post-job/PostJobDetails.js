@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import styled from 'styled-components';
 import Button from '../UI-Components/Button';
 import {Top,
@@ -6,12 +8,12 @@ import {Top,
   InputTitles,
   SkillsSection,
   ButtonSection
-} from './styles';
+} from '../../styles/styles';
 
 //Components and Utils
 import SelectSkills from './SelectSkills'
 
-function PostJobDetails({
+export default function PostJobDetails({
   goToBasics,
   goToSummary,
   formData,
@@ -143,7 +145,7 @@ function PostJobDetails({
 
         </InputSection>
 
-      {changeSkills && <ProjectSkills formData={formData} addProjectSkills={addProjectSkills} unSelectSkills={unSelectSkills}/>}
+      {changeSkills && <SelectSkills formData={formData} addProjectSkills={addProjectSkills} unSelectSkills={unSelectSkills}/>}
 
       <ButtonSection>
         <Button

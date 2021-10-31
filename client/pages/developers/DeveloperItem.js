@@ -112,6 +112,10 @@ const DeveloperSkills = styled.div`
   text-align: left;
   height: fit-content;
   overflow: visible;
+
+  @media (max-width: 650px) {
+    grid-template-columns: repeat(2, 2fr);
+  }
 `;
 
 const SkillButton = styled(Button)`

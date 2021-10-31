@@ -4,9 +4,10 @@ import {Top,
   InputSection,
   Input,
   InputTitles,
+  SkillList,
   Textarea,
   ButtonSection
-} from './styles';
+} from '../../styles/styles';
 
 export default function PostJobSummary ({
   formData,
@@ -63,13 +64,13 @@ const {
 
         <h4>Skills:</h4>
         <SkillList>
-        {projectskills.length > 0 && projectskills.map((skill, index) => (
-          <>
-          <div key={index}>
-              <p><i class="fas fa-check"></i> {' '}{skill}</p>
-          </div>
-          </>
-        ))}
+          {projectskills.length > 0 && projectskills.map((skill, index) => (
+            <>
+            <div key={index}>
+                <p>{skill}</p>
+            </div>
+            </>
+          ))}
         </SkillList>
       <br/>
       {formData && projectreward && projectamount ? (<div className='cp-summary-sections'>
