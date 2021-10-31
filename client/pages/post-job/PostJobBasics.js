@@ -9,7 +9,7 @@ import {Top,
   InputTitles,
   Textarea,
   ButtonSection
-} from './styles';
+} from '../../styles/styles';
 
 export default function PostJobBasics ({
 goToDetails,
@@ -32,7 +32,7 @@ history}) {
     <>
       <Top>
         <h1>Project Basics</h1>
-        <p><em>What kind of dev help are you looking for?</em></p>
+        <p><em>Let devs know what you are working on</em></p>
       </Top>
 
         <InputSection>

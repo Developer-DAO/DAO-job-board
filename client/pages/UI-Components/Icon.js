@@ -5,5 +5,6 @@ export default function Icon() {
   style='bordeRadius:180px'
   width={25}
   height={25}
-  src='/DevDAO.png' />
+  src='/DevDAO.png'
+  alt='icon' />
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 function About() {
   return (
     <AboutBox>
-      <Title>This is DevDAO's job list</Title>
+      <Title>This is DevDAOs job list</Title>
     </AboutBox>
   )
 }

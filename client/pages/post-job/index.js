@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {CreateProjectBox} from './styles';
+import {CreateProjectBox} from '../../styles/styles';
 
 import PostJobBasics from './PostJobBasics';
 import PostJobDetails from './PostJobDetails';

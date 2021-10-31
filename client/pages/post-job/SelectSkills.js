@@ -5,10 +5,10 @@ import Button from '../UI-Components/Button';
 import styled from 'styled-components';
 
 //Components and Utils
-import {skillList} from '../Utils/SkillsList';
+import {skillList} from '../../Utils/SkillsList';
 
 export default function SelectSkills ({
-   formData,
+  formData,
   unSelectSkills,
   addProjectSkills
 }) {
@@ -111,7 +111,7 @@ export default function SelectSkills ({
             </SelectedSkills>
           ) : null}
 
-          <SelectSkillsButton>
+          <SelectSkillsButtons>
             <Button
               className='primary'
               onClick={addSkills}>
@@ -123,7 +123,7 @@ export default function SelectSkills ({
             >
               Cancel
             </Button>
-          </SelectSkillsButton>
+          </SelectSkillsButtons>
         </SkillsWindow>
       </SelectSkillsBox>
     </div>
