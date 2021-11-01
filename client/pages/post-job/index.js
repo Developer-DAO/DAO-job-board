@@ -73,7 +73,7 @@ export default function CreateProject() {
       }
     };
 
-    const createJob = async (e) => {
+    const createProject = async (e) => {
       e.preventDefault();
       console.log(formData);
     }

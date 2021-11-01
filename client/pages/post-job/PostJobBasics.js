@@ -24,7 +24,8 @@ history}) {
     projectwebsite
   } = formData;
 
-  const nextPage = async () => {
+  const nextPage = async (e) => {
+    e.preventDefault();
     goToDetails();
   };
 
@@ -67,7 +68,7 @@ history}) {
           onClick={goBack}
         >Cancel</Button>
         <Button
-          onClick={nextPage}
+          onClick={e => nextPage(e)}
         >Continue</Button>
     </ButtonSection>
   </>
