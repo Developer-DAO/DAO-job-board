@@ -69,7 +69,7 @@ history}) {
           styling='negative'
         >Cancel</Button>
         <Button
-          onClick={nextPage}
+          onClick={e => nextPage(e)}
           styling='positive'
         >Continue</Button>
     </ButtonSection>

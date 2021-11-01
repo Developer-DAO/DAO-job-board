@@ -18,11 +18,11 @@ export default function DeveloperList() {
 const DevList = styled.div`
   height: 100vh;
   z-index: 1;
-  width: 1280px;
+  width: 70%;
   margin: auto;
 
   @media (max-width: 900px) {
-    width: 95%;
+    width: 90%;
   }
 
   @media (max-width: 650px) {

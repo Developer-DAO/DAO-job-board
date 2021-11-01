@@ -6,14 +6,23 @@ export const Box = styled.div`
   box-shadow: 0px 0px 4px 2px #e2e8f0;
   background: #ffffff;
   border-radius: 18px;
-  width: 50%;
+  width: 70%;
   height: fit-content;
   padding: 2%;
   margin: auto;
   margin-top: 2.5%;
 
-  @media (max-width: 750px) {
-    width: 80%;
+  @media (max-width: 900px) {
+    width: 90%;
+  }
+
+  @media (max-width: 650px) {
+    box-shadow: 0 0 0 0;
+    height: 100%;
+    margin: auto;
+    padding: 0%;
+    width: 100%;
+    background: #F7FAFC;
   }
 `;
 

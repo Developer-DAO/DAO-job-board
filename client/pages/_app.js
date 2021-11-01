@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 html,
 body {
   height: 100%;
-  font-family: InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;background-color:#F7FAFC;
+  font-family: InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color:#F7FAFC;
 }
 
 footer {

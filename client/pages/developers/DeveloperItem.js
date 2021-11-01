@@ -56,11 +56,10 @@ export default function DeveloperItem() {
 }
 
 const DeveloperItemBox = styled.div`
-  display: grid;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: fit-content;
+  width: 90%;
   height: fit-content;
   padding: 0.5rem;
   box-shadow: 0px 0px 4px 2px #E2E8F0;
@@ -69,6 +68,10 @@ const DeveloperItemBox = styled.div`
   background-color: white;
   overflow: hidden;
   z-index: 1;
+
+  @media (max-width: 650px) {
+    width: 15%;
+  }
 `;
 
 const ProfileItemTop = styled.div`
@@ -87,9 +90,7 @@ const ProfileImageCover = styled.div`
   width: 6rem;
   height: 6rem;
   border: 2px solid black;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border-radius: 180px;
   background-color: black;
 `;
@@ -105,7 +106,7 @@ const DeveloperSkills = styled.div`
   display: grid;
   box-sizing: border-box;
   border-radius: 18px;
-  grid-template-columns: repeat(3, 2fr);
+  grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: 3rem;
   margin-top: 5px;
   margin-bottom: 10px;
