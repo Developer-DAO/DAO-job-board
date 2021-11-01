@@ -1,7 +1,5 @@
-import DeveloperList from './DeveloperList';
+import DeveloperList from "./DeveloperList";
 
 export default function Index() {
-  return (
-    <DeveloperList/>
-  )
+  return <DeveloperList />;
 }

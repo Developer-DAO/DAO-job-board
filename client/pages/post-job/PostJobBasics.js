@@ -1,7 +1,7 @@
 import React from 'react'
 
 // UI & CSS
-import Button from '../UI-Components/Button';
+import Button from '../../styles/UI-Components/Button';
 
 import {BoxTop,
   InputSection,

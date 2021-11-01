@@ -1,6 +1,6 @@
 //CSS and UI
 import styled from 'styled-components';
-import Button from '../UI-Components/Button';
+import Button from '../../styles/UI-Components/Button';
 import Link from 'next/link';
 import devdao from '../../public/DevDAO.png'
 

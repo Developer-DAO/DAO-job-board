@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Box = styled.div`
   box-sizing: border-box;
   border: 0px solid #000000;
-  box-shadow: 0px 0px 4px 2px #E2E8F0;
-  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 2px #e2e8f0;
+  background: #ffffff;
   border-radius: 18px;
   width: 50%;
   height: fit-content;
@@ -17,11 +17,17 @@ export const Box = styled.div`
   }
 `;
 
+export const DevDAOIcon = styled.div`
+  border-radius: 180px;
+  margin: auto;
+  overflow: hidden;
+`;
+
 export const Hero = styled.section`
   text-align: center;
   margin: auto;
   margin-top: 2.5%;
-`
+`;
 export const Copy = styled.div`
   margin: auto;
   max-width: 60%;
@@ -63,21 +69,21 @@ export const BoxTop = styled.div`
 
 export const InputSection = styled.div`
   position: relative;
-  top: 50%
+  top: 50%;
 `;
 
 export const Input = styled.input`
   position: relative;
   border-radius: 6px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   width: 90%;
   height: 50px;
   font-size: 1rem;
-  font-family: 'InterVariable';
+  font-family: "InterVariable";
   padding: 5px;
 
   &:focus {
-    border-color: #97C0E6;
+    border-color: #97c0e6;
   }
 `;
 
@@ -89,17 +95,17 @@ export const InputTitles = styled.h2`
 export const Selector = styled.select`
   background-color: white;
   border-radius: 6px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   height: 63px;
   padding: 5px;
   margin-right: 5px;
-  font-family: 'InterVariable';
+  font-family: "InterVariable";
 `;
 
 export const Checkbox = styled.input`
   position: relative;
   border-radius: 6px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   font-size: 1rem;
   padding: 5px;
 `;
@@ -108,12 +114,12 @@ export const Textarea = styled.textarea`
   resize: vertical;
   border-radius: 6px;
   background: white;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   box-sizing: border-box;
   width: 91.5%;
   height: 8rem;
   padding: 5px;
-  font: 1rem 'InterVariable';
+  font: 1rem "InterVariable";
 `;
 
 export const Description = styled.div`

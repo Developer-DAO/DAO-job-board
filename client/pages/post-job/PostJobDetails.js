@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import styled from 'styled-components';
-import Button from '../UI-Components/Button';
+import Button from '../../styles/UI-Components/Button';
 import {BoxTop,
   InputSection,
   Input,
