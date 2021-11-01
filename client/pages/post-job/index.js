@@ -80,7 +80,7 @@ export default function CreateProject() {
   return (
     <>
       <Box>
-        <form onSubmit={(e) => createProject(e)}>
+        <form onSubmit={createProject}>
           {basicsPage ? (
             <PostJobBasics
               goToDetails={goToDetails}

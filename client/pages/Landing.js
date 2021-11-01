@@ -20,11 +20,11 @@ export default function Landing() {
       <Copy>
         <Title>Looking for DevDAO talent?</Title>
         <LinkWrap href="/developers">
-          <Button>Search for Devs</Button>
+          <Button styling='normal'>Search for Devs</Button>
         </LinkWrap>
         <Title>Looking for work?</Title>
         <LinkWrap href="/jobs">
-          <Button>Search for Web3 Jobs</Button>
+          <Button styling='normal'>Search for Web3 Jobs</Button>
         </LinkWrap>
       </Copy>
     </Hero>

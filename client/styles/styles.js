@@ -89,7 +89,7 @@ export const Input = styled.input`
 
 export const InputTitles = styled.h2`
   position: relative;
-  font-size: 1rem;
+  font-size: 0.9rem;
 `;
 
 export const Selector = styled.select`
