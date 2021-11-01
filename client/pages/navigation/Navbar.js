@@ -16,12 +16,15 @@ export default function Navbar() {
           </NavLink>
         </NavbarTitle>
         <MainMenu>
-          <Navs href="/jobs">Job List</Navs>
+          <Navs href="/jobs">Jobs</Navs>
 
-          <Navs href="/developers">Developers</Navs>
-
-          <Extra href="/post-job">Post a Job</Extra>
+          <Navs href="/developers">Devs</Navs>
         </MainMenu>
+
+        <SecondaryMenu>
+          <Extra href="/post-job">Post a Job</Extra>
+          <Extra2 href="/sign-up">Sign Up</Extra2>
+        </SecondaryMenu>
       </NavBox>
     </Nav>
   );
@@ -40,12 +43,17 @@ const Nav = styled.nav`
 
 const NavBox = styled.div`
   display: flex;
-  width: 1280px;
+  width: 70%;
   text-align: center;
   margin: auto;
+  transition: 0.1s;
+
+  @media (max-width: 900px) {
+    width: 90%;
+  }
 
   @media (max-width: 650px) {
-    width: 650px;
+    width: 100%;
   }
 `;
 
@@ -83,6 +91,7 @@ const Navs = styled.a`
 `;
 
 const Extra = styled.a`
+  position: relative;
   color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
@@ -103,9 +112,19 @@ const Extra = styled.a`
   }
 `;
 
+const Extra2 = styled(Extra)`
+  box-sizing: border-box;
+  background-color: black;
+  color: #FFFFFF;
+`;
+
 const MainMenu = styled.div`
-  position: relative;
-  top: 10%;
+  margin: auto;
+  align-items: center;
+`;
+
+const SecondaryMenu = styled.div`
+  align-items: right;
 `;
 
 const Hamburgermenu = styled.div`
