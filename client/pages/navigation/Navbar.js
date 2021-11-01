@@ -25,11 +25,11 @@ export default function Navbar() {
           Developers
         </Navs>
 
-        <Navs
+        <Extra
           href='/post-job'
         >
           Post a Job
-        </Navs>
+        </Extra>
       </MainMenu>
     </NavBox>
   </Nav>
@@ -99,9 +99,30 @@ const Navs = styled.a`
   }
 `;
 
+const Extra = styled.a`
+color: black;
+padding: 0.45rem;
+margin: 0 0.25rem;
+cursor: pointer;
+float: left;
+text-decoration: none;
+border: 1px solid black;
+border-radius: 18px;
+
+&:focus {
+  background-color: #E6EBF2;
+  color: black;
+}
+
+&:hover {
+  color: gray;
+  transition: 0.1s;
+}
+`;
+
 const MainMenu = styled.div`
   position: relative;
-  top: 6%;
+  top: 10%;
 `;
 
 const Hamburgermenu = styled.div`

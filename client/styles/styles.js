@@ -17,6 +17,43 @@ export const Box = styled.div`
   }
 `;
 
+export const Hero = styled.section`
+  text-align: center;
+  margin: auto;
+  margin-top: 2.5%;
+`
+export const Copy = styled.div`
+  margin: auto;
+  max-width: 60%;
+
+  @media (max-width: 650px) {
+    margin: auto;
+    top: 5rem;
+  }
+`;
+export const Title = styled.h1`
+  text-align: center;
+  font-size: 1.75rem;
+`;
+
+export const Title2 = styled.h2`
+  color: gray;
+  font-size: 1.5rem;
+`;
+
+export const List = styled.li`
+  margin: 10px;
+  margin-left: -25px;
+`;
+
+export const LinkWrap = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const BoxTop = styled.div`
   position: relative;
   top: -20%;
