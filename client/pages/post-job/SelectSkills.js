@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 //UI
-import Button from '../UI-Components/Button';
+import Button from '../../styles/UI-Components/Button';
 import styled from 'styled-components';
 
 //Components and Utils

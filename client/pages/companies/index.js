@@ -1,7 +1,5 @@
-import CompanyList from './CompanyList';
+import CompanyList from "./CompanyList";
 
 export default function Index() {
-  return (
-    <CompanyList/>
-  )
+  return <CompanyList />;
 }

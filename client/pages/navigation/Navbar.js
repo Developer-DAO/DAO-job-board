@@ -1,48 +1,39 @@
-import styled from 'styled-components';
-import Icon from '../UI-Components/Icon';
+import styled from "styled-components";
+
+import {DevDAOIcon} from '../../styles/styles';
+
+import Icon from "../../styles/UI-Components/Icon";
 
 export default function Navbar() {
   return (
-  <Nav>
-    <NavBox>
-      <NavbarTitle>
-      <NavLink href='/'>
-        <DevDAOIcon>
-            <Icon/>
-        </DevDAOIcon>
-      </NavLink>
-      </NavbarTitle>
-      <MainMenu>
-        <Navs
-          href='/jobs'
-        >
-          Job List
-        </Navs>
+    <Nav>
+      <NavBox>
+        <NavbarTitle>
+          <NavLink href="/">
+            <DevDAOIcon style={{width: '1.6rem', height: '1.6rem'}}>
+              <Icon />
+            </DevDAOIcon>
+          </NavLink>
+        </NavbarTitle>
+        <MainMenu>
+          <Navs href="/jobs">Job List</Navs>
 
-        <Navs
-          href='/developers'
-        >
-          Developers
-        </Navs>
+          <Navs href="/developers">Developers</Navs>
 
-        <Extra
-          href='/post-job'
-        >
-          Post a Job
-        </Extra>
-      </MainMenu>
-    </NavBox>
-  </Nav>
-  )
-};
+          <Extra href="/post-job">Post a Job</Extra>
+        </MainMenu>
+      </NavBox>
+    </Nav>
+  );
+}
 
 const Nav = styled.nav`
-  background-color: #F7FAFC;
+  background-color: #f7fafc;
   justify-content: space-between;
   z-index: 1;
   width: 100%;
   height: 10%;
-  border-bottom: solid 2px #E2E8F0;
+  border-bottom: solid 2px #e2e8f0;
   opacity: 0.8;
   overflow: hidden;
 `;
@@ -60,23 +51,15 @@ const NavBox = styled.div`
 
 const NavLink = styled.a`
   text-decoration: none;
-
   &:hover {
     cursor: pointer;
   }
 `;
 
-const DevDAOIcon = styled.div`
-  border-radius: 180px;
-  height: 1.5rem;
-  width: 1.5rem;
-  overflow: hidden;
-`;
-
 const NavbarTitle = styled.h1`
   display: inline;
   font-size: 0.875rem;
-  color: #4A5568;
+  color: #4a5568;
 `;
 
 const Navs = styled.a`
@@ -89,7 +72,7 @@ const Navs = styled.a`
   border-radius: 18px;
 
   &:focus {
-    background-color: #E6EBF2;
+    background-color: #e6ebf2;
     color: black;
   }
 
@@ -100,24 +83,24 @@ const Navs = styled.a`
 `;
 
 const Extra = styled.a`
-color: black;
-padding: 0.45rem;
-margin: 0 0.25rem;
-cursor: pointer;
-float: left;
-text-decoration: none;
-border: 1px solid black;
-border-radius: 18px;
-
-&:focus {
-  background-color: #E6EBF2;
   color: black;
-}
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  float: left;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 18px;
 
-&:hover {
-  color: gray;
-  transition: 0.1s;
-}
+  &:focus {
+    background-color: #e6ebf2;
+    color: black;
+  }
+
+  &:hover {
+    color: gray;
+    transition: 0.1s;
+  }
 `;
 
 const MainMenu = styled.div`
