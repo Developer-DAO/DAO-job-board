@@ -1,44 +1,46 @@
 import styled from 'styled-components'
 
-export default function Button({children, type}) {
+export default function Button({children, styling}) {
 
   const STYLES = {
     normal: {
-      backgroundcolor: EDF2F7,
-      hoverbgcolor: E2E9F0,
-      color: black
+      backgroundcolor: '#EDF2F7',
+      hoverbgcolor: '#E2E9F0',
+      color: 'black'
     },
     skill: {
-      backgroundcolor: EDF2F7,
+      backgroundcolor: '#EDF2F7',
+      hoverbgcolor: '#CDCDCD',
+      color: 'black'
     },
     option: {
-      backgroundcolor: 3182CE,
-      hoverbgcolor: 2B6CB0,
-      color: white
+      backgroundcolor: '#3182CE',
+      hoverbgcolor: '#2B6CB0',
+      color: 'white'
     },
     positive: {
-      backgroundcolor: 38A169,
-      hoverbgcolor: 2F855A,
-      color: white
+      backgroundcolor: '#38A169',
+      hoverbgcolor: '#2F855A',
+      color: 'white'
     },
     negative: {
-      backgroundcolor: DD6B20,
-      hoverbgcolor: C05621,
-      color: white
+      backgroundcolor: '#DD6B20',
+      hoverbgcolor: '#C05621',
+      color: 'white'
     }
   }
 
-  const styles = STYLES[type];
+  const styles = STYLES[styling];
 
   if (!styles) {
-    throw new Error('You did not send a type of butonn...');
+    throw new Error('You did not declare styling props...');
   }
 
   return <Button1
             style={{
               '--color': styles.color,
-              '--backgroundcolor': '#' + styles.backgroundcolor,
-              '--hoverbgcolor': '#' + styles.hoverbgcolor;
+              '--backgroundcolor': styles.backgroundcolor,
+              '--hoverbgcolor': styles.hoverbgcolor
             }}
          >
           {children}

@@ -66,9 +66,11 @@ history}) {
       <ButtonSection>
         <Button
           onClick={goBack}
+          styling='negative'
         >Cancel</Button>
         <Button
-          onClick={e => nextPage(e)}
+          onClick={nextPage}
+          styling='positive'
         >Continue</Button>
     </ButtonSection>
   </>

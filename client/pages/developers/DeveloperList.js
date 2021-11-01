@@ -4,30 +4,35 @@ import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
   return (
-    <DevListBox>
+    <DevList>
       <DevListTop>
+        DevDAO Devs
       </DevListTop>
-
       <DevGrids>
         <DeveloperItem/>
       </DevGrids>
-    </DevListBox>
+    </DevList>
   )
 }
 
-const DevListBox = styled.div`
+const DevList = styled.div`
   height: 100vh;
   z-index: 1;
+  width: 1280px;
+  margin: auto;
+
+  @media (max-width: 900px) {
+    width: 95%;
+  }
 
   @media (max-width: 650px) {
     position: absolute;
     top: 10vh;
-    width: fit-content;
     box-shadow: none;
   }
 `;
 
-const DevListTop = styled.div`
+const DevListTop = styled.h1`
   text-align: center;
   margin-bottom: 10px;
 `;

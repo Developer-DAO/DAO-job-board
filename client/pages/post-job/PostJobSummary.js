@@ -37,7 +37,7 @@ const {
         <h2>Project Basics</h2>
         <Button
           onClick={goToBasics}
-          className='button random'
+          styling='normal'
         >Edit</Button>
         </div>
         <br/>
@@ -58,7 +58,7 @@ const {
         <h2>Project Details</h2>
         <Button
           onClick={goToDetails}
-          className='button random'
+          styling='normal'
         >Edit</Button>
       </div>
 
@@ -89,9 +89,10 @@ const {
       <ButtonSection>
         <Button
           onClick={goToDetails}
+          styling='negative'
         >Back</Button>
         <Button
-          type='submit'
+          styling='positive'
           onClick={createProject}
         >Create Project</Button>
       </ButtonSection>

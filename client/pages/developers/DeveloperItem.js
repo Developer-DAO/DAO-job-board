@@ -23,9 +23,9 @@ export default function DeveloperItem() {
       </LinkCover>
 
       <DeveloperSkills>
-        <SkillButton>Web3</SkillButton>
-        <SkillButton>Solidity</SkillButton>
-        <SkillButton>Rust</SkillButton>
+        <SkillButton styling='skill'>Web3</SkillButton>
+        <SkillButton styling='skill'>Solidity</SkillButton>
+        <SkillButton styling='skill'>Rust</SkillButton>
       </DeveloperSkills>
     </DeveloperItemBox>
 
@@ -46,9 +46,9 @@ export default function DeveloperItem() {
       </LinkCover>
 
       <DeveloperSkills>
-        <SkillButton>Web3</SkillButton>
-        <SkillButton>FullStack</SkillButton>
-        <SkillButton>Discord</SkillButton>
+        <SkillButton styling='skill'>Web3</SkillButton>
+        <SkillButton styling='skill'>FullStack</SkillButton>
+        <SkillButton styling='skill'>Discord</SkillButton>
       </DeveloperSkills>
     </DeveloperItemBox>
   </>
