@@ -3,6 +3,7 @@ import Icon from '../UI-Components/Icon';
 
 export default function Navbar() {
   return (
+  <Nav>
     <NavBox>
       <NavbarTitle>
       <NavLink href='/'>
@@ -31,20 +32,30 @@ export default function Navbar() {
         </Navs>
       </MainMenu>
     </NavBox>
+  </Nav>
   )
 };
 
-const NavBox = styled.nav`
-  display: flex;
+const Nav = styled.nav`
   background-color: #F7FAFC;
   justify-content: space-between;
-  text-align: center;
   z-index: 1;
   width: 100%;
   height: 10%;
   border-bottom: solid 2px #E2E8F0;
   opacity: 0.8;
   overflow: hidden;
+`;
+
+const NavBox = styled.div`
+  display: flex;
+  width: 1280px;
+  text-align: center;
+  margin: auto;
+
+  @media (max-width: 650px) {
+    width: 650px;
+  }
 `;
 
 const NavLink = styled.a`
@@ -57,8 +68,8 @@ const NavLink = styled.a`
 
 const DevDAOIcon = styled.div`
   border-radius: 180px;
-  height: 25px;
-  width: 25px;
+  height: 1.5rem;
+  width: 1.5rem;
   overflow: hidden;
 `;
 
@@ -89,8 +100,8 @@ const Navs = styled.a`
 `;
 
 const MainMenu = styled.div`
-  align-items: center;
-  text-align: center;
+  position: relative;
+  top: 6%;
 `;
 
 const Hamburgermenu = styled.div`

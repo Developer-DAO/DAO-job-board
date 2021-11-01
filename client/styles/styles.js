@@ -11,6 +11,10 @@ export const Box = styled.div`
   padding: 2%;
   margin: auto;
   margin-top: 2.5%;
+
+  @media (max-width: 750px) {
+    width: 80%;
+  }
 `;
 
 export const BoxTop = styled.div`
