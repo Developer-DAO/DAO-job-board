@@ -8,7 +8,7 @@ Several people in the DAO have discussed how finding a DAO that they can contrib
 
 ## **What is this repo?**
 
-This is the code for the job board at [Vercel](https://job-board-ezucml1vx-developer-dao.vercel.app/developers)
+This is the code for the job board at [Vercel](https://job-board-sage.vercel.app)
 
 Job board for the DAO in development
 
@@ -28,7 +28,7 @@ Job board for the DAO in development
 3. Start the development server with `npm run dev`
 4. Open development site by going to `http:localhost:3000`
 
-**NOTE:** The NextJS installation is located in the `client` folder. 
+**NOTE:** The NextJS installation is located in the `client` folder.
 
 ## **How to Contribute**
 
