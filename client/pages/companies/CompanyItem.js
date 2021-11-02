@@ -23,6 +23,7 @@ export default function CompanyItem() {
       <CompanyJobCount>
         Open Jobs: 10
       </CompanyJobCount>
+      <br/>
       <Button styling='normal'>
         View More
       </Button>
