@@ -1,19 +1,18 @@
-import {
-  Box,
-  Title2,
-  Break
- } from "../../styles/styles";
+import {ItemBox,
+ItemTop,
+LinkCover,
+NameSection,
+ProfileImageCover,
+ProfileImage} from '../../styles/styles';
 
 export default function CompanyItem() {
   return (
-    <Box style={{
-      width: '100%',
-      boxShadow: '0 0 0 0'}}>
+    <ItemBox>
 
-      <Title2>
+      <NameSection>
         Company
-      </Title2>
+      </NameSection>
 
-    </Box>
+    </ItemBox>
   )
 }
