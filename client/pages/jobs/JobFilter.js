@@ -4,9 +4,9 @@ import {Box, Title} from '../../styles/styles';
 
 function JobFilter() {
   return (
-    <Box>
+    <JobFilterBox>
       <Title>TO BE BUILT</Title>
-    </Box>
+    </JobFilterBox>
   )
 };
 
