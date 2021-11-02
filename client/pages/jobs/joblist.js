@@ -1,9 +1,9 @@
-import {Box} from '../../styles/styles';
+import {Box, Title} from '../../styles/styles';
 
 function JobList() {
   return (
       <Box>
-          <p>asdsad</p>
+          <Title>TO BE BUILT</Title>
       </Box>
   )
 }
