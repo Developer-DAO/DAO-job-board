@@ -73,7 +73,7 @@ export const Input = styled.input`
   font-family: "InterVariable";
   padding: 5px;
 
-  &:focus {
+  &::focus {
     border-color: #97c0e6;
   }
 `;
