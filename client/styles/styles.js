@@ -8,7 +8,9 @@ export const Box = styled.div`
   border-radius: 18px;
   width: 70%;
   height: fit-content;
-  padding: 2%;
+  padding: 1%;
+  padding-top: 0.2%;
+  padding-bottom: 0.2%;
   margin: auto;
   margin-top: 2.5%;
 
@@ -69,6 +71,12 @@ export const LinkWrap = styled.a`
   }
 `;
 
+export const Break = styled.hr`
+  opacity: 0.25;
+  width: 100%;
+
+`;
+
 export const BoxTop = styled.div`
   position: relative;
   top: -20%;
@@ -85,7 +93,7 @@ export const Input = styled.input`
   position: relative;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  width: 90%;
+  width: 98%;
   height: 50px;
   font-size: 1rem;
   font-family: "InterVariable";
@@ -125,7 +133,7 @@ export const Textarea = styled.textarea`
   background: white;
   border: 1px solid #e2e8f0;
   box-sizing: border-box;
-  width: 91.5%;
+  width: 99.5%;
   height: 8rem;
   padding: 5px;
   font: 1rem "InterVariable";
