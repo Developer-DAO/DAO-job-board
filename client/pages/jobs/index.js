@@ -4,8 +4,8 @@ import JobFilter from './JobFilter';
 export default function Index() {
   return (
     <>
-      <JobList/>
       <JobFilter/>
+      <JobList/>
     </>
   )
 }
