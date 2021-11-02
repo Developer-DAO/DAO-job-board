@@ -63,6 +63,21 @@ export const List = styled.li`
   margin-left: -25px;
 `;
 
+export const Input = styled.input`
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  width: 98%;
+  height: 50px;
+  font-size: 1rem;
+  font-family: "InterVariable";
+  padding: 5px;
+
+  &:focus {
+    border-color: #97c0e6;
+  }
+`;
+
 export const LinkWrap = styled.a`
   text-decoration: none;
 
