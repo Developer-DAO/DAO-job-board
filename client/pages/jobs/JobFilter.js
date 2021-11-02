@@ -24,7 +24,13 @@ const FilterBox = styled(Box)`
 `;
 
 const FilterInput = styled(Input)`
-  position: ;
-  width: 30%;
+  font-size: 0.875rem;
+  text-align: center;
+  width: 40vw;
   margin: auto;
+
+  @media (max-width: 650px) {
+    width: 85vw;
+    height: 2.5rem;
+  }
 `;

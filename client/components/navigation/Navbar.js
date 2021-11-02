@@ -16,10 +16,12 @@ export default function Navbar() {
           </NavLink>
         </NavbarTitle>
         <MainMenu>
+          <Navs href="/gigs">Gigs</Navs>
           <Navs href="/jobs">Jobs</Navs>
 
           <Navs href="/developers">Devs</Navs>
           <Navs href="/companies">Companies</Navs>
+          <Navs href="/about">About</Navs>
 
         </MainMenu>
 
