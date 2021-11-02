@@ -4,6 +4,7 @@ import React from 'react'
 import Button from '../../styles/UI-Components/Button';
 
 import {BoxTop,
+  Title,
   InputSection,
   Input,
   InputTitles,
@@ -32,7 +33,7 @@ history}) {
   return (
     <>
       <BoxTop>
-        <h1>Project Basics</h1>
+        <Title>Project Basics</Title>
         <p><em>Let devs know what you are working on</em></p>
       </BoxTop>
 
