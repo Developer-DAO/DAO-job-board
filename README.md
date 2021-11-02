@@ -28,6 +28,8 @@ Job board for the DAO in development
 3. Start the development server with `npm run dev`
 4. Open development site by going to `http:localhost:3000`
 
+**NOTE:** The NextJS installation is located in the `client` folder. 
+
 ## **How to Contribute**
 
 1. Check the [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
