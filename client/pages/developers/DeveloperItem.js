@@ -1,5 +1,13 @@
 //CSS and UI
 import styled from 'styled-components';
+
+import {ItemBox,
+ItemTop,
+LinkCover,
+NameSection,
+ProfileImageCover,
+ProfileImage} from '../../styles/styles';
+
 import Button from '../../styles/UI-Components/Button';
 import Link from 'next/link';
 import devdao from '../../public/DevDAO.png'
@@ -7,16 +15,16 @@ import devdao from '../../public/DevDAO.png'
 export default function DeveloperItem() {
   return (
   <>
-    <DeveloperItemBox>
+    <ItemBox>
       <LinkCover href='/'>
-        <ProfileItemTop>
+        <ItemTop>
           <NameSection>
             Developer #1
           </NameSection>
           <ProfileImageCover>
             <ProfileImage src='/DevDAO.png'/>
           </ProfileImageCover>
-        </ProfileItemTop>
+        </ItemTop>
         <DeveloperItemStatus>
           Available
         </DeveloperItemStatus>
@@ -27,19 +35,19 @@ export default function DeveloperItem() {
         <SkillButton styling='skill'>Solidity</SkillButton>
         <SkillButton styling='skill'>Rust</SkillButton>
       </DeveloperSkills>
-    </DeveloperItemBox>
+    </ItemBox>
 
 
-    <DeveloperItemBox>
+    <ItemBox>
       <LinkCover>
-        <ProfileItemTop>
+        <ItemTop>
           <NameSection>
             Developer #2
           </NameSection>
           <ProfileImageCover>
             <ProfileImage src='/DevDAO.png'/>
           </ProfileImageCover>
-        </ProfileItemTop>
+        </ItemTop>
         <DeveloperItemStatus>
           Not Available
         </DeveloperItemStatus>
@@ -50,57 +58,10 @@ export default function DeveloperItem() {
         <SkillButton styling='skill'>FullStack</SkillButton>
         <SkillButton styling='skill'>Discord</SkillButton>
       </DeveloperSkills>
-    </DeveloperItemBox>
+    </ItemBox>
   </>
   )
 }
-
-const DeveloperItemBox = styled.div`
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  height: fit-content;
-  padding: 0.5rem;
-  box-shadow: 0px 0px 4px 2px #E2E8F0;
-  background: #FFFFFF;
-  border-radius: 18px;
-  background-color: white;
-  overflow: hidden;
-  z-index: 1;
-
-  @media (max-width: 650px) {
-    width: 15%;
-  }
-`;
-
-const ProfileItemTop = styled.div`
-`;
-
-const LinkCover = styled.a`
-  text-decoration: none;
-  color: black;
-`;
-
-const NameSection = styled.h3`
-  margin: 5px;
-`;
-
-const ProfileImageCover = styled.div`
-  width: 6rem;
-  height: 6rem;
-  border: 2px solid black;
-  margin: auto;
-  border-radius: 180px;
-  background-color: black;
-`;
-
-const ProfileImage = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 180px;
-  object-fit: cover;
-`;
 
 const DeveloperSkills = styled.div`
   display: grid;

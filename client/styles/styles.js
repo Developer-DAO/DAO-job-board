@@ -84,79 +84,91 @@ export const BoxTop = styled.div`
   text-align: center;
 `;
 
-export const InputSection = styled.div`
-  position: relative;
-  top: 50%;
-`;
+export const ItemBox = styled.div`
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: fit-content;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 4px 2px #E2E8F0;
+  background: #FFFFFF;
+  border-radius: 18px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
 
-export const Input = styled.input`
-  position: relative;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  width: 98%;
-  height: 50px;
-  font-size: 1rem;
-  font-family: "InterVariable";
-  padding: 5px;
-
-  &:focus {
-    border-color: #97c0e6;
+  @media (max-width: 650px) {
+    width: 15%;
   }
 `;
 
-export const InputTitles = styled.h2`
-  position: relative;
-  font-size: 0.9rem;
+export const ItemTop = styled.div`
 `;
 
-export const Selector = styled.select`
-  background-color: white;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  height: 63px;
-  padding: 5px;
-  margin-right: 5px;
-  font-family: "InterVariable";
+export const LinkCover = styled.a`
+  text-decoration: none;
+  color: black;
 `;
 
-export const Checkbox = styled.input`
-  position: relative;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  font-size: 1rem;
-  padding: 5px;
+export const NameSection = styled.h3`
+  margin: 5px;
 `;
 
-export const Textarea = styled.textarea`
-  resize: vertical;
-  border-radius: 6px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  box-sizing: border-box;
-  width: 99.5%;
-  height: 8rem;
-  padding: 5px;
-  font: 1rem "InterVariable";
+export const ProfileImageCover = styled.div`
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid black;
+  margin: auto;
+  border-radius: 180px;
+  background-color: black;
 `;
 
-export const Description = styled.div`
-  position: relative;
-  top: 20%;
-  margin-right: 5%;
-  font-size: 80%;
-  text-align: justify;
+export const ProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 180px;
+  object-fit: cover;
 `;
 
-export const SkillsSection = styled.div`
+export const GridList = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 3fr);
-  grid-auto-rows: 2rem;
-  grid-gap: 1.5rem;
-  width: 100%;
+  grid-template-columns: repeat(5, 2fr);
+  grid-auto-rows: fit-content;
+  grid-gap: 1rem;
+
+  @media (max-widtH: 900px) {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-auto-rows: fit-content;
+  };
+
+  @media (max-width: 650px) {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      grid-auto-rows: fit-content;
+      grid-gap: 1rem;
+  };
 `;
 
-export const ButtonSection = styled.div`
-  margin-top: 10px;
-  width: 100%;
+export const ListWrap = styled.div`
+  height: 100vh;
+  z-index: 1;
+  width: 70%;
+  margin: auto;
+
+  @media (max-width: 900px) {
+    width: 90%;
+  }
+
+  @media (max-width: 650px) {
+    position: absolute;
+    top: 10vh;
+    box-shadow: none;
+  }
+`;
+
+export const ListTop = styled.h1`
   text-align: center;
+  margin-bottom: 10px;
 `;

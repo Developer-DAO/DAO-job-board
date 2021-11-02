@@ -19,11 +19,13 @@ export default function Navbar() {
           <Navs href="/jobs">Jobs</Navs>
 
           <Navs href="/developers">Devs</Navs>
+          <Navs href="/companies">Companies</Navs>
+
         </MainMenu>
 
         <SecondaryMenu>
           <Extra href="/post-job">Post a Job</Extra>
-          <Extra2 href="/sign-up">Sign Up</Extra2>
+          <Extra2 href="/auth">Sign Up</Extra2>
         </SecondaryMenu>
       </NavBox>
     </Nav>
