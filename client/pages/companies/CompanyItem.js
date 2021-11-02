@@ -21,7 +21,7 @@ export default function CompanyItem() {
         <ProfileImage src='/ETHEREUM.png'/>
       </ProfileImageCover>
       <CompanyJobCount>
-        Open Jobs: 5
+        Open Jobs: 10
       </CompanyJobCount>
       <Button styling='normal'>
         View More
