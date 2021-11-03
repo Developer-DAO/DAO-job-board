@@ -25,7 +25,7 @@ export default function JobItem() {
               <Icon
               width='50'
               height='50'
-              src='/Ethereum.png'/>
+              src='/ETHEREUM.png'/>
           </JobItemCompanyIcon>
             <JobItemCompanyName>
               Company Name
