@@ -6,13 +6,13 @@ import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
   return (
-    <ListWrap>
-      <ListTop>
-        DevDAO Devs
-      </ListTop>
-      <GridList>
-        <DeveloperItem/>
-      </GridList>
-    </ListWrap>
+      <ListWrap>
+        <ListTop>
+          DevDAO Devs
+        </ListTop>
+        <GridList>
+          <DeveloperItem/>
+        </GridList>
+      </ListWrap>
   )
 }

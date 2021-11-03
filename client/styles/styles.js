@@ -107,6 +107,7 @@ export const BoxTop = styled.div`
 `;
 
 export const ItemBox = styled.div`
+  display: grid;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -117,11 +118,26 @@ export const ItemBox = styled.div`
   background: #FFFFFF;
   border-radius: 18px;
   background-color: white;
-  overflow: hidden;
   z-index: 1;
 
   @media (max-width: 650px) {
     width: 95%;
+  }
+`;
+
+export const BoxWrap = styled.div`
+  padding: 0.5rem;
+  background: #FFFFFF;
+  background-color: white;
+  overflow: hidden;
+  height: auto;
+  z-index: 1;
+
+  @media (max-width: 650px) {
+    position: absolute;
+    top: 10vh;
+    width: fit-content;
+    box-shadow: none;
   }
 `;
 
@@ -155,13 +171,13 @@ export const ProfileImage = styled.img`
 
 export const GridList = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 2fr);
+  grid-template-columns: repeat(3, 2fr);
   grid-auto-rows: fit-content;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
 
   @media (max-widtH: 900px) {
     display: grid;
-    grid-template-columns: repeat(3, 2fr);
+    grid-template-columns: repeat(2, 2fr);
     grid-auto-rows: fit-content;
   };
 
@@ -170,6 +186,12 @@ export const GridList = styled.div`
       grid-template-columns: repeat(2, 2fr);
       grid-auto-rows: fit-content;
       grid-gap: 1rem;
+  };
+
+  @media (max-width: 380px) {
+      display: grid;
+      grid-template-columns: repeat(1, 2fr);
+      grid-auto-rows: fit-content;
   };
 `;
 
@@ -180,7 +202,7 @@ export const ListWrap = styled.div`
   margin: auto;
 
   @media (max-width: 900px) {
-    width: 90%;
+    width: 100%;
   }
 
   @media (max-width: 650px) {

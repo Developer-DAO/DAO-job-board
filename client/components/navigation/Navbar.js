@@ -53,10 +53,6 @@ const NavBox = styled.div`
   transition: 0.1s;
 
   @media (max-width: 900px) {
-    width: 90%;
-  }
-
-  @media (max-width: 650px) {
     width: 100%;
   }
 `;
