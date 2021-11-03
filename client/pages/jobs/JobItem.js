@@ -9,9 +9,8 @@ import {
 
 export default function JobItem() {
   return (
-    <>
       <JobItemBox>
-        <JobItemLink>
+        <JobItemLink href='/'>
           <JobItemName>
             Project 1
           </JobItemName>
@@ -33,9 +32,8 @@ export default function JobItem() {
             Javascript
           </SkillButton>
         </JobItemSkills>
+        <JobItemSeparator/>
       </JobItemBox>
-      <JobItemSeparator/>
-    </>
   )
 }
 
@@ -43,18 +41,18 @@ const JobItemBox = styled(Box)`
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25), 1px 0px 1px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
-  width: 80%;
+  width: 100%;
   height: fit-content;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
 
   @media (max-width: 650px){
-    height: fit-content;
+    height: max-content;
     width: 100%;
     box-sizing: content-box;
     box-shadow: 0 0 0 0;
-    margin-left: -2%;
+    padding: 0;
+    background: white;
   }
 `;
 
@@ -64,7 +62,7 @@ display: none;
 @media (max-width: 650px) {
   display: block;
   opacity: 0.25;
-  width: 106%;
+  width: 100%;
   margin-left: -0.5%;
 }
 `;

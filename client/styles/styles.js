@@ -63,6 +63,7 @@ export const Description = styled.div`
   top: 20%;
   font-size: 1rem;
   text-align: center;
+  margin-bottom: 2%;
 `;
 
 export const List = styled.li`
