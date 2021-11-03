@@ -40,7 +40,8 @@ export default function Button({children, styling}) {
             style={{
               '--color': styles.color,
               '--backgroundcolor': styles.backgroundcolor,
-              '--hoverbgcolor': styles.hoverbgcolor
+              '--hoverbgcolor': styles.hoverbgcolor,
+              '--border': styles.border
             }}
          >
           {children}
@@ -50,6 +51,7 @@ export default function Button({children, styling}) {
 const Button1 = styled.button`
   background-color: var(--backgroundcolor);
   color: var(--color);
+  border: var(--border);
   font-size: 14px;
   padding: 0.5rem 1rem;
   width: auto;
