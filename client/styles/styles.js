@@ -28,7 +28,7 @@ export const Box = styled.div`
   }
 `;
 
-export const DevDAOIcon = styled.div`
+export const IconWrap = styled.div`
   border-radius: 180px;
   margin: auto;
   overflow: hidden;

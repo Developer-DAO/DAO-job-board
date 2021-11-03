@@ -5,7 +5,7 @@ import Icon from '../../styles/UI-Components/Icon';
 import {
   Box,
   Break,
-  DevDAOIcon,
+  IconWrap,
   Title,
   Title2,
   Description
@@ -21,10 +21,12 @@ export default function JobItem() {
         </JobItemLink>
 
         <JobItemLink href='/'>
-            <JobItemCompanyIcon
-            width='50'
-            height='50'
-            src='/Ethereum.png' />
+          <JobItemCompanyIcon>
+              <Icon
+              width='50'
+              height='50'
+              src='/Ethereum.png'/>
+          </JobItemCompanyIcon>
             <JobItemCompanyName>
               Company Name
             </JobItemCompanyName>
@@ -90,27 +92,28 @@ display: none;
 }
 `;
 
-const JobItemCompanyIcon = styled(Icon)`
-  border-radius: 200px;
+const JobItemCompanyIcon = styled(IconWrap)`
+  margin-left: 1%;
+  margin-right: 0%;
 `;
 
 const JobItemLink = styled.a`
-  display: inline;
+  display: flex;
   text-decoration: none;
   color: black;
 `;
 
 const JobItemName = styled(Title)`
-width: 80%;
-text-align: left;
-font-size: 1.25rem;
-margin-left: 2.5%;
+  width: 80%;
+  text-align: left;
+  font-size: 1.25rem;
+  margin-left: 2.5%;
 `;
 
 const JobItemCompanyName = styled(Title2)`
-width: 80%;
-font-size: 1.25rem;
-margin-left: 2.5%;
+  width: 80%;
+  font-size: 1rem;
+  margin-left: 0%;
 `;
 
 const JobItemDetailsElement = styled.p`
@@ -147,7 +150,7 @@ const JobItemDescription = styled(Description)`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-left: 2.5%;
-  margin-top: 5%;
+  margin-bottom: 0;
 `;
 
 const JobItemSkills = styled.div`
@@ -158,16 +161,13 @@ grid-gap: 1rem;
 width: 90%;
 margin-left: 2%;
 margin-bottom: 2.5%;
-font-size: 14px;
 
 @media (max-width: 650px) {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
-  grid-auto-rows: 2rem;
   grid-gap: 2rem;
   width: 90%;
   margin-left: 2.5%;
-  font-size: 10px;
 }
 `;
 

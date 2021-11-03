@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {DevDAOIcon} from '../../styles/styles';
+import {IconWrap} from '../../styles/styles';
 
 import Icon from "../../styles/UI-Components/Icon";
 
@@ -10,9 +10,9 @@ export default function Navbar() {
       <NavBox>
         <NavbarTitle>
           <NavLink href="/">
-            <DevDAOIcon  style={{width: '1.6rem', height: '1.6rem'}}>
+            <IconWrap  style={{width: '1.6rem', height: '1.6rem'}}>
               <Icon width='50' height='50' src='/DevDAO.png'/>
-            </DevDAOIcon>
+            </IconWrap>
           </NavLink>
         </NavbarTitle>
         <MainMenu>
