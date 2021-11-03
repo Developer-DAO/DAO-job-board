@@ -26,6 +26,9 @@ export default function Landing() {
         <LinkWrap href="/jobs">
           <Button styling='positive'>Search Jobs</Button>
         </LinkWrap>
+        <LinkWrap href="/gigs">
+          <Button styling='negative'>Search Gigs</Button>
+        </LinkWrap>
       </Copy>
     </Hero>
   );

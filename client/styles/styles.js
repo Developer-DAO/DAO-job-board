@@ -122,7 +122,7 @@ export const ItemBox = styled.div`
   z-index: 1;
 
   @media (max-width: 650px) {
-    width: 15%;
+    width: 95%;
   }
 `;
 
