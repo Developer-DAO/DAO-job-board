@@ -5,12 +5,11 @@ import {Box, BoxTop, Title2, Input} from '../../styles/styles';
 function JobFilter() {
   return (
     <FilterBox>
-      <BoxTop>
-        <Title2>Search</Title2>
+      <FilterBoxTop>
         <FilterInput
-          placeholder='Enter a keyword (e.g. Solidity, Web3, Full Stack, etc.)'
+          placeholder='Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)'
         />
-      </BoxTop>
+      </FilterBoxTop>
     </FilterBox>
   )
 };
@@ -23,14 +22,26 @@ const FilterBox = styled(Box)`
   background-color: inherit;
 `;
 
+const FilterBoxTop = styled(BoxTop)`
+  text-align: center;
+  margin: auto;
+  max-width: 50%;
+`;
+
 const FilterInput = styled(Input)`
   font-size: 0.875rem;
-  text-align: center;
-  width: 40vw;
+  text-align: left;
+  width: 25vw;
   margin: auto;
+  font-family: 'Calibri';
+
+  @media (max-width: 900px) {
+    width: 40vw;
+    font-size: 0.8rem;
+  }
 
   @media (max-width: 650px) {
-    width: 85vw;
+    width: 50vw;
     height: 2.5rem;
   }
 `;

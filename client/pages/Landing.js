@@ -18,13 +18,13 @@ export default function Landing() {
         <Image width="200" height="200" src="/DevDAO.png" />
       </DevDAOIcon>
       <Copy>
-        <Title>Looking for DevDAO talent?</Title>
+        <Title>Looking for Web3 talent?</Title>
         <LinkWrap href="/developers">
-          <Button styling='normal'>Search for Devs</Button>
+          <Button styling='positive'>Search  Devs</Button>
         </LinkWrap>
-        <Title>Looking for work?</Title>
+        <Title>Looking for Web3 work?</Title>
         <LinkWrap href="/jobs">
-          <Button styling='normal'>Search for Web3 Jobs</Button>
+          <Button styling='positive'>Search Jobs</Button>
         </LinkWrap>
       </Copy>
     </Hero>
