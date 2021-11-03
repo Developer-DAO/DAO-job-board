@@ -59,6 +59,28 @@ export default function DeveloperItem() {
         <SkillButton styling='skill'>Discord</SkillButton>
       </DeveloperSkills>
     </ItemBox>
+
+    <ItemBox>
+      <LinkCover>
+        <ItemTop>
+          <NameSection>
+            Developer #2
+          </NameSection>
+          <ProfileImageCover>
+            <ProfileImage src='/DevDAO.png'/>
+          </ProfileImageCover>
+        </ItemTop>
+        <DeveloperItemStatus>
+          Not Available
+        </DeveloperItemStatus>
+      </LinkCover>
+
+      <DeveloperSkills>
+        <SkillButton styling='skill'>Web3</SkillButton>
+        <SkillButton styling='skill'>FullStack</SkillButton>
+        <SkillButton styling='skill'>Discord</SkillButton>
+      </DeveloperSkills>
+    </ItemBox>
   </>
   )
 }
@@ -67,11 +89,10 @@ const DeveloperSkills = styled.div`
   display: grid;
   box-sizing: border-box;
   border-radius: 18px;
-  grid-template-columns: repeat(2, 2fr);
-  grid-auto-rows: 3rem;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 2.5rem;
   margin-top: 5px;
   margin-bottom: 10px;
-  text-align: left;
   height: fit-content;
   overflow: visible;
 
