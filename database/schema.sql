@@ -1,12 +1,18 @@
-DROP POLICY IF EXISTS "Only authenticated users can read" ON public.users;
-DROP POLICY IF EXISTS "Only managers and super admins can insert" ON public.users;
-DROP POLICY IF EXISTS "Only managers and super admins can update" ON public.users;
-DROP POLICY IF EXISTS "Only super admins can delete" ON public.users;
-
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 DROP FUNCTION IF EXISTS public.handle_new_auth_user;
 
+DROP TABLE IF EXISTS public.gig_category;
+DROP TABLE IF EXISTS public.gig_applications;
+DROP TABLE IF EXISTS public.gigs;
+DROP TABLE IF EXISTS public.job_category;
+DROP TABLE IF EXISTS public.job_applications;
+DROP TABLE IF EXISTS public.jobs;
+DROP TABLE IF EXISTS public.company_members;
+DROP TABLE IF EXISTS public.companies;
+DROP TABLE IF EXISTS public.links;
+DROP TABLE IF EXISTS public.user_category;
 DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.categories;
 -- setup: fresh auth.users
 DELETE FROM auth.users;
 
@@ -47,7 +53,8 @@ CREATE TABLE public.user_category (
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  PRIMARY KEY (user_id, category_id));
+  PRIMARY KEY (user_id, category_id)
+);
 
 -- trigger: handle new registered user
 CREATE OR REPLACE FUNCTION public.handle_new_auth_user()
@@ -61,16 +68,16 @@ $$
 LANGUAGE plpgsql SECURITY DEFINER;
 
 CREATE TRIGGER on_auth_user_created
-  AFTER INSERT ON auth.users
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.handle_new_auth_user();
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE PROCEDURE public.handle_new_auth_user();
 
 
 
 -- table: links
 CREATE TABLE public.links (
   id uuid PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
-  linkable_id uuid NOT NULL CHECK (linkable_id <> ''),
+  linkable_id uuid NOT NULL,
   linkable_type VARCHAR NOT NULL CHECK (linkable_type <> ''),
   title VARCHAR,
   type VARCHAR CHECK (type <> ''),
@@ -122,7 +129,7 @@ CREATE TABLE public.jobs (
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  created_by uuid NOT NULL DEFAULT auth.uid(),
+  created_by uuid NOT NULL DEFAULT auth.uid()
 );
 
 -- table: job_category
@@ -161,7 +168,7 @@ CREATE TABLE public.gigs (
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  created_by uuid NOT NULL DEFAULT auth.uid(),
+  created_by uuid NOT NULL DEFAULT auth.uid()
 );
 
 -- table: gig_category
