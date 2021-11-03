@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 export default function CompanyItem() {
   return (
-    <ItemBox>
+    <CompanyBox>
       <LinkCover href='/'>
         <NameSection>
           Company Name
@@ -27,9 +27,13 @@ export default function CompanyItem() {
       <Button styling='normal'>
         View More
       </Button>
-    </ItemBox>
+    </CompanyBox>
   )
 }
+
+const CompanyBox = styled(ItemBox)`
+  width: 95%;
+`;
 
 const CompanyJobCount = styled.em`
   margin-top: 5px;
