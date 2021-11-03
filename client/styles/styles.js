@@ -61,7 +61,6 @@ export const Title2 = styled.h2`
 export const Description = styled.div`
   position: relative;
   top: 20%;
-  margin-right: 5%;
   font-size: 1rem;
   text-align: center;
 `;
