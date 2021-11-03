@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-export default function Icon() {
+export default function Icon({src, height, width}) {
   return <Image
-  width={25}
-  height={25}
-  src='/DevDAO.png'
+  width={width}
+  height={height}
+  src={src}
   alt='icon' />
 }

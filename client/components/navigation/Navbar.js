@@ -10,8 +10,8 @@ export default function Navbar() {
       <NavBox>
         <NavbarTitle>
           <NavLink href="/">
-            <DevDAOIcon style={{width: '1.6rem', height: '1.6rem'}}>
-              <Icon />
+            <DevDAOIcon  style={{width: '1.6rem', height: '1.6rem'}}>
+              <Icon width='50' height='50' src='/DevDAO.png'/>
             </DevDAOIcon>
           </NavLink>
         </NavbarTitle>

@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import Button from '../../styles/UI-Components/Button';
+import Icon from '../../styles/UI-Components/Icon';
+
 import {
   Box,
   Break,
+  DevDAOIcon,
+  Title,
   Title2,
   Description
 } from '../../styles/styles';
@@ -15,8 +19,27 @@ export default function JobItem() {
             Project 1
           </JobItemName>
         </JobItemLink>
+
+        <JobItemLink href='/'>
+            <JobItemCompanyIcon
+            width='50'
+            height='50'
+            src='/Ethereum.png' />
+            <JobItemCompanyName>
+              Company Name
+            </JobItemCompanyName>
+        </JobItemLink>
+
+        <JobItemDetails>
+          <JobItemDetailsElement>
+            Remote
+          </JobItemDetailsElement>
+          <JobItemDetailsElement>
+            Full-Time
+          </JobItemDetailsElement>
+        </JobItemDetails>
         <JobItemDescription>
-            Details of the project
+            Details of the job
         </JobItemDescription>
         <JobItemSkills>
           <SkillButton styling='skill'>
@@ -67,25 +90,64 @@ display: none;
 }
 `;
 
+const JobItemCompanyIcon = styled(Icon)`
+  border-radius: 200px;
+`;
+
 const JobItemLink = styled.a`
+  display: inline;
   text-decoration: none;
   color: black;
 `;
 
-const JobItemName = styled(Title2)`
+const JobItemName = styled(Title)`
+width: 80%;
+text-align: left;
+font-size: 1.25rem;
+margin-left: 2.5%;
+`;
+
+const JobItemCompanyName = styled(Title2)`
 width: 80%;
 font-size: 1.25rem;
 margin-left: 2.5%;
 `;
 
+const JobItemDetailsElement = styled.p`
+  font-size: 1rem;
+`;
+
+const JobItemDetails = styled.div`
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-auto-rows: 2rem;
+grid-gap: 1rem;
+width: 90%;
+margin-left: 2.5%;
+margin-bottom: 2.5%;
+font-size: 14px;
+
+@media (max-width: 650px) {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-auto-rows: 2rem;
+  grid-gap: 2rem;
+  width: 90%;
+  margin-left: 2.5%;
+  font-size: 10px;
+}
+`;
+
 const JobItemDescription = styled(Description)`
   width: 90%;
   height: 40px;
+  font-size: 0.75rem;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-left: 2.5%;
+  margin-top: 5%;
 `;
 
 const JobItemSkills = styled.div`
