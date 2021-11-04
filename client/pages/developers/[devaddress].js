@@ -31,7 +31,10 @@ export default function DeveloperPage() {
         </ProfileImageCover>
 
         <ProfileLinks>
-          Icon
+          Social Icons
+        </ProfileLinks>
+        <ProfileLinks>
+          Website
         </ProfileLinks>
       </ProfileLeft>
 
@@ -47,7 +50,7 @@ export default function DeveloperPage() {
         </BasicDataSection>
 
         <ProfileDescription>
-          <p>Here goes a brief description of the user written by himself (optional)</p>
+          <p>Here goes a brief description of the user </p>
         </ProfileDescription>
 
         <ProfileSkills>
@@ -78,6 +81,7 @@ const ProfileBox = styled(Box)`
   }
 
   @media (max-width: 650px) {
+    flex-direction: column;
     box-shadow: 0px 0px 0px 0px;
     margin-top: 0;
   }
@@ -99,6 +103,12 @@ const ProfileLeft = styled(ItemBox)`
   margin-left: 0%;
   box-sizing: border-box;
   box-shadow: 0 0 0 0;
+
+  @media (max-width: 650px) {
+    margin: auto;
+    background: none;
+    width: 100%;
+  }
 `;
 
 const ProfileLinks = styled.div`
@@ -106,19 +116,20 @@ const ProfileLinks = styled.div`
   text-align: center;
 
   @media (max-width: 650px) {
-    width: 30%;
+    width: 100%;
   }
 `;
 
  const ProfileCenter = styled.div`
   display: flex;
-  flex-grow: 3;
+  flex-grow: 2;
   flex-direction: column;
   position: relative;
   margin: auto;
 
   @media (max-width: 650px) {
-
+    flex-grow: 1;
+    width: 100%;
   }
 
 `;
@@ -144,7 +155,6 @@ const ProfileUser = styled.p`
 const ProfileSkills = styled(GridList)`
 
   @media (max-width: 650px) {
-    margin-top: 4rem;
   }
 
 `;
