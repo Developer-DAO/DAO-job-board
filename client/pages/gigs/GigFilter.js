@@ -1,4 +1,4 @@
-export default GigFilter() {
+export default function GigFilter() {
   return (
     <div>Test</div>
   )

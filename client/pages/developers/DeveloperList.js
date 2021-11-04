@@ -1,18 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import {ListWrap, GridList, ListTop} from '../../styles/styles';
+import { ListWrap, GridList, ListTop } from "../../styles/styles";
 
-import DeveloperItem from './DeveloperItem';
+import DeveloperItem from "./DeveloperItem";
 
 export default function DeveloperList() {
   return (
-      <ListWrap>
-        <ListTop>
-          Dev List
-        </ListTop>
-        <GridList>
-          <DeveloperItem/>
-        </GridList>
-      </ListWrap>
-  )
+    <ListWrap>
+      <ListTop>Dev List</ListTop>
+      <GridList>
+        <DeveloperItem />
+      </GridList>
+    </ListWrap>
+  );
 }
