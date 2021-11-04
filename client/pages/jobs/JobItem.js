@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import Button from '../../styles/UI-Components/Button';
-import Icon from '../../styles/UI-Components/Icon';
+import styled from "styled-components";
+import Button from "../../styles/UI-Components/Button";
+import Icon from "../../styles/UI-Components/Icon";
 
 import {
   Box,
@@ -9,58 +9,37 @@ import {
   Title,
   Title2,
   Description,
-  GridList
-} from '../../styles/styles';
+  GridList,
+} from "../../styles/styles";
 
 export default function JobItem() {
   return (
-      <JobItemBox>
-        <JobItemLink href='/'>
-          <JobItemName>
-            Project 1
-          </JobItemName>
-        </JobItemLink>
+    <JobItemBox>
+      <JobItemLink href="/">
+        <JobItemName>Project 1</JobItemName>
+      </JobItemLink>
 
-        <JobItemLink href='/'>
-          <JobItemCompanyIcon>
-              <Icon
-              width='50'
-              height='50'
-              src='/ETHEREUM.png'/>
-          </JobItemCompanyIcon>
-            <JobItemCompanyName>
-              Company Name
-            </JobItemCompanyName>
-        </JobItemLink>
+      <JobItemLink href="/">
+        <JobItemCompanyIcon>
+          <Icon width="50" height="50" src="/ETHEREUM.png" />
+        </JobItemCompanyIcon>
+        <JobItemCompanyName>Company Name</JobItemCompanyName>
+      </JobItemLink>
 
-        <JobItemGrid>
-          <JobItemDetailsElement>
-            Remote
-          </JobItemDetailsElement>
-          <JobItemDetailsElement>
-            Full-Time
-          </JobItemDetailsElement>
-        </JobItemGrid>
-        <JobItemDescription>
-            Details of the job
-        </JobItemDescription>
-        <JobItemSkills>
-          <SkillButton styling='skill'>
-            Solidity
-          </SkillButton>
-          <SkillButton styling='skill'>
-            Hardhat
-          </SkillButton>
-          <SkillButton styling='skill'>
-            Rust
-          </SkillButton>
-          <SkillButton styling='skill'>
-            Javascript
-          </SkillButton>
-        </JobItemSkills>
-        <JobItemSeparator/>
-      </JobItemBox>
-  )
+      <JobItemGrid>
+        <JobItemDetailsElement>Remote</JobItemDetailsElement>
+        <JobItemDetailsElement>Full-Time</JobItemDetailsElement>
+      </JobItemGrid>
+      <JobItemDescription>Details of the job</JobItemDescription>
+      <JobItemSkills>
+        <SkillButton styling="skill">Solidity</SkillButton>
+        <SkillButton styling="skill">Hardhat</SkillButton>
+        <SkillButton styling="skill">Rust</SkillButton>
+        <SkillButton styling="skill">Javascript</SkillButton>
+      </JobItemSkills>
+      <JobItemSeparator />
+    </JobItemBox>
+  );
 }
 
 const JobItemBox = styled(Box)`
@@ -72,7 +51,7 @@ const JobItemBox = styled(Box)`
   margin-left: auto;
   margin-right: auto;
 
-  @media (max-width: 650px){
+  @media (max-width: 650px) {
     height: max-content;
     width: 100%;
     box-sizing: content-box;
@@ -83,14 +62,14 @@ const JobItemBox = styled(Box)`
 `;
 
 const JobItemSeparator = styled(Break)`
-display: none;
+  display: none;
 
-@media (max-width: 650px) {
-  display: block;
-  opacity: 0.25;
-  width: 100%;
-  margin-left: -0.5%;
-}
+  @media (max-width: 650px) {
+    display: block;
+    opacity: 0.25;
+    width: 100%;
+    margin-left: -0.5%;
+  }
 `;
 
 const JobItemCompanyIcon = styled(IconWrap)`
@@ -122,21 +101,21 @@ const JobItemDetailsElement = styled.p`
 `;
 
 const JobItemGrid = styled(GridList)`
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-gap: 1rem;
-width: 90%;
-margin-left: 2.5%;
-margin-bottom: 2.5%;
-font-size: 14px;
-
-@media (max-width: 650px) {
-  grid-template-columns: repeat(2, 2fr);
-  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
   width: 90%;
   margin-left: 2.5%;
-  font-size: 10px;
-}
+  margin-bottom: 2.5%;
+  font-size: 14px;
+
+  @media (max-width: 650px) {
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 2rem;
+    width: 90%;
+    margin-left: 2.5%;
+    font-size: 10px;
+  }
 `;
 
 const JobItemDescription = styled(Description)`
@@ -152,21 +131,21 @@ const JobItemDescription = styled(Description)`
 `;
 
 const JobItemSkills = styled.div`
-display: grid;
-grid-template-columns: repeat(6, 1fr);
-grid-auto-rows: 2rem;
-grid-gap: 1rem;
-width: 90%;
-margin-left: 2%;
-margin-bottom: 2.5%;
-
-@media (max-width: 650px) {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-gap: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 2rem;
+  grid-gap: 1rem;
   width: 90%;
-  margin-left: 2.5%;
-}
+  margin-left: 2%;
+  margin-bottom: 2.5%;
+
+  @media (max-width: 650px) {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-gap: 2rem;
+    width: 90%;
+    margin-left: 2.5%;
+  }
 `;
 
 const SkillButton = styled(Button)`

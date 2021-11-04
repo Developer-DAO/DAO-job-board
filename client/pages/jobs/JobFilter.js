@@ -1,18 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import {Box, BoxTop, Title2, Input} from '../../styles/styles';
+import { Box, BoxTop, Title2, Input } from "../../styles/styles";
 
 function JobFilter() {
   return (
     <FilterBox>
       <FilterBoxTop>
-        <FilterInput
-          placeholder='Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)'
-        />
+        <FilterInput placeholder="Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)" />
       </FilterBoxTop>
     </FilterBox>
-  )
-};
+  );
+}
 
 export default JobFilter;
 
@@ -33,7 +31,7 @@ const FilterInput = styled(Input)`
   text-align: left;
   width: 25vw;
   margin: auto;
-  font-family: 'Calibri';
+  font-family: "Calibri";
 
   @media (max-width: 900px) {
     width: 40vw;

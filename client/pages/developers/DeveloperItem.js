@@ -1,88 +1,77 @@
 //CSS and UI
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import {ItemBox,
-ItemTop,
-LinkCover,
-NameSection,
-ProfileImageCover,
-ProfileImage} from '../../styles/styles';
+import {
+  ItemBox,
+  ItemTop,
+  LinkCover,
+  NameSection,
+  ProfileImageCover,
+  ProfileImage,
+} from "../../styles/styles";
 
-import Button from '../../styles/UI-Components/Button';
-import Link from 'next/link';
-import devdao from '../../public/DevDAO.png'
+import Button from "../../styles/UI-Components/Button";
+import Link from "next/link";
+import devdao from "../../public/DevDAO.png";
 
 export default function DeveloperItem() {
   return (
-  <>
-    <ItemBox>
-      <LinkCover href='/'>
-        <ItemTop>
-          <NameSection>
-            Developer #1
-          </NameSection>
-          <ProfileImageCover>
-            <ProfileImage src='/DevDAO.png'/>
-          </ProfileImageCover>
-        </ItemTop>
-        <DeveloperItemStatus>
-          Available
-        </DeveloperItemStatus>
-      </LinkCover>
+    <>
+      <ItemBox>
+        <LinkCover href="/">
+          <ItemTop>
+            <NameSection>Developer #1</NameSection>
+            <ProfileImageCover>
+              <ProfileImage src="/DevDAO.png" />
+            </ProfileImageCover>
+          </ItemTop>
+          <DeveloperItemStatus>Available</DeveloperItemStatus>
+        </LinkCover>
 
-      <DeveloperSkills>
-        <SkillButton styling='skill'>Web3</SkillButton>
-        <SkillButton styling='skill'>Solidity</SkillButton>
-        <SkillButton styling='skill'>Rust</SkillButton>
-      </DeveloperSkills>
-    </ItemBox>
+        <DeveloperSkills>
+          <SkillButton styling="skill">Web3</SkillButton>
+          <SkillButton styling="skill">Solidity</SkillButton>
+          <SkillButton styling="skill">Rust</SkillButton>
+        </DeveloperSkills>
+      </ItemBox>
 
+      <ItemBox>
+        <LinkCover>
+          <ItemTop>
+            <NameSection>Developer #2</NameSection>
+            <ProfileImageCover>
+              <ProfileImage src="/DevDAO.png" />
+            </ProfileImageCover>
+          </ItemTop>
+          <DeveloperItemStatus>Not Available</DeveloperItemStatus>
+        </LinkCover>
 
-    <ItemBox>
-      <LinkCover>
-        <ItemTop>
-          <NameSection>
-            Developer #2
-          </NameSection>
-          <ProfileImageCover>
-            <ProfileImage src='/DevDAO.png'/>
-          </ProfileImageCover>
-        </ItemTop>
-        <DeveloperItemStatus>
-          Not Available
-        </DeveloperItemStatus>
-      </LinkCover>
+        <DeveloperSkills>
+          <SkillButton styling="skill">Web3</SkillButton>
+          <SkillButton styling="skill">FullStack</SkillButton>
+          <SkillButton styling="skill">Discord</SkillButton>
+        </DeveloperSkills>
+      </ItemBox>
 
-      <DeveloperSkills>
-        <SkillButton styling='skill'>Web3</SkillButton>
-        <SkillButton styling='skill'>FullStack</SkillButton>
-        <SkillButton styling='skill'>Discord</SkillButton>
-      </DeveloperSkills>
-    </ItemBox>
+      <ItemBox>
+        <LinkCover>
+          <ItemTop>
+            <NameSection>Developer #2</NameSection>
+            <ProfileImageCover>
+              <ProfileImage src="/DevDAO.png" />
+            </ProfileImageCover>
+          </ItemTop>
+          <DeveloperItemStatus>Not Available</DeveloperItemStatus>
+        </LinkCover>
 
-    <ItemBox>
-      <LinkCover>
-        <ItemTop>
-          <NameSection>
-            Developer #2
-          </NameSection>
-          <ProfileImageCover>
-            <ProfileImage src='/DevDAO.png'/>
-          </ProfileImageCover>
-        </ItemTop>
-        <DeveloperItemStatus>
-          Not Available
-        </DeveloperItemStatus>
-      </LinkCover>
-
-      <DeveloperSkills>
-        <SkillButton styling='skill'>Web3</SkillButton>
-        <SkillButton styling='skill'>FullStack</SkillButton>
-        <SkillButton styling='skill'>Discord</SkillButton>
-      </DeveloperSkills>
-    </ItemBox>
-  </>
-  )
+        <DeveloperSkills>
+          <SkillButton styling="skill">Web3</SkillButton>
+          <SkillButton styling="skill">FullStack</SkillButton>
+          <SkillButton styling="skill">Discord</SkillButton>
+        </DeveloperSkills>
+      </ItemBox>
+    </>
+  );
 }
 
 const DeveloperSkills = styled.div`

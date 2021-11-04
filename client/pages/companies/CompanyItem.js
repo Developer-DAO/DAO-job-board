@@ -1,34 +1,30 @@
-import {ItemBox,
-ItemTop,
-LinkCover,
-NameSection,
-ProfileImageCover,
-ProfileImage} from '../../styles/styles';
+import {
+  ItemBox,
+  ItemTop,
+  LinkCover,
+  NameSection,
+  ProfileImageCover,
+  ProfileImage,
+} from "../../styles/styles";
 
-import Button from '../../styles/UI-Components/Button';
+import Button from "../../styles/UI-Components/Button";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export default function CompanyItem() {
   return (
     <CompanyBox>
-      <LinkCover href='/'>
-        <NameSection>
-          Company Name
-        </NameSection>
+      <LinkCover href="/">
+        <NameSection>Company Name</NameSection>
       </LinkCover>
       <ProfileImageCover>
-        <ProfileImage src='/ETHEREUM.png'/>
+        <ProfileImage src="/ETHEREUM.png" />
       </ProfileImageCover>
-      <CompanyJobCount>
-        Open Jobs: 10
-      </CompanyJobCount>
-      <br/>
-      <Button styling='normal'>
-        View More
-      </Button>
+      <CompanyJobCount>Open Jobs: 10</CompanyJobCount>
+      <br />
+      <Button styling="normal">View More</Button>
     </CompanyBox>
-  )
+  );
 }
 
 const CompanyBox = styled(ItemBox)`
