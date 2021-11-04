@@ -47,7 +47,7 @@ export default function DeveloperPage() {
         </BasicDataSection>
 
         <ProfileDescription>
-          <p>Here goes a brief description of the user</p>
+          <p>Here goes a brief description of the user written by himself (optional)</p>
         </ProfileDescription>
 
         <ProfileSkills>
@@ -155,6 +155,7 @@ const ProfileDescription = styled(ItemBox)`
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+  background: none;
 `;
 
 const ProfileWebsite = styled.a`
