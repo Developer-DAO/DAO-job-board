@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import {
   ItemBox,
-  ItemTop,
   LinkCover,
   NameSection,
   ProfileImageCover,
@@ -89,6 +88,8 @@ const DeveloperSkills = styled.div`
     grid-template-columns: repeat(2, 2fr);
   }
 `;
+
+const ItemTop = styled.div``;
 
 const SkillButton = styled(Button)`
   font-size: 0.7rem;

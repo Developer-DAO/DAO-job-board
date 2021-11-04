@@ -13,8 +13,15 @@ import {
 export default function GigItem() {
   return (
     <GigItemBox>
-      <GigTitle>Gig Example</GigTitle>
-      <GigName>Gig Creator</GigName>
+      <GigItemGrid>
+        <GigLink>
+          <GigTitle>Gig Example</GigTitle>
+        </GigLink>
+        <GigItemElement>In Progress</GigItemElement>
+      </GigItemGrid>
+      <GigLink>
+        <GigName>Gig Creator</GigName>
+      </GigLink>
       <GigItemGrid>
         <GigItemElement>1 ETH</GigItemElement>
         <GigItemElement>3 Days</GigItemElement>
@@ -26,7 +33,16 @@ export default function GigItem() {
 
 const GigItemBox = styled(ItemBox)`
   width: 100%;
-  border-radius: 0;
+  border-radius: 0px;
+`;
+
+const GigLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const GigTitle = styled(Title)`
@@ -40,21 +56,19 @@ const GigName = styled(Title2)`
 `;
 
 const GigItemElement = styled.p`
-  margin-left: -60%;
+  text-align: left;
   font-size: 0.785rem;
 `;
 
 const GigItemGrid = styled(GridList)`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
   width: 90%;
   margin-bottom: 2.5%;
   font-size: 14px;
 
   @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 2fr);
-    grid-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
     width: 90%;
     margin-left: 2.5%;
     font-size: 10px;
