@@ -1,13 +1,13 @@
 //CSS STYLES & UI Components
-import { Box, Title } from "../../styles/styles";
 import JobItem from "./JobItem";
 
 import styled from "styled-components";
+import { Box } from "../../styles";
 
 function JobList() {
   return (
     <ListBox>
-      <JobItem>TO BE BUILT</JobItem>
+      <JobItem></JobItem>
     </ListBox>
   );
 }

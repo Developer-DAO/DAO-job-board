@@ -1,4 +1,4 @@
-import { Box, Title } from "../../styles/styles";
+import { Box, Title } from "../../styles";
 
 export default function Index() {
   return (

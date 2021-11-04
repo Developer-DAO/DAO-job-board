@@ -2,15 +2,7 @@
 import { useRouter } from "next/router";
 
 //CSS & UI
-import styled from "styled-components";
-import {
-  Box,
-  ItemTop,
-  LinkCover,
-  NameSection,
-  ProfileImageCover,
-  ProfileImage,
-} from "../../styles/styles";
+import { Box, NameSection } from "../../styles";
 
 export default function DeveloperPage() {
   const router = useRouter();

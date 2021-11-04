@@ -1,7 +1,6 @@
-import JobList from "./JobList";
-import JobFilter from "./JobFilter";
-
-import { Title, Description } from "../../styles/styles";
+import JobFilter from "../../components/jobs/JobFilter";
+import JobList from "../../components/jobs/JobList";
+import { Title, Description } from "../../styles";
 
 export default function Index() {
   return (

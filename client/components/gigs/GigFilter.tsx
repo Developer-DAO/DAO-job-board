@@ -1,18 +1,13 @@
 import styled from "styled-components";
-import { Box, ItemBox, BoxTop, Title2, Input, Break, Selector } from "../../styles/styles";
+import { Box, BoxTop, Break, Input, Selector } from "../../styles";
 
 export default function GigFilter() {
   return (
     <GigFilterBox>
-      <GigBoxTop>
-        Filter Gigs
-      </GigBoxTop>
-      <GigFilterInput
-        placeholder='Search timeframe, reward, skills needed, etc.'
-      >
-      </GigFilterInput>
-      <Break/>
-      Token{' '}
+      <GigBoxTop>Filter Gigs</GigBoxTop>
+      <GigFilterInput placeholder="Search timeframe, reward, skills needed, etc."></GigFilterInput>
+      <Break />
+      Token{" "}
       <Selector>
         <option>ETH</option>
         <option>USDT</option>

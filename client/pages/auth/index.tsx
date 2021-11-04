@@ -1,9 +1,12 @@
-import { Box, Title, Icon } from "../../styles/styles";
+import { Box, Title } from "../../styles";
+import Button from "../../styles/ui-components/Button";
 import Image from "next/image";
 
-import Button from "../../styles/UI-Components/Button";
+export default function Index() {
+  return <SignUp />;
+}
 
-export default function SignUp() {
+function SignUp() {
   return (
     <Box>
       <Title>TO BE FINISHED</Title>

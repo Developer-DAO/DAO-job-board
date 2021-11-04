@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
-import {
-  ItemBox,
-  Break,
-  IconWrap,
-  Title,
-  Title2,
-  Description,
-  GridList,
-} from "../../styles/styles";
+import { GridList, ItemBox, Title, Title2 } from "../../styles";
 
 export default function GigItem() {
   return (
