@@ -8,7 +8,7 @@ export default function Button({children, styling}) {
       hoverbgcolor: '#E2E9F0',
       color: 'black'
     },
-    skill: {
+    category: {
       backgroundcolor: '#EDF2F7',
       hoverbgcolor: '#CDCDCD',
       color: 'black'

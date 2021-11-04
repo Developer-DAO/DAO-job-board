@@ -5,12 +5,16 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import {
   Box,
+  ItemBox,
   ItemTop,
   LinkCover,
   NameSection,
   ProfileImageCover,
   ProfileImage,
+  GridList
 } from "../../styles/styles";
+import Button from "../../styles/UI-Components/Button";
+import Icon from "../../styles/UI-Components/Icon";
 
 export default function DeveloperPage() {
   const router = useRouter();
@@ -19,8 +23,174 @@ export default function DeveloperPage() {
   console.log(router.query);
 
   return (
-    <Box>
-      <NameSection>New Dev</NameSection>
-    </Box>
+    <ProfileBox>
+      <ProfileLeft>
+        <ProfileImageCover>
+          <ProfileImage  src="/DevDAO.png">
+          </ProfileImage>
+        </ProfileImageCover>
+
+        <ProfileLinks>
+          Icon
+        </ProfileLinks>
+      </ProfileLeft>
+
+      <ProfileCenter>
+        <BasicDataSection>
+          <ProfileName>
+            New Dev
+            <ProfileType>{' '}- Developer</ProfileType>
+            <ProfileUser>
+              @devusername
+            </ProfileUser>
+          </ProfileName>
+        </BasicDataSection>
+
+        <ProfileDescription>
+          <p>Here goes a brief description of the user</p>
+        </ProfileDescription>
+
+        <ProfileSkills>
+          <SkillButton styling='category'>
+            Web3
+          </SkillButton>
+          <SkillButton styling='category'>
+            Solidity
+          </SkillButton>
+          <SkillButton styling='category'>
+            Rust
+          </SkillButton>
+        </ProfileSkills>
+
+      </ProfileCenter>
+
+
+
+    </ProfileBox>
   );
 }
+
+const ProfileBox = styled(Box)`
+  display: flex;
+  border-radius: 0;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+
+  @media (max-width: 650px) {
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 0;
+  }
+`;
+
+const TopButtons = styled.div`
+@media (max-width: 650px) {
+  position: absolute;
+  top: 10%;
+}
+`;
+
+const ProfileLeft = styled(ItemBox)`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  width: 10%;
+  margin-left: 0%;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 0;
+`;
+
+const ProfileLinks = styled.div`
+  height: auto;
+  text-align: center;
+
+  @media (max-width: 650px) {
+    width: 30%;
+  }
+`;
+
+ const ProfileCenter = styled.div`
+  display: flex;
+  flex-grow: 3;
+  flex-direction: column;
+  position: relative;
+  margin: auto;
+
+  @media (max-width: 650px) {
+
+  }
+
+`;
+
+const BasicDataSection = styled.div`
+  display: flex;
+`;
+
+const ProfileName = styled(NameSection)`
+  font-size: 1rem;
+`;
+
+const ProfileType = styled.p`
+  display: inline;
+  font-weight: 100;
+`;
+
+const ProfileUser = styled.p`
+  margin: 0px;
+  font-weight: 100;
+`;
+
+const ProfileSkills = styled(GridList)`
+
+  @media (max-width: 650px) {
+    margin-top: 4rem;
+  }
+
+`;
+
+const ProfileDescription = styled(ItemBox)`
+  text-align: left;
+  box-shadow: 0 0 0 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+`;
+
+const ProfileWebsite = styled.a`
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #323424;
+
+  &:hover {
+    color: #6e6e6e;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const ProfileIcon = styled(Icon)`
+  font-size: 1.8rem;
+  margin-left: 10px;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const ProfileLocation = styled.div`
+  text-align: center;
+`;
+
+ const SkillButton = styled(Button)`
+  font-size: 0.7rem;
+  margin: 1px;
+  border: 0;
+  border-radius: 8px;
+`;

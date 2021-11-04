@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function Landing() {
   return (
     <Hero>
-      <IconWrap style={{width: '10rem', height: '10rem'}}>
+      <IconWrap style={{width: '10rem', height: '10rem', margin: 'auto'}}>
         <Image width="200" height="200" src="/DevDAO.png" />
       </IconWrap>
       <Copy>

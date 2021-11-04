@@ -22,7 +22,7 @@ export default function GigFilter() {
 }
 
 const GigFilterBox = styled(Box)`
-  top: 16.5vh;
+  top: 9.9rem;
   position: fixed;
   width: 30%;
   border-radius: 0;
