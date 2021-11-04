@@ -8,7 +8,7 @@ export default function DeveloperList() {
   return (
       <ListWrap>
         <ListTop>
-          DevDAO Devs
+          Dev List
         </ListTop>
         <GridList>
           <DeveloperItem/>

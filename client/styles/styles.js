@@ -196,13 +196,13 @@ export const GridList = styled.div`
 `;
 
 export const ListWrap = styled.div`
-  height: 100vh;
+  height: fit-content;
   z-index: 1;
   width: 70%;
   margin: auto;
 
   @media (max-width: 900px) {
-    width: 100%;
+    width: 97%;
   }
 
   @media (max-width: 650px) {
