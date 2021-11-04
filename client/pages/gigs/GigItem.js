@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import {
   ItemBox,
@@ -7,27 +7,21 @@ import {
   Title,
   Title2,
   Description,
-  GridList
-} from '../../styles/styles';
+  GridList,
+} from "../../styles/styles";
 
 export default function GigItem() {
   return (
     <GigItemBox>
-        <GigTitle>Gig Example</GigTitle>
-        <GigName>Gig Creator</GigName>
-        <GigItemGrid>
-          <GigItemElement>
-            1 ETH
-          </GigItemElement>
-          <GigItemElement>
-            3 Days
-          </GigItemElement>
-          <GigItemElement>
-            Applicants
-          </GigItemElement>
-        </GigItemGrid>
+      <GigTitle>Gig Example</GigTitle>
+      <GigName>Gig Creator</GigName>
+      <GigItemGrid>
+        <GigItemElement>1 ETH</GigItemElement>
+        <GigItemElement>3 Days</GigItemElement>
+        <GigItemElement>Applicants</GigItemElement>
+      </GigItemGrid>
     </GigItemBox>
-  )
+  );
 }
 
 const GigItemBox = styled(ItemBox)`
@@ -51,18 +45,18 @@ const GigItemElement = styled.p`
 `;
 
 const GigItemGrid = styled(GridList)`
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-gap: 1rem;
-width: 90%;
-margin-bottom: 2.5%;
-font-size: 14px;
-
-@media (max-width: 650px) {
-  grid-template-columns: repeat(2, 2fr);
-  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
   width: 90%;
-  margin-left: 2.5%;
-  font-size: 10px;
-}
+  margin-bottom: 2.5%;
+  font-size: 14px;
+
+  @media (max-width: 650px) {
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 2rem;
+    width: 90%;
+    margin-left: 2.5%;
+    font-size: 10px;
+  }
 `;

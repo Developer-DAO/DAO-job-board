@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {IconWrap} from '../../styles/styles';
+import { IconWrap } from "../../styles/styles";
 
 import Icon from "../../styles/UI-Components/Icon";
 
@@ -10,8 +10,8 @@ export default function Navbar() {
       <NavBox>
         <NavbarTitle>
           <NavLink href="/">
-            <IconWrap  style={{width: '1.6rem', height: '1.6rem'}}>
-              <Icon width='50' height='50' src='/DevDAO.png'/>
+            <IconWrap style={{ width: "1.6rem", height: "1.6rem" }}>
+              <Icon width="50" height="50" src="/DevDAO.png" />
             </IconWrap>
           </NavLink>
         </NavbarTitle>
@@ -22,7 +22,6 @@ export default function Navbar() {
           <Navs href="/developers">Devs</Navs>
           <Navs href="/companies">Companies</Navs>
           <Navs href="/about">About</Navs>
-
         </MainMenu>
 
         <SecondaryMenu>
@@ -115,7 +114,7 @@ const Extra = styled.a`
 const Extra2 = styled(Extra)`
   box-sizing: border-box;
   background-color: black;
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
 const MainMenu = styled.div`
