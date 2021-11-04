@@ -24,7 +24,7 @@ export const Box = styled.div`
     margin: auto;
     padding: 0%;
     width: 100%;
-    background: #F7FAFC;
+    background: #f7fafc;
   }
 `;
 
@@ -96,7 +96,6 @@ export const LinkWrap = styled.a`
 export const Break = styled.hr`
   opacity: 0.25;
   width: 100%;
-
 `;
 
 export const BoxTop = styled.div`
@@ -114,8 +113,8 @@ export const ItemBox = styled.div`
   width: 90%;
   height: fit-content;
   padding: 0.5rem;
-  box-shadow: 0px 0px 4px 2px #E2E8F0;
-  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 2px #e2e8f0;
+  background: #ffffff;
   border-radius: 18px;
   background-color: white;
   z-index: 1;
@@ -127,7 +126,7 @@ export const ItemBox = styled.div`
 
 export const BoxWrap = styled.div`
   padding: 0.5rem;
-  background: #FFFFFF;
+  background: #ffffff;
   background-color: white;
   overflow: hidden;
   height: auto;
@@ -141,8 +140,7 @@ export const BoxWrap = styled.div`
   }
 `;
 
-export const ItemTop = styled.div`
-`;
+export const ItemTop = styled.div``;
 
 export const LinkCover = styled.a`
   text-decoration: none;
@@ -175,24 +173,24 @@ export const GridList = styled.div`
   grid-auto-rows: fit-content;
   grid-gap: 0.5rem;
 
-  @media (max-widtH: 900px) {
+  @media (max-width: 900px) {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     grid-auto-rows: fit-content;
-  };
+  }
 
   @media (max-width: 650px) {
-      display: grid;
-      grid-template-columns: repeat(2, 2fr);
-      grid-auto-rows: fit-content;
-      grid-gap: 1rem;
-  };
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: fit-content;
+    grid-gap: 1rem;
+  }
 
   @media (max-width: 380px) {
-      display: grid;
-      grid-template-columns: repeat(1, 2fr);
-      grid-auto-rows: fit-content;
-  };
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-auto-rows: fit-content;
+  } ;
 `;
 
 export const ListWrap = styled.div`
