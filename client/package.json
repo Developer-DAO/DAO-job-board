@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.25.1",
+    "@supabase/supabase-js": "^1.25.2",
     "babel-plugin-styled-components": "^1.13.3",
     "cross-env": "^7.0.3",
     "framer-motion": "^5.2.0",
