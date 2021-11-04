@@ -28,6 +28,48 @@ export const Box = styled.div`
   }
 `;
 
+export const BoxTop = styled.div`
+  position: relative;
+  top: -20%;
+  font-size: 1rem;
+  text-align: center;
+`;
+
+export const ItemBox = styled.div`
+  display: grid;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: fit-content;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 4px 2px #e2e8f0;
+  background: #ffffff;
+  border-radius: 18px;
+  background-color: white;
+  z-index: 1;
+
+  @media (max-width: 650px) {
+    width: 95%;
+  }
+`;
+
+export const BoxWrap = styled.div`
+  padding: 0.5rem;
+  background: #ffffff;
+  background-color: white;
+  overflow: hidden;
+  height: auto;
+  z-index: 1;
+
+  @media (max-width: 650px) {
+    position: absolute;
+    top: 10vh;
+    width: fit-content;
+    box-shadow: none;
+  }
+`;
+
 export const IconWrap = styled.div`
   border-radius: 180px;
   overflow: hidden;
@@ -77,12 +119,22 @@ export const Input = styled.input`
   width: 98%;
   height: 50px;
   font-size: 1rem;
-  font-family: "InterVariable";
+  font-family: "Calibri";
   padding: 5px;
 
   &::focus {
     border-color: #97c0e6;
   }
+`;
+
+export const Selector = styled.select`
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  height: fit-content;
+  padding: 5px;
+  margin-right: 5px;
+  font-family: 'Calibri';
 `;
 
 export const LinkWrap = styled.a`
@@ -97,50 +149,6 @@ export const Break = styled.hr`
   opacity: 0.25;
   width: 100%;
 `;
-
-export const BoxTop = styled.div`
-  position: relative;
-  top: -20%;
-  font-size: 1rem;
-  text-align: center;
-`;
-
-export const ItemBox = styled.div`
-  display: grid;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  height: fit-content;
-  padding: 0.5rem;
-  box-shadow: 0px 0px 4px 2px #e2e8f0;
-  background: #ffffff;
-  border-radius: 18px;
-  background-color: white;
-  z-index: 1;
-
-  @media (max-width: 650px) {
-    width: 95%;
-  }
-`;
-
-export const BoxWrap = styled.div`
-  padding: 0.5rem;
-  background: #ffffff;
-  background-color: white;
-  overflow: hidden;
-  height: auto;
-  z-index: 1;
-
-  @media (max-width: 650px) {
-    position: absolute;
-    top: 10vh;
-    width: fit-content;
-    box-shadow: none;
-  }
-`;
-
-export const ItemTop = styled.div``;
 
 export const LinkCover = styled.a`
   text-decoration: none;
