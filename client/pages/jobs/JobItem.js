@@ -8,7 +8,8 @@ import {
   IconWrap,
   Title,
   Title2,
-  Description
+  Description,
+  GridList
 } from '../../styles/styles';
 
 export default function JobItem() {
@@ -32,14 +33,14 @@ export default function JobItem() {
             </JobItemCompanyName>
         </JobItemLink>
 
-        <JobItemDetails>
+        <JobItemGrid>
           <JobItemDetailsElement>
             Remote
           </JobItemDetailsElement>
           <JobItemDetailsElement>
             Full-Time
           </JobItemDetailsElement>
-        </JobItemDetails>
+        </JobItemGrid>
         <JobItemDescription>
             Details of the job
         </JobItemDescription>
@@ -120,10 +121,9 @@ const JobItemDetailsElement = styled.p`
   font-size: 1rem;
 `;
 
-const JobItemDetails = styled.div`
+const JobItemGrid = styled(GridList)`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-auto-rows: 2rem;
 grid-gap: 1rem;
 width: 90%;
 margin-left: 2.5%;
@@ -131,9 +131,7 @@ margin-bottom: 2.5%;
 font-size: 14px;
 
 @media (max-width: 650px) {
-  display: grid;
   grid-template-columns: repeat(2, 2fr);
-  grid-auto-rows: 2rem;
   grid-gap: 2rem;
   width: 90%;
   margin-left: 2.5%;

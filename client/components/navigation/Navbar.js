@@ -127,7 +127,7 @@ const SecondaryMenu = styled.div`
   align-items: right;
 `;
 
-const Hamburgermenu = styled.div`
+const NavHamburger = styled.div`
   display: inline-block;
   align-items: right;
   text-align: right;
