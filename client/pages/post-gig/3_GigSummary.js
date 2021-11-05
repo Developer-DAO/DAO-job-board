@@ -41,20 +41,20 @@ const {
           styling='normal'
         >Edit</Button>
         </div>
-        <Break/>
+        <br/>
           <div className='cp-summary-sections'>
           <h4>Gig Name:</h4>{' '}<p>{gigname}</p>
         </div>
 
-        <Break/>
+        <br/>
         <div className='cp-summary-sections'>
           <h4>Gig Description:</h4>{' '}{gigdescription}
         </div>
-        <Break/>
+        <br/>
           <div className='cp-summary-sections'>
             <h4>Gig Website:</h4>{' '}{gigwebsite}
           </div>
-        <Break/>
+        <br/>
 
       <div className='cp-summary-sections'>
         <h2>Gig Details</h2>
@@ -68,12 +68,12 @@ const {
         <SkillList>
 
         </SkillList>
-      <Break/>
+      <br/>
       {formData && gigreward && gigamount ? (
       <div>
         <h4>Gig Reward:</h4>{' '} <p>{gigamount}{' '}{gigreward}</p>
       </div>) : null}
-      <Break/>
+      <br/>
       {formData && gigtimeframe ? (
         <div>
       <h4>gigtimeframe:</h4>{' '}<p>{projectduration}</p>

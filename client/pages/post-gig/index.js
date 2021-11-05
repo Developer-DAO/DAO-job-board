@@ -100,7 +100,7 @@ export default function CreateProject() {
           ) : null}
 
           {summaryPage ? (
-            <PostJobSummary
+            <GigSummary
               formData={formData}
               goToDetails={goToDetails}
               goToBasics={goToBasics}
