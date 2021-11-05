@@ -1,4 +1,4 @@
-export const skillList = [
+export const skills = [
   { id: "Marketing", name: "Marketing" },
   { id: "Content Writing", name: "Content Writing" },
   { id: "SEO", name: "SEO" },

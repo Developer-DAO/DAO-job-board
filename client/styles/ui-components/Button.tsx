@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
 export type ButtonProps = {
   children?: React.ReactNode;
-  styling?: string;
+  styling: "normal" | "skill" | "option" | "positive" | "negative" | string;
 };
 
 export type ButtonStyle = {
@@ -53,12 +53,14 @@ export default function Button({ children, styling }: ButtonProps) {
 
   return (
     <Button1
-      style={{
-        "--color": styles.color,
-        "--backgroundColor": styles.backgroundColor,
-        "--hoverBgColor": styles.hoverBgColor,
-        "--border": styles.border,
-      }}
+      style={
+        {
+          "--color": styles.color,
+          "--backgroundColor": styles.backgroundColor,
+          "--hoverBgColor": styles.hoverBgColor,
+          "--border": styles.border,
+        } as CSSProperties
+      }
     >
       {children}
     </Button1>

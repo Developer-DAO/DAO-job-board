@@ -1,3 +1,4 @@
+import { AppProps } from "next/dist/shared/lib/router/router";
 import { createGlobalStyle } from "styled-components";
 import Navbar from "../components/navigation/Navbar";
 
@@ -18,7 +19,7 @@ footer {
 }
 `;
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Navbar />
