@@ -118,6 +118,7 @@ export default function CreateProject() {
               goToDetails={goToDetails}
               goToBasics={goToBasics}
               createJob={createJob}
+              onChange={onChange}
             />
           ) : null}
         </form>

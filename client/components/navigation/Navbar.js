@@ -9,7 +9,7 @@ import Icon from "../../styles/UI-Components/Icon";
 
 export default function Navbar() {
 
-  // We will bring a modal for people to choose between Create a Gig and Create a Job Post 
+  // We will bring a modal for people to choose between Create a Gig and Create a Job Post
   // const [jobModal, setJobModal] = useState();
   //
   // const bringJobModal = () => {
@@ -36,21 +36,16 @@ export default function Navbar() {
         </MainMenu>
 
         <SecondaryMenu>
-        <Button
-        styling='black'
-        href="/auth">Sign Up</Button>
+        <NavLink href="/auth">
+          <Button
+          styling='black'
+        >Sign Up</Button>
+        </NavLink>
         </SecondaryMenu>
       </NavBox>
     </Nav>
   );
 }
-
-// <Button
-// styling='option'
-// onClick={bringJobModal}
-// >
-// Post Something
-// </Button>
 
 const Nav = styled.nav`
   background-color: #f7fafc;

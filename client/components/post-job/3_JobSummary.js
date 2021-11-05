@@ -14,6 +14,7 @@ import {BoxTop,
 export default function GigSummary ({
   formData,
   goToDetails,
+  onChange,
   createJob,
   goToBasics}) {
 
@@ -96,8 +97,8 @@ const {
         <Input
           placeholder="e.g. www.company.com/job or company@email.com"
           name="jobcontact"
-          value="jobcontact"
-          onChange={e => onChange(e)}
+          value={jobcontact}
+          onChange={(e) => onChange(e)}
         />
       </InputSection>
 
