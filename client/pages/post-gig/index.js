@@ -8,13 +8,13 @@ import GigSummary from "./3_GigSummary";
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
-    gigname: "",
-    gigwebsite: "",
-    gigdescription: "",
-    gigcategory: "",
-    gigreward: "",
-    gigamount: "",
-    gigtimeframe: ""
+    gigname: null,
+    gigwebsite: null,
+    gigdescription: null,
+    gigcategory: null,
+    gigreward: null,
+    gigamount: null,
+    gigtimeframe: null
   });
 
   const [timeframeActive, setTimeframeActive] = useState(false);
