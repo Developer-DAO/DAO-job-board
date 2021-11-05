@@ -133,6 +133,7 @@ export const Selector = styled.select`
   height: 50px;
   padding: 5px;
   margin-right: 5px;
+  font-size: 1rem;
   font-family: 'Calibri';
 `;
 
