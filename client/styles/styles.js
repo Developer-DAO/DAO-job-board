@@ -149,10 +149,8 @@ export const Textarea = styled.textarea`
 `;
 
 export const Small = styled.small`
-  text-align: left;
-  margin-top: -5px;
-  margin-bottom: 10px;
-  font-size: 0.785rem;
+text-align: left;
+font-size: 0.785rem;
 `;
 
 export const LinkWrap = styled.a`

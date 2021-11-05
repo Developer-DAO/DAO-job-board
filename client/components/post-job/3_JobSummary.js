@@ -7,7 +7,8 @@ import {BoxTop,
   Title2,
   ItemBox,
   Input,
-  Selector
+  Selector,
+  Small
 } from '../../styles/styles';
 
 export default function GigSummary ({
@@ -26,6 +27,7 @@ const {
   jobamount,
   jobequity,
   joblocation,
+  jobcontact
   } = formData;
 
   return (
@@ -84,6 +86,19 @@ const {
         <h4>Job Location:</h4>{' '}{joblocation}
         </>) : null}
 
+      </InputSection>
+
+      <InputSection>
+        <InputTitle>
+            How should people contact your company?
+        </InputTitle>
+        <Small>Write your website job post's link or an email</Small>
+        <Input
+          placeholder="e.g. www.company.com/job or company@email.com"
+          name="jobcontact"
+          value="jobcontact"
+          onChange={e => onChange(e)}
+        />
       </InputSection>
 
 

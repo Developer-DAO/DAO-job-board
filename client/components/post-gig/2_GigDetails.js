@@ -42,7 +42,7 @@ export default function GigDetails({
   const selectCategory = () => {
     setFormData({ ...formData, gigcategory: 'category' })
   }
-  
+
   return (
     <>
       <BoxTop>

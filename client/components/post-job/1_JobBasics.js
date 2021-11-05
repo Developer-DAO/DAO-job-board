@@ -42,7 +42,7 @@ history}) {
       </BoxTop>
 
         <InputSection>
-          <InputTitle>Job Title</InputTitle>
+          <InputTitle>Write a clear title for your job post</InputTitle>
           <Input
             placeholder='e.g. Full-Stack Blockchain Engineer'
             name='jobtitle'
@@ -51,7 +51,7 @@ history}) {
           />
           <Small>At least 10 characters</Small>
         <br/>
-        <InputTitle>Job Position</InputTitle>
+        <InputTitle>Pick a job position</InputTitle>
         <Selector
           name='jobposition'
           value={jobposition}
@@ -67,9 +67,10 @@ history}) {
           <option value="Art">Art</option>
           <option value="Customer Support">Customer Support</option>
           <option value="Writing">Writing</option>
+          <option value="Other">Other</option>
         </Selector>
 
-        <InputTitle>Job Type</InputTitle>
+        <InputTitle>What type of job is it?</InputTitle>
         <Selector
           name='jobtype'
           value={jobtype}
@@ -82,7 +83,7 @@ history}) {
           <option value="Paid Internship">Paid Internship</option>
         </Selector>
 
-        <InputTitle>Job Description</InputTitle>
+        <InputTitle>Describe the job</InputTitle>
         <Textarea
           minlength='30'
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'

@@ -15,7 +15,8 @@ export default function CreateProject() {
     jobposition: "",
     jobcompensation: "",
     jobequity: "",
-    joblocation: ""
+    joblocation: "",
+    jobcontact: ""
   });
 
   const [timeframeActive, setTimeframeActive] = useState(false);
