@@ -45,7 +45,8 @@ export default function GigDetails({
           </SkillsSection>
 
           <InputTitle>Explain reward method {'(optional)'}</InputTitle>
-          <select
+          <Selector
+            style={{width: '30%'}}
             name='gigreward'
             value={gigreward}
             onChange={e => onChange(e)}
@@ -55,9 +56,10 @@ export default function GigDetails({
             <option value="SOL">SOL</option>
             <option value="BTC">BTC</option>
             <option value="USDT">USDT</option>
-          </select>
+          </Selector>
 
           <Input
+            style={{width: '30%'}}
             placeholder='Amount'
             name='gigamount'
             value={gigamount}

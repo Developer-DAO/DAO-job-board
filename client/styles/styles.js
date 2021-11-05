@@ -116,7 +116,6 @@ export const Input = styled.input`
   position: relative;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  width: 98%;
   height: 50px;
   font-size: 1rem;
   font-family: "Calibri";

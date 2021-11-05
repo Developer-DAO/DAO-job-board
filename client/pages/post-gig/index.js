@@ -76,7 +76,7 @@ export default function CreateProject() {
 
   const nextPage = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
     if (basicsPage) {
       goToDetails();
     } else if (detailsPage) {
