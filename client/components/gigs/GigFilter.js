@@ -22,13 +22,17 @@ export default function GigFilter() {
 }
 
 const GigFilterBox = styled(Box)`
-  top: 9.9rem;
   position: fixed;
-  width: 30%;
+  width: 20%;
+  flex-grow: 1;
   border-radius: 0;
   background: none;
   padding: 1%;
   text-align: center;
+
+  @media (max-width: 900px) {
+    width: 25%;
+  }
 `;
 
 const GigBoxTop = styled(BoxTop)`

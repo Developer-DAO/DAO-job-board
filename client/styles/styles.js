@@ -29,8 +29,6 @@ export const Box = styled.div`
 `;
 
 export const BoxTop = styled.div`
-  position: relative;
-  top: -20%;
   font-size: 1rem;
   text-align: center;
 `;

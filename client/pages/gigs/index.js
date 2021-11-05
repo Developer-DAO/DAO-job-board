@@ -1,20 +1,29 @@
-import GigItem from "./GigItem";
-import GigList from "./GigList";
-import GigFilter from "./GigFilter";
+import GigItem from "../../components/gigs/GigItem";
+import GigList from "../../components/gigs/GigList";
+import GigFilter from "../../components/gigs/GigFilter";
 
-import { Title, Description } from "../../styles/styles";
+import { Box, Title, Description } from "../../styles/styles";
+import styled from 'styled-components';
 
 export default function Index() {
   return (
-    <>
+  <>
+    <Title>Gigs</Title>
+    <Description>
+      A place to find contract work and freelance gigs.
+    </Description>
+    <GigBox>
       <GigFilter/>
-      <Title>Gigs</Title>
-      <Description>
-        A place to find contract work and freelance gigs.
-      </Description>
       <GigList>
         <GigItem />
       </GigList>
-    </>
+    </GigBox>
+  </>
   );
 }
+
+const GigBox = styled(Box)`
+  display: flex;
+  box-shadow: 0 0 0 0;
+  background: none;
+`;
