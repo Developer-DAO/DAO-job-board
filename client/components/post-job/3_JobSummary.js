@@ -92,7 +92,7 @@ const {
         <InputTitle>
             How should people contact your company?
         </InputTitle>
-        <Small>Write your website job post's link or an email</Small>
+        <Small>Write your website job post link or an email</Small>
         <Input
           placeholder="e.g. www.company.com/job or company@email.com"
           name="jobcontact"
