@@ -16,6 +16,7 @@ goToDetails,
 goBack,
 formData,
 onChange,
+nextPage,
 history}) {
 
   const {
@@ -24,11 +25,6 @@ history}) {
     gigwebsite,
     gigrepo
   } = formData;
-
-  const nextPage = () => {
-    console.log(formData);
-    goToDetails();
-  };
 
   return (
     <>
@@ -74,6 +70,7 @@ history}) {
 
       <ButtonSection>
         <Button
+          type='submit'
           onClick={nextPage}
           styling='positive'
         >Continue</Button>

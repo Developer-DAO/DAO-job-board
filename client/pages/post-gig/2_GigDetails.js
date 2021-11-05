@@ -19,6 +19,7 @@ export default function GigDetails({
   onChange,
   updateGigCategory,
   setFormData,
+  nextPage,
   deleteCategory,
   addTimeframe,
   timeframeActive}) {
@@ -29,10 +30,6 @@ export default function GigDetails({
     gigamount,
     gigtimeframe
   } = formData;
-
-  const nextPage = async () => {
-    goToSummary();
-  }
 
   return (
     <>
@@ -87,10 +84,12 @@ export default function GigDetails({
 
         </InputSection>
       <ButtonSection>
-        <Button styling='positive'
+        <Button
+          styling='positive'
           onClick={nextPage}
         >Continue</Button>
-        <Button styling='negative'
+        <Button
+          styling='negative'
           onClick={goToBasics}
         >Back</Button>
     </ButtonSection>

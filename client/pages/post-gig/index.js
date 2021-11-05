@@ -75,24 +75,27 @@ export default function CreateProject() {
   }
 
   const nextPage = async (e) => {
+    e.preventDefault();
+    console.log(formData);
     if (basicsPage) {
-      goToBasics();
-    } else if (detailsPage) {
       goToDetails();
+    } else if (detailsPage) {
+      goToSummary();
     } else if (summaryPage) {
-      createGig(e)
+      createGig(e);
     }
   };
 
   return (
       <Box>
-        <form onSubmit={e => nextPage(e)}>
+        <form>
           {basicsPage ? (
             <GigBasics
               goToDetails={goToDetails}
               goBack={goBack}
               formData={formData}
               onChange={onChange}
+              nextPage={nextPage}
             />
           ) : null}
 
@@ -107,15 +110,17 @@ export default function CreateProject() {
               timeframeActive={timeframeActive}
               addTimeframe={addTimeframe}
               onChange={onChange}
+              nextPage={nextPage}
             />
           ) : null}
 
           {summaryPage ? (
-            <PostJobSummary
+            <GigSummary
               formData={formData}
               goToDetails={goToDetails}
               goToBasics={goToBasics}
               createGig={createGig}
+              nextPage={nextPage}
             />
           ) : null}
         </form>

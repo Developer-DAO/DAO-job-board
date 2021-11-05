@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default function Button({children, styling}) {
+export default function Button({children, styling, type, onClick}) {
 
   const STYLES = {
     normal: {
@@ -43,6 +43,8 @@ export default function Button({children, styling}) {
               '--hoverbgcolor': styles.hoverbgcolor,
               '--border': styles.border
             }}
+            type={type || 'button'}
+            onClick={onClick}
          >
           {children}
         </Button1>;

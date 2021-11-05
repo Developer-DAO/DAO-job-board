@@ -13,7 +13,7 @@ import {BoxTop,
 export default function GigSummary ({
   formData,
   goToDetails,
-  createGig,
+  nextPage,
   goToBasics}) {
 
 const {
@@ -31,7 +31,7 @@ const {
     <>
     <BoxTop>
       <h1>Job Summary</h1>
-      <h2><em>Check that everything is correct {'(click edit if not)'}</em></h2>
+      <p><em>Check that everything is correct {'(click edit if not)'}</em></p>
     </BoxTop>
 
       <div>
@@ -83,10 +83,11 @@ const {
       <ButtonSection>
         <Button
           styling='positive'
-          onClick={createProject}
+          onClick={nextPage}
         >Create Project</Button>
 
         <Button
+          type='button'
           onClick={goToDetails}
           styling='negative'
         >Back</Button>
