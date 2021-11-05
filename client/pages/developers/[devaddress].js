@@ -97,9 +97,8 @@ const TopButtons = styled.div`
 const ProfileLeft = styled(ItemBox)`
   display: flex;
   flex-direction: column;
-  position: relative;
   flex-grow: 1;
-  width: 10%;
+  width: 5%;
   margin-left: 0%;
   box-sizing: border-box;
   box-shadow: 0 0 0 0;

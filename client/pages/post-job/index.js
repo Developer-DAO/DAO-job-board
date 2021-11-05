@@ -1,9 +1,10 @@
-import { Box, Title } from "../../styles/styles";
+import { Box } from "../../styles/styles";
 
 export default function Index() {
+
   return (
-    <Box>
-      <Title>TO BE DEVELOPED</Title>
-    </Box>
+      <Box>
+          TO BE BUILT
+      </Box>
   );
 }

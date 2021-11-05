@@ -95,7 +95,7 @@ export const Title = styled.h1`
 `;
 
 export const Title2 = styled.h2`
-  color: gray;
+  color: #000000;
   font-size: 1.5rem;
 `;
 
@@ -134,6 +134,17 @@ export const Selector = styled.select`
   height: fit-content;
   padding: 5px;
   margin-right: 5px;
+  font-family: 'Calibri';
+`;
+
+export const Textarea = styled.textarea`
+  resize: vertical;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 5px;
   font-family: 'Calibri';
 `;
 
