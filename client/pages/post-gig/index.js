@@ -74,18 +74,6 @@ export default function CreateProject() {
     console.log(formData);
   }
 
-  const nextPage = async (e) => {
-    e.preventDefault();
-
-    if (basicsPage) {
-      goToDetails();
-    } else if (detailsPage) {
-      goToSummary();
-    } else if (summaryPage) {
-      createGig(e);
-    }
-  };
-
   return (
       <Box>
         <form>
@@ -95,7 +83,6 @@ export default function CreateProject() {
               goBack={goBack}
               formData={formData}
               onChange={onChange}
-              nextPage={nextPage}
             />
           ) : null}
 
@@ -110,7 +97,6 @@ export default function CreateProject() {
               timeframeActive={timeframeActive}
               addTimeframe={addTimeframe}
               onChange={onChange}
-              nextPage={nextPage}
             />
           ) : null}
 
@@ -120,7 +106,6 @@ export default function CreateProject() {
               goToDetails={goToDetails}
               goToBasics={goToBasics}
               createGig={createGig}
-              nextPage={nextPage}
             />
           ) : null}
         </form>

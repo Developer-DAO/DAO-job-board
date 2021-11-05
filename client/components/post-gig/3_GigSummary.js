@@ -13,7 +13,7 @@ import {BoxTop,
 export default function GigSummary ({
   formData,
   goToDetails,
-  nextPage,
+  createGig,
   goToBasics}) {
 
 const {
@@ -30,61 +30,67 @@ const {
   return (
     <>
     <BoxTop>
-      <h1>Job Summary</h1>
-      <p><em>Check that everything is correct {'(click edit if not)'}</em></p>
+      <h1>Gig Summary</h1>
+      <p><em>Check that everything is correct (click edit if not)</em></p>
     </BoxTop>
 
-      <div>
-        <h2>Gig Basics</h2>
+      <FlexSection>
+        <InputTitle>Gig Basics</InputTitle>
         <Button
           onClick={goToBasics}
           styling='normal'
         >Edit</Button>
-        </div>
-        <br/>
-          <div className='cp-summary-sections'>
-          <h4>Gig Name:</h4>{' '}<p>{gigname}</p>
-        </div>
+      </FlexSection>
 
-        <br/>
-        <div className='cp-summary-sections'>
+        <InputSection>
+          <h4>Gig Name:</h4>{' '}{gigname}
           <h4>Gig Description:</h4>{' '}{gigdescription}
-        </div>
-        <br/>
-          <div className='cp-summary-sections'>
-            <h4>Gig Website:</h4>{' '}{gigwebsite}
-          </div>
-        <br/>
 
-      <div className='cp-summary-sections'>
-        <h2>Gig Details</h2>
+          {gigwebsite ? (<><h4>Gig Website:</h4>{' '}{gigwebsite}</>) : null}
+
+          {gigrepo ? (<><h4>Gig Repo:</h4>{' '}{gigrepo}</>) : null}
+
+      </InputSection>
+      <br/>
+
+
+      <FlexSection>
+        <InputTitle>Gig Details</InputTitle>
         <Button
           onClick={goToDetails}
           styling='normal'
         >Edit</Button>
-      </div>
+      </FlexSection>
 
-        <h4>Skills:</h4>
-        <SkillList>
+      <InputSection>
+        <h4>Category:</h4>
+          <CategoryList>
+            <Button styling='category'>
+              {gigcategory}
+            </Button>
+          </CategoryList>
 
-        </SkillList>
-      <br/>
-      {formData && gigreward && gigamount ? (
-      <div>
-        <h4>Gig Reward:</h4>{' '} <p>{gigamount}{' '}{gigreward}</p>
-      </div>) : null}
-      <br/>
-      {formData && gigtimeframe ? (
-        <div>
-      <h4>gigtimeframe:</h4>{' '}<p>{projectduration}</p>
-      </div>) : null}
+
+        {gigreward && gigamount ? (
+        <>
+          <h4>Gig Reward:</h4>{' '} {gigamount}{' '}{gigreward}
+        </>) : null}
+
+        <br/>
+
+        {gigtimeframe ? (
+          <>
+        <h4>Gig Timeframe:</h4>{' '}{gigtimeframe}
+        </>) : null}
+
+      </InputSection>
 
 
       <ButtonSection>
         <Button
           styling='positive'
-          onClick={nextPage}
-        >Create Project</Button>
+          onClick={createGig}
+        >Create Gig</Button>
 
         <Button
           type='button'
@@ -104,11 +110,24 @@ export async function getStaticProps() {
 
 const InputSection = styled(ItemBox)`
   box-shadow: 0 0 0 0;
+  text-align: left;
+  background: none;
+`;
+
+const InputTitle = styled(Title2)`
+  margin: 0;
+`;
+
+const FlexSection = styled(ItemBox)`
+  display: flex;
+  box-shadow: 0 0 0 0;
+  text-align: left;
+  background: none;
 `;
 
 const ButtonSection = styled(ItemBox)`
   box-shadow: 0 0 0 0;
 `;
 
-const SkillList = styled(GridList)`
+const CategoryList = styled(GridList)`
 `;

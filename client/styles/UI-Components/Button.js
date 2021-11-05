@@ -4,28 +4,28 @@ export default function Button({children, styling, type, onClick}) {
 
   const STYLES = {
     normal: {
-      backgroundcolor: '#EDF2F7',
-      hoverbgcolor: '#E2E9F0',
+      backgroundColor: '#EDF2F7',
+      hoverBgColor: '#E2E9F0',
       color: 'black'
     },
     category: {
-      backgroundcolor: '#EDF2F7',
-      hoverbgcolor: '#CDCDCD',
+      backgroundColor: '#EDF2F7',
+      hoverBgColor: '#CDCDCD',
       color: 'black'
     },
     option: {
-      backgroundcolor: '#3182CE',
-      hoverbgcolor: '#2B6CB0',
+      backgroundColor: '#3182CE',
+      hoverBgColor: '#2B6CB0',
       color: 'white'
     },
     positive: {
-      backgroundcolor: '#38A169',
-      hoverbgcolor: '#2F855A',
+      backgroundColor: '#38A169',
+      hoverBgColor: '#2F855A',
       color: 'white'
     },
     negative: {
-      backgroundcolor: '#DD6B20',
-      hoverbgcolor: '#C05621',
+      backgroundColor: '#DD6B20',
+      hoverBgColor: '#C05621',
       color: 'white'
     }
   }
@@ -39,8 +39,8 @@ export default function Button({children, styling, type, onClick}) {
   return <Button1
             style={{
               '--color': styles.color,
-              '--backgroundcolor': styles.backgroundcolor,
-              '--hoverbgcolor': styles.hoverbgcolor,
+              '--backgroundColor': styles.backgroundColor,
+              '--hoverBgColor': styles.hoverBgColor,
               '--border': styles.border
             }}
             type={type || 'button'}
@@ -51,7 +51,7 @@ export default function Button({children, styling, type, onClick}) {
 }
 
 const Button1 = styled.button`
-  background-color: var(--backgroundcolor);
+  background-color: var(--backgroundColor);
   color: var(--color);
   border: var(--border);
   font-size: 14px;
@@ -70,6 +70,6 @@ const Button1 = styled.button`
   margin: 5px;
 
   &:hover {
-    background-color: var(--hoverbgcolor);
+    background-color: var(--hoverBgColor);
   }
 `;

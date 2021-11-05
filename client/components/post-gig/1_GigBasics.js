@@ -16,7 +16,6 @@ goToDetails,
 goBack,
 formData,
 onChange,
-nextPage,
 history}) {
 
   const {
@@ -25,6 +24,14 @@ history}) {
     gigwebsite,
     gigrepo
   } = formData;
+
+  const nextPage = () => {
+    if (gigname && gigdescription) {
+      goToDetails();
+    } else {
+      console.log('You need a name and description for the gig')
+    }
+  };
 
   return (
     <>
@@ -41,6 +48,8 @@ history}) {
             value={gigname}
             onChange={e => onChange(e)}
           />
+          <Small>At least 10 characters</Small>
+
         <br/>
           <InputTitle>Describe the gig clearly</InputTitle>
           <Textarea
@@ -50,6 +59,8 @@ history}) {
             value={gigdescription}
             onChange={e => onChange(e)}
           />
+          <Small>At least 100 characters</Small>
+
         <br/>
           <InputTitle>Does the project have a website? {'(optional)'}</InputTitle>
           <Input
@@ -70,7 +81,7 @@ history}) {
 
       <ButtonSection>
         <Button
-          type='submit'
+          type='button'
           onClick={nextPage}
           styling='positive'
         >Continue</Button>
@@ -89,6 +100,11 @@ export async function getStaticProps() {
    }
 }
 
+const Small = styled.small`
+  text-align: left;
+  font-size: 0.785rem;
+`;
+
 const InputTitle = styled(Title2)`
   font-size: 1rem;
   text-align: left;
@@ -96,6 +112,7 @@ const InputTitle = styled(Title2)`
 
 const InputSection = styled(ItemBox)`
   box-shadow: 0 0 0 0;
+  background: none;
 `;
 
 const ButtonSection = styled(ItemBox)`
