@@ -1,10 +1,21 @@
+import {useState} from 'react';
+
 import styled from "styled-components";
 
 import { IconWrap } from "../../styles/styles";
 
+import Button from "../../styles/UI-Components/Button";
 import Icon from "../../styles/UI-Components/Icon";
 
 export default function Navbar() {
+
+  // We will bring a modal for people to choose between Create a Gig and Create a Job Post 
+  // const [jobModal, setJobModal] = useState();
+  //
+  // const bringJobModal = () => {
+  //   setJobModal(true);
+  // }
+
   return (
     <Nav>
       <NavBox>
@@ -25,13 +36,21 @@ export default function Navbar() {
         </MainMenu>
 
         <SecondaryMenu>
-          <Extra href="/post">Post Something</Extra>
-          <Extra3 href="/auth">Sign Up</Extra3>
+        <Button
+        styling='black'
+        href="/auth">Sign Up</Button>
         </SecondaryMenu>
       </NavBox>
     </Nav>
   );
 }
+
+// <Button
+// styling='option'
+// onClick={bringJobModal}
+// >
+// Post Something
+// </Button>
 
 const Nav = styled.nav`
   background-color: #f7fafc;

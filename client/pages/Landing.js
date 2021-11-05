@@ -22,6 +22,24 @@ export default function Landing() {
         <LinkWrap href="/developers">
           <Button styling='positive'>Search  Devs</Button>
         </LinkWrap>
+
+        <LinkWrap href="/post-job">
+          <Button
+          styling='blue'
+          >
+          Post a Job
+          </Button>
+        </LinkWrap>
+
+        <LinkWrap href="/post-gig">
+          <Button
+          styling='red'
+          >
+          Post a Gig
+          </Button>
+        </LinkWrap>
+
+
         <Title>Looking for Web3 work?</Title>
         <LinkWrap href="/jobs">
           <Button styling='positive'>Search Jobs</Button>

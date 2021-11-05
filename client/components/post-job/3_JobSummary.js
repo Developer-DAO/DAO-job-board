@@ -46,8 +46,11 @@ const {
         <InputSection>
           <h4>Job Name:</h4>{' '}{jobtitle}
           <h4>Job Description:</h4>{' '}{jobdescription}
-          <h4>Job Position:</h4>{' '}{jobposition}
-          <h4>Job Type:</h4>{' '}{jobtype}
+          {jobposition &&
+          <><h4>Job Position:</h4>{' '}{jobposition}</>}
+          {jobtype &&
+            <>
+          <h4>Job Type:</h4>{' '}{jobtype}</>}
       </InputSection>
       <br/>
 
@@ -88,7 +91,7 @@ const {
         <Button
           styling='positive'
           onClick={createJob}
-        >Create Gig</Button>
+        >Post Job</Button>
 
         <Button
           type='button'

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useRouter} from "next/router";
 import { Box } from "../../styles/styles";
 
 //The number in the file names tell you which step in the form they are
@@ -42,11 +43,12 @@ export default function CreateProject() {
     setDetailsPage(false);
   };
 
+  const router = useRouter()
+
   //Go Back
   const goBack = () => {
-     history.goBack();
+     router.back();
   };
-
   const addTimeframe = () => {
     setTimeframeActive(true);
   };

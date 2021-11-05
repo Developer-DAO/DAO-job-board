@@ -9,9 +9,24 @@ export default function Button({children, styling, type, onClick}) {
       color: 'black'
     },
     category: {
-      backgroundColor: '#EDF2F7',
-      hoverBgColor: '#CDCDCD',
+      backgroundColor: '#E2E9F0',
+      hoverBgColor: '#EDF2F7',
       color: 'black'
+    },
+    black: {
+      backgroundColor: '#000000',
+      hoverBgColor: '#30363D',
+      color: 'white'
+    },
+    red: {
+      backgroundColor: '#E2252B',
+      hoverBgColor: '#BB5348',
+      color: 'white'
+    },
+    blue: {
+      backgroundColor: '#3B82F6',
+      hoverBgColor: '#1D4ED8',
+      color: 'white'
     },
     option: {
       backgroundColor: '#3182CE',
@@ -55,7 +70,7 @@ const Button1 = styled.button`
   color: var(--color);
   border: var(--border);
   font-size: 14px;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   width: auto;
   height: 2rem;
   border-radius: 0.375rem;
