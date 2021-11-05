@@ -99,6 +99,12 @@ export default function GigDetails({
   )
 }
 
+export async function getStaticProps() {
+   return {
+      props: { formData }
+   }
+}
+
 const InputTitle = styled(Title2)`
   font-size: 1rem;
   text-align: left;

@@ -96,6 +96,12 @@ const {
   )
 }
 
+export async function getStaticProps() {
+   return {
+      props: { formData }
+   }
+}
+
 const InputSection = styled(ItemBox)`
   box-shadow: 0 0 0 0;
 `;
