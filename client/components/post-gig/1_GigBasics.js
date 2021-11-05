@@ -8,7 +8,8 @@ import {BoxTop,
   Title2,
   ItemBox,
   Input,
-  Textarea
+  Textarea,
+  Small
 } from '../../styles/styles';
 
 export default function GigBasics ({
@@ -99,11 +100,6 @@ export async function getStaticProps() {
       props: { formData }
    }
 }
-
-const Small = styled.small`
-  text-align: left;
-  font-size: 0.785rem;
-`;
 
 const InputTitle = styled(Title2)`
   font-size: 1rem;

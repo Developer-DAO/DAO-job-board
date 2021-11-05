@@ -25,8 +25,7 @@ export default function Navbar() {
         </MainMenu>
 
         <SecondaryMenu>
-          <Extra href="/post-job">Post a Job</Extra>
-          <Extra2 href="/post-gig">Post a Gig</Extra2>
+          <Extra href="/post">Post Something</Extra>
           <Extra3 href="/auth">Sign Up</Extra3>
         </SecondaryMenu>
       </NavBox>

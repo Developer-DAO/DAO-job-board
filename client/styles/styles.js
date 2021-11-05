@@ -130,7 +130,7 @@ export const Selector = styled.select`
   background-color: white;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  height: fit-content;
+  height: 50px;
   padding: 5px;
   margin-right: 5px;
   font-family: 'Calibri';
@@ -145,6 +145,13 @@ export const Textarea = styled.textarea`
   height: fit-content;
   padding: 5px;
   font-family: 'Calibri';
+`;
+
+export const Small = styled.small`
+  text-align: left;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  font-size: 0.785rem;
 `;
 
 export const LinkWrap = styled.a`
