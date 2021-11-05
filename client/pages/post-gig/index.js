@@ -44,8 +44,7 @@ export default function CreateProject() {
 
   //Go Back
   const goBack = () => {
-    preventDefault();
-    history.goBack();
+     history.goBack();
   };
 
   const addTimeframe = () => {
