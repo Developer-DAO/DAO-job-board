@@ -13,7 +13,7 @@ export default function Navbar() {
   // const bringJobModal = () => {
   //   setJobModal(true);
   // }
-
+    
   return (
     <Nav>
       <NavBox>

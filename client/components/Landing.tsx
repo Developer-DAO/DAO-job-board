@@ -8,6 +8,7 @@ import {
   IconWrap
 } from "../styles";
 
+
 import Button from "../styles/ui-components/Button";
 
 export default function Landing() {
@@ -15,6 +16,7 @@ export default function Landing() {
     <Hero>
       <IconWrap style={{width: '10rem', height: '10rem', margin: 'auto'}}>
         <Image width="200" height="200" src="/DevDAO.png" alt="icon" />
+
       </IconWrap>
       <Copy>
         <Title>Looking for Web3 talent?</Title>

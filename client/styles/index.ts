@@ -150,7 +150,6 @@ export const Small = styled.small`
 text-align: left;
 font-size: 0.785rem;
 `;
-
 export const LinkWrap = styled.a`
   text-decoration: none;
 
