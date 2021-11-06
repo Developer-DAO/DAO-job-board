@@ -13,6 +13,7 @@ export default function GigFilter() {
       </GigFilterInput>
       <Break/>
       Token{' '}
+
       <Selector>
         <option>ETH</option>
         <option>USDT</option>
@@ -32,6 +33,7 @@ const GigFilterBox = styled(Box)`
   @media (max-width: 900px) {
     width: 25%;
   }
+
 `;
 
 const GigBoxTop = styled(BoxTop)`

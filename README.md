@@ -26,7 +26,8 @@ Job board for the DAO in development
 1. Clone this repo with git
 2. Install dependencies by running `npm install`
 3. Start the development server with `npm run dev`
-4. Open development site by going to `http:localhost:3000`
+4. Open development site by going to `http//:localhost:3000`
+5. Setup `.env.local` by copying from `env.example` (`cp .env.example .env.local`) and ask the secret keys 🔏 from [carlomigueldy](https://github.com/carlomigueldy)
 
 **NOTE:** The NextJS installation is located in the `client` folder.
 

@@ -32,6 +32,7 @@ export default function DeveloperItem() {
           <SkillButton styling="category">Web3</SkillButton>
           <SkillButton styling="category">Solidity</SkillButton>
           <SkillButton styling="category">Rust</SkillButton>
+
         </DeveloperSkills>
       </ItemBox>
 
@@ -50,6 +51,7 @@ export default function DeveloperItem() {
           <SkillButton styling="category">Web3</SkillButton>
           <SkillButton styling="category">FullStack</SkillButton>
           <SkillButton styling="category">Discord</SkillButton>
+
         </DeveloperSkills>
       </ItemBox>
 
@@ -68,6 +70,7 @@ export default function DeveloperItem() {
           <SkillButton styling="category">Web3</SkillButton>
           <SkillButton styling="category">FullStack</SkillButton>
           <SkillButton styling="category">Discord</SkillButton>
+
         </DeveloperSkills>
       </ItemBox>
     </>
@@ -79,6 +82,7 @@ const DeveloperSkills = styled(GridList)`
   grid-auto-rows: 2.5rem;
   grid-gap: 0px;
   margin-top: 5px;
+
   height: fit-content;
   overflow: visible;
 

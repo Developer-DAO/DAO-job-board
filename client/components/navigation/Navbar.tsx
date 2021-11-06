@@ -14,6 +14,7 @@ export default function Navbar() {
   //   setJobModal(true);
   // }
 
+
   return (
     <Nav>
       <NavBox>
@@ -39,6 +40,7 @@ export default function Navbar() {
           styling='black'
         >Sign Up</Button>
         </NavLink>
+
         </SecondaryMenu>
       </NavBox>
     </Nav>
@@ -114,6 +116,7 @@ const Extra = styled.a`
 
   &:hover {
     color: #CDCDCD;
+
     transition: 0.1s;
   }
 `;
@@ -126,6 +129,7 @@ const Extra2 = styled(Extra)`
 
 const Extra3 = styled(Extra)`
   box-sizing: border-box;
+
   background-color: black;
   color: #ffffff;
 `;
