@@ -4,7 +4,7 @@ export type ButtonProps = {
   children?: React.ReactNode;
   styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
   type: "reset" | "submit" | "button";
-  onClick: any;
+  onClick: (event: React.MouseEvent);
 };
 
 export type ButtonStyle = {
