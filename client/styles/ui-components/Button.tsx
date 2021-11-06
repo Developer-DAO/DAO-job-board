@@ -3,7 +3,7 @@ import styled, { CSSProperties } from "styled-components";
 export type ButtonProps = {
   children?: React.ReactNode;
   styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
-  type?: "reset" | "submit" | "button"| string;
+  type?: "reset" | "submit" | "button"| undefined;
   onClick?: (event: React.MouseEvent) => void;
 };
 
@@ -61,9 +61,9 @@ const STYLES = {
     hoverBgColor: '#C05621',
     color: 'white'
   }
-}
+} as any;
 
-const styles = STYLES[styling];
+const styles = STYLES[styling] as any;
 
 if (!styles) {
   throw new Error('You did not declare styling props...');

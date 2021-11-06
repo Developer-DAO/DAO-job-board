@@ -1,6 +1,8 @@
+import { GetStaticProps } from 'next';
+
 // UI & CSS
 import styled from 'styled-components'
-import Button from '../../styles/UI-Components/Button'
+import Button from '../../styles/ui-components/Button'
 import {BoxTop,
   GridList,
   Title,
@@ -15,19 +17,8 @@ type JobSummaryProps = {
   goToBasics: () => void;
   goToDetails: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: {
-    jobtitle: string;
-    jobdescription: string;
-    jobposition: string;
-    jobtype: string;
-    jobcategory: string;
-    jobposition: string;
-    jobcompensation: string;
-    jobamount: string;
-    jobequity: string;
-    joblocation: string;
-    jobcontact: string;
-  }[];
+  formData: any;
+  createJob: (e: React.FormEvent) => void;
 };
 
 
@@ -36,7 +27,7 @@ export default function GigSummary ({
   goToDetails,
   onChange,
   createJob,
-  goToBasics}): JobSummaryProps {
+  goToBasics}: JobSummaryProps) {
 
 const {
   jobtitle,
@@ -139,9 +130,9 @@ const {
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 

@@ -3,9 +3,20 @@ import {useRouter} from "next/router";
 import { Box } from "../../styles";
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from "../../components/post-job/1_JobBasics.tsx";
-import JobDetails from "../../components/post-job/2_JobDetails.tsx";
-import JobSummary from "../../components/post-job/3_JobSummary.tsx";
+import JobBasics from "../../components/post-job/1_JobBasics";
+import JobDetails from "../../components/post-job/2_JobDetails";
+import JobSummary from "../../components/post-job/3_JobSummary";
+
+type IFormData = {
+  jobtitle: string,
+  jobdescription: string,
+  jobtype: string,
+  jobposition: string,
+  jobcompensation: string,
+  jobequity: string,
+  joblocation: string,
+  jobcontact: string
+}
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -58,7 +69,7 @@ export default function CreateProject() {
   };
 
   const onChange = (e: React.FormEvent) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();

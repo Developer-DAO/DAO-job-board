@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { GetStaticProps } from 'next'
 
 // UI & CSS
 import Button from '../../styles/ui-components/Button';
@@ -16,12 +17,7 @@ type GigBasicProps = {
   goToDetails: () => void;
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: {
-    gigname: string;
-    gigdescription: string;
-    gigwebsite: string;
-    gigrepo: string;
-  }[];
+  formData: any;
 };
 
 export default function GigBasics ({
@@ -65,7 +61,6 @@ onChange}:GigBasicProps) {
         <br/>
           <InputTitle>Describe the gig clearly</InputTitle>
           <Textarea
-            minlength='30'
             placeholder='e.g., I am building an NFT game and need smart contract developers with experience in Solidity for a few weeks...'
             name='gigdescription'
             value={gigdescription}
@@ -106,9 +101,9 @@ onChange}:GigBasicProps) {
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 

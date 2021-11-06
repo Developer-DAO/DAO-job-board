@@ -1,3 +1,5 @@
+import { GetStaticProps } from 'next';
+
 // UI & CSS
 import styled from 'styled-components'
 import Button from '../../styles/ui-components/Button'
@@ -13,16 +15,8 @@ import {BoxTop,
 type GigSummaryProps = {
   goToDetails: () => void;
   goToBasics: () => void;
-  formData: {
-    gigname: string;
-    gigdescription: string;
-    gigcategory: string;
-    gigwebsite: string;
-    gigrepo: string;
-    gigreward: string;
-    gigamount: string;
-    gigtimeframe: string;
-  }[];
+  formData: any;
+  createGig: (e: React.FormEvent) => void;
 };
 
 export default function GigSummary ({
@@ -117,9 +111,9 @@ const {
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 

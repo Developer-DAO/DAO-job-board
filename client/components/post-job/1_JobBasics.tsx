@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { GetStaticProps } from 'next'
 
 // UI & CSS
-import Button from '../../styles/UI-Components/Button';
+import Button from '../../styles/ui-components/Button';
 
 import {BoxTop,
   Title,
@@ -16,20 +17,14 @@ type JobBasicProps = {
   goToDetails: () => void;
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: {
-    jobtitle: string;
-    jobdescription: string;
-    jobposition: string;
-    jobtype: string;
-  }[];
+  formData: any;
 };
 
 export default function JobBasics ({
 goToDetails,
 goBack,
 formData,
-onChange,
-history}): JobBasicProps {
+onChange}: JobBasicProps ){
 
   const {
     jobtitle,
@@ -97,7 +92,6 @@ history}): JobBasicProps {
 
         <InputTitle>Describe the job</InputTitle>
         <Textarea
-          minlength='30'
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'
           name='jobdescription'
           value={jobdescription}
@@ -121,9 +115,9 @@ history}): JobBasicProps {
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 

@@ -1,7 +1,8 @@
 import {useState} from 'react';
+import { GetStaticProps } from 'next';
 
 import styled from 'styled-components';
-import Button from '../../styles/UI-Components/Button';
+import Button from '../../styles/ui-components/Button';
 
 import {BoxTop,
   GridList,
@@ -16,19 +17,12 @@ import {BoxTop,
 type JobDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
-  goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: {
-    jobtitle: string;
-    jobdescription: string;
-    jobposition: string;
-    jobtype: string;
-  }[];
-  setFormData: () => void;
+  formData: any;
+  setFormData: any;
   addLocation: () => void;
-  locationActive: bool;
+  locationActive: boolean;
 };
-
 
 export default function GigDetails({
   goToBasics,
@@ -36,11 +30,9 @@ export default function GigDetails({
   formData,
   onChange,
   setFormData,
-  addTimeframe,
-  timeframeActive,
   addLocation,
   locationActive
-}): JobDetailProps {
+}: JobDetailProps) {
 
   const {
     jobcategory,
@@ -186,9 +178,9 @@ export default function GigDetails({
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 

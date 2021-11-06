@@ -6,13 +6,12 @@ import styled from "styled-components";
 import {
   Box,
   ItemBox,
-  ItemTop,
   LinkCover,
   NameSection,
   ProfileImageCover,
   ProfileImage,
   GridList
-} from "../../styles/styles";
+} from "../../styles";
 import Button from "../../styles/ui-components/Button";
 import Icon from "../../styles/ui-components/Icon";
 

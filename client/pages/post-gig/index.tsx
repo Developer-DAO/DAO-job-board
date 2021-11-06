@@ -7,8 +7,18 @@ import GigBasics from "../../components/post-gig/1_GigBasics";
 import GigDetails from "../../components/post-gig/2_GigDetails";
 import GigSummary from "../../components/post-gig/3_GigSummary";
 
+type IFormData = {
+  gigname: string,
+  gigwebsite: string,
+  gigdescription: string,
+  gigcategory: string,
+  gigreward: string,
+  gigamount: string,
+  gigtimeframe: string
+}
+
 export default function CreateProject() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IFormData>({
     gigname: "",
     gigwebsite: "",
     gigdescription: "",
@@ -53,10 +63,10 @@ export default function CreateProject() {
     setTimeframeActive(true);
   };
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e: React.FormEvent) =>
+    setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
-  const createGig = (e) => {
+  const createGig = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
   }
@@ -79,8 +89,6 @@ export default function CreateProject() {
               goToSummary={goToSummary}
               formData={formData}
               setFormData={setFormData}
-              updateGigCategory={updateGigCategory}
-              deleteCategory={deleteCategory}
               timeframeActive={timeframeActive}
               addTimeframe={addTimeframe}
               onChange={onChange}

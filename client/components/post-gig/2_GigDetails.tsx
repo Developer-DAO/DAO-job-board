@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { GetStaticProps } from 'next'
 
 import styled from 'styled-components';
 import Button from '../../styles/ui-components/Button';
@@ -16,15 +17,10 @@ type GigDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: {
-    gigcategory: string;
-    gigreward: string;
-    gigamount: string;
-    gigtimeframe: string;
-  }[];
-  setFormData: () => void;
+  formData: any;
+  setFormData: any;
   addTimeframe: () => void;
-  timeframeActive: bool;
+  timeframeActive: boolean;
 };
 
 export default function GigDetails({
@@ -151,9 +147,9 @@ export default function GigDetails({
   )
 }
 
-export async function getStaticProps():GetStaticProps {
+export const getStaticProps:GetStaticProps = async () => {
    return {
-      props: { formData }
+      props: { FormData }
    }
 }
 
