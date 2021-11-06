@@ -3,8 +3,8 @@ import styled, { CSSProperties } from "styled-components";
 export type ButtonProps = {
   children?: React.ReactNode;
   styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
-  type: OptionalType;
-  onClick: OptionalType;
+  type: any;
+  onClick: any;
 };
 
 export type ButtonStyle = {
