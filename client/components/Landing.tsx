@@ -4,7 +4,6 @@ import {
   Copy,
   Title,
   List,
-  ButtonSection,
   LinkWrap,
   IconWrap
 } from "../styles";
