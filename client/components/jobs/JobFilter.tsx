@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Box, BoxTop, Title2, Input } from "../../styles/styles";
+import { Box, BoxTop, Input } from "../../styles";
 
 function JobFilter() {
   return (

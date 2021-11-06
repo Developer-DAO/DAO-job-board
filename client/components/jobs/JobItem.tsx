@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Button from "../../styles/UI-Components/Button";
-import Icon from "../../styles/UI-Components/Icon";
 
 import {
   Box,
@@ -10,7 +8,9 @@ import {
   Title2,
   Description,
   GridList,
-} from "../../styles/styles";
+} from "../../styles";
+import Button from "../../styles/ui-components/Button";
+import Icon from "../../styles/ui-components/Icon";
 
 export default function JobItem() {
   return (

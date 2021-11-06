@@ -1,8 +1,6 @@
-import {useState} from 'react';
-
 import styled from "styled-components";
 
-import { IconWrap } from "../../styles/styles";
+import { IconWrap } from "../../styles";
 
 import Button from "../../styles/UI-Components/Button";
 import Icon from "../../styles/UI-Components/Icon";

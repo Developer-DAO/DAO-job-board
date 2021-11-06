@@ -1,6 +1,5 @@
-import { ListWrap, ListTop, Break, GridList } from "../../styles/styles";
+import { ListWrap, ListTop, GridList } from "../../styles";
 import CompanyItem from "./CompanyItem";
-import styled from "styled-components";
 
 export default function CompanyList() {
   return (

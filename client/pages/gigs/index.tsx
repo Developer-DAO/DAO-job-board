@@ -1,9 +1,7 @@
+import GigFilter from "../../components/gigs/GigFilter";
 import GigItem from "../../components/gigs/GigItem";
 import GigList from "../../components/gigs/GigList";
-import GigFilter from "../../components/gigs/GigFilter";
-
-import { Box, Title, Description } from "../../styles/styles";
-import styled from 'styled-components';
+import { Box, Title, Description } from "../../styles";
 
 export default function Index() {
   return (

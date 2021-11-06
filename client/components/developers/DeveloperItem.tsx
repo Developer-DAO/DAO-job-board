@@ -8,11 +8,11 @@ import {
   NameSection,
   ProfileImageCover,
   ProfileImage,
-} from "../../styles/styles";
+} from "../../styles";
 
-import Button from "../../styles/UI-Components/Button";
+import Button from "../../styles/ui-components/Button";
 import Link from "next/link";
-import devdao from "../../public/DevDAO.png";
+// import devdao from "../../../public/DevDAO.png";
 
 export default function DeveloperItem() {
   return (

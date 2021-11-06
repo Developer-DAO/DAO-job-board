@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Box } from "../../styles/styles";
-import GigItem from "./GigItem";
+import { Box } from "../../styles";
 
-export default function GigList() {
-  return (
-    <GigBox>
-      <GigItem />
-    </GigBox>
-  );
+export type GigListProps = {
+  children?: React.ReactNode;
+};
+
+export default function GigList({ children }: GigListProps) {
+  return <GigBox>{children}</GigBox>;
 }
 
 const GigBox = styled(Box)`

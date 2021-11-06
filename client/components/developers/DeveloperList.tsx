@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ListWrap, GridList, ListTop } from "../../styles/styles";
+import { ListWrap, GridList, ListTop } from "../../styles";
 
 import DeveloperItem from "./DeveloperItem";
 

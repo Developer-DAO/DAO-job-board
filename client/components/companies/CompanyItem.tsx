@@ -1,13 +1,12 @@
 import {
   ItemBox,
-  ItemTop,
   LinkCover,
   NameSection,
   ProfileImageCover,
   ProfileImage,
-} from "../../styles/styles";
+} from "../../styles";
 
-import Button from "../../styles/UI-Components/Button";
+import Button from "../../styles/ui-components/Button";
 
 import styled from "styled-components";
 
