@@ -105,4 +105,4 @@ margin: 5px;
 
 &:hover {
   background-color: var(--hoverBgColor);
-}
+}`;
