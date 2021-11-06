@@ -18,7 +18,7 @@ export type ButtonStyleProperties = {
   border?: string;
 };
 
-export default function Button({children, styling, type, onClick}):ButtonProps {
+export default function Button({children, styling, type, onClick}, props:any ):ButtonProps {
 
 const STYLES = {
   normal: {
