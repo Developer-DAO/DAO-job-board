@@ -12,7 +12,7 @@ import {BoxTop,
   Selector
 } from '../../styles';
 
-type JobDetailProps = {
+type GigDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
@@ -34,7 +34,7 @@ export default function GigDetails({
   onChange,
   setFormData,
   addTimeframe,
-  timeframeActive}) {
+  timeframeActive}: GigDetailProps) {
 
   const {
     gigcategory,

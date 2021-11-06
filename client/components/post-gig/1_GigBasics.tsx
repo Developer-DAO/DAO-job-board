@@ -19,6 +19,8 @@ type GigBasicProps = {
   formData: {
     gigname: string;
     gigdescription: string;
+    gigwebsite: string;
+    gigrepo: string;
   }[];
 };
 
@@ -26,8 +28,7 @@ export default function GigBasics ({
 goToDetails,
 goBack,
 formData,
-onChange,
-history}): GigBasicProps {
+onChange}:GigBasicProps) {
 
   const {
     gigname,

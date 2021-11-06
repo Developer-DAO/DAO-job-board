@@ -29,7 +29,7 @@ export default function GigSummary ({
   formData,
   goToDetails,
   createGig,
-  goToBasics}): GigSummaryProps {
+  goToBasics}:GigSummaryProps) {
 
 const {
     gigname,
