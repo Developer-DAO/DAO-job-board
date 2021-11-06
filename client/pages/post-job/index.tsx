@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {useRouter} from "next/router";
-import { Box } from "../../styles/styles";
+import { Box } from "../../styles";
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from "../../components/post-job/1_JobBasics";
-import JobDetails from "../../components/post-job/2_JobDetails";
-import JobSummary from "../../components/post-job/3_JobSummary";
+import JobBasics from "../../components/post-job/1_JobBasics.tsx";
+import JobDetails from "../../components/post-job/2_JobDetails.tsx";
+import JobSummary from "../../components/post-job/3_JobSummary.tsx";
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -57,29 +57,10 @@ export default function CreateProject() {
      router.back();
   };
 
-  const addTimeframe = () => {
-    setTimeframeActive(true);
-  };
-
-  const onChange = (e) =>
+  const onChange = (e: React.FormEvent) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const updateGigCategory = (e) => {
-    setFormData({ ...formData, gigcategory: e });
-  };
-
-  const deleteCategory = (e) => {
-    if (formData.gigcategory) {
-      setFormData((prevCat) => {
-        const updatedCategory = prevCat.gigcategory.filter(
-          (category) => category !== e
-        );
-        return updatedCategory;
-      });
-    }
-  };
-
-  const createJob = (e) => {
+  const createJob = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
   }
@@ -102,10 +83,6 @@ export default function CreateProject() {
               goToSummary={goToSummary}
               formData={formData}
               setFormData={setFormData}
-              updateGigCategory={updateGigCategory}
-              deleteCategory={deleteCategory}
-              timeframeActive={timeframeActive}
-              addTimeframe={addTimeframe}
               locationActive={locationActive}
               addLocation={addLocation}
               onChange={onChange}

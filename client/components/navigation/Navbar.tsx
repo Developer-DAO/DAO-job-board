@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import { IconWrap } from "../../styles";
 
-import Button from "../../styles/UI-Components/Button";
-import Icon from "../../styles/UI-Components/Icon";
+import Button from "../../styles/ui-components/Button";
+import Icon from "../../styles/ui-components/Icon";
 
 export default function Navbar() {
 

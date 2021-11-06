@@ -144,6 +144,7 @@ export const Textarea = styled.textarea`
   height: fit-content;
   padding: 5px;
   font-family: 'Calibri';
+  font-size: 1rem;
 `;
 
 export const Small = styled.small`

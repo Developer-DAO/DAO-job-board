@@ -1,5 +1,14 @@
 import Image from "next/image";
-import { Copy, Hero, IconWrap, LinkWrap, Title } from "../styles";
+import {
+  Hero,
+  Copy,
+  Title,
+  List,
+  ButtonSection,
+  LinkWrap,
+  IconWrap
+} from "../styles";
+
 import Button from "../styles/ui-components/Button";
 
 export default function Landing() {
@@ -11,14 +20,32 @@ export default function Landing() {
       <Copy>
         <Title>Looking for Web3 talent?</Title>
         <LinkWrap href="/developers">
-          <Button styling="positive">Search Devs</Button>
+          <Button styling='positive'>Search  Devs</Button>
         </LinkWrap>
+
+        <LinkWrap href="/post-job">
+          <Button
+          styling='blue'
+          >
+          Post a Job
+          </Button>
+        </LinkWrap>
+
+        <LinkWrap href="/post-gig">
+          <Button
+          styling='red'
+          >
+          Post a Gig
+          </Button>
+        </LinkWrap>
+
+
         <Title>Looking for Web3 work?</Title>
         <LinkWrap href="/jobs">
-          <Button styling="positive">Search Jobs</Button>
+          <Button styling='positive'>Search Jobs</Button>
         </LinkWrap>
         <LinkWrap href="/gigs">
-          <Button styling="negative">Search Gigs</Button>
+          <Button styling='negative'>Search Gigs</Button>
         </LinkWrap>
       </Copy>
     </Hero>

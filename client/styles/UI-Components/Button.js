@@ -1,31 +1,46 @@
 import styled from 'styled-components'
 
-export default function Button({children, styling}) {
+export default function Button({children, styling, type, onClick}) {
 
   const STYLES = {
     normal: {
-      backgroundcolor: '#EDF2F7',
-      hoverbgcolor: '#E2E9F0',
+      backgroundColor: '#EDF2F7',
+      hoverBgColor: '#E2E9F0',
       color: 'black'
     },
     category: {
-      backgroundcolor: '#EDF2F7',
-      hoverbgcolor: '#CDCDCD',
+      backgroundColor: '#E2E9F0',
+      hoverBgColor: '#EDF2F7',
       color: 'black'
     },
+    black: {
+      backgroundColor: '#000000',
+      hoverBgColor: '#30363D',
+      color: 'white'
+    },
+    red: {
+      backgroundColor: '#E2252B',
+      hoverBgColor: '#BB5348',
+      color: 'white'
+    },
+    blue: {
+      backgroundColor: '#3B82F6',
+      hoverBgColor: '#1D4ED8',
+      color: 'white'
+    },
     option: {
-      backgroundcolor: '#3182CE',
-      hoverbgcolor: '#2B6CB0',
+      backgroundColor: '#3182CE',
+      hoverBgColor: '#2B6CB0',
       color: 'white'
     },
     positive: {
-      backgroundcolor: '#38A169',
-      hoverbgcolor: '#2F855A',
+      backgroundColor: '#38A169',
+      hoverBgColor: '#2F855A',
       color: 'white'
     },
     negative: {
-      backgroundcolor: '#DD6B20',
-      hoverbgcolor: '#C05621',
+      backgroundColor: '#DD6B20',
+      hoverBgColor: '#C05621',
       color: 'white'
     }
   }
@@ -39,21 +54,23 @@ export default function Button({children, styling}) {
   return <Button1
             style={{
               '--color': styles.color,
-              '--backgroundcolor': styles.backgroundcolor,
-              '--hoverbgcolor': styles.hoverbgcolor,
+              '--backgroundColor': styles.backgroundColor,
+              '--hoverBgColor': styles.hoverBgColor,
               '--border': styles.border
             }}
+            type={type || 'button'}
+            onClick={onClick}
          >
           {children}
         </Button1>;
 }
 
 const Button1 = styled.button`
-  background-color: var(--backgroundcolor);
+  background-color: var(--backgroundColor);
   color: var(--color);
   border: var(--border);
   font-size: 14px;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   width: auto;
   height: 2rem;
   border-radius: 0.375rem;
@@ -68,6 +85,6 @@ const Button1 = styled.button`
   margin: 5px;
 
   &:hover {
-    background-color: var(--hoverbgcolor);
+    background-color: var(--hoverBgColor);
   }
 `;

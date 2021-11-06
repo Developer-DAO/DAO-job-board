@@ -9,14 +9,34 @@ import {BoxTop,
   Input,
   Selector,
   Small
-} from '../../styles/styles';
+} from '../../styles';
+
+type JobSummaryProps = {
+  goToBasics: () => void;
+  goToDetails: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+    jobcategory: string;
+    jobposition: string;
+    jobcompensation: string;
+    jobamount: string;
+    jobequity: string;
+    joblocation: string;
+    jobcontact: string;
+  }[];
+};
+
 
 export default function GigSummary ({
   formData,
   goToDetails,
   onChange,
   createJob,
-  goToBasics}) {
+  goToBasics}): JobSummaryProps {
 
 const {
   jobtitle,
@@ -119,7 +139,7 @@ const {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps():GetStaticProps {
    return {
       props: { formData }
    }

@@ -10,14 +10,26 @@ import {BoxTop,
   Input,
   Textarea,
   Selector
-} from '../../styles/styles';
+} from '../../styles';
+
+type JobBasicProps = {
+  goToDetails: () => void;
+  goBack: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+  }[];
+};
 
 export default function JobBasics ({
 goToDetails,
 goBack,
 formData,
 onChange,
-history}) {
+history}): JobBasicProps {
 
   const {
     jobtitle,
@@ -109,7 +121,7 @@ history}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps():GetStaticProps {
    return {
       props: { formData }
    }

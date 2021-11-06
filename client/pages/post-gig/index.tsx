@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useRouter} from "next/router";
-import { Box } from "../../styles/styles";
+import { Box } from "../../styles";
 
 //The number in the file names tell you which step in the form they are
 import GigBasics from "../../components/post-gig/1_GigBasics";

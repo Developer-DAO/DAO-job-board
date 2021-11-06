@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import styled from 'styled-components';
-import Button from '../../styles/UI-Components/Button';
+import Button from '../../styles/ui-components/Button';
 
 import {BoxTop,
   GridList,
@@ -10,16 +10,29 @@ import {BoxTop,
   ItemBox,
   Input,
   Selector
-} from '../../styles/styles';
+} from '../../styles';
+
+type JobDetailProps = {
+  goToBasics: () => void;
+  goToSummary: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    gigcategory: string;
+    gigreward: string;
+    gigamount: string;
+    gigtimeframe: string;
+  }[];
+  setFormData: () => void;
+  addTimeframe: () => void;
+  timeframeActive: bool;
+};
 
 export default function GigDetails({
   goToBasics,
   goToSummary,
   formData,
   onChange,
-  updateGigCategory,
   setFormData,
-  deleteCategory,
   addTimeframe,
   timeframeActive}) {
 
@@ -138,7 +151,7 @@ export default function GigDetails({
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps():GetStaticProps {
    return {
       props: { formData }
    }

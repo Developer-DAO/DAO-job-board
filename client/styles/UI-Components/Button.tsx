@@ -3,6 +3,8 @@ import styled, { CSSProperties } from "styled-components";
 export type ButtonProps = {
   children?: React.ReactNode;
   styling: "normal" | "skill" | "option" | "positive" | "negative" | string;
+  type: "reset" | "submit" | "button";
+  onClick(event: React.MouseEvent)
 };
 
 export type ButtonStyle = {

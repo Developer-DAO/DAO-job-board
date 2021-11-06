@@ -4,10 +4,15 @@ import { Box, BoxTop, Break, Input, Selector } from "../../styles";
 export default function GigFilter() {
   return (
     <GigFilterBox>
-      <GigBoxTop>Filter Gigs</GigBoxTop>
-      <GigFilterInput placeholder="Search timeframe, reward, skills needed, etc."></GigFilterInput>
-      <Break />
-      Token{" "}
+      <GigBoxTop>
+        Filter Gigs
+      </GigBoxTop>
+      <GigFilterInput
+        placeholder='Search timeframe, reward, skills needed, etc.'
+      >
+      </GigFilterInput>
+      <Break/>
+      Token{' '}
       <Selector>
         <option>ETH</option>
         <option>USDT</option>
@@ -17,13 +22,17 @@ export default function GigFilter() {
 }
 
 const GigFilterBox = styled(Box)`
-  top: 9.9rem;
   position: fixed;
-  width: 30%;
+  width: 20%;
+  flex-grow: 1;
   border-radius: 0;
   background: none;
   padding: 1%;
   text-align: center;
+
+  @media (max-width: 900px) {
+    width: 25%;
+  }
 `;
 
 const GigBoxTop = styled(BoxTop)`

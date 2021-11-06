@@ -11,21 +11,36 @@ import {BoxTop,
   Input,
   Selector,
   Small
-} from '../../styles/styles';
+} from '../../styles';
+
+type JobDetailProps = {
+  goToBasics: () => void;
+  goToSummary: () => void;
+  goBack: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+  }[];
+  setFormData: () => void;
+  addLocation: () => void;
+  locationActive: bool;
+};
+
 
 export default function GigDetails({
   goToBasics,
   goToSummary,
   formData,
   onChange,
-  updateGigCategory,
   setFormData,
-  deleteCategory,
   addTimeframe,
   timeframeActive,
   addLocation,
   locationActive
-}) {
+}): JobDetailProps {
 
   const {
     jobcategory,
@@ -171,7 +186,7 @@ export default function GigDetails({
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps():GetStaticProps {
    return {
       props: { formData }
    }

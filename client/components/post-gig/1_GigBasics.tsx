@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // UI & CSS
-import Button from '../../styles/UI-Components/Button';
+import Button from '../../styles/ui-components/Button.js';
 
 import {BoxTop,
   Title,
@@ -10,14 +10,24 @@ import {BoxTop,
   Input,
   Textarea,
   Small
-} from '../../styles/styles';
+} from '../../styles';
+
+type GigBasicProps = {
+  goToDetails: () => void;
+  goBack: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    gigname: string;
+    gigdescription: string;
+  }[];
+};
 
 export default function GigBasics ({
 goToDetails,
 goBack,
 formData,
 onChange,
-history}) {
+history}): GigBasicProps {
 
   const {
     gigname,
@@ -95,7 +105,7 @@ history}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps():GetStaticProps {
    return {
       props: { formData }
    }
