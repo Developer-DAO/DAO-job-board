@@ -3,7 +3,7 @@ import styled, { CSSProperties } from "styled-components";
 export type ButtonProps = {
   children?: React.ReactNode;
   styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
-  type: "reset" | "submit" | "button";
+  type: "reset" | "submit" | "button"| string;
   onClick: (event: React.MouseEvent);
 };
 
