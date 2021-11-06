@@ -2,7 +2,7 @@ import styled, { CSSProperties } from "styled-components";
 
 export type ButtonProps = {
   children?: React.ReactNode;
-  styling: "normal" | "skill" | "option" | "positive" | "negative" | string;
+  styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
   type: "reset" | "submit" | "button";
   onClick(event: React.MouseEvent)
 };
@@ -17,6 +17,8 @@ export type ButtonStyleProperties = {
   color: string;
   border?: string;
 };
+
+export default function Button({children, styling, type, onClick}):ButtonProps {
 
 const STYLES = {
   normal: {

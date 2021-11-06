@@ -24,7 +24,6 @@ export default function GigFilter() {
 const GigFilterBox = styled(Box)`
   position: fixed;
   width: 20%;
-  flex-grow: 1;
   border-radius: 0;
   background: none;
   padding: 1%;

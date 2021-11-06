@@ -56,21 +56,6 @@ export default function CreateProject() {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const updateGigCategory = (e) => {
-    setFormData({ ...formData, gigcategory: e });
-  };
-
-  const deleteCategory = (e) => {
-    if (formData.gigcategory) {
-      setFormData((prevCat) => {
-        const updatedCategory = prevCat.gigcategory.filter(
-          (category) => category !== e
-        );
-        return updatedCategory;
-      });
-    }
-  };
-
   const createGig = (e) => {
     e.preventDefault();
     console.log(formData);

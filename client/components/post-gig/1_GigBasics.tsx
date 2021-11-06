@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // UI & CSS
-import Button from '../../styles/ui-components/Button.js';
+import Button from '../../styles/ui-components/Button';
 
 import {BoxTop,
   Title,
