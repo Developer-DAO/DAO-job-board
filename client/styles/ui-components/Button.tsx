@@ -1,10 +1,10 @@
 import styled, { CSSProperties } from "styled-components";
 
 export type ButtonProps = {
-  children: any;
-  styling: any;
-  type: any;
-  onClick: any;
+  children?: React.ReactNode;
+  styling: "normal" | "category" | "black" | "red" | "blue" | "positive" | "negative" | string;
+  type: "reset" | "submit" | "button";
+  onClick: (event: React.MouseEvent);
 };
 
 export type ButtonStyle = {
@@ -18,7 +18,7 @@ export type ButtonStyleProperties = {
   border?: string;
 };
 
-export default function Button({children, styling, type, onClick}, props:any ):ButtonProps {
+export default function Button({children, styling, type, onClick}:ButtonProps) {
 
 const STYLES = {
   normal: {
