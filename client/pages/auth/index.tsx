@@ -14,7 +14,7 @@ function SignUp() {
       <div style={{ textAlign: "center" }}>
         <Button styling="positive">
           <span style={{ position: "relative", top: "2px" }}>
-            <Image width={15} height={15} src="/metamask.png" />
+            <Image width={15} height={15} src="/metamask.png" alt="icon"/>
           </span>{" "}
           Login with Wallet
         </Button>

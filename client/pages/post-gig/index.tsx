@@ -3,40 +3,32 @@ import {useRouter} from "next/router";
 import { Box } from "../../styles";
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from "../../components/post-job/1_JobBasics";
-import JobDetails from "../../components/post-job/2_JobDetails";
-import JobSummary from "../../components/post-job/3_JobSummary";
+import GigBasics from "../../components/post-gig/1_GigBasics";
+import GigDetails from "../../components/post-gig/2_GigDetails";
+import GigSummary from "../../components/post-gig/3_GigSummary";
 
 type IFormData = {
-  jobtitle: string,
-  jobdescription: string,
-  jobtype: string,
-  jobposition: string,
-  jobcompensation: string,
-  jobequity: string,
-  joblocation: string,
-  jobcontact: string
+  gigname: string,
+  gigwebsite: string,
+  gigdescription: string,
+  gigcategory: string,
+  gigreward: string,
+  gigamount: string,
+  gigtimeframe: string
 }
 
 export default function CreateProject() {
-  const [formData, setFormData] = useState({
-    jobtitle: "",
-    jobdescription: "",
-    jobtype: "",
-    jobposition: "",
-    jobcompensation: "",
-    jobequity: "",
-    joblocation: "",
-    jobcontact: ""
+  const [formData, setFormData] = useState<IFormData>({
+    gigname: "",
+    gigwebsite: "",
+    gigdescription: "",
+    gigcategory: "",
+    gigreward: "",
+    gigamount: "",
+    gigtimeframe: ""
   });
 
   const [timeframeActive, setTimeframeActive] = useState(false);
-
-  const [locationActive, setLocationActive] = useState(false);
-
-  const addLocation = () => {
-  setLocationActive(true);
-  }
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);
@@ -67,11 +59,14 @@ export default function CreateProject() {
   const goBack = () => {
      router.back();
   };
+  const addTimeframe = () => {
+    setTimeframeActive(true);
+  };
 
   const onChange = (e: React.FormEvent) =>
     setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
-  const createJob = (e: React.FormEvent) => {
+  const createGig = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
   }
@@ -80,7 +75,7 @@ export default function CreateProject() {
       <Box>
         <form>
           {basicsPage ? (
-            <JobBasics
+            <GigBasics
               goToDetails={goToDetails}
               goBack={goBack}
               formData={formData}
@@ -89,24 +84,23 @@ export default function CreateProject() {
           ) : null}
 
           {detailsPage ? (
-            <JobDetails
+            <GigDetails
               goToBasics={goToBasics}
               goToSummary={goToSummary}
               formData={formData}
               setFormData={setFormData}
-              locationActive={locationActive}
-              addLocation={addLocation}
+              timeframeActive={timeframeActive}
+              addTimeframe={addTimeframe}
               onChange={onChange}
             />
           ) : null}
 
           {summaryPage ? (
-            <JobSummary
+            <GigSummary
               formData={formData}
               goToDetails={goToDetails}
               goToBasics={goToBasics}
-              createJob={createJob}
-              onChange={onChange}
+              createGig={createGig}
             />
           ) : null}
         </form>

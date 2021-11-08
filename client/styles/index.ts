@@ -29,8 +29,6 @@ export const Box = styled.div`
 `;
 
 export const BoxTop = styled.div`
-  position: relative;
-  top: -20%;
   font-size: 1rem;
   text-align: center;
 `;
@@ -95,7 +93,7 @@ export const Title = styled.h1`
 `;
 
 export const Title2 = styled.h2`
-  color: gray;
+  color: #000000;
   font-size: 1.5rem;
 `;
 
@@ -116,7 +114,6 @@ export const Input = styled.input`
   position: relative;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  width: 98%;
   height: 50px;
   font-size: 1rem;
   font-family: "Calibri";
@@ -131,12 +128,28 @@ export const Selector = styled.select`
   background-color: white;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
-  height: fit-content;
+  height: 50px;
   padding: 5px;
   margin-right: 5px;
+  font-size: 1rem;
   font-family: 'Calibri';
 `;
 
+export const Textarea = styled.textarea`
+  resize: vertical;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 5px;
+  font-family: 'Calibri';
+`;
+
+export const Small = styled.small`
+text-align: left;
+font-size: 0.785rem;
+`;
 export const LinkWrap = styled.a`
   text-decoration: none;
 

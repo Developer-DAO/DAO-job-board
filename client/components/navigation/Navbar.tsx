@@ -2,9 +2,18 @@ import styled from "styled-components";
 
 import { IconWrap } from "../../styles";
 
+import Button from "../../styles/ui-components/Button";
 import Icon from "../../styles/ui-components/Icon";
 
 export default function Navbar() {
+
+  // We will bring a modal for people to choose between Create a Gig and Create a Job Post
+  // const [jobModal, setJobModal] = useState();
+  //
+  // const bringJobModal = () => {
+  //   setJobModal(true);
+  // }
+    
   return (
     <Nav>
       <NavBox>
@@ -25,8 +34,11 @@ export default function Navbar() {
         </MainMenu>
 
         <SecondaryMenu>
-          <Extra href="/post-job">Post a Job</Extra>
-          <Extra2 href="/auth">Sign Up</Extra2>
+        <NavLink href="/auth">
+          <Button
+          styling='black'
+        >Sign Up</Button>
+        </NavLink>
         </SecondaryMenu>
       </NavBox>
     </Nav>
@@ -91,27 +103,28 @@ const Navs = styled.a`
 
 const Extra = styled.a`
   position: relative;
-  color: black;
+  color: #000000;
   padding: 0.45rem;
   margin: 0 0.25rem;
   cursor: pointer;
   float: left;
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid #000000;
   border-radius: 18px;
 
-  &:focus {
-    background-color: #e6ebf2;
-    color: black;
-  }
-
   &:hover {
-    color: gray;
+    color: #CDCDCD;
     transition: 0.1s;
   }
 `;
 
 const Extra2 = styled(Extra)`
+  box-sizing: border-box;
+  background-color: #e6ebf2;
+  color: #000000;
+`;
+
+const Extra3 = styled(Extra)`
   box-sizing: border-box;
   background-color: black;
   color: #ffffff;

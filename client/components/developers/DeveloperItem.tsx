@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
   ItemBox,
   LinkCover,
+  GridList,
   NameSection,
   ProfileImageCover,
   ProfileImage,
@@ -17,7 +18,7 @@ export default function DeveloperItem() {
   return (
     <>
       <ItemBox>
-        <LinkCover href="/">
+        <LinkCover href="/developers/developer1">
           <ItemTop>
             <NameSection>Developer #1</NameSection>
             <ProfileImageCover>
@@ -28,9 +29,9 @@ export default function DeveloperItem() {
         </LinkCover>
 
         <DeveloperSkills>
-          <SkillButton styling="skill">Web3</SkillButton>
-          <SkillButton styling="skill">Solidity</SkillButton>
-          <SkillButton styling="skill">Rust</SkillButton>
+          <SkillButton styling="category">Web3</SkillButton>
+          <SkillButton styling="category">Solidity</SkillButton>
+          <SkillButton styling="category">Rust</SkillButton>
         </DeveloperSkills>
       </ItemBox>
 
@@ -46,9 +47,9 @@ export default function DeveloperItem() {
         </LinkCover>
 
         <DeveloperSkills>
-          <SkillButton styling="skill">Web3</SkillButton>
-          <SkillButton styling="skill">FullStack</SkillButton>
-          <SkillButton styling="skill">Discord</SkillButton>
+          <SkillButton styling="category">Web3</SkillButton>
+          <SkillButton styling="category">FullStack</SkillButton>
+          <SkillButton styling="category">Discord</SkillButton>
         </DeveloperSkills>
       </ItemBox>
 
@@ -64,23 +65,20 @@ export default function DeveloperItem() {
         </LinkCover>
 
         <DeveloperSkills>
-          <SkillButton styling="skill">Web3</SkillButton>
-          <SkillButton styling="skill">FullStack</SkillButton>
-          <SkillButton styling="skill">Discord</SkillButton>
+          <SkillButton styling="category">Web3</SkillButton>
+          <SkillButton styling="category">FullStack</SkillButton>
+          <SkillButton styling="category">Discord</SkillButton>
         </DeveloperSkills>
       </ItemBox>
     </>
   );
 }
 
-const DeveloperSkills = styled.div`
-  display: grid;
-  box-sizing: border-box;
-  border-radius: 18px;
+const DeveloperSkills = styled(GridList)`
   grid-template-columns: repeat(3, 2fr);
   grid-auto-rows: 2.5rem;
+  grid-gap: 0px;
   margin-top: 5px;
-  margin-bottom: 10px;
   height: fit-content;
   overflow: visible;
 

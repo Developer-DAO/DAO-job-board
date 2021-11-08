@@ -32,10 +32,10 @@ export default function JobItem() {
       </JobItemGrid>
       <JobItemDescription>Details of the job</JobItemDescription>
       <JobItemSkills>
-        <SkillButton styling="skill">Solidity</SkillButton>
-        <SkillButton styling="skill">Hardhat</SkillButton>
-        <SkillButton styling="skill">Rust</SkillButton>
-        <SkillButton styling="skill">Javascript</SkillButton>
+        <SkillButton styling="category">Solidity</SkillButton>
+        <SkillButton styling="category">Hardhat</SkillButton>
+        <SkillButton styling="category">Rust</SkillButton>
+        <SkillButton styling="category">Javascript</SkillButton>
       </JobItemSkills>
       <JobItemSeparator />
     </JobItemBox>
