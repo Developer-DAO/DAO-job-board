@@ -1,18 +1,10 @@
 import {useState} from 'react';
-import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
 // UI & CSS
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button.tsx"
 
-import {BoxTop,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Textarea,
-  Small
-} from '../../styles';
+import { Heading, Input, Textarea, Select, Container, Text, ButtonGroup } from "@chakra-ui/react";
 
 type GigBasicProps = {
   goToDetails: () => void;
@@ -47,60 +39,89 @@ onChange}:GigBasicProps) {
 
   return (
     <>
-      <BoxTop>
-        <Title>Gig Basics</Title>
-        <p><em>Let devs know what you are working on</em></p>
-      </BoxTop>
+      <Container textAlign="center" p="0.5rem">
+        <Heading fontSize="lg">Gig Basics</Heading>
+        <Text as="i">Let devs know what you are working on</Text>
+      </Container>
+      <br/>
 
-        <InputSection>
-          <InputTitle>Write a name for your gig</InputTitle>
+        <Container
+        borderColor="#e2e8f0"
+        >
+          <Heading
+          fontSize="md"
+          textAlign="left"
+          >Write a name for your gig</Heading>
           <Input
             placeholder='e.g., Smart Contract Developer for an NFT Game'
             name='gigname'
             value={gigname}
             onChange={e => onChange(e)}
           />
-          <Small>At least 10 characters</Small>
+          <Text
+          fontSize="sm"
+          textAlign="left"
+          >At least 10 characters</Text>
 
         <br/>
-          <InputTitle>Describe the gig clearly</InputTitle>
+           <Heading
+            fontSize="md"
+            textAlign="left">Describe the gig clearly</Heading>
           <Textarea
             placeholder='e.g., I am building an NFT game and need smart contract developers with experience in Solidity for a few weeks...'
             name='gigdescription'
             value={gigdescription}
             onChange={e => onChange(e)}
           />
-          <Small>At least 100 characters</Small>
+          <Text
+          fontSize="sm"
+          textAlign="left"
+          >At least 100 characters</Text>
 
         <br/>
-          <InputTitle>Does the project have a website? {'(optional)'}</InputTitle>
+          <Heading
+          mt="5px"
+          mb="5px"
+          fontSize="md"
+          textAlign="left">Does the project have a website? {'(optional)'}</Heading>
           <Input
+            color="gray.300"
             placeholder='e.g., gigwebsite.com'
             name='gigwebsite'
             value={gigwebsite}
             onChange={e => onChange(e)}
           />
 
-          <InputTitle>Does the project have a repo? {'(optional)'}</InputTitle>
+          <br/>
+
+          <Heading
+          mt="5px"
+          mb="5px"
+          fontSize="md"
+          textAlign="left">Does the project have a repo? {'(optional)'}</Heading>
           <Input
             placeholder='e.g., github.com/gigname/gigrepo'
             name='gigrepo'
             value={gigrepo}
             onChange={e => onChange(e)}
           />
-        </InputSection>
+        </Container>
 
-      <ButtonSection>
-        <Button
-          type='button'
+        <br/>
+
+      <ButtonGroup
+        display="flex"
+        flexDirection="column"
+        m="5px"
+      >
+        <ButtonGreen
           onClick={nextPage}
-          styling='positive'
-        >Continue</Button>
-        <Button
+        >Continue</ButtonGreen>
+        <ButtonOrange
           onClick={goBack}
-          styling='negative'
-        >Cancel</Button>
-    </ButtonSection>
+        >Cancel
+        </ButtonOrange>
+    </ButtonGroup>
   </>
   )
 }
@@ -110,17 +131,3 @@ export const getStaticProps:GetStaticProps = async () => {
       props: { FormData }
    }
 }
-
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-box-shadow: 0 0 0 0;
-`;

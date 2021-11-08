@@ -8,8 +8,8 @@ import {
   IconWrap
 } from "../styles";
 
-
-import Button from "../styles/ui-components/Button";
+import Button from '../styles/ui-components/Button.tsx'
+import { ButtonRed, ButtonGreen, ButtonBlue } from "../styles/ui-components/Chakra-Button.tsx"
 
 export default function Landing() {
   return (
@@ -21,32 +21,37 @@ export default function Landing() {
       <Copy>
         <Title>Looking for Web3 talent?</Title>
         <LinkWrap href="/developers">
-          <Button styling='positive'>Search  Devs</Button>
+          <ButtonGreen>
+          Search  Devs
+          </ButtonGreen>
         </LinkWrap>
 
         <LinkWrap href="/post-job">
-          <Button
-          styling='blue'
+          <ButtonBlue
           >
           Post a Job
-          </Button>
+          </ButtonBlue>
         </LinkWrap>
 
         <LinkWrap href="/post-gig">
-          <Button
-          styling='red'
+          <ButtonRed
           >
           Post a Gig
-          </Button>
+          </ButtonRed>
         </LinkWrap>
 
 
         <Title>Looking for Web3 work?</Title>
         <LinkWrap href="/jobs">
-          <Button styling='positive'>Search Jobs</Button>
+          <ButtonGreen>
+          Search Gigs
+          </ButtonGreen>
         </LinkWrap>
+
         <LinkWrap href="/gigs">
-          <Button styling='negative'>Search Gigs</Button>
+          <ButtonRed>
+          Search Gigs
+          </ButtonRed>
         </LinkWrap>
       </Copy>
     </Hero>

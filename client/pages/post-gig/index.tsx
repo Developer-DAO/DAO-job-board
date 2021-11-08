@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useRouter} from "next/router";
-import { Box } from "../../styles";
+import { Box } from "@chakra-ui/react"
 
 //The number in the file names tell you which step in the form they are
 import GigBasics from "../../components/post-gig/1_GigBasics";
@@ -76,7 +76,15 @@ export default function CreateProject() {
   }
 
   return (
-      <Box>
+      <Box
+      w="70%"
+      boxShadow="0px 0px 2px 4px #e2e8f0"
+      bg="#ffffff"
+      p="1"
+      m="auto"
+      mt="25"
+      borderRadius="18px"
+      >
         <form>
           {basicsPage ? (
             <GigBasics

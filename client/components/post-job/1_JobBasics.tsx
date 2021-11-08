@@ -3,16 +3,9 @@ import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
 // UI & CSS
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button.tsx"
 
-import {BoxTop,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Textarea,
-  Selector
-} from '../../styles';
+import { Heading, Input, Textarea, Select, Container, Text } from "@chakra-ui/react";
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -58,14 +51,23 @@ onChange}: JobBasicProps ){
 
   return (
     <>
-      <BoxTop>
-        <Title>Job Basics</Title>
-        <p><em>Let us know what type of professional you are looking for</em></p>
-      </BoxTop>
+      <Container textAlign="center">
+        <Heading
+          color="black"
+        >Job Basics</Heading>
+          <Text
+          color="black"
+          as="i">Let us know what type of professional you are looking for</Text>
+      </Container>
 
-        <InputSection>
-          <InputTitle>Write a clear title for your job post</InputTitle>
+        <Container>
+        <Heading
+        color="black"
+        fontSize="md"
+        textAlign="left">Write a clear title for your job post</Heading>
           <Input
+            borderColor="black"
+            textColor="black"
             minLength={10}
             placeholder='e.g. Full-Stack Blockchain Engineer'
             name='jobtitle'
@@ -73,11 +75,21 @@ onChange}: JobBasicProps ){
             onChange={e => onChange(e)}
           />
 
-          {!wrongTitle ? <Small>At least 10 characters</Small> : <RedSmall>Make sure title is at least 10 characters long</RedSmall>}
+          {!wrongTitle ?
+             <Text
+              fontSize="xs">At least 10 characters</Text> :
+
+            <Text
+             fontSize="xs"
+             color="red"
+             fontWeight="bold"
+             textAlign="left">Make sure title is at least 10 characters long</Text>}
 
         <br/>
-        <InputTitle>Pick a job position</InputTitle>
-        <Selector
+        <Heading
+        fontSize="md"
+        textAlign="left">Pick a job position</Heading>
+        <Select
           name='jobposition'
           value={jobposition}
           onChange={e => onChange(e)}
@@ -93,10 +105,12 @@ onChange}: JobBasicProps ){
           <option value="Customer Support">Customer Support</option>
           <option value="Writing">Writing</option>
           <option value="Other">Other</option>
-        </Selector>
+        </Select>
 
-        <InputTitle>What type of job is it?</InputTitle>
-        <Selector
+        <Heading
+        fontSize="md"
+        textAlign="left">What type of job is it?</Heading>
+        <Select
           name='jobtype'
           value={jobtype}
           onChange={e => onChange(e)}
@@ -106,9 +120,11 @@ onChange}: JobBasicProps ){
           <option value="Part-Time">Part-Time</option>
           <option value="Contract">Contract</option>
           <option value="Paid Internship">Paid Internship</option>
-        </Selector>
+        </Select>
 
-        <InputTitle>Describe the job</InputTitle>
+        <Heading
+        fontSize="md"
+        textAlign="left">Describe the job</Heading>
         <Textarea
           minLength={100}
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'
@@ -117,22 +133,28 @@ onChange}: JobBasicProps ){
           onChange={e => onChange(e)}
         />
 
-        {!wrongDescription ? <Small>At least 100 characters</Small>
-         : <RedSmall>Make sure description is at least 100 characters long </RedSmall>}
+        {!wrongDescription ?
+          <Text
+          fontSize="xs"
+          >At least 100 characters</Text>
+         :
+         <Text
+          fontSize="xs"
+          color="red"
+          fontWeight="bold"
+          textAlign="left"
+         >Make sure description is at least 100 characters long </Text>}
 
-      </InputSection>
+      </Container>
 
-      <ButtonSection>
-        <Button
-          type='button'
+      <Container>
+        <ButtonGreen
           onClick={nextPage}
-          styling='positive'
-        >Continue</Button>
-        <Button
+        >Continue</ButtonGreen>
+        <ButtonOrange
           onClick={goBack}
-          styling='negative'
-        >Cancel</Button>
-    </ButtonSection>
+        >Cancel</ButtonOrange>
+    </Container>
   </>
   )
 }
@@ -143,30 +165,30 @@ export const getStaticProps:GetStaticProps = async () => {
    }
 }
 
-const Small = styled.small`
-  text-align: left;
-  font-size: 0.785rem;
-`;
-
-const RedSmall = styled.small`
-  text-align: left;
-  font-size: 1rem;
-  color: red;
-  font-weight: bold;
-`;
-
-
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-box-shadow: 0 0 0 0;
-background: none;
-`;
+// const Small = styled.small`
+//   text-align: left;
+//   font-size: 0.785rem;
+// `;
+//
+// const RedSmall = styled.small`
+//   text-align: left;
+//   font-size: 1rem;
+//   color: red;
+//   font-weight: bold;
+// `;
+//
+//
+// const InputTitle = styled(Title2)`
+//   font-size: 1rem;
+//   text-align: left;
+// `;
+//
+// const InputSection = styled(ItemBox)`
+//   box-shadow: 0 0 0 0;
+//   background: none;
+// `;
+//
+// const ButtonSection = styled(ItemBox)`
+// box-shadow: 0 0 0 0;
+// background: none;
+// `;

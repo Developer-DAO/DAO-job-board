@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { IconWrap } from "../../styles";
 
-import Button from "../../styles/ui-components/Button";
+import {ButtonBlack} from "../../styles/ui-components/Chakra-Button.tsx";
 import Icon from "../../styles/ui-components/Icon";
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
   // const bringJobModal = () => {
   //   setJobModal(true);
   // }
-    
+
   return (
     <Nav>
       <NavBox>
@@ -35,9 +35,8 @@ export default function Navbar() {
 
         <SecondaryMenu>
         <NavLink href="/auth">
-          <Button
-          styling='black'
-        >Sign Up</Button>
+          <ButtonBlack
+        >Sign Up</ButtonBlack>
         </NavLink>
         </SecondaryMenu>
       </NavBox>
