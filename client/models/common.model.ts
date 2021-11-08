@@ -1,3 +1,16 @@
+export type Table =
+  | "users"
+  | "user_category"
+  | "jobs"
+  | "job_category"
+  | "job_applications"
+  | "gigs"
+  | "gig_category"
+  | "gig_applications"
+  | "categories"
+  | "company_members"
+  | "links";
+
 export type WithTimestamp = {
   created_at: Date;
   updated_at: Date;
