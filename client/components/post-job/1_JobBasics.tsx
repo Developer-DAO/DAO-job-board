@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
@@ -26,6 +27,10 @@ goBack,
 formData,
 onChange}: JobBasicProps ){
 
+  //Active state makes inputs red if data is not correct
+  const [wrongTitle, setWrongTitle] = useState(false);
+  const [wrongDescription, setWrongDescription] = useState(false);
+
   const {
     jobtitle,
     jobdescription,
@@ -34,12 +39,22 @@ onChange}: JobBasicProps ){
   } = formData;
 
   const nextPage = () => {
-    if (jobtitle && jobdescription) {
+    if (jobtitle.trim().length >= 10 && jobdescription.trim().length >= 100) {
       goToDetails();
-    } else {
-      console.log('You need a name and description for the job')
+    } else if (!jobtitle && !jobdescription) {
+
+      setWrongDescription(true);
+      setWrongTitle(true)
+
+    } else if (jobtitle.trim().length >= 10 &&  jobdescription.trim().length < 100 || !jobdescription) {
+      setWrongTitle(false);
+      setWrongDescription(true);
+
+    } else if (jobdescription.trim().length >= 100 && jobtitle.trim().length < 10 || !jobtitle) {
+      setWrongDescription(false);
+      setWrongTitle(true)
     }
-  };
+  }
 
   return (
     <>
@@ -51,12 +66,15 @@ onChange}: JobBasicProps ){
         <InputSection>
           <InputTitle>Write a clear title for your job post</InputTitle>
           <Input
+            minLength={10}
             placeholder='e.g. Full-Stack Blockchain Engineer'
             name='jobtitle'
             value={jobtitle}
             onChange={e => onChange(e)}
           />
-          <Small>At least 10 characters</Small>
+
+          {!wrongTitle ? <Small>At least 10 characters</Small> : <RedSmall>Make sure title is at least 10 characters long</RedSmall>}
+
         <br/>
         <InputTitle>Pick a job position</InputTitle>
         <Selector
@@ -92,12 +110,16 @@ onChange}: JobBasicProps ){
 
         <InputTitle>Describe the job</InputTitle>
         <Textarea
+          minLength={100}
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'
           name='jobdescription'
           value={jobdescription}
           onChange={e => onChange(e)}
         />
-        <Small>At least 100 characters</Small>
+
+        {!wrongDescription ? <Small>At least 100 characters</Small>
+         : <RedSmall>Make sure description is at least 100 characters long </RedSmall>}
+
       </InputSection>
 
       <ButtonSection>
@@ -125,6 +147,14 @@ const Small = styled.small`
   text-align: left;
   font-size: 0.785rem;
 `;
+
+const RedSmall = styled.small`
+  text-align: left;
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+`;
+
 
 const InputTitle = styled(Title2)`
   font-size: 1rem;

@@ -34,6 +34,9 @@ export default function GigDetails({
   locationActive
 }: JobDetailProps) {
 
+  //Active state makes inputs red if data is not correct
+  const [wrongData, setWrongData] = useState(false);
+
   const {
     jobcategory,
     jobcompensation,
@@ -47,6 +50,8 @@ export default function GigDetails({
     if (jobcategory) {
       goToSummary();
     } else {
+
+      
       console.log('You need to select at least 3 categories')
     }
   };

@@ -43,7 +43,7 @@ export default function CreateProject() {
   const [detailsPage, setDetailsPage] = useState(false);
   const [summaryPage, setSummaryPage] = useState(false);
 
-  //Change Page on Click
+  //Change Page on Click - either to Continue or go Back to previous components
   const goToBasics = () => {
     setBasicsPage(true);
     setDetailsPage(false);
@@ -61,16 +61,17 @@ export default function CreateProject() {
     setDetailsPage(false);
   };
 
+  //Sent to JobBasics as a way to get out of Create Gig page.
   const router = useRouter()
-
-  //Go Back
   const goBack = () => {
      router.back();
   };
 
+  // Handles state changes for inputs, selectors, and textarea
   const onChange = (e: React.FormEvent) =>
     setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
+  //Sends data to database (sent to JobSummary as props)
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);

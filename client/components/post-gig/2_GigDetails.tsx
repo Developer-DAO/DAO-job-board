@@ -32,6 +32,9 @@ export default function GigDetails({
   addTimeframe,
   timeframeActive}: GigDetailProps) {
 
+  //Active state makes inputs red if data is not correct
+  const [wrongData, setWrongData] = useState(false);
+
   const {
     gigcategory,
     gigreward,

@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
@@ -25,6 +26,9 @@ goToDetails,
 goBack,
 formData,
 onChange}:GigBasicProps) {
+
+  //Active state makes inputs red if data is not correct
+  const [wrongData, setWrongData] = useState(false);
 
   const {
     gigname,

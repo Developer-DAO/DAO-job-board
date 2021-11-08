@@ -35,7 +35,7 @@ export default function CreateProject() {
   const [detailsPage, setDetailsPage] = useState(false);
   const [summaryPage, setSummaryPage] = useState(false);
 
-  //Change Page on Click
+  //Change Page on Click - either to Continue or go Back to previous components
   const goToBasics = () => {
     setBasicsPage(true);
     setDetailsPage(false);
@@ -53,19 +53,23 @@ export default function CreateProject() {
     setDetailsPage(false);
   };
 
-  const router = useRouter()
 
-  //Go Back
+  //Sent to GigBasics as a way to get out of Create Gig page.
+  const router = useRouter()
   const goBack = () => {
      router.back();
   };
+
+  // Turns timeframeActive state to true in order to allow people to add a specific timeframe to gigs. Sent to GigDetails as props.
   const addTimeframe = () => {
     setTimeframeActive(true);
   };
 
+  // Handles state changes for inputs, selectors, and textarea
   const onChange = (e: React.FormEvent) =>
     setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
+  //Sends data to database (sent to GigSummary as props)
   const createGig = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
