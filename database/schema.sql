@@ -1,25 +1,25 @@
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 DROP FUNCTION IF EXISTS public.handle_new_auth_user;
 
-DROP TABLE IF EXISTS public.gig_category;
+DROP TABLE IF EXISTS public.gig_keyword;
 DROP TABLE IF EXISTS public.gig_applications;
 DROP TABLE IF EXISTS public.gigs;
-DROP TABLE IF EXISTS public.job_category;
+DROP TABLE IF EXISTS public.job_keyword;
 DROP TABLE IF EXISTS public.job_applications;
 DROP TABLE IF EXISTS public.jobs;
 DROP TABLE IF EXISTS public.company_members;
 DROP TABLE IF EXISTS public.companies;
 DROP TABLE IF EXISTS public.links;
-DROP TABLE IF EXISTS public.user_category;
+DROP TABLE IF EXISTS public.user_keyword;
 DROP TABLE IF EXISTS public.users;
-DROP TABLE IF EXISTS public.categories;
+DROP TABLE IF EXISTS public.keywords;
 -- setup: fresh auth.users
 DELETE FROM auth.users;
 
 
 
--- table: categories
-CREATE TABLE public.categories (
+-- table: keywords
+CREATE TABLE public.keywords (
   id uuid PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
   name VARCHAR NOT NULL UNIQUE CHECK (name <> ''),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
@@ -46,14 +46,14 @@ CREATE TABLE public.users (
 COMMENT ON COLUMN public.users.id IS 'The auth.users reference';
 -- ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 
--- table: user_category
-CREATE TABLE public.user_category (
+-- table: user_keyword
+CREATE TABLE public.user_keyword (
   user_id uuid NOT NULL REFERENCES public.users (id),
-  category_id uuid NOT NULL REFERENCES public.categories (id),
+  keyword_id uuid NOT NULL REFERENCES public.keywords (id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  PRIMARY KEY (user_id, category_id)
+  PRIMARY KEY (user_id, keyword_id)
 );
 
 -- trigger: handle new registered user
@@ -132,14 +132,14 @@ CREATE TABLE public.jobs (
   created_by uuid NOT NULL DEFAULT auth.uid()
 );
 
--- table: job_category
-CREATE TABLE public.job_category (
+-- table: job_keyword
+CREATE TABLE public.job_keyword (
   job_id uuid NOT NULL REFERENCES public.jobs (id),
-  category_id uuid NOT NULL REFERENCES public.categories (id),
+  keyword_id uuid NOT NULL REFERENCES public.keywords (id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  PRIMARY KEY (job_id, category_id)
+  PRIMARY KEY (job_id, keyword_id)
 );
 
 -- table: job_applications
@@ -171,14 +171,14 @@ CREATE TABLE public.gigs (
   created_by uuid NOT NULL DEFAULT auth.uid()
 );
 
--- table: gig_category
-CREATE TABLE public.gig_category (
+-- table: gig_keyword
+CREATE TABLE public.gig_keyword (
   gig_id uuid NOT NULL REFERENCES public.gigs (id),
-  category_id uuid NOT NULL REFERENCES public.categories (id),
+  keyword_id uuid NOT NULL REFERENCES public.keywords (id),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP,
-  PRIMARY KEY (gig_id, category_id)
+  PRIMARY KEY (gig_id, keyword_id)
 );
 
 -- table: gig_applications
