@@ -2,16 +2,13 @@ import {useState} from 'react';
 import { GetStaticProps } from 'next'
 
 import styled from 'styled-components';
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange, ButtonBlack } from "../../styles/ui-components/Chakra-Button"
 
-import {BoxTop,
-  GridList,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Selector
-} from '../../styles';
+import {
+  Heading, Tag, Input, Textarea, Select, Container, Text, ButtonGroup, TagLabel,
+  TagCloseButton,
+  HStack
+} from "@chakra-ui/react";
 
 type GigDetailProps = {
   goToBasics: () => void;
@@ -47,7 +44,7 @@ export default function GigDetails({
     if (gigcategory) {
       goToSummary();
     } else {
-      console.log('You need to select at least 3 categories')
+      setWrongData(true);
     }
   };
 
@@ -57,34 +54,68 @@ export default function GigDetails({
 
   return (
     <>
-      <BoxTop>
-        <h1>Gig Details</h1>
-        <em>Define your project timeframe, category, and reward</em>
-      </BoxTop>
+      <Container
+      textAlign="center"
+      mt="2.5%"
+      mb="2.5%"
+      >
+        <Heading>Gig Details</Heading>
+        <Text
+        color="black"
+        as="i"
+        >Define your project timeframe, category, and reward</Text>
+      </Container>
 
-        <InputSection>
-          <InputTitle>Pick category</InputTitle>
+      <Container
+        maxW="100%"
+      >
 
-          <CategorySection>
-            <Button styling='category'
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+          >Pick a gig keyword category</Heading>
+
+          {!wrongData ? <Text
+            fontSize="xs"
+            textAlign="left"
+          >Keywords help categorize your job post (pick at least 3)</Text> :
+          <Text
+            fontSize="xs"
+            textAlign="left"
+            color="red"
+            fontWeight="bold"
+          >Make sure to pick at least 3 keywords</Text>
+          }
+
+          <HStack spacing={4}
+          mt="2.5%"
+          mb="2.5%"
+          border={!wrongData ? "none" : "1px solid red"}
+          >
+            <ButtonBlack>
+                Select Keywords
+            </ButtonBlack>
+            <Tag
               onClick={selectCategory}
+              size="md"
+              borderRadius="full"
+              variant="solid"
+              colorScheme="red"
+              color="black"
             >
-              Category 1
-            </Button>
+              <TagLabel>Keyword</TagLabel>
+              <TagCloseButton />
+            </Tag>
+          </HStack>
 
-            <Button styling='category'
-            >
-              Category 2
-            </Button>
-
-            <Button styling='category'>
-              Category 3
-            </Button>
-          </CategorySection>
-
-          <InputTitle>Explain reward method (optional)</InputTitle>
-          <Selector
-            style={{width: "50%"}}
+          <Heading
+            mb='5px'
+            color="black"
+            fontSize="md"
+            textAlign="left">Explain reward method (optional)</Heading>
+          <Select
             name='gigreward'
             value={gigreward}
             onChange={e => onChange(e)}
@@ -94,13 +125,11 @@ export default function GigDetails({
             <option value="SOL">SOL</option>
             <option value="BTC">BTC</option>
             <option value="USDT">USDT</option>
-          </Selector>
+          </Select>
 
-          </InputSection>
-          <InputSection>
+          <br/>
 
           <Input
-            style={{width: "48%"}}
             placeholder='Amount'
             name='gigamount'
             value={gigamount}
@@ -108,18 +137,16 @@ export default function GigDetails({
             type='number'
           />
 
-          </InputSection>
+          <br />
+          <br />
 
-          <InputSection>
+          <Heading
+            mb='5px'
+            color="black"
+            fontSize="md"
+            textAlign="left">Have a timeframe? (optional)</Heading>
 
-          <div>
-          <InputTitle>Have a timeframe? (optional)</InputTitle>
-          </div>
-
-          <br/>
-
-            <Selector
-              style={{width: "50%"}}
+            <Select
               onChange={e => onChange(e)}
               value={gigtimeframe}
               name='gigtimeframe'
@@ -130,22 +157,25 @@ export default function GigDetails({
             <option value="3-6 Months">3-6 Months</option>
             <option value="6-12 Months">6-12 Months</option>
             <option value="+12 Months">+12 Months</option>
-          </Selector>
+          </Select>
 
           <br/>
 
-        </InputSection>
+        </Container>
 
-      <ButtonSection>
-        <Button
-          styling='positive'
+      <ButtonGroup
+      display="flex"
+      flexDirection="column"
+      m="5px"
+      padding="1px"
+      >
+        <ButtonGreen
           onClick={nextPage}
-        >Continue</Button>
-        <Button
-          styling='negative'
+        >Continue</ButtonGreen>
+        <ButtonOrange
           onClick={goToBasics}
-        >Back</Button>
-    </ButtonSection>
+        >Back</ButtonOrange>
+    </ButtonGroup>
   </>
   )
 }
@@ -155,21 +185,21 @@ export const getStaticProps:GetStaticProps = async () => {
       props: { FormData }
    }
 }
-
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-box-shadow: 0 0 0 0;
-`;
-
-const CategorySection = styled(GridList)`
-
-`;
+//
+// const InputTitle = styled(Title2)`
+//   font-size: 1rem;
+//   text-align: left;
+// `;
+//
+// const InputSection = styled(ItemBox)`
+//   box-shadow: 0 0 0 0;
+//   background: none;
+// `;
+//
+// const ButtonSection = styled(ItemBox)`
+// box-shadow: 0 0 0 0;
+// `;
+//
+// const CategorySection = styled(GridList)`
+//
+// `;

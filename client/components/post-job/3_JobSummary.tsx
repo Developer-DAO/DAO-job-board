@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { useState } from 'react';
 
 // UI & CSS
 import styled from 'styled-components'
@@ -15,13 +16,15 @@ type JobSummaryProps = {
   createJob: (e: React.FormEvent) => void;
 };
 
-
 export default function GigSummary({
   formData,
   goToDetails,
   onChange,
   createJob,
   goToBasics }: JobSummaryProps) {
+
+    //Active state makes inputs red if data is not correct
+    const [wrongData, setWrongData] = useState(false);
 
   const {
     jobtitle,
@@ -36,6 +39,14 @@ export default function GigSummary({
     joblocation,
     jobcontact
   } = formData;
+
+  const sendJobData = (e) => {
+    if(jobcontact) {
+      createJob(e)
+    } else {
+      setWrongData(true);
+    }
+  }
 
   return (
     <>
@@ -120,8 +131,7 @@ export default function GigSummary({
             size="md"
             borderRadius="full"
             variant="solid"
-            colorScheme="black"
-            color="white"
+            color="black"
           >
             <TagLabel>Keyword</TagLabel>
           </Tag>
@@ -157,7 +167,7 @@ export default function GigSummary({
         <Heading
           fontSize="md"
         >
-          How should people contact your company?
+          How should people contact you or your company?
         </Heading>
         <Text
           fontSize="xs"
@@ -165,7 +175,7 @@ export default function GigSummary({
           mb="2.5%">Write your website job post link or an email</Text>
         <Input
           _placeholder={{ color: "black" }}
-          borderColor="#e2e8f0"
+          borderColor={`${!wrongData ? "#e2e8f0" : "red"}`}
           bgColor="white"
           color="black"
           _hover={{ borderColor: '#97c0e6' }}
@@ -174,6 +184,13 @@ export default function GigSummary({
           value={jobcontact}
           onChange={(e) => onChange(e)}
         />
+      {wrongData ? <Text
+          fontSize="xs"
+          textAlign="left"
+          color="red"
+          fontWeight="bold"
+        >Add an email or website link</Text> : null}
+
       </Container>
 
       <br />
@@ -185,7 +202,7 @@ export default function GigSummary({
         padding="1px"
       >
         <ButtonBlue
-          onClick={createJob}
+          onClick={e => sendJobData(e)}
         >Post Job</ButtonBlue>
 
         <ButtonOrange

@@ -73,9 +73,9 @@ export default function JobBasics({
           fontSize="md"
           textAlign="left">Write a clear title for your job post</Heading>
         <Input
-          _placeholder={{color:"black"}}
           borderColor={`${!wrongTitle ? "#e2e8f0" : "red"}`}
           bgColor="white"
+          bg="white"
           color="black"
           _hover={{borderColor: '#97c0e6'}}
           minLength={10}
@@ -102,8 +102,8 @@ export default function JobBasics({
           fontSize="md"
           textAlign="left">Pick a job position</Heading>
         <Select
-          bg="white"
           bgColor="white"
+          bg="white"
           borderColor="#e2e8f0"
           _hover={{borderColor: '#97c0e6'}}
           name='jobposition'
@@ -155,7 +155,6 @@ export default function JobBasics({
           bgColor="white"
           _hover={{borderColor: '#97c0e6'}}
           minLength={100}
-          _placeholder={{color:"black"}}
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'
           name='jobdescription'
           value={jobdescription}
