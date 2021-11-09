@@ -41,11 +41,11 @@ export default function GigBasics({
       setWrongDescription(true);
       setWrongTitle(true)
 
-    } else if (jobtitle.length >= 10 && jobdescription.length < 100 || !jobdescription) {
+    } else if (gigname.length >= 10 && gigdescription.length < 100 || !gigdescription) {
       setWrongTitle(false);
       setWrongDescription(true);
 
-    } else if (jobdescription.length >= 100 && jobtitle.length < 10 || !jobtitle) {
+    } else if (gigdescription.length >= 100 && gigname.length < 10 || !gigname) {
       setWrongDescription(false);
       setWrongTitle(true)
     }
@@ -58,12 +58,13 @@ export default function GigBasics({
         mt="2.5%"
         mb="2.5%"
       >
-        <Heading fontSize="lg">Gig Basics</Heading>
+        <Heading>Gig Basics</Heading>
         <Text as="i">Let devs know what you are working on</Text>
       </Container>
       <br />
 
       <Container
+      maxW="100%"
       >
         <Heading
           fontSize="md"

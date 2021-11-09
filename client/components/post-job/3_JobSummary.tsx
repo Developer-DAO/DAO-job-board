@@ -218,28 +218,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { FormData }
   }
 }
-
-// const InputSection = styled(ItemBox)`
-//   box-shadow: 0 0 0 0;
-//   text-align: left;
-//   background: none;
-// `;
-//
-// const InputTitle = styled(Title2)`
-//   margin: 0;
-// `;
-//
-// const FlexSection = styled(ItemBox)`
-//   display: flex;
-//   box-shadow: 0 0 0 0;
-//   text-align: left;
-//   background: none;
-// `;
-//
-// const ButtonSection = styled(ItemBox)`
-//   box-shadow: 0 0 0 0;
-//   background: none;
-// `;
-//
-// const CategoryList = styled(GridList)`
-// `;

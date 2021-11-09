@@ -176,8 +176,8 @@ export default function GigDetails({
         <br />
 
         <Heading
-          mb='2.5%'
-          mt='2.5%'
+          mb='1%'
+          mt='1%'
           color="black"
           fontSize="md"
           textAlign="left"
@@ -210,7 +210,7 @@ export default function GigDetails({
         <Text
           fontSize="xs"
           textAlign="left"
-          mb="2.5%"
+          mb="1%"
         >Defaults to remote if empty</Text>
         <Input
           borderColor="#e2e8f0"
