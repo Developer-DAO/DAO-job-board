@@ -76,6 +76,7 @@ export const ButtonOrange = ({children}) => {
     m="5px"
     w="auto"
     fontSize="14px"
+    ms="0"
     >
     {children}
   </Button>
