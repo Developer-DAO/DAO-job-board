@@ -1,7 +1,6 @@
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from "@chakra-ui/theme-tools"
 
-// 2. Update the breakpoints as key-value pairs
 const breakpoints = createBreakpoints({
   sm: "320px",
   md: "768px",
@@ -10,13 +9,14 @@ const breakpoints = createBreakpoints({
   "2xl": "1536px",
 })
 
-const config = {
+const config : ThemeConfig = {
   initialColorMode: "light",
   useSystemColorMode: false,
 }
 
 export const theme = extendTheme({
   config,
+  createBreakpoints,
   fonts: {
     heading:
       'InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
@@ -26,8 +26,9 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
+        initialColorMode: "light",
         bg: 'gray.50',
         color: 'black'
       },
     },
-  }, config, createBreakpoints});
+  }});

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { IconWrap } from "../../styles";
 
-import {ButtonBlack} from "../../styles/ui-components/Chakra-Button.tsx";
+import {ButtonBlack} from "../../styles/ui-components/Chakra-Button";
 import Icon from "../../styles/ui-components/Icon";
 
 export default function Navbar() {

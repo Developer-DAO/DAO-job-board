@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { GetStaticProps } from 'next'
 
 // UI & CSS
-import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button.tsx"
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
 
 import { Heading, Input, Textarea, Select, Container, Text, ButtonGroup } from "@chakra-ui/react";
 

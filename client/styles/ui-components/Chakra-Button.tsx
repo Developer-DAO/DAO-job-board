@@ -1,6 +1,11 @@
 import { Button, ButtonGroup } from "@chakra-ui/react"
 
-export const ButtonBlack = ({children, onClick}) => {
+type ChakraButtonProps = {
+  children?:React.ReactNode
+  onClick?: (event: React.MouseEvent) => void;
+}
+
+export const ButtonBlack = ({children, onClick}:ChakraButtonProps) => {
   return <Button
   size="sm"
   bgColor= "#000000"
@@ -13,7 +18,7 @@ export const ButtonBlack = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonGray = ({children, onClick}) => {
+export const ButtonGray = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     bgColor="#EDF2F7"
     textColor="black"
@@ -28,7 +33,7 @@ export const ButtonGray = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonGray2 = ({children, onClick}) => {
+export const ButtonGray2 = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#E2E9F0"
@@ -44,7 +49,7 @@ export const ButtonGray2 = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonGreen = ({children, onClick}) => {
+export const ButtonGreen = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#38A169"
@@ -60,7 +65,7 @@ export const ButtonGreen = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonRed = ({children, onClick}) => {
+export const ButtonRed = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#E2252B"
@@ -76,7 +81,7 @@ export const ButtonRed = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonOrange = ({children, onClick}) => {
+export const ButtonOrange = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#DD6B20"
@@ -92,14 +97,14 @@ export const ButtonOrange = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonBlue = ({children, onClick}) => {
+export const ButtonBlue = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#3B82F6"
     textColor="white"
     _hover={{bg: "#1D4ED8"}}
     m="5px"
-    ms="0px" 
+    ms="0px"
     w="auto"
     fontSize="14px"
     onClick={onClick}
@@ -108,7 +113,7 @@ export const ButtonBlue = ({children, onClick}) => {
   </Button>
 }
 
-export const ButtonBlue2 = ({children, onClick}) => {
+export const ButtonBlue2 = ({children, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#3182CE"

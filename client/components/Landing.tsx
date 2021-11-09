@@ -1,7 +1,7 @@
 import { Image, Heading, Container, Text, Link } from "@chakra-ui/react";
 
 
-import { ButtonRed, ButtonGreen, ButtonBlue } from "../styles/ui-components/Chakra-Button.tsx"
+import { ButtonRed, ButtonGreen, ButtonBlue } from "../styles/ui-components/Chakra-Button"
 
 export default function Landing() {
   return (

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
 // UI & CSS
-import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button.tsx"
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
 
 import { Heading, Input, Textarea, Select, Container, Text, ButtonGroup } from "@chakra-ui/react";
 
@@ -32,18 +32,18 @@ export default function JobBasics({
   } = formData;
 
   const nextPage = () => {
-    if (jobtitle.trim().length >= 10 && jobdescription.trim().length >= 100) {
+    if (jobtitle.length >= 10 && jobdescription.length >= 100) {
       goToDetails();
     } else if (!jobtitle && !jobdescription) {
 
       setWrongDescription(true);
       setWrongTitle(true)
 
-    } else if (jobtitle.trim().length >= 10 && jobdescription.trim().length < 100 || !jobdescription) {
+    } else if (jobtitle.length >= 10 && jobdescription.length < 100 || !jobdescription) {
       setWrongTitle(false);
       setWrongDescription(true);
 
-    } else if (jobdescription.trim().length >= 100 && jobtitle.trim().length < 10 || !jobtitle) {
+    } else if (jobdescription.length >= 100 && jobtitle.length < 10 || !jobtitle) {
       setWrongDescription(false);
       setWrongTitle(true)
     }
@@ -64,7 +64,9 @@ export default function JobBasics({
           as="i">Let us know what type of professional you are looking for</Text>
       </Container>
 
-      <Container>
+      <Container
+      maxW="100%"
+      >
         <Heading
           mb='5px'
           color="black"
@@ -72,7 +74,7 @@ export default function JobBasics({
           textAlign="left">Write a clear title for your job post</Heading>
         <Input
           _placeholder={{color:"black"}}
-          borderColor="#e2e8f0"
+          borderColor={`${!wrongTitle ? "#e2e8f0" : "red"}`}
           bgColor="white"
           color="black"
           _hover={{borderColor: '#97c0e6'}}
@@ -101,6 +103,7 @@ export default function JobBasics({
           textAlign="left">Pick a job position</Heading>
         <Select
           bg="white"
+          bgColor="white"
           borderColor="#e2e8f0"
           _hover={{borderColor: '#97c0e6'}}
           name='jobposition'
@@ -148,7 +151,7 @@ export default function JobBasics({
           fontSize="md"
           textAlign="left">Describe the job</Heading>
         <Textarea
-          borderColor="#e2e8f0"
+          borderColor={`${!wrongDescription ? "#e2e8f0" : "red"}`}
           bgColor="white"
           _hover={{borderColor: '#97c0e6'}}
           minLength={100}

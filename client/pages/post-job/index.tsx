@@ -13,6 +13,8 @@ type IFormData = {
   jobtype: string,
   jobposition: string,
   jobcompensation: string,
+  jobmax: string,
+  jobmin: string,
   jobequity: string,
   joblocation: string,
   jobcontact: string
@@ -25,6 +27,8 @@ export default function CreateProject() {
     jobtype: "",
     jobposition: "",
     jobcompensation: "",
+    jobmax: "",
+    jobmin: "",
     jobequity: "",
     joblocation: "",
     jobcontact: ""

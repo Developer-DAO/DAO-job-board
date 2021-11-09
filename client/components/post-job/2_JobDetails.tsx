@@ -1,18 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
-import styled from 'styled-components';
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange, ButtonBlack } from "../../styles/ui-components/Chakra-Button"
 
-import {BoxTop,
-  GridList,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Selector,
-  Small
-} from '../../styles';
+import {
+  Heading, SimpleGrid, Tag, Input, Textarea, Select, Container, Text, ButtonGroup, TagLabel,
+  TagCloseButton,
+  HStack
+} from "@chakra-ui/react";
 
 type JobDetailProps = {
   goToBasics: () => void;
@@ -40,7 +35,8 @@ export default function GigDetails({
   const {
     jobcategory,
     jobcompensation,
-    jobamount,
+    jobmin,
+    jobmax,
     jobequity,
     joblocation
   } = formData;
@@ -51,7 +47,7 @@ export default function GigDetails({
       goToSummary();
     } else {
 
-      
+
       console.log('You need to select at least 3 categories')
     }
   };
@@ -62,104 +58,155 @@ export default function GigDetails({
 
   return (
     <>
-      <BoxTop>
-        <h1>Job Details</h1>
-        <em>Define the job category, compensation, and location</em>
-      </BoxTop>
+      <Container
+        textAlign="center"
+        mt="2.5%"
+        mb="2.5%"
+      >   <Heading
+        color="black">Job Details</Heading>
 
-        <InputSection>
-          <InputTitle>Pick a job category</InputTitle>
-          <Small>Click on a category</Small>
+        <Text
+          color="black"
+          as="i">Define the job category, compensation, and location</Text>
+      </Container>
 
-          <CategorySection>
-            <Button styling='category'
-              onClick={selectCategory}
-            >
-              Category 1
-            </Button>
+      <Container
+        maxW="100%"
+      >
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Pick a job category</Heading>
+        <Text
+          fontSize="xs"
+          textAlign="left"
+        >Keywords help categorize your job post (pick at least 3)</Text>
 
-            <Button styling='category'
+        <HStack spacing={4} mt="2.5%" mb="2.5%">
+          <ButtonBlack>
+              Select Keywords
+          </ButtonBlack>
+          <Tag
             onClick={selectCategory}
-            >
-              Category 2
-            </Button>
+            size="md"
+            borderRadius="full"
+            variant="solid"
+            colorScheme="red"
+            color="black"
+          >
+            <TagLabel>Keyword</TagLabel>
+            <TagCloseButton />
+          </Tag>
+        </HStack>
 
-            <Button styling='category'
-            onClick={selectCategory}
-
-            >
-              Category 3
-            </Button>
-          </CategorySection>
-
-          <InputTitle>Explain compensation (optional)</InputTitle>
-          <Small>Recommended</Small>
-          <br/>
-          <Selector
-            name='jobcompensation'
-            value={jobcompensation}
-            onChange={e => onChange(e)}
-            >
-            <option value="" disabled selected hidden>Token / Currency</option>
-            <optgroup label="Crypto">
-              <option value="ETH">ETH</option>
-              <option value="SOL">SOL</option>
-              <option value="BTC">BTC</option>
-              <option value="USDT">USDT</option>
-            </optgroup>
-            <optgroup label="Fiat">
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="GBP">GBP</option>
-              <option value="CAD">CAD</option>
-              <option value="AUD">AUD</option>
-            </optgroup>
-          </Selector>
-
-          </InputSection>
-          <InputSection>
-
-          <Input
-            placeholder='Amount'
-            name='jobamount'
-            value={jobamount}
-            onChange={e => onChange(e)}
-            type='number'
-          />
-
-          </InputSection>
-          <br/>
-          <InputSection>
-
-          <div>
-          <InputTitle>Do you offer equity? (optional)</InputTitle>
-          </div>
-
-          <br/>
-
-            <Selector
-              onChange={e => onChange(e)}
-              value={jobequity}
-              name='jobequity'
-            >
-            <option value="" disabled selected hidden>Equity Range</option>
-            <option value="0.01-1%">0.01-1%</option>
-            <option value="1%-2%">1%-2%</option>
-            <option value="2%-5%">2%-5%</option>
-            <option value="+5%">+5%</option>
-          </Selector>
-
-          <br/>
-
-        </InputSection>
-
-        <InputSection>
-
-        <InputTitle>Location (optional)</InputTitle>
-        <Small>Will default to Remote if empty</Small>
-        <br/>
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Explain compensation (optional)</Heading>
+        <Text
+          fontSize="xs"
+          textAlign="left"
+          mb="2.5%"
+        >Jobs with compensation info get more applications</Text>
+        <Select
+          bg="white"
+          bgColor="white"
+          borderColor="#e2e8f0"
+          _hover={{ borderColor: '#97c0e6' }}
+          name='jobcompensation'
+          value={jobcompensation}
+          onChange={e => onChange(e)}
+        >
+          <option value="" disabled selected hidden>Token / Currency</option>
+          <optgroup label="Crypto">
+            <option value="ETH">ETH</option>
+            <option value="SOL">SOL</option>
+            <option value="BTC">BTC</option>
+            <option value="USDT">USDT</option>
+          </optgroup>
+          <optgroup label="Fiat">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+          </optgroup>
+        </Select>
+        <br />
         <Input
-          style={{width: '50%'}}
+          borderColor="#e2e8f0"
+          bgColor="white"
+          _hover={{ borderColor: '#97c0e6' }}
+          _placeholder={{ color: "black" }}
+          w="50%"
+          placeholder='Min'
+          name='jobmin'
+          value={jobmin}
+          onChange={e => onChange(e)}
+          type='number'
+        />
+
+        <Input
+          borderColor="#e2e8f0"
+          bgColor="white"
+          _hover={{ borderColor: '#97c0e6' }}
+          _placeholder={{ color: "black" }}
+          w="50%"
+          placeholder='Max'
+          name='jobmax'
+          value={jobmax}
+          onChange={e => onChange(e)}
+          type='number'
+        />
+
+        <br />
+
+        <Heading
+          mb='2.5%'
+          mt='2.5%'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Do you offer equity? (optional)</Heading>
+
+        <Select
+          bg="white"
+          bgColor="white"
+          borderColor="#e2e8f0"
+          _hover={{ borderColor: '#97c0e6' }}
+          onChange={e => onChange(e)}
+          value={jobequity}
+          name='jobequity'
+        >
+          <option value="" disabled selected hidden>Equity Range</option>
+          <option value="0.01-1%">0.01-1%</option>
+          <option value="1%-2%">1%-2%</option>
+          <option value="2%-5%">2%-5%</option>
+          <option value="+5%">+5%</option>
+        </Select>
+
+        <br />
+
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Location (optional)</Heading>
+        <Text
+          fontSize="xs"
+          textAlign="left"
+          mb="2.5%"
+        >Defaults to remote if empty</Text>
+        <Input
+          borderColor="#e2e8f0"
+          bgColor="white"
+          _hover={{ borderColor: '#97c0e6' }}
+          _placeholder={{ color: "black" }}
           type='string'
           onChange={e => onChange(e)}
           value={joblocation}
@@ -167,43 +214,47 @@ export default function GigDetails({
           placeholder='e.g California, US'
         />
 
-        </InputSection>
-
-      <ButtonSection>
-        <Button
-          styling='positive'
+      </Container>
+      <br />
+      <ButtonGroup
+        display="flex"
+        flexDirection="column"
+        m="5px"
+        padding="1px"
+      >
+        <ButtonGreen
           onClick={nextPage}
-        >Continue</Button>
-        <Button
+        >Continue</ButtonGreen>
+        <ButtonOrange
           styling='negative'
           onClick={goToBasics}
-        >Back</Button>
-    </ButtonSection>
-  </>
+        >Back</ButtonOrange>
+      </ButtonGroup>
+    </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-   return {
-      props: { FormData }
-   }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData }
+  }
 }
 
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const CategorySection = styled(GridList)`
-
-`;
+// const InputTitle = styled(Title2)`
+//   font-size: 1rem;
+//   text-align: left;
+// `;
+//
+// const InputSection = styled(ItemBox)`
+//   box-shadow: 0 0 0 0;
+//   background: none;
+// `;
+//
+// const ButtonSection = styled(ItemBox)`
+//   box-shadow: 0 0 0 0;
+//   background: none;
+// `;
+//
+// const CategorySection = styled(GridList)`
+//
+// `;
