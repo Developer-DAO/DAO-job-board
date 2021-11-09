@@ -53,6 +53,9 @@ onChange}:GigBasicProps) {
           textAlign="left"
           >Write a name for your gig</Heading>
           <Input
+            _hover={{borderColor: '#97c0e6'}}
+            bg="white"
+            color="black"
             placeholder='e.g., Smart Contract Developer for an NFT Game'
             name='gigname'
             value={gigname}
@@ -68,6 +71,9 @@ onChange}:GigBasicProps) {
             fontSize="md"
             textAlign="left">Describe the gig clearly</Heading>
           <Textarea
+            _hover={{borderColor: '#97c0e6'}}
+            bg="white"
+            color="black"
             placeholder='e.g., I am building an NFT game and need smart contract developers with experience in Solidity for a few weeks...'
             name='gigdescription'
             value={gigdescription}
@@ -85,13 +91,16 @@ onChange}:GigBasicProps) {
           fontSize="md"
           textAlign="left">Does the project have a website? {'(optional)'}</Heading>
           <Input
-            color="gray.300"
+            _hover={{borderColor: '#97c0e6'}}
+            bg="white"
+            color="black"
             placeholder='e.g., gigwebsite.com'
             name='gigwebsite'
             value={gigwebsite}
             onChange={e => onChange(e)}
           />
 
+          <br/>
           <br/>
 
           <Heading
@@ -100,6 +109,9 @@ onChange}:GigBasicProps) {
           fontSize="md"
           textAlign="left">Does the project have a repo? {'(optional)'}</Heading>
           <Input
+            _hover={{borderColor: '#97c0e6'}}
+            bg="white"
+            color="black"
             placeholder='e.g., github.com/gigname/gigrepo'
             name='gigrepo'
             value={gigrepo}

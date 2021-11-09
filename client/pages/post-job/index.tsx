@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useRouter} from "next/router";
-import { Box } from "../../styles";
+import { Box } from "@chakra-ui/react";
 
 //The number in the file names tell you which step in the form they are
 import JobBasics from "../../components/post-job/1_JobBasics";
@@ -78,7 +78,16 @@ export default function CreateProject() {
   }
 
   return (
-      <Box>
+      <Box
+      bg={{lg: "#ffffff", sm:"none"}}
+      width={{"2xl": "70%", lg: "70%", md: "90%", sm: "100%"}}
+      margin="auto"
+      boxSizing="border-box"
+      boxShadow={{lg: "0px 0px 2px 4px #e2e8f0", md: "none"}}
+      p="0.5%"
+      borderRadius="18px"
+      mt="2.5%"
+      >
         <form>
           {basicsPage ? (
             <JobBasics

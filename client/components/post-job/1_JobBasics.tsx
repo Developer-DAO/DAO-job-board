@@ -73,6 +73,7 @@ export default function JobBasics({
         <Input
           _placeholder={{color:"black"}}
           borderColor="#e2e8f0"
+          bgColor="white"
           color="black"
           _hover={{borderColor: '#97c0e6'}}
           minLength={10}
@@ -148,6 +149,7 @@ export default function JobBasics({
           textAlign="left">Describe the job</Heading>
         <Textarea
           borderColor="#e2e8f0"
+          bgColor="white"
           _hover={{borderColor: '#97c0e6'}}
           minLength={100}
           _placeholder={{color:"black"}}
@@ -177,6 +179,7 @@ export default function JobBasics({
       display="flex"
       flexDirection="column"
       m="5px"
+      padding="1px"
       >
         <ButtonGreen
           onClick={nextPage}
