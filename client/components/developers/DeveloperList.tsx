@@ -1,16 +1,29 @@
 import styled from "styled-components";
 
-import { ListWrap, GridList, ListTop } from "../../styles";
+import {Heading, Container, Grid, Text, Link} from "@chakra-ui/react"
 
 import DeveloperItem from "./DeveloperItem";
 
 export default function DeveloperList() {
   return (
-    <ListWrap>
-      <ListTop>Dev List</ListTop>
-      <GridList>
+    <Container
+      maxW="100%"
+      textAlign="center"
+    >
+      <Heading>Dev List</Heading>
+      <Grid
+      templateColumns={{lg:"repeat(5, 2fr)", md: "repeat(3, 2fr)", sm: "repeat(2, 1fr)"}}
+      gap="5"
+      mx="auto"
+      maxW="100%"
+      py={3}
+      px={5}
+      >
         <DeveloperItem />
-      </GridList>
-    </ListWrap>
+        <DeveloperItem />
+        <DeveloperItem />
+
+      </Grid>
+    </Container>
   );
 }

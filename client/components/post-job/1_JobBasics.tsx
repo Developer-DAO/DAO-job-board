@@ -199,31 +199,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { FormData }
   }
 }
-
-// const Small = styled.small`
-//   text-align: left;
-//   font-size: 0.785rem;
-// `;
-//
-// const RedSmall = styled.small`
-//   text-align: left;
-//   font-size: 1rem;
-//   color: red;
-//   font-weight: bold;
-// `;
-//
-//
-// const InputTitle = styled(Title2)`
-//   font-size: 1rem;
-//   text-align: left;
-// `;
-//
-// const InputSection = styled(ItemBox)`
-//   box-shadow: 0 0 0 0;
-//   background: none;
-// `;
-//
-// const ButtonSection = styled(ItemBox)`
-// box-shadow: 0 0 0 0;
-// background: none;
-// `;

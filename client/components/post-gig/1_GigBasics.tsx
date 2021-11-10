@@ -64,7 +64,7 @@ export default function GigBasics({
       <br />
 
       <Container
-      maxW="100%"
+        maxW="100%"
       >
         <Heading
           fontSize="md"

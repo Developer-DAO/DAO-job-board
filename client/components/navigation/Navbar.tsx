@@ -7,12 +7,14 @@ import {ButtonBlack} from "../../styles/ui-components/Chakra-Button";
 function Navbar() {
 
   return (
-    <chakra.nav borderBottom="1px solid" borderColor="gray.200">
+    <chakra.nav
+    borderBottom="1px solid" borderColor="gray.200"
+    maxW={{lg: "70%", md: "100%"}}
+    >
       <Flex
         justify="space-between"
         align="center"
         mx="auto"
-        maxW="70%"
         minW="xl"
         py={3}
         px={5}
@@ -39,7 +41,7 @@ function Navbar() {
             </chakra.span>
           </HStack>
         </Link>
-        <HStack spacing={{ base: 3, sm: 10 }}>
+        <HStack spacing={{ base: 2, sm: 7 }}>
         <Link
           color="black"
           p="0.45rem"

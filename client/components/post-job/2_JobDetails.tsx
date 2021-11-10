@@ -236,7 +236,6 @@ export default function GigDetails({
           onClick={nextPage}
         >Continue</ButtonGreen>
         <ButtonOrange
-          styling='negative'
           onClick={goToBasics}
         >Back</ButtonOrange>
       </ButtonGroup>
@@ -249,22 +248,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { FormData }
   }
 }
-
-// const InputTitle = styled(Title2)`
-//   font-size: 1rem;
-//   text-align: left;
-// `;
-//
-// const InputSection = styled(ItemBox)`
-//   box-shadow: 0 0 0 0;
-//   background: none;
-// `;
-//
-// const ButtonSection = styled(ItemBox)`
-//   box-shadow: 0 0 0 0;
-//   background: none;
-// `;
-//
-// const CategorySection = styled(GridList)`
-//
-// `;
