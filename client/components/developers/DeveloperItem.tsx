@@ -1,7 +1,5 @@
 //CSS and UI
-import styled from "styled-components";
-
-import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag} from "@chakra-ui/react"
+import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag, TagLabel} from "@chakra-ui/react"
 
 export default function DeveloperItem() {
   return (
@@ -18,84 +16,54 @@ export default function DeveloperItem() {
         <Link
         href="/developers/developer1"
         _hover={{textDecoration: "none"}}
+        _focus={{textDecoration: "none", border:"none"}}
         >
             <Heading
               size="md"
+              mb="5px"
             >Developer #1</Heading>
             <Container
-            w="6rem"
-            h="6rem"
-            border="2px solid black"
             m="auto"
-            borderRadius="180px"
+            w="fit-content"
             >
               <Image
-                w="100%"
-                h="100%"
-                borderRadius="full"
-                src="/DevDAO.png" />
+              w="6rem"
+              h="6rem"
+              mb="2.5px"
+              borderRadius="full"
+              src="/DevDAO.png" />
             </Container>
-          <Text>Available</Text>
-        </Link>
+          <Text
+          as="i"
+          mb="5px"
+          >Available</Text>
+        </Link >
 
         <SimpleGrid
         m="auto"
+        mt="5px"
         columns={3}
-        spacing={2}
+        spacing={1}
         w="100%">
           <Tag
-          size="lg"
+          size="md"
           borderRadius="8px"
-          variant="solid"
           bgColor="#E2E9F0"
           color="black"
-          >Web3</Tag>
+          ><TagLabel m="auto">Web3</TagLabel></Tag>
           <Tag
-          size="lg"
+          size="md"
           borderRadius="8px"
-          variant="solid"
           bgColor="#E2E9F0"
           color="black"
-          >Solidity</Tag>
+          ><TagLabel m="auto">Solidity</TagLabel></Tag>
           <Tag
-          size="lg"
+          size="md"
           borderRadius="8px"
-          variant="solid"
           bgColor="#E2E9F0"
           color="black"
-          >Rust</Tag>
+          ><TagLabel m="auto">Rust</TagLabel></Tag>
         </SimpleGrid>
       </Container>
   );
 }
-
-// const DeveloperSkills = styled(GridList)`
-//   grid-template-columns: repeat(3, 2fr);
-//   grid-auto-rows: 2.5rem;
-//   grid-gap: 0px;
-//   margin-top: 5px;
-//   height: fit-content;
-//   overflow: visible;
-//
-//   @media (max-width: 650px) {
-//     grid-template-columns: repeat(2, 2fr);
-//   }
-// `;
-//
-// const ItemTop = styled.div``;
-//
-// const SkillButton = styled(Button)`
-//   font-size: 0.7rem;
-//   margin: 1px;
-//   border: 0;
-//   border-radius: 8px;
-// `;
-//
-// const DeveloperItemStatus = styled.em`
-//   box-sizing: border-box;
-//   border-radius: 12px;
-//   width: min-content;
-//   padding: 1px;
-//   margin-left: auto;
-//   margin-right: auto;
-// `;

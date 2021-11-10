@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { chakra, Link, Flex, HStack, Image } from '@chakra-ui/react';
+import { chakra, Link, LinkOverlay, Flex, HStack, Image } from '@chakra-ui/react';
 
 import {ButtonBlack} from "../../styles/ui-components/Chakra-Button";
 
@@ -8,18 +8,22 @@ function Navbar() {
 
   return (
     <chakra.nav
-    borderBottom="1px solid" borderColor="gray.200"
-    maxW={{lg: "70%", md: "100%"}}
+    borderBottom="1px solid"
+    borderColor="gray.200"
     >
       <Flex
         justify="space-between"
+        maxW={{lg: "70%", md: "100%"}}
         align="center"
         mx="auto"
         minW="xl"
         py={3}
         px={5}
       >
-        <Link href="/" passHref>
+        <Link
+        _hover={{textDecoration: "none"}}
+        _focus={{textDecoration: "none", border:"none"}}
+         href="/">
           <HStack
           as="a"
           display="flex"
@@ -41,6 +45,7 @@ function Navbar() {
             </chakra.span>
           </HStack>
         </Link>
+
         <HStack spacing={{ base: 2, sm: 7 }}>
         <Link
           color="black"
@@ -49,6 +54,7 @@ function Navbar() {
           cursor="pointer"
           textDecoration="none"
           _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
           borderRadius="18px"
           href="/gigs">Gigs</Link>
         <Link
@@ -59,6 +65,7 @@ function Navbar() {
           textDecoration="none"
           borderRadius="18px"
           _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
           href="/jobs">Jobs</Link>
 
         <Link
@@ -68,6 +75,7 @@ function Navbar() {
           cursor="pointer"
           textDecoration="none"
           _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
           borderRadius="18px" href="/developers">Devs</Link>
         <Link
           color="black"
@@ -76,6 +84,7 @@ function Navbar() {
           cursor="pointer"
           textDecoration="none"
           _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
           borderRadius="18px"
           href="/companies">Companies</Link>
         <Link
@@ -85,7 +94,7 @@ function Navbar() {
           cursor="pointer"
           textDecoration="none"
           _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-          _focus={{}}
+          _focus={{textDecoration: "none", border:"none"}}
           borderRadius="18px"
           href="/about">About</Link>
         </HStack>
