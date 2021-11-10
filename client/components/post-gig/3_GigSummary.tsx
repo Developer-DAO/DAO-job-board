@@ -48,7 +48,6 @@ export default function GigSummary({
         >Gig Basics</Heading>
         <ButtonGray
           onClick={goToBasics}
-          styling='normal'
         >Edit</ButtonGray>
       </Container>
 
@@ -85,7 +84,6 @@ export default function GigSummary({
           Gig Details</Heading>
         <ButtonGray
           onClick={goToDetails}
-          styling='normal'
         >Edit</ButtonGray>
       </Container>
 
