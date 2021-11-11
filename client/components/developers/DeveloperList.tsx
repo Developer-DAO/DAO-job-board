@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import {Heading, Container, Grid, Text, Link} from "@chakra-ui/react"
 
 import DeveloperItem from "./DeveloperItem";
@@ -12,7 +10,7 @@ export default function DeveloperList() {
     >
       <Heading>Dev List</Heading>
       <Grid
-      templateColumns={{"2xl":"repeat(5, 2fr)", lg:"repeat(4, 2fr)", md: "repeat(3, 2fr)", sm: "repeat(2, 1fr)"}}
+      templateColumns={{"2xl":"repeat(4, 2fr)", md: "repeat(2, 2fr)", sm: "repeat(2, 1fr)"}}
       gap="3"
       mx="auto"
       maxW="100%"

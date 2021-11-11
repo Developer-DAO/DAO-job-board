@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next';
 import { useState } from 'react';
 
 // UI & CSS
-import styled from 'styled-components'
 import { ButtonBlue, ButtonGray, ButtonOrange } from '../../styles/ui-components/Chakra-Button'
 import {
   Heading, Tag, Input, Container, Text, ButtonGroup, TagLabel, TagCloseButton, HStack

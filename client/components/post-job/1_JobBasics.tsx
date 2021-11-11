@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styled from 'styled-components'
 import { GetStaticProps } from 'next'
 
 // UI & CSS

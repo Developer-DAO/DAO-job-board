@@ -24,7 +24,7 @@ export default function GigItem() {
 }
 
 const GigItemBox = styled(ItemBox)`
-  width: 100%;
+  width: auto;
   border-radius: 0px;
 `;
 

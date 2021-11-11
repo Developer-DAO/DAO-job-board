@@ -1,6 +1,8 @@
 //CSS and UI
 import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag, TagLabel} from "@chakra-ui/react"
 
+import {ButtonBlue} from "../../styles/ui-components/Chakra-Button";
+
 export default function DeveloperItem() {
   return (
       <Container
@@ -31,6 +33,7 @@ export default function DeveloperItem() {
               h="6rem"
               mb="2.5px"
               borderRadius="full"
+              border="1px solid black"
               src="/DevDAO.png" />
             </Container>
           <Text
@@ -64,6 +67,14 @@ export default function DeveloperItem() {
           color="black"
           ><TagLabel m="auto">Rust</TagLabel></Tag>
         </SimpleGrid>
+
+        <Container
+         mt="2.5%"
+         mb="2.5%">
+          <ButtonBlue>
+            See Profile
+          </ButtonBlue>
+        </Container>
       </Container>
   );
 }
