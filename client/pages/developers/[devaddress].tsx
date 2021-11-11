@@ -13,7 +13,7 @@ export default function DeveloperPage() {
     <Box
       display="flex"
       bg={{lg: "#ffffff", sm:"none"}}
-      direction={{sm: "column"}}
+      flexDirection={{lg: "row", md:"row", sm: "column"}}
       width={{"2xl": "70%", md: "90%", sm: "100%"}}
       margin="auto"
       boxSizing="border-box"
@@ -59,16 +59,19 @@ export default function DeveloperPage() {
       >
         <Container
           p="0px"
-          m="0"
+          mt="5px"
+          maxW={{sm: "100%"}}
           display="inline-box"
         >
           <Heading
             fontSize="1.5rem"
             w="fit-content"
+            m={{lg: "0px", md: "0px", sm: "auto"}}
           >
             New Dev<span style={{fontWeight: "100"}}>{' '}- Developer</span></Heading>
           <Text
           mb="10px"
+          textAlign={{lg: "left", md: "left", sm: "center"}}
           >
             @devusername
           </Text>
@@ -77,9 +80,12 @@ export default function DeveloperPage() {
         <Container
           p="0px"
           m="0"
+          maxW={{lg: "auto", md:"auto", sm: "100%"}}
           display="inline-box"
         >
-          <Text>Here goes a brief description of the user </Text>
+          <Text
+          textAlign={{lg: "left", md: "left", sm: "center"}}
+          >Here goes a brief description of the user </Text>
         </Container>
 
 

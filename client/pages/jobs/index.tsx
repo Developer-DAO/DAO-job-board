@@ -1,16 +1,19 @@
 import JobFilter from "../../components/jobs/JobFilter";
 import JobList from "../../components/jobs/JobList";
-import { Title, Description } from "../../styles";
+
+import {Heading, Container, Text} from "@chakra-ui/react"
 
 export default function Index() {
   return (
-    <>
-      <Title>Jobs</Title>
-      <Description>
+    <Container
+    maxW="auto"
+    textAlign="center">
+      <Heading>Jobs</Heading>
+      <Text as="i">
         Curated Web3 and blockchain jobs at companies or startups.
-      </Description>
+      </Text>
       <JobFilter />
       <JobList />
-    </>
+    </Container>
   );
 }

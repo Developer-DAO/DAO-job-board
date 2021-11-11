@@ -1,68 +1,52 @@
 import styled from "styled-components";
 
-import { GridList, ItemBox, Title, Title2 } from "../../styles";
+import {Box, Heading, Container, SimpleGrid, Link, Flex, Text, Tag, TagLabel} from "@chakra-ui/react"
 
 export default function GigItem() {
   return (
-    <GigItemBox>
-      <GigItemGrid>
-        <GigLink>
-          <GigTitle>Gig Example</GigTitle>
-        </GigLink>
-        <GigItemElement>In Progress</GigItemElement>
-      </GigItemGrid>
-      <GigLink>
-        <GigName>Gig Creator</GigName>
-      </GigLink>
-      <GigItemGrid>
-        <GigItemElement>1 ETH</GigItemElement>
-        <GigItemElement>3 Days</GigItemElement>
-        <GigItemElement>Applicants</GigItemElement>
-      </GigItemGrid>
-    </GigItemBox>
+    <Box
+      borderRadius="0px"
+      boxSizing="border-box"
+      boxShadow="0px 0px 1px 1px #e2e8f0"
+      bg="#ffffff"
+    >
+      <SimpleGrid
+      m="auto"
+      mt="1.5%"
+      ml="2%"
+      columns={3}
+      spacing={0}
+      gap={0}
+      w="100%">
+        <Link _hover={{textDecoration: "none"}}>
+          <Heading
+          size="md"
+          >Gig Title</Heading>
+        </Link>
+        <Text>In Progress</Text>
+      </SimpleGrid>
+
+      <Link _hover={{textDecoration: "none"}}>
+        <Heading
+        size="sm"
+        mb="2.5%"
+        mt="2.5%"
+        ml="2%"
+        >Gig Creator</Heading>
+      </Link>
+
+      <SimpleGrid
+      m="auto"
+      mt="5px"
+      mb="1.5%"
+      ml="2%"
+      columns={3}
+      spacing={1}
+      w="100%">
+        <Text>1 ETH</Text>
+        <Text>3 Days</Text>
+        <Text># Applicants</Text>
+      </SimpleGrid>
+    </Box>
   );
 }
-
-const GigItemBox = styled(ItemBox)`
-  width: auto;
-  border-radius: 0px;
-`;
-
-const GigLink = styled.a`
-  text-decoration: none;
-  color: inherit;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const GigTitle = styled(Title)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const GigName = styled(Title2)`
-  font-size: 0.8rem;
-  text-align: left;
-`;
-
-const GigItemElement = styled.p`
-  text-align: left;
-  font-size: 0.785rem;
-`;
-
-const GigItemGrid = styled(GridList)`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 90%;
-  margin-bottom: 2.5%;
-  font-size: 14px;
-
-  @media (max-width: 650px) {
-    grid-template-columns: repeat(4, 1fr);
-    width: 90%;
-    margin-left: 2.5%;
-    font-size: 10px;
-  }
-`;

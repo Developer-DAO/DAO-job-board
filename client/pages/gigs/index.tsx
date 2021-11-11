@@ -1,6 +1,5 @@
 import GigFilter from "../../components/gigs/GigFilter";
 import GigItem from "../../components/gigs/GigItem";
-import GigList from "../../components/gigs/GigList";
 
 import {Box, Heading, Container, Flex, Text, Tag, TagLabel} from "@chakra-ui/react"
 
@@ -16,30 +15,42 @@ export default function Index() {
     <Box
       display="flex"
       bg="gray.50"
-      direction={{sm: "column"}}
-      width={{"2xl": "70%", md: "90%", sm: "100%"}}
+      flexDirection={{lg: "row", md:"row", sm: "column"}}
+      maxW={{lg: "70%", md: "100%"}}
       margin="auto"
       boxSizing="border-box"
       boxShadow="none"
       p="0.5%"
-      mt="2.5%"
+      mt="1.5%"
     >
-      <GigFilter
-        flex={1}
-      />
-      <Flex
+      <Box flex={1}>
+        <GigFilter
+        />
+      </Box>
+      <Box
+        flex={3}
+        w="auto"
+        display="flex"
         bg="none"
-        direction="column"
-        width="100%"
-        margin="auto"
-        boxSizing="border-box"
+        flexDirection="column"
         boxShadow="none"
-        flex={2}
       >
         <GigItem />
         <GigItem />
         <GigItem />
-      </Flex>
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+      </Box>
     </Box>
   </>
   );

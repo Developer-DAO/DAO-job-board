@@ -4,43 +4,37 @@ export default function GigFilter() {
   return (
     <Box
       position="fixed"
-      w={{lg: "20%", sm:"25%"}}
+      maxW={{lg: "20%", md: "20%", sm:"25%"}}
       borderRadius="0"
-      border=""
       bg="none"
       padding="1%"
       textAlign="center"
     >
-      <Container mb="5px">
-        Filter Gigs
-      </Container>
-      <Input
-        h="1rem"
-        w="90%"
-        mb="5%"
-        placeholder='Search timeframe, reward, skills needed, etc.'
-      >
-      </Input>
-      <Divider />
-      <Text
-        mt="5px"
-        mb="5px"
-      >Token{' '}</Text>
-      <Select>
-        <option>ETH</option>
-        <option>USDT</option>
-      </Select>
+        <Container mb="5px">
+          Filter by Name
+        </Container>
+        <Input
+          borderColor="#e2e8f0"
+          bgColor="white"
+          _hover={{ borderColor: '#97c0e6' }}
+          placeholder='e.g. startup, side project, etc.'
+        />
+        <Divider />
+        <Text
+          mt="5px"
+          mb="5px"
+        >By Reward</Text>
+        <Select
+        bgColor="white"
+        >
+          <option>ETH</option>
+          <option>USDT</option>
+        </Select>
+        <Text
+          mt="5px"
+          mb="5px"
+        >By Keyword</Text>
+
     </Box>
   );
 }
-
-// const GigBoxTop = styled(BoxTop)`
-//   font-size: 1rem;
-//   font-weight: bold;
-//   margin-bottom: 5px;
-// `;
-//
-// const GigFilterInput = styled(Input)`
-//   height: 1rem;
-//   width: 90%;
-// `;
