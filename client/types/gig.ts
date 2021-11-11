@@ -5,42 +5,40 @@ import {
   PostingStatus,
   PrimaryKey,
   WithTimestamp,
-} from "./common.model";
+} from "./common";
 
-export type Job = PrimaryKey & {
-  company_id: string;
+export type Gig = PrimaryKey & {
   title: string;
   description: string;
   position?: string;
-  opportunity?: string;
   featured_photo_url?: string;
+  experience_level?: string;
   status?: PostingStatus;
 } & WithTimestamp &
   CreatedBy;
 
-export type JobForm = Pick<
-  Job,
-  | "company_id"
-  | "description"
+export type GigForm = Pick<
+  Gig,
   | "title"
+  | "description"
   | "position"
-  | "opportunity"
   | "featured_photo_url"
+  | "experience_level"
   | "status"
 >;
 
-export type JobCategory = {
-  job_id: string;
+export type GigCategory = {
+  gig_id: string;
   category_id: string;
 } & WithTimestamp;
 
-export type JobApplication = PrimaryKey & {
-  job_id: string;
+export type GigApplication = PrimaryKey & {
+  gig_id: string;
 } & Application &
   WithTimestamp &
   CreatedBy;
 
-export type JobApplicationForm = Pick<
-  JobApplication,
-  "job_id" | "pitch" | "content" | "status"
+export type GigApplicationForm = Pick<
+  GigApplication,
+  "gig_id" | "pitch" | "content" | "status"
 >;

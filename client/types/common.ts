@@ -36,16 +36,27 @@ export type Application = {
  *
  * Default status should always be "Draft"
  */
-export type ApplicationStatus =
-  | "Draft"
-  | "Pending"
-  | "Viewed"
-  | "Ready for Interview"
-  | "Done";
+export enum ApplicationStatus {
+  Draft = "Draft",
+
+  Pending = "Pending",
+
+  Viewed = "Viewed",
+
+  ReadyForInterView = "Ready for Interview",
+
+  Done = "Done",
+}
 
 /**
  * Status for job/gig postings.
  *
  * Default status should always be "Draft"
  */
-export type PostingStatus = "Draft" | "Published" | "Closed";
+export enum PostingStatus {
+  Draft = "Draft",
+
+  Published = "Published",
+
+  Closed = "Closed",
+}

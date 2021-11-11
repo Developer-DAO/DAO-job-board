@@ -1,5 +1,5 @@
-import { Table } from "../models/common.model";
 import { supabase } from "../common/supabase";
+import { Table } from "../types";
 import { useLogger } from "./useLogger";
 
 /**
@@ -15,20 +15,20 @@ import { useLogger } from "./useLogger";
  *     setUsers(users);
  *   });
  * }, []);
- * 
+ *
  * @author [CarloMiguelDy 🚀](https://twitter.com/CarloMiguelDy)
  */
 export const useSupabase = <T>(table: Table) => {
   const logger = useLogger(`useSupabase-${table}`);
 
   /**
-   * @description 
+   * @description
    * Fetch all records from a table and optionally specify the columns.
    *
    * @param columns
    * Strictly a comma-separated attributes, it sort of creates a similar query experience with GraphQL.
-   * Read more about querying using PostgREST from the official [Supabase docs](https://supabase.io/docs/reference/javascript/select) 
-   * 
+   * Read more about querying using PostgREST from the official [Supabase docs](https://supabase.io/docs/reference/javascript/select)
+   *
    * @example
    * const userRepository = useSupabase<User>("users");
    * const [users, setUsers] = useState<User[]>([]);
@@ -68,8 +68,8 @@ export const useSupabase = <T>(table: Table) => {
    * The primary key of a record in the table. This refers to an existing record in the database.
    * @param columns
    * Strictly a comma-separated attributes, it sort of creates a similar query experience with GraphQL.
-   * Read more about querying using PostgREST from the official [Supabase docs](https://supabase.io/docs/reference/javascript/select) 
-   * 
+   * Read more about querying using PostgREST from the official [Supabase docs](https://supabase.io/docs/reference/javascript/select)
+   *
    * @example
    * const userRepository = useSupabase<User>("users");
    * const [user, setUser] = useState<User[]>([]);
@@ -110,10 +110,10 @@ export const useSupabase = <T>(table: Table) => {
   /**
    * @description Creates a new record in the specified table.
    *
-   * @param payload 
-   * The request payload where should match the Form type of a data model. 
+   * @param payload
+   * The request payload where should match the Form type of a data model.
    * For exampl
-   * 
+   *
    * @example
    * const userRepository = useSupabase<User>("users");
    * const [user, setUser] = useState<User[]>([]);
@@ -149,16 +149,16 @@ export const useSupabase = <T>(table: Table) => {
   }
 
   /**
-   * @description 
-   * Partially/completely update an existing record in the 
+   * @description
+   * Partially/completely update an existing record in the
    * specified table that matches an ID.
    *
-   * @param id 
+   * @param id
    * The primary key of a record in the table
-   * @param payload 
-   * An object request payload where it matches the 
+   * @param payload
+   * An object request payload where it matches the
    * given type e.g. `User`, `Job`, `Gig`
-   * 
+   *
    * @example
    * const userRepository = useSupabase<User>("users");
    * const [user, setUser] = useState<User[]>([]);
@@ -210,10 +210,10 @@ export const useSupabase = <T>(table: Table) => {
   }
 
   /**
-   * @description 
+   * @description
    * Soft deletes a record that matches the given ID in a table.
-   * 
-   * @param id 
+   *
+   * @param id
    * The primary key of a record in the table
    *
    * @example
@@ -223,10 +223,10 @@ export const useSupabase = <T>(table: Table) => {
    * useEffect(() => {
    *   softDeleteUser()
    * }, []);
-   * 
+   *
    * async function softDeleteUser() {
    *    await userRepository.softDelete(user.id)
-   * 
+   *
    *    console.log('User soft deleted!')
    * }
    */

@@ -1,4 +1,4 @@
-import { CreatedBy, PrimaryKey, WithTimestamp } from "./common.model";
+import { CreatedBy, PrimaryKey, WithTimestamp } from "./common";
 
 /**
  * Add more table names when necessary.

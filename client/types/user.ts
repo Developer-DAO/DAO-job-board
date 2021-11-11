@@ -1,4 +1,4 @@
-import { PrimaryKey, WithTimestamp } from "./common.model";
+import { PrimaryKey, WithTimestamp } from "./common";
 
 export type User = PrimaryKey & {
   avatar_url?: string;

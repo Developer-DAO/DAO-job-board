@@ -1,4 +1,4 @@
-import { CreatedBy, PrimaryKey, WithTimestamp } from "./common.model";
+import { CreatedBy, PrimaryKey, WithTimestamp } from "./common";
 
 export type Company = PrimaryKey & {
   name: string;
