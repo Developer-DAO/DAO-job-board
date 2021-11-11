@@ -16,7 +16,7 @@ export default function GigItem() {
       ml="2%"
       columns={3}
       spacing={0}
-      gap={0}
+      gap={1}
       w="100%">
         <Link _hover={{textDecoration: "none"}}>
           <Heading

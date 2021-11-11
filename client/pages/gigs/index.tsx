@@ -15,15 +15,16 @@ export default function Index() {
     <Box
       display="flex"
       bg="gray.50"
-      flexDirection={{lg: "row", md:"row", sm: "column"}}
+      flexDirection={{lg: "row", md:"row",sm: "column"}}
       maxW={{lg: "70%", md: "100%"}}
+      alignContent="space-between"
       margin="auto"
       boxSizing="border-box"
       boxShadow="none"
       p="0.5%"
       mt="1.5%"
     >
-      <Box flex={1}>
+      <Box flex={1} m={{lg: "0", md: "0", sm:"auto"}}>
         <GigFilter
         />
       </Box>

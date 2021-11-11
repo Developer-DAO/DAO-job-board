@@ -7,7 +7,10 @@ import { Box } from "../../styles";
 function JobList() {
   return (
     <ListBox>
-      <JobItem></JobItem>
+      <JobItem/>
+      <JobItem/>
+      <JobItem/>
+      <JobItem/>
     </ListBox>
   );
 }

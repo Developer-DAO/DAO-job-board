@@ -2,9 +2,9 @@ import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 const breakpoints = createBreakpoints({
-  sm: "320px",
-  md: "768px",
-  lg: "960px",
+  sm: "300px",
+  md: "650px",
+  lg: "900px",
   xl: "1200px",
   "2xl": "1536px",
 })
@@ -16,7 +16,7 @@ const config : ThemeConfig = {
 
 export const theme = extendTheme({
   config,
-  createBreakpoints,
+  breakpoints,
   fonts: {
     heading:
       'InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
