@@ -14,3 +14,13 @@ export type UserCategory = {
   user_id: string;
   category_id: string;
 } & WithTimestamp;
+
+export type UserForm = Pick<
+  User,
+  | "avatar_url"
+  | "cover_photo_url"
+  | "email"
+  | "username"
+  | "preferences"
+  | "wallet_address"
+>;
