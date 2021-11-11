@@ -18,7 +18,6 @@ export default function JobItem() {
       boxSizing="border-box"
       boxShadow="0px 1px 1px rgba(0, 0, 0, 0.25), 1px 0px 1px rgba(0, 0, 0, 0.25)"
       height={{ lg: "fit-content", md: "fit-content", sm: "max-content" }}
-      bg={{ lg: "white", sm: "none" }}
       m="auto"
       mb="0.5%"
       w="100%"
@@ -28,8 +27,7 @@ export default function JobItem() {
 
       <Container ml="2.5%" maxW="100%">
         <Link
-          href="/"
-          href="/developers/developer1"
+          href="/jobs/project-1"
           _hover={{ textDecoration: "none" }}
           _focus={{ textDecoration: "none", border: "none" }}
         >
@@ -37,14 +35,16 @@ export default function JobItem() {
         </Link>
 
         <Link
-          href="/"
-          href="/jobs/project-1"
+          href="/company/company-1"
           _hover={{ textDecoration: "none" }}
           _focus={{ textDecoration: "none", border: "none" }}
         >
 
           <Flex mt="1%" align="center">
-            <Image w={50} h={50} borderRadius="180px" border="1px solid black" src="/ETHEREUM.png" />
+            <Image w={50} h={50} borderRadius="180px"
+            border="1px solid black"
+            src="/ETHEREUM.png"
+            alt="company"/>
             <Spacer maxW="5px" />
             <Heading size="sm">Company Name</Heading>
           </Flex>

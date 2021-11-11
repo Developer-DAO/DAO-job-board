@@ -39,7 +39,7 @@ export default function GigSummary({
     jobcontact
   } = formData;
 
-  const sendJobData = (e) => {
+  const sendJobData = (e: React.FormEvent) => {
     if(jobcontact) {
       createJob(e)
     } else {

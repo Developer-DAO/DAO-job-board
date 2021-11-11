@@ -1,7 +1,7 @@
 //Router
 import { useRouter } from "next/router";
 
-import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag, TagLabel} from "@chakra-ui/react"
+import {chakra, Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag, TagLabel} from "@chakra-ui/react"
 
 export default function DeveloperPage() {
   const router = useRouter();
@@ -37,7 +37,9 @@ export default function DeveloperPage() {
           h="8rem"
           margin="auto"
           borderRadius="180px"
-          src="/DevDAO.png">
+          src="/DevDAO.png"
+          alt="developer"
+          >
           </Image>
 
         <Link>
@@ -68,7 +70,7 @@ export default function DeveloperPage() {
             w="fit-content"
             m={{lg: "0px", md: "0px", sm: "auto"}}
           >
-            New Dev<span style={{fontWeight: "100"}}>{' '}- Developer</span></Heading>
+            New Dev<chakra.span fontWeight="100">{' '}- Developer</chakra.span></Heading>
           <Text
           mb="10px"
           textAlign={{lg: "left", md: "left", sm: "center"}}

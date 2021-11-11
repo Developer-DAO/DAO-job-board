@@ -34,7 +34,8 @@ export default function DeveloperItem() {
               mb="2.5px"
               borderRadius="full"
               border="1px solid black"
-              src="/DevDAO.png" />
+              src="/DevDAO.png"
+              alt="developer"/>
             </Container>
           <Text
           as="i"

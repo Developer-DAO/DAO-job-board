@@ -30,7 +30,8 @@ export default function CompanyItem() {
             mb="2.5px"
             borderRadius="full"
             border="1px solid black"
-            src="/ETHEREUM.png"  />
+            src="/ETHEREUM.png"
+            alt="company"  />
         </Container>
         <Text as="i">Open Jobs: 10</Text>
         <br />
