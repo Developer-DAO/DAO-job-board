@@ -25,7 +25,7 @@ export default function JobItem() {
       bg="white"
     >
 
-      <Container ml="2.5%" maxW="100%">
+      <Container ml="0.5%" maxW="100%">
         <Link
           href="/jobs/project-1"
           _hover={{ textDecoration: "none" }}
@@ -51,7 +51,8 @@ export default function JobItem() {
         </Link>
       </Container>
 
-      <Container ml="2.5%" mb="0px" maxW="100%">
+      <Container ml="0.5%" pb="1%" maxW="100%">
+
         <SimpleGrid
           m="auto"
           mt="2%"
@@ -64,6 +65,7 @@ export default function JobItem() {
         </SimpleGrid>
 
         <SimpleGrid
+          position="relative"
           m="auto"
           mt="2%"
           columns={3}
@@ -94,6 +96,7 @@ export default function JobItem() {
             color="black"
           ><TagLabel m="auto">Javascript</TagLabel></Tag>
         </SimpleGrid>
+
       </Container>
     </Box>
   );
