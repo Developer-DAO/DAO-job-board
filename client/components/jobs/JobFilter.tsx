@@ -2,7 +2,7 @@ import { Box, Container, Input } from "@chakra-ui/react";
 
 function JobFilter() {
   return (
-    <Box>
+    <Box mt="2.5%">
       <Container my="5px" >
         <Input
           borderColor="#e2e8f0"

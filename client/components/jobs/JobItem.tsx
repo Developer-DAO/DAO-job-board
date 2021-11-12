@@ -20,6 +20,7 @@ export default function JobItem() {
       height={{ lg: "fit-content", md: "fit-content", sm: "max-content" }}
       m="auto"
       mb="0.5%"
+      mt="2.5%"
       w="100%"
       textAlign="left"
       bg="white"
@@ -31,7 +32,7 @@ export default function JobItem() {
           _hover={{ textDecoration: "none" }}
           _focus={{ textDecoration: "none", border: "none" }}
         >
-          <Heading size="lg">Project 1</Heading>
+          <Heading size="lg" mb="2.5%">Project 1</Heading>
         </Link>
 
         <Link
@@ -40,8 +41,8 @@ export default function JobItem() {
           _focus={{ textDecoration: "none", border: "none" }}
         >
 
-          <Flex mt="1%" align="center">
-            <Image w={50} h={50} borderRadius="180px"
+          <Flex mt="1%" mb="2.5%" align="center">
+            <Image w="45px" h="45px" borderRadius="180px"
             border="1px solid black"
             src="/ETHEREUM.png"
             alt="company"/>
@@ -64,37 +65,56 @@ export default function JobItem() {
           <Text>Full-Time</Text>
         </SimpleGrid>
 
-        <SimpleGrid
-          position="relative"
-          m="auto"
-          mt="2%"
-          columns={3}
-          spacing={1}
-        >
+          <SimpleGrid
+          mt="15px"
+          templateColumns={{lg: "repeat(10, 1fr)", sm: "repeat(4, 2fr)"}}
+          wordWrap="break-word"
+          overflow="ellipsis"
+          autoRows="fit-content"
+          gap="0.5rem"
+          spacing={1}>
           <Tag
+            w="fit-content"
             size="md"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
           ><TagLabel m="auto">Solidity</TagLabel></Tag>
           <Tag
+            w="fit-content"
             size="md"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
           ><TagLabel m="auto">Hardhat</TagLabel></Tag>
           <Tag
+            w="fit-content"
             size="md"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
           ><TagLabel m="auto">Rust</TagLabel></Tag>
           <Tag
+            w="fit-content"
             size="md"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
           ><TagLabel m="auto">Javascript</TagLabel></Tag>
+          <Tag
+          w="fit-content"
+          size="md"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">React</TagLabel></Tag>
+          <Tag
+          w="fit-content"
+          size="md"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">ThreeJS</TagLabel></Tag>
         </SimpleGrid>
 
       </Container>
