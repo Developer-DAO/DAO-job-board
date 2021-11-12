@@ -76,6 +76,7 @@ export default function JobItem() {
           <Tag
             w="fit-content"
             size="md"
+            p="10px"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
@@ -83,6 +84,7 @@ export default function JobItem() {
           <Tag
             w="fit-content"
             size="md"
+            p="10px"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
@@ -90,6 +92,7 @@ export default function JobItem() {
           <Tag
             w="fit-content"
             size="md"
+            p="10px"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
@@ -97,6 +100,7 @@ export default function JobItem() {
           <Tag
             w="fit-content"
             size="md"
+            p="10px"
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
@@ -104,6 +108,7 @@ export default function JobItem() {
           <Tag
           w="fit-content"
           size="md"
+          p="10px"
           borderRadius="8px"
           bgColor="#E2E9F0"
           color="black"
@@ -111,6 +116,7 @@ export default function JobItem() {
           <Tag
           w="fit-content"
           size="md"
+          p="10px"
           borderRadius="8px"
           bgColor="#E2E9F0"
           color="black"
