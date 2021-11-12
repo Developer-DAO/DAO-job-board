@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import AddExperience from '../../components/create-profile/add-experience.tsx';
-import AddEducation from '../../components/create-profile/add-education.tsx';
+import AddExperience from '../../components/create-profile/add-experience';
+import AddEducation from '../../components/create-profile/add-education';
 
 import {Box, Heading, Container, Flex, SimpleGrid, Tag, TagLabel, Stack, Switch, InputGroup, Input, InputLeftAddon, Text, Textarea, Image, Select, AccordionIcon,
 AccordionButton, AccordionPanel, AccordionItem,
@@ -15,23 +15,19 @@ export default function CreateProfile() {
     status: "",
     name: "",
     username: "",
+    description: "",
     title: "",
     location: "",
-    bio: "",
     website: ""});
 
-  const { status, name, title, location, description, website } = formData;
+  const { status, name, username, title, location, description, website } = formData;
 
   const onChange = (e: React.FormEvent) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
-  };
-
-  const goBack = () => {
-    history.goBack();
   };
 
   return (
@@ -108,21 +104,31 @@ export default function CreateProfile() {
 
           <Text  mt="2.5%">Name</Text>
           <Input
-          placeholder="Here goes your name"
+          placeholder="The name that will be displayed on your profile"
+          name="name"
+          value={name}
+          onChange={e => onChange(e)}
           />
 
           <Text  mt="2.5%">Description</Text>
           <Textarea
-          placeholder="Here goes a brief description of yourself"/>
+          placeholder="Here goes a brief description of yourself"
+          name="description"
+          value={description}
+          onChange={e => onChange(e)}
+          />
 
           <Heading  mt="2.5%" size="md">Identity</Heading>
 
           <Text mt="2.5%">Username</Text>
-          <Text fontSize="xs">Make it easy for people to know it's you</Text>
+          <Text fontSize="xs">Make it easy for people to know it is you</Text>
           <InputGroup>
-            <InputLeftAddon children="@"/>
+            <InputLeftAddon>@</InputLeftAddon>
             <Input
               placeholder="Write your favorite username"
+              name="username"
+              value={username}
+              onChange={e => onChange(e)}
             />
           </InputGroup>
 
