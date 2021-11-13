@@ -18,8 +18,9 @@ Job board for the DAO in development
 
 - [React.js](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.io/)
 - [NPM](https://www.npmjs.com/)
-- [Styled Components](https://styled-components.com/)
+- [Chakra UI](https://chakra-ui.com/)
 
 ### Local Development Environment
 
