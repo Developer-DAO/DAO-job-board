@@ -1,5 +1,5 @@
-import { Box, Title } from "../../styles";
-import Button from "../../styles/ui-components/Button";
+import { Box, Heading } from "@chakra-ui/react";
+import {ButtonGreen} from "../../styles/ui-components/Chakra-Button";
 import Image from "next/image";
 
 export default function Index() {
@@ -9,15 +9,15 @@ export default function Index() {
 function SignUp() {
   return (
     <Box>
-      <Title>TO BE FINISHED</Title>
+      <Heading>LOG-IN</Heading>
 
       <div style={{ textAlign: "center" }}>
-        <Button styling="positive">
+        <ButtonGreen>
           <span style={{ position: "relative", top: "2px" }}>
             <Image width={15} height={15} src="/metamask.png" alt="icon"/>
           </span>{" "}
           Login with Wallet
-        </Button>
+        </ButtonGreen>
       </div>
     </Box>
   );

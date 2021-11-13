@@ -1,147 +1,116 @@
-import styled from "styled-components";
 
-import { IconWrap } from "../../styles";
+import React from 'react';
+import { chakra, Link, LinkOverlay, Flex, HStack, Image } from '@chakra-ui/react';
 
-import Button from "../../styles/ui-components/Button";
-import Icon from "../../styles/ui-components/Icon";
+import {ButtonBlack} from "../../styles/ui-components/Chakra-Button";
 
-export default function Navbar() {
+function Navbar() {
 
-  // We will bring a modal for people to choose between Create a Gig and Create a Job Post
-  // const [jobModal, setJobModal] = useState();
-  //
-  // const bringJobModal = () => {
-  //   setJobModal(true);
-  // }
-    
   return (
-    <Nav>
-      <NavBox>
-        <NavbarTitle>
-          <NavLink href="/">
-            <IconWrap style={{ width: "1.6rem", height: "1.6rem" }}>
-              <Icon width="50" height="50" src="/DevDAO.png" />
-            </IconWrap>
-          </NavLink>
-        </NavbarTitle>
-        <MainMenu>
-          <Navs href="/gigs">Gigs</Navs>
-          <Navs href="/jobs">Jobs</Navs>
+    <chakra.nav
+    borderBottom="1px solid"
+    borderColor="gray.200"
+    >
+      <Flex
+        justify="space-between"
+        maxW={{lg: "70%", md: "100%"}}
+        align="center"
+        mx="auto"
+        minW="xl"
+        py={3}
+        px={5}
+      >
+        <Link
+        _hover={{textDecoration: "none"}}
+        _focus={{textDecoration: "none", border:"none"}}
+         href="/">
+          <HStack
+          as="a"
+          display="flex"
+          alignItems="center">
+            <Image
+              borderRadius="full"
+              boxSize="30px"
+              alt="Home"
+              src="/DevDAO.png"
+               />
+            <chakra.span
+              fontWeight="bold"
+              fontSize="sm"
+              color="gray.600"
+              transition="color 300ms ease-in-out"
+              _hover={{ color: 'black' }}
+            >
+              Job Board
+            </chakra.span>
+          </HStack>
+        </Link>
 
-          <Navs href="/developers">Devs</Navs>
-          <Navs href="/companies">Companies</Navs>
-          <Navs href="/about">About</Navs>
-        </MainMenu>
+        <HStack spacing={{ base: 2, sm: 7 }}>
+        <Link
+          color="black"
+          p="0.45rem"
+          m="0 0.25rem"
+          cursor="pointer"
+          textDecoration="none"
+          _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
+          borderRadius="18px"
+          href="/gigs">Gigs</Link>
+        <Link
+          color="black"
+          p="0.45rem"
+          m="0 0.25rem"
+          cursor="pointer"
+          textDecoration="none"
+          borderRadius="18px"
+          _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
+          href="/jobs">Jobs</Link>
 
-        <SecondaryMenu>
-        <NavLink href="/auth">
-          <Button
-          styling='black'
-        >Sign Up</Button>
-        </NavLink>
-        </SecondaryMenu>
-      </NavBox>
-    </Nav>
+        <Link
+          color="black"
+          p="0.45rem"
+          m="0 0.25rem"
+          cursor="pointer"
+          textDecoration="none"
+          _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
+          borderRadius="18px" href="/developers">Devs</Link>
+        <Link
+          color="black"
+          p="0.45rem"
+          m="0 0.25rem"
+          cursor="pointer"
+          textDecoration="none"
+          _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
+          borderRadius="18px"
+          href="/companies">Companies</Link>
+        <Link
+          color="black"
+          p="0.45rem"
+          m="0 0.25rem"
+          cursor="pointer"
+          textDecoration="none"
+          _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+          _focus={{textDecoration: "none", border:"none"}}
+          borderRadius="18px"
+          href="/about">About</Link>
+        </HStack>
+
+          <Link
+            textDecoration="none"
+            href="/auth">
+              <ButtonBlack
+            >Sign Up</ButtonBlack>
+          </Link>
+
+      </Flex>
+
+
+    </chakra.nav>
   );
 }
 
-const Nav = styled.nav`
-  background-color: #f7fafc;
-  justify-content: space-between;
-  z-index: 1;
-  width: 100%;
-  height: 10%;
-  border-bottom: solid 2px #e2e8f0;
-  opacity: 0.8;
-  overflow: hidden;
-`;
-
-const NavBox = styled.div`
-  display: flex;
-  width: 70%;
-  text-align: center;
-  margin: auto;
-  transition: 0.1s;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
-`;
-
-const NavLink = styled.a`
-  text-decoration: none;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const NavbarTitle = styled.h1`
-  display: inline;
-  font-size: 0.875rem;
-  color: #4a5568;
-`;
-
-const Navs = styled.a`
-  color: black;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-  float: left;
-  text-decoration: none;
-  border-radius: 18px;
-
-  &:focus {
-    background-color: #e6ebf2;
-    color: black;
-  }
-
-  &:hover {
-    color: gray;
-    transition: 0.1s;
-  }
-`;
-
-const Extra = styled.a`
-  position: relative;
-  color: #000000;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-  float: left;
-  text-decoration: none;
-  border: 1px solid #000000;
-  border-radius: 18px;
-
-  &:hover {
-    color: #CDCDCD;
-    transition: 0.1s;
-  }
-`;
-
-const Extra2 = styled(Extra)`
-  box-sizing: border-box;
-  background-color: #e6ebf2;
-  color: #000000;
-`;
-
-const Extra3 = styled(Extra)`
-  box-sizing: border-box;
-  background-color: black;
-  color: #ffffff;
-`;
-
-const MainMenu = styled.div`
-  margin: auto;
-  align-items: center;
-`;
-
-const SecondaryMenu = styled.div`
-  align-items: right;
-`;
-
-const NavHamburger = styled.div`
-  display: inline-block;
-  align-items: right;
-  text-align: right;
-  float: right;
-`;
+export default Navbar;

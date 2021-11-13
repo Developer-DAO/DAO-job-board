@@ -1,17 +1,10 @@
-import styled from 'styled-components'
+import { useState } from 'react';
 import { GetStaticProps } from 'next'
 
 // UI & CSS
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
 
-import {BoxTop,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Textarea,
-  Selector
-} from '../../styles';
+import { Heading, Input, Textarea, Select, Container, Text, ButtonGroup } from "@chakra-ui/react";
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -20,11 +13,15 @@ type JobBasicProps = {
   formData: any;
 };
 
-export default function JobBasics ({
-goToDetails,
-goBack,
-formData,
-onChange}: JobBasicProps ){
+export default function JobBasics({
+  goToDetails,
+  goBack,
+  formData,
+  onChange }: JobBasicProps) {
+
+  //Active state makes inputs red if data is not correct
+  const [wrongTitle, setWrongTitle] = useState(false);
+  const [wrongDescription, setWrongDescription] = useState(false);
 
   const {
     jobtitle,
@@ -34,37 +31,85 @@ onChange}: JobBasicProps ){
   } = formData;
 
   const nextPage = () => {
-    if (jobtitle && jobdescription) {
+    if (jobtitle.length >= 10 && jobdescription.length >= 100) {
       goToDetails();
-    } else {
-      console.log('You need a name and description for the job')
+    } else if (!jobtitle && !jobdescription) {
+
+      setWrongDescription(true);
+      setWrongTitle(true)
+
+    } else if (jobtitle.length >= 10 && jobdescription.length < 100 || !jobdescription) {
+      setWrongTitle(false);
+      setWrongDescription(true);
+
+    } else if (jobdescription.length >= 100 && jobtitle.length < 10 || !jobtitle) {
+      setWrongDescription(false);
+      setWrongTitle(true)
     }
-  };
+  }
 
   return (
     <>
-      <BoxTop>
-        <Title>Job Basics</Title>
-        <p><em>Let us know what type of professional you are looking for</em></p>
-      </BoxTop>
+      <Container
+      textAlign="center"
+      mt="2.5%"
+      mb="2.5%"
+      >
+        <Heading
+          color="black"
+        >Job Basics</Heading>
+        <Text
+          color="black"
+          as="i">Let us know what type of professional you are looking for</Text>
+      </Container>
 
-        <InputSection>
-          <InputTitle>Write a clear title for your job post</InputTitle>
-          <Input
-            placeholder='e.g. Full-Stack Blockchain Engineer'
-            name='jobtitle'
-            value={jobtitle}
-            onChange={e => onChange(e)}
-          />
-          <Small>At least 10 characters</Small>
-        <br/>
-        <InputTitle>Pick a job position</InputTitle>
-        <Selector
+      <Container
+      maxW="100%"
+      >
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left">Write a clear title for your job post</Heading>
+        <Input
+          borderColor={`${!wrongTitle ? "#e2e8f0" : "red"}`}
+          bgColor="white"
+          bg="white"
+          color="black"
+          _hover={{borderColor: '#97c0e6'}}
+          minLength={10}
+          placeholder='e.g. Full-Stack Blockchain Engineer'
+          name='jobtitle'
+          value={jobtitle}
+          onChange={e => onChange(e)}
+        />
+
+        {!wrongTitle ?
+          <Text
+            fontSize="xs">At least 10 characters</Text> :
+
+          <Text
+            fontSize="xs"
+            color="red"
+            fontWeight="bold"
+            textAlign="left">Make sure title is at least 10 characters long</Text>}
+
+        <br />
+
+        <Heading
+          mb='5px'
+          fontSize="md"
+          textAlign="left">Pick a job position</Heading>
+        <Select
+          bgColor="white"
+          bg="white"
+          borderColor="#e2e8f0"
+          _hover={{borderColor: '#97c0e6'}}
           name='jobposition'
           value={jobposition}
           onChange={e => onChange(e)}
-          >
-          <option value="" disabled selected hidden>Select Job Positions</option>
+        >
+          <option value="" disabled hidden>Select Job Positions</option>
           <option value="Co-Founder">Co-Founder</option>
           <option value="Engineering">Engineering</option>
           <option value="Marketing">Marketing</option>
@@ -75,68 +120,81 @@ onChange}: JobBasicProps ){
           <option value="Customer Support">Customer Support</option>
           <option value="Writing">Writing</option>
           <option value="Other">Other</option>
-        </Selector>
+        </Select>
 
-        <InputTitle>What type of job is it?</InputTitle>
-        <Selector
+        <br />
+
+        <Heading
+          mb='5px'
+          fontSize="md"
+          textAlign="left">What type of job is it?</Heading>
+        <Select
+          borderColor="#e2e8f0"
+          _hover={{borderColor: '#97c0e6'}}
           name='jobtype'
           value={jobtype}
           onChange={e => onChange(e)}
-          >
-          <option value="" disabled selected hidden>Select Type of Job</option>
+          bg="white"
+        >
+          <option value="" disabled hidden>Select Type of Job</option>
           <option value="Full-Time">Full-Time</option>
           <option value="Part-Time">Part-Time</option>
           <option value="Contract">Contract</option>
           <option value="Paid Internship">Paid Internship</option>
-        </Selector>
+        </Select>
 
-        <InputTitle>Describe the job</InputTitle>
+        <br />
+
+        <Heading
+          mb='5px'
+          fontSize="md"
+          textAlign="left">Describe the job</Heading>
         <Textarea
+          borderColor={`${!wrongDescription ? "#e2e8f0" : "red"}`}
+          bgColor="white"
+          _hover={{borderColor: '#97c0e6'}}
+          minLength={100}
           placeholder='e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...'
           name='jobdescription'
           value={jobdescription}
           onChange={e => onChange(e)}
         />
-        <Small>At least 100 characters</Small>
-      </InputSection>
 
-      <ButtonSection>
-        <Button
-          type='button'
+        {!wrongDescription ?
+          <Text
+            fontSize="xs"
+          >At least 100 characters</Text>
+          :
+          <Text
+            fontSize="xs"
+            color="red"
+            fontWeight="bold"
+            textAlign="left"
+          >Make sure description is at least 100 characters long </Text>}
+
+          <br />
+
+      </Container>
+
+      <ButtonGroup
+      display="flex"
+      flexDirection="column"
+      m="5px"
+      padding="1px"
+      >
+        <ButtonGreen
           onClick={nextPage}
-          styling='positive'
-        >Continue</Button>
-        <Button
+        >Continue</ButtonGreen>
+        <ButtonOrange
           onClick={goBack}
-          styling='negative'
-        >Cancel</Button>
-    </ButtonSection>
-  </>
+        >Cancel</ButtonOrange>
+      </ButtonGroup>
+    </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-   return {
-      props: { FormData }
-   }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData }
+  }
 }
-
-const Small = styled.small`
-  text-align: left;
-  font-size: 0.785rem;
-`;
-
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-box-shadow: 0 0 0 0;
-background: none;
-`;

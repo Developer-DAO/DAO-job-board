@@ -1,16 +1,11 @@
 import { GetStaticProps } from 'next';
 
 // UI & CSS
-import styled from 'styled-components'
-import Button from '../../styles/ui-components/Button'
-import {BoxTop,
-  GridList,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Selector
-} from '../../styles';
+import { ButtonBlue, ButtonGray, ButtonOrange } from '../../styles/ui-components/Chakra-Button'
+
+import {
+  Heading, Tag, Input, Container, Text, ButtonGroup, TagLabel, TagCloseButton, HStack
+} from "@chakra-ui/react";
 
 type GigSummaryProps = {
   goToDetails: () => void;
@@ -19,13 +14,13 @@ type GigSummaryProps = {
   createGig: (e: React.FormEvent) => void;
 };
 
-export default function GigSummary ({
+export default function GigSummary({
   formData,
   goToDetails,
   createGig,
-  goToBasics}:GigSummaryProps) {
+  goToBasics }: GigSummaryProps) {
 
-const {
+  const {
     gigname,
     gigdescription,
     gigcategory,
@@ -38,105 +33,116 @@ const {
 
   return (
     <>
-    <BoxTop>
-      <h1>Gig Summary</h1>
-      <p><em>Check that everything is correct (click edit if not)</em></p>
-    </BoxTop>
-
-      <FlexSection>
-        <InputTitle>Gig Basics</InputTitle>
-        <Button
-          onClick={goToBasics}
-          styling='normal'
-        >Edit</Button>
-      </FlexSection>
-
-        <InputSection>
-          <h4>Gig Name:</h4>{' '}{gigname}
-          <h4>Gig Description:</h4>{' '}{gigdescription}
-
-          {gigwebsite ? (<><h4>Gig Website:</h4>{' '}{gigwebsite}</>) : null}
-
-          {gigrepo ? (<><h4>Gig Repo:</h4>{' '}{gigrepo}</>) : null}
-
-      </InputSection>
+      <Container textAlign="center">
+        <Heading>Gig Summary</Heading>
+        <Text as="i">Check that everything is correct (click edit if not)</Text>
+      </Container>
       <br/>
+      <Container
+        margin="auto"
+        textAlign="center"
+        maxW="100%"
+      >
+        <Heading
+          fontSize="lg"
+        >Gig Basics</Heading>
+        <ButtonGray
+          onClick={goToBasics}
+        >Edit</ButtonGray>
+      </Container>
 
+      <Container
+        margin="auto"
+        textAlign="left"
+        maxW="100%">
+        <Heading
+          fontSize="sm"
+        >Gig Name:</Heading>{' '}{gigname}
 
-      <FlexSection>
-        <InputTitle>Gig Details</InputTitle>
-        <Button
+        <br/>
+        <br/>
+        <Heading
+          fontSize="sm"
+        >Gig Description:</Heading>{' '}{gigdescription}
+
+        {gigwebsite ? (<><Heading
+          fontSize="sm"
+        >Gig Website:</Heading>{' '}{gigwebsite}</>) : null}
+
+        {gigrepo ? (<><Heading
+          fontSize="sm"
+        >Gig Repo:</Heading>{' '}{gigrepo}</>) : null}
+      </Container>
+      <br />
+
+      <Container
+        margin="auto"
+        textAlign="center"
+        maxW="100%"
+      >
+        <Heading fontSize="lg">
+          Gig Details</Heading>
+        <ButtonGray
           onClick={goToDetails}
-          styling='normal'
-        >Edit</Button>
-      </FlexSection>
+        >Edit</ButtonGray>
+      </Container>
 
-      <InputSection>
-        <h4>Category:</h4>
-          <CategoryList>
-            <Button styling='category'>
-              {gigcategory}
-            </Button>
-          </CategoryList>
+      <Container
+        margin="auto"
+        textAlign="left"
+        maxW="100%">
+        <Heading
+          fontSize="sm"
+        >Category:</Heading>
+        <HStack spacing={4} mt="2.5%" mb="2.5%">
+          <Tag
+            size="md"
+            borderRadius="full"
+            variant="solid"
+            color="black"
+          >
+            <TagLabel>Keyword</TagLabel>
+          </Tag>
+        </HStack>
 
 
         {gigreward && gigamount ? (
-        <>
-          <h4>Gig Reward:</h4>{' '} {gigamount}{' '}{gigreward}
-        </>) : null}
+          <>
+            <Heading
+              fontSize="sm">Gig Reward:</Heading>{' '} {gigamount}{' '}{gigreward}
+          </>) : null}
 
-        <br/>
+        <br />
+        <br />
 
         {gigtimeframe ? (
           <>
-        <h4>Gig Timeframe:</h4>{' '}{gigtimeframe}
-        </>) : null}
+            <Heading
+              fontSize="sm">Gig Timeframe:</Heading>{' '}{gigtimeframe}
+          </>) : null}
 
-      </InputSection>
-
-
-      <ButtonSection>
-        <Button
-          styling='positive'
+      </Container>
+      <br />
+      <ButtonGroup
+        display="flex"
+        flexDirection="column"
+        m="5px"
+        padding="1px"
+      >
+        <ButtonBlue
           onClick={createGig}
-        >Create Gig</Button>
+        >Create Gig</ButtonBlue>
 
-        <Button
-          type='button'
+        <ButtonOrange
           onClick={goToDetails}
-          styling='negative'
-        >Back</Button>
-      </ButtonSection>
+        >Back</ButtonOrange>
+      </ButtonGroup>
     </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-   return {
-      props: { FormData }
-   }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData }
+  }
 }
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  text-align: left;
-  background: none;
-`;
-
-const InputTitle = styled(Title2)`
-  margin: 0;
-`;
-
-const FlexSection = styled(ItemBox)`
-  display: flex;
-  box-shadow: 0 0 0 0;
-  text-align: left;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-`;
-
-const CategoryList = styled(GridList)`
-`;

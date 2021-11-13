@@ -1,17 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { GetStaticProps } from 'next'
 
-import styled from 'styled-components';
-import Button from '../../styles/ui-components/Button';
+import { ButtonGreen, ButtonOrange, ButtonBlack } from "../../styles/ui-components/Chakra-Button"
 
-import {BoxTop,
-  GridList,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Selector
-} from '../../styles';
+import {
+  Heading, Tag, Input, Textarea, Select, Container, Text, ButtonGroup, TagLabel,
+  TagCloseButton,
+  HStack
+} from "@chakra-ui/react";
 
 type GigDetailProps = {
   goToBasics: () => void;
@@ -30,7 +26,10 @@ export default function GigDetails({
   onChange,
   setFormData,
   addTimeframe,
-  timeframeActive}: GigDetailProps) {
+  timeframeActive }: GigDetailProps) {
+
+  //Active state makes inputs red if data is not correct
+  const [wrongData, setWrongData] = useState(false);
 
   const {
     gigcategory,
@@ -44,7 +43,7 @@ export default function GigDetails({
     if (gigcategory) {
       goToSummary();
     } else {
-      console.log('You need to select at least 3 categories')
+      setWrongData(true);
     }
   };
 
@@ -54,119 +53,134 @@ export default function GigDetails({
 
   return (
     <>
-      <BoxTop>
-        <h1>Gig Details</h1>
-        <em>Define your project timeframe, category, and reward</em>
-      </BoxTop>
+      <Container
+        textAlign="center"
+        mt="2.5%"
+        mb="2.5%"
+      >
+        <Heading>Gig Details</Heading>
+        <Text
+          color="black"
+          as="i"
+        >Define your project timeframe, category, and reward</Text>
+      </Container>
 
-        <InputSection>
-          <InputTitle>Pick category</InputTitle>
+      <Container
+        maxW="100%"
+      >
 
-          <CategorySection>
-            <Button styling='category'
-              onClick={selectCategory}
-            >
-              Category 1
-            </Button>
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Pick a gig keyword category</Heading>
 
-            <Button styling='category'
-            >
-              Category 2
-            </Button>
+        {!wrongData ? <Text
+          fontSize="xs"
+          textAlign="left"
+        >Keywords help categorize your job post (pick at least 3)</Text> :
+          <Text
+            fontSize="xs"
+            textAlign="left"
+            color="red"
+            fontWeight="bold"
+          >Make sure to pick at least 3 keywords</Text>
+        }
 
-            <Button styling='category'>
-              Category 3
-            </Button>
-          </CategorySection>
+        <HStack spacing={4}
+          mt="2.5%"
+          mb="2.5%"
+          border={!wrongData ? "none" : "1px solid red"}
+        >
+          <ButtonBlack>
+            Select Keywords
+            </ButtonBlack>
+          <Tag
+            onClick={selectCategory}
+            size="md"
+            borderRadius="full"
+            variant="solid"
+            colorScheme="red"
+            color="black"
+          >
+            <TagLabel>Keyword</TagLabel>
+            <TagCloseButton />
+          </Tag>
+        </HStack>
 
-          <InputTitle>Explain reward method (optional)</InputTitle>
-          <Selector
-            style={{width: "50%"}}
-            name='gigreward'
-            value={gigreward}
-            onChange={e => onChange(e)}
-            >
-            <option value="" disabled selected hidden>Token</option>
-            <option value="ETH">ETH</option>
-            <option value="SOL">SOL</option>
-            <option value="BTC">BTC</option>
-            <option value="USDT">USDT</option>
-          </Selector>
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left">Explain reward method (optional)</Heading>
+        <Select
+          name='gigreward'
+          value={gigreward}
+          onChange={e => onChange(e)}
+        >
+          <option value="" disabled selected hidden>Token</option>
+          <option value="ETH">ETH</option>
+          <option value="SOL">SOL</option>
+          <option value="BTC">BTC</option>
+          <option value="USDT">USDT</option>
+        </Select>
 
-          </InputSection>
-          <InputSection>
+        <br />
 
-          <Input
-            style={{width: "48%"}}
-            placeholder='Amount'
-            name='gigamount'
-            value={gigamount}
-            onChange={e => onChange(e)}
-            type='number'
-          />
+        <Input
+          placeholder='Amount'
+          name='gigamount'
+          value={gigamount}
+          onChange={e => onChange(e)}
+          type='number'
+        />
 
-          </InputSection>
+        <br />
+        <br />
 
-          <InputSection>
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left">Have a timeframe? (optional)</Heading>
 
-          <div>
-          <InputTitle>Have a timeframe? (optional)</InputTitle>
-          </div>
+        <Select
+          onChange={e => onChange(e)}
+          value={gigtimeframe}
+          name='gigtimeframe'
+        >
+          <option value="" disabled selected hidden>Timeframe</option>
+          <option value="0-30 Days">0-30 Days</option>
+          <option value="1-3 Months">1-3 Months</option>
+          <option value="3-6 Months">3-6 Months</option>
+          <option value="6-12 Months">6-12 Months</option>
+          <option value="+12 Months">+12 Months</option>
+        </Select>
 
-          <br/>
+        <br />
 
-            <Selector
-              style={{width: "50%"}}
-              onChange={e => onChange(e)}
-              value={gigtimeframe}
-              name='gigtimeframe'
-            >
-            <option value="" disabled selected hidden>Timeframe</option>
-            <option value="0-30 Days">0-30 Days</option>
-            <option value="1-3 Months">1-3 Months</option>
-            <option value="3-6 Months">3-6 Months</option>
-            <option value="6-12 Months">6-12 Months</option>
-            <option value="+12 Months">+12 Months</option>
-          </Selector>
+      </Container>
 
-          <br/>
-
-        </InputSection>
-
-      <ButtonSection>
-        <Button
-          styling='positive'
+      <ButtonGroup
+        display="flex"
+        flexDirection="column"
+        m="5px"
+        padding="1px"
+      >
+        <ButtonGreen
           onClick={nextPage}
-        >Continue</Button>
-        <Button
-          styling='negative'
+        >Continue</ButtonGreen>
+        <ButtonOrange
           onClick={goToBasics}
-        >Back</Button>
-    </ButtonSection>
-  </>
+        >Back</ButtonOrange>
+      </ButtonGroup>
+    </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-   return {
-      props: { FormData }
-   }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData }
+  }
 }
-
-const InputTitle = styled(Title2)`
-  font-size: 1rem;
-  text-align: left;
-`;
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-box-shadow: 0 0 0 0;
-`;
-
-const CategorySection = styled(GridList)`
-
-`;

@@ -1,17 +1,11 @@
 import { GetStaticProps } from 'next';
+import { useState } from 'react';
 
 // UI & CSS
-import styled from 'styled-components'
-import Button from '../../styles/ui-components/Button'
-import {BoxTop,
-  GridList,
-  Title,
-  Title2,
-  ItemBox,
-  Input,
-  Selector,
-  Small
-} from '../../styles';
+import { ButtonBlue, ButtonGray, ButtonOrange } from '../../styles/ui-components/Chakra-Button'
+import {
+  Heading, Tag, Input, Container, Text, ButtonGroup, TagLabel, TagCloseButton, HStack
+} from "@chakra-ui/react";
 
 type JobSummaryProps = {
   goToBasics: () => void;
@@ -21,142 +15,205 @@ type JobSummaryProps = {
   createJob: (e: React.FormEvent) => void;
 };
 
-
-export default function GigSummary ({
+export default function GigSummary({
   formData,
   goToDetails,
   onChange,
   createJob,
-  goToBasics}: JobSummaryProps) {
+  goToBasics }: JobSummaryProps) {
 
-const {
-  jobtitle,
-  jobdescription,
-  jobtype,
-  jobcategory,
-  jobposition,
-  jobcompensation,
-  jobamount,
-  jobequity,
-  joblocation,
-  jobcontact
+    //Active state makes inputs red if data is not correct
+    const [wrongData, setWrongData] = useState(false);
+
+  const {
+    jobtitle,
+    jobdescription,
+    jobtype,
+    jobcategory,
+    jobposition,
+    jobcompensation,
+    jobmin,
+    jobmax,
+    jobequity,
+    joblocation,
+    jobcontact
   } = formData;
+
+  const sendJobData = (e: React.FormEvent) => {
+    if(jobcontact) {
+      createJob(e)
+    } else {
+      setWrongData(true);
+    }
+  }
 
   return (
     <>
-    <BoxTop>
-      <h1>Job Summary</h1>
-      <p><em>Check that everything is correct (click edit if not)</em></p>
-    </BoxTop>
+      <Container
+        textAlign="center"
+        mt="2.5%"
+        mb="2.5%"
+      >
+        <Heading>Job Summary</Heading>
+        <Text>Check that everything is correct (click edit if not)</Text>
+      </Container>
 
-      <FlexSection>
-        <InputTitle>Job Basics</InputTitle>
-        <Button
+      <Container
+        margin="auto"
+        textAlign="center"
+        maxW="100%"
+      >
+        <Heading
+          fontSize="lg"
+        >Job Basics</Heading>
+        <ButtonGray
           onClick={goToBasics}
-          styling='normal'
-        >Edit</Button>
-      </FlexSection>
-
-        <InputSection>
-          <h4>Job Name:</h4>{' '}{jobtitle}
-          <h4>Job Description:</h4>{' '}{jobdescription}
-          {jobposition &&
-          <><h4>Job Position:</h4>{' '}{jobposition}</>}
-          {jobtype &&
-            <>
-          <h4>Job Type:</h4>{' '}{jobtype}</>}
-      </InputSection>
-      <br/>
+        >Edit</ButtonGray>
+      </Container>
 
 
-      <FlexSection>
-        <InputTitle>Job Details</InputTitle>
-        <Button
+      <Container
+        maxW="100%"
+      >
+        <Heading
+          fontSize="sm"
+        >Job Name:</Heading>{' '}{jobtitle}
+
+        <br />
+        <br />
+
+        <Heading
+          fontSize="sm"
+        >Job Description:</Heading>{' '}{jobdescription}
+
+        <br />
+        <br />
+
+        {jobposition &&
+          <><Heading
+            fontSize="sm"
+          >Job Position:</Heading>{' '}{jobposition}</>}
+
+        <br />
+        <br />
+
+        {jobtype &&
+          <>
+            <Heading
+              fontSize="sm"
+            >Job Type:</Heading>{' '}{jobtype}</>}
+      </Container>
+
+      <br />
+
+      <Container
+        margin="auto"
+        textAlign="center"
+        maxW="100%"
+      >
+        <Heading
+          fontSize="lg"
+        >Job Details</Heading>
+        <ButtonGray
           onClick={goToDetails}
-          styling='normal'
-        >Edit</Button>
-      </FlexSection>
+        >Edit</ButtonGray>
+      </Container>
 
-      <InputSection>
-        <h4>Category:</h4>
-          <CategoryList>
-            <Button styling='category'>
-              {jobcategory}
-            </Button>
-          </CategoryList>
+      <Container
+        maxW="100%"
+      >
+        <Heading
+          fontSize="sm"
+        >Category:</Heading>
+        <HStack spacing={4} mt="2.5%" mb="2.5%">
+          <Tag
+            size="md"
+            borderRadius="full"
+            variant="solid"
+            color="black"
+          >
+            <TagLabel>Keyword</TagLabel>
+          </Tag>
+        </HStack>
 
+        {jobcompensation && jobmin && jobmax ? (
+          <>
+            <Heading
+              fontSize="sm">Job Compensation:</Heading>{' '} {jobmin}-{jobmax}{' '}{jobcompensation}
+          </>) : null}
 
-        {jobcompensation && jobamount ? (
-        <>
-          <h4>Job Compensation:</h4>{' '} {jobamount}{' '}{jobcompensation}
-        </>) : null}
+        <br />
+        <br />
 
-        <br/>
+        {jobequity ? (
+          <>
+            <Heading
+              fontSize="sm">Equity Offer:</Heading>{' '}{jobequity}
+          </>) : null}
+
+        <br />
+        <br />
 
         {joblocation ? (
           <>
-        <h4>Job Location:</h4>{' '}{joblocation}
-        </>) : null}
+            <Heading
+              fontSize="sm">Job Location:</Heading>{' '}{joblocation}
+          </>) : null}
 
-      </InputSection>
+        <br />
+        <br />
 
-      <InputSection>
-        <InputTitle>
-            How should people contact your company?
-        </InputTitle>
-        <Small>Write your website job post link or an email</Small>
+        <Heading
+          fontSize="md"
+        >
+          How should people contact you or your company?
+        </Heading>
+        <Text
+          fontSize="xs"
+          textAlign="left"
+          mb="2.5%">Write your website job post link or an email</Text>
         <Input
+          _placeholder={{ color: "black" }}
+          borderColor={`${!wrongData ? "#e2e8f0" : "red"}`}
+          bgColor="white"
+          color="black"
+          _hover={{ borderColor: '#97c0e6' }}
           placeholder="e.g. www.company.com/job or company@email.com"
           name="jobcontact"
           value={jobcontact}
           onChange={(e) => onChange(e)}
         />
-      </InputSection>
+      {wrongData ? <Text
+          fontSize="xs"
+          textAlign="left"
+          color="red"
+          fontWeight="bold"
+        >Add an email or website link</Text> : null}
 
+      </Container>
 
-      <ButtonSection>
-        <Button
-          styling='positive'
-          onClick={createJob}
-        >Post Job</Button>
+      <br />
 
-        <Button
-          type='button'
+      <ButtonGroup
+        display="flex"
+        flexDirection="column"
+        m="5px"
+        padding="1px"
+      >
+        <ButtonBlue
+          onClick={e => sendJobData(e)}
+        >Post Job</ButtonBlue>
+
+        <ButtonOrange
           onClick={goToDetails}
-          styling='negative'
-        >Back</Button>
-      </ButtonSection>
+        >Back</ButtonOrange>
+      </ButtonGroup>
     </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-   return {
-      props: { FormData }
-   }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData }
+  }
 }
-
-const InputSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  text-align: left;
-  background: none;
-`;
-
-const InputTitle = styled(Title2)`
-  margin: 0;
-`;
-
-const FlexSection = styled(ItemBox)`
-  display: flex;
-  box-shadow: 0 0 0 0;
-  text-align: left;
-  background: none;
-`;
-
-const ButtonSection = styled(ItemBox)`
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
-
-const CategoryList = styled(GridList)`
-`;

@@ -1,157 +1,129 @@
-import styled from "styled-components";
-
 import {
   Box,
-  Break,
-  IconWrap,
-  Title,
-  Title2,
-  Description,
-  GridList,
-} from "../../styles";
-import Button from "../../styles/ui-components/Button";
-import Icon from "../../styles/ui-components/Icon";
+  Container,
+  Link,
+  Flex,
+  Spacer,
+  Image,
+  Heading,
+  Text,
+  SimpleGrid,
+  Tag,
+  TagLabel
+} from "@chakra-ui/react";
 
 export default function JobItem() {
   return (
-    <JobItemBox>
-      <JobItemLink href="/">
-        <JobItemName>Project 1</JobItemName>
-      </JobItemLink>
+    <Box
+      boxSizing="border-box"
+      boxShadow="0px 1px 1px rgba(0, 0, 0, 0.25), 1px 0px 1px rgba(0, 0, 0, 0.25)"
+      height={{ lg: "fit-content", md: "fit-content", sm: "max-content" }}
+      m="auto"
+      mb="0.5%"
+      mt="2.5%"
+      w="100%"
+      textAlign="left"
+      bg="white"
+    >
 
-      <JobItemLink href="/">
-        <JobItemCompanyIcon>
-          <Icon width="50" height="50" src="/ETHEREUM.png" />
-        </JobItemCompanyIcon>
-        <JobItemCompanyName>Company Name</JobItemCompanyName>
-      </JobItemLink>
+      <Container ml="0.5%" maxW="100%">
+        <Link
+          href="/jobs/project-1"
+          _hover={{ textDecoration: "none" }}
+          _focus={{ textDecoration: "none", border: "none" }}
+        >
+          <Heading size="lg" mb="2.5%">Project 1</Heading>
+        </Link>
 
-      <JobItemGrid>
-        <JobItemDetailsElement>Remote</JobItemDetailsElement>
-        <JobItemDetailsElement>Full-Time</JobItemDetailsElement>
-      </JobItemGrid>
-      <JobItemDescription>Details of the job</JobItemDescription>
-      <JobItemSkills>
-        <SkillButton styling="category">Solidity</SkillButton>
-        <SkillButton styling="category">Hardhat</SkillButton>
-        <SkillButton styling="category">Rust</SkillButton>
-        <SkillButton styling="category">Javascript</SkillButton>
-      </JobItemSkills>
-      <JobItemSeparator />
-    </JobItemBox>
+        <Link
+          href="/company/company-1"
+          _hover={{ textDecoration: "none" }}
+          _focus={{ textDecoration: "none", border: "none" }}
+        >
+
+          <Flex mt="1%" mb="2.5%" align="center">
+            <Image w="45px" h="45px" borderRadius="180px"
+            border="1px solid black"
+            src="/ETHEREUM.png"
+            alt="company"/>
+            <Spacer maxW="5px" />
+            <Heading size="sm">Company Name</Heading>
+          </Flex>
+        </Link>
+      </Container>
+
+      <Container ml="0.5%" pb="1%" maxW="100%">
+
+        <SimpleGrid
+          m="auto"
+          mt="2%"
+          columns={3}
+          spacing={1}
+        >
+          <Text>Compensation</Text>
+          <Text>Remote</Text>
+          <Text>Full-Time</Text>
+        </SimpleGrid>
+
+          <SimpleGrid
+          mt="15px"
+          templateColumns={{lg: "repeat(10, 1fr)", sm: "repeat(4, 2fr)"}}
+          wordWrap="break-word"
+          overflow="ellipsis"
+          autoRows="fit-content"
+          gap="0.5rem"
+          spacing={1}>
+          <Tag
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          ><TagLabel m="auto">Solidity</TagLabel></Tag>
+          <Tag
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          ><TagLabel m="auto">Hardhat</TagLabel></Tag>
+          <Tag
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          ><TagLabel m="auto">Rust</TagLabel></Tag>
+          <Tag
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          ><TagLabel m="auto">Javascript</TagLabel></Tag>
+          <Tag
+          w="fit-content"
+          size="md"
+          p="10px"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">React</TagLabel></Tag>
+          <Tag
+          w="fit-content"
+          size="md"
+          p="10px"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">ThreeJS</TagLabel></Tag>
+        </SimpleGrid>
+
+      </Container>
+    </Box>
   );
 }
-
-const JobItemBox = styled(Box)`
-  box-sizing: border-box;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25), 1px 0px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
-  width: 100%;
-  height: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: 650px) {
-    height: max-content;
-    width: 100%;
-    box-sizing: content-box;
-    box-shadow: 0 0 0 0;
-    padding: 0;
-    background: white;
-  }
-`;
-
-const JobItemSeparator = styled(Break)`
-  display: none;
-
-  @media (max-width: 650px) {
-    display: block;
-    opacity: 0.25;
-    width: 100%;
-    margin-left: -0.5%;
-  }
-`;
-
-const JobItemCompanyIcon = styled(IconWrap)`
-  margin-left: 1%;
-  margin-right: 0%;
-`;
-
-const JobItemLink = styled.a`
-  display: flex;
-  text-decoration: none;
-  color: black;
-`;
-
-const JobItemName = styled(Title)`
-  width: 80%;
-  text-align: left;
-  font-size: 1.25rem;
-  margin-left: 2.5%;
-`;
-
-const JobItemCompanyName = styled(Title2)`
-  width: 80%;
-  font-size: 1rem;
-  margin-left: 0%;
-`;
-
-const JobItemDetailsElement = styled.p`
-  font-size: 1rem;
-`;
-
-const JobItemGrid = styled(GridList)`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
-  width: 90%;
-  margin-left: 2.5%;
-  margin-bottom: 2.5%;
-  font-size: 14px;
-
-  @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 2fr);
-    grid-gap: 2rem;
-    width: 90%;
-    margin-left: 2.5%;
-    font-size: 10px;
-  }
-`;
-
-const JobItemDescription = styled(Description)`
-  width: 90%;
-  height: 40px;
-  font-size: 0.75rem;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-left: 2.5%;
-  margin-bottom: 0;
-`;
-
-const JobItemSkills = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 2rem;
-  grid-gap: 1rem;
-  width: 90%;
-  margin-left: 2%;
-  margin-bottom: 2.5%;
-
-  @media (max-width: 650px) {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    grid-gap: 2rem;
-    width: 90%;
-    margin-left: 2.5%;
-  }
-`;
-
-const SkillButton = styled(Button)`
-  font-size: 0.7rem;
-  margin: 1px;
-  border: 0;
-  border-radius: 8px;
-  width: max-content;
-`;

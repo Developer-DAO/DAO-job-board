@@ -1,106 +1,81 @@
 //CSS and UI
-import styled from "styled-components";
+import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, Tag, TagLabel} from "@chakra-ui/react"
 
-import {
-  ItemBox,
-  LinkCover,
-  GridList,
-  NameSection,
-  ProfileImageCover,
-  ProfileImage,
-} from "../../styles";
-
-import Button from "../../styles/ui-components/Button";
-import Link from "next/link";
-// import devdao from "../../../public/DevDAO.png";
+import {ButtonBlue} from "../../styles/ui-components/Chakra-Button";
 
 export default function DeveloperItem() {
   return (
-    <>
-      <ItemBox>
-        <LinkCover href="/developers/developer1">
-          <ItemTop>
-            <NameSection>Developer #1</NameSection>
-            <ProfileImageCover>
-              <ProfileImage src="/DevDAO.png" />
-            </ProfileImageCover>
-          </ItemTop>
-          <DeveloperItemStatus>Available</DeveloperItemStatus>
-        </LinkCover>
+      <Container
+      bg="#ffffff"
+      w="100%"
+      margin="auto"
+      textAlign="center"
+      boxSizing="border-box"
+      boxShadow="0px 0px 2px 4px #e2e8f0"
+      p="2%"
+      borderRadius="12px"
+      >
+        <Link
+        href="/developers/developer1"
+        _hover={{textDecoration: "none"}}
+        _focus={{textDecoration: "none", border:"none"}}
+        >
+            <Heading
+              size="md"
+              mb="5px"
+            >Developer #1</Heading>
+            <Container
+            m="auto"
+            w="fit-content"
+            >
+              <Image
+              w="6rem"
+              h="6rem"
+              mb="2.5px"
+              borderRadius="full"
+              border="1px solid black"
+              src="/DevDAO.png"
+              alt="developer"/>
+            </Container>
+          <Text
+          as="i"
+          mb="5px"
+          >Available</Text>
+        </Link >
 
-        <DeveloperSkills>
-          <SkillButton styling="category">Web3</SkillButton>
-          <SkillButton styling="category">Solidity</SkillButton>
-          <SkillButton styling="category">Rust</SkillButton>
-        </DeveloperSkills>
-      </ItemBox>
+        <SimpleGrid
+        m="auto"
+        mt="5px"
+        columns={3}
+        spacing={1}
+        w="100%">
+          <Tag
+          size="md"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">Web3</TagLabel></Tag>
+          <Tag
+          size="md"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">Solidity</TagLabel></Tag>
+          <Tag
+          size="md"
+          borderRadius="8px"
+          bgColor="#E2E9F0"
+          color="black"
+          ><TagLabel m="auto">Rust</TagLabel></Tag>
+        </SimpleGrid>
 
-      <ItemBox>
-        <LinkCover>
-          <ItemTop>
-            <NameSection>Developer #2</NameSection>
-            <ProfileImageCover>
-              <ProfileImage src="/DevDAO.png" />
-            </ProfileImageCover>
-          </ItemTop>
-          <DeveloperItemStatus>Not Available</DeveloperItemStatus>
-        </LinkCover>
-
-        <DeveloperSkills>
-          <SkillButton styling="category">Web3</SkillButton>
-          <SkillButton styling="category">FullStack</SkillButton>
-          <SkillButton styling="category">Discord</SkillButton>
-        </DeveloperSkills>
-      </ItemBox>
-
-      <ItemBox>
-        <LinkCover>
-          <ItemTop>
-            <NameSection>Developer #2</NameSection>
-            <ProfileImageCover>
-              <ProfileImage src="/DevDAO.png" />
-            </ProfileImageCover>
-          </ItemTop>
-          <DeveloperItemStatus>Not Available</DeveloperItemStatus>
-        </LinkCover>
-
-        <DeveloperSkills>
-          <SkillButton styling="category">Web3</SkillButton>
-          <SkillButton styling="category">FullStack</SkillButton>
-          <SkillButton styling="category">Discord</SkillButton>
-        </DeveloperSkills>
-      </ItemBox>
-    </>
+        <Container
+         mt="2.5%"
+         mb="2.5%">
+          <ButtonBlue>
+            See Profile
+          </ButtonBlue>
+        </Container>
+      </Container>
   );
 }
-
-const DeveloperSkills = styled(GridList)`
-  grid-template-columns: repeat(3, 2fr);
-  grid-auto-rows: 2.5rem;
-  grid-gap: 0px;
-  margin-top: 5px;
-  height: fit-content;
-  overflow: visible;
-
-  @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 2fr);
-  }
-`;
-
-const ItemTop = styled.div``;
-
-const SkillButton = styled(Button)`
-  font-size: 0.7rem;
-  margin: 1px;
-  border: 0;
-  border-radius: 8px;
-`;
-
-const DeveloperItemStatus = styled.em`
-  box-sizing: border-box;
-  border-radius: 12px;
-  width: min-content;
-  padding: 1px;
-  margin-left: auto;
-  margin-right: auto;
-`;

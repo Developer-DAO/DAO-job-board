@@ -1,29 +1,58 @@
 import GigFilter from "../../components/gigs/GigFilter";
 import GigItem from "../../components/gigs/GigItem";
-import GigList from "../../components/gigs/GigList";
 
-import { Box, Title, Description } from "../../styles";
-import styled from "styled-components";
+import {Box, Heading, Container, Flex, Text, Tag, TagLabel} from "@chakra-ui/react"
 
 export default function Index() {
   return (
   <>
-    <Title>Gigs</Title>
-    <Description>
-      A place to find contract work and freelance gigs.
-    </Description>
-    <GigBox>
-      <GigFilter/>
-      <GigList>
+    <Container m="auto" textAlign="center">
+      <Heading>Gigs</Heading>
+      <Text as="i">
+        A place to find contract work and freelance gigs.
+      </Text>
+    </Container>
+    <Box
+      display="flex"
+      bg="gray.50"
+      flexDirection={{lg: "row", md:"row",sm: "column"}}
+      maxW={{lg: "70%", md: "100%"}}
+      alignContent="space-between"
+      margin="auto"
+      boxSizing="border-box"
+      boxShadow="none"
+      p="0.5%"
+      mt="1.5%"
+    >
+      <Box flex={1} m={{lg: "0", md: "0", sm:"auto"}}>
+        <GigFilter
+        />
+      </Box>
+      <Box
+        flex={3}
+        w="auto"
+        display="flex"
+        bg="none"
+        flexDirection="column"
+        boxShadow="none"
+      >
         <GigItem />
-      </GigList>
-    </GigBox>
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+        <GigItem />
+      </Box>
+    </Box>
   </>
   );
-}
-
-const GigBox = styled(Box)`
-  display: flex;
-  box-shadow: 0 0 0 0;
-  background: none;
-`;
+};

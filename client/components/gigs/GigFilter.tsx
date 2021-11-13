@@ -1,46 +1,37 @@
-import styled from "styled-components";
-import { Box, BoxTop, Break, Input, Selector } from "../../styles";
+import { Box, Container, Text, Divider, Select, Input, Tag, TagLabel } from "@chakra-ui/react"
 
 export default function GigFilter() {
   return (
-    <GigFilterBox>
-      <GigBoxTop>
-        Filter Gigs
-      </GigBoxTop>
-      <GigFilterInput
-        placeholder='Search timeframe, reward, skills needed, etc.'
+    <Box
+      position={{ lg: "fixed", md: "fixed", sm: "static" }}
+      mb="2.5%"
+      maxW={{ lg: "20%", md: "20%", sm: "100%" }}
+      borderRadius="0"
+      bg="none"
+      padding="1%"
+      textAlign="center"
+    >
+      <Container mb="5px">
+        Filter by Name
+        </Container>
+      <Input
+        borderColor="#e2e8f0"
+        bgColor="white"
+        _hover={{ borderColor: '#97c0e6' }}
+        placeholder='e.g. startup, side project, etc.'
+      />
+
+      <Divider display={{ sm: "none" }} />
+      <Text
+        mt="5px"
+        mb="5px"
+      >By Reward</Text>
+      <Select
+        bgColor="white"
       >
-      </GigFilterInput>
-      <Break/>
-      Token{' '}
-      <Selector>
         <option>ETH</option>
         <option>USDT</option>
-      </Selector>
-    </GigFilterBox>
+      </Select>
+    </Box>
   );
 }
-
-const GigFilterBox = styled(Box)`
-  position: fixed;
-  width: 20%;
-  border-radius: 0;
-  background: none;
-  padding: 1%;
-  text-align: center;
-
-  @media (max-width: 900px) {
-    width: 25%;
-  }
-`;
-
-const GigBoxTop = styled(BoxTop)`
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-const GigFilterInput = styled(Input)`
-  height: 1rem;
-  width: 90%;
-`;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useRouter} from "next/router";
-import { Box } from "../../styles";
+import { Box } from "@chakra-ui/react";
 
 //The number in the file names tell you which step in the form they are
 import JobBasics from "../../components/post-job/1_JobBasics";
@@ -13,6 +13,8 @@ type IFormData = {
   jobtype: string,
   jobposition: string,
   jobcompensation: string,
+  jobmax: string,
+  jobmin: string,
   jobequity: string,
   joblocation: string,
   jobcontact: string
@@ -25,6 +27,8 @@ export default function CreateProject() {
     jobtype: "",
     jobposition: "",
     jobcompensation: "",
+    jobmax: "",
+    jobmin: "",
     jobequity: "",
     joblocation: "",
     jobcontact: ""
@@ -43,7 +47,7 @@ export default function CreateProject() {
   const [detailsPage, setDetailsPage] = useState(false);
   const [summaryPage, setSummaryPage] = useState(false);
 
-  //Change Page on Click
+  //Change Page on Click - either to Continue or go Back to previous components
   const goToBasics = () => {
     setBasicsPage(true);
     setDetailsPage(false);
@@ -61,23 +65,33 @@ export default function CreateProject() {
     setDetailsPage(false);
   };
 
+  //Sent to JobBasics as a way to get out of Create Gig page.
   const router = useRouter()
-
-  //Go Back
   const goBack = () => {
      router.back();
   };
 
+  // Handles state changes for inputs, selectors, and textarea
   const onChange = (e: React.FormEvent) =>
     setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
 
+  //Sends data to database (sent to JobSummary as props)
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
   }
 
   return (
-      <Box>
+      <Box
+      bg={{lg: "#ffffff", sm:"none"}}
+      width={{"2xl": "70%", lg: "70%", md: "90%", sm: "100%"}}
+      margin="auto"
+      boxSizing="border-box"
+      boxShadow={{lg: "0px 0px 2px 4px #e2e8f0", md: "none"}}
+      p="0.5%"
+      borderRadius="18px"
+      mt="2.5%"
+      >
         <form>
           {basicsPage ? (
             <JobBasics
