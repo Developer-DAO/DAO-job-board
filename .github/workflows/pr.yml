@@ -1,4 +1,4 @@
-name: main
+name: Pull Request
 
 on:
   pull_request:
@@ -38,6 +38,7 @@ jobs:
         if: |
           steps.yarn-cache.outputs.cache-hit != 'true' ||
           steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: yarn install --prefer-offline --frozen-lockfile --non-interactive --silent
 
       - name: TypeScript
         run: yarn workspace client run type-check
