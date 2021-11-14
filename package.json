@@ -4,7 +4,7 @@
 	"workspaces": {
 		"packages": [
 			"./client",
-			"./databse"
+			"./database"
 		]
 	}
 }
