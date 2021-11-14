@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-tsconfig.tsbuildinfo
 
 # next.js
 /.next/
