@@ -1,0 +1,10 @@
+{
+  "name": "developerdao-job-board",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"./client",
+			"./database"
+		]
+	}
+}
