@@ -10,7 +10,8 @@
     "type-check": "tsc --noEmit",
     "generate": "prisma generate",
     "migrate-dev": "prisma migrate dev",
-    "migrate": "prisma migrate deploy"
+    "migrate": "prisma migrate deploy",
+    "studio": "prisma studio"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.12",
