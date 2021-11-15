@@ -25,10 +25,10 @@ Job board for the DAO in development
 ### Local Development Environment
 
 1. Clone this repo with git
-2. Install dependencies by running `npm install`
-3. Start the development server with `npm run dev`
-4. Open development site by going to `http//:localhost:3000`
-5. Setup `.env.local` by copying from `env.example` (`cp .env.example .env.local`) and ask the secret keys 🔏 from [carlomigueldy](https://github.com/carlomigueldy)
+2. Install dependencies by running `yarn`
+3. Setup `.env.local` by copying from `env.example` (`cp client/.env.example client/.env.local`) and ask the secret keys 🔏 from [carlomigueldy](https://github.com/carlomigueldy)
+4. Start the development server with `cd client && yarn dev`
+5. Open development site by going to `http//:localhost:3000`
 
 **NOTE:** The NextJS installation is located in the `client` folder.
 
@@ -36,12 +36,14 @@ Job board for the DAO in development
 
 1. Check the [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
 
-2. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
+2. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
 
-3. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
+3. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
 
-4. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing.
+4. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
 
-5. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.
+5. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing.
+
+6. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.
 
 **NOTE**: The [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/docs/CONTRIBUTING.md) beforehand.
