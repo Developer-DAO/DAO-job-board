@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS public.keywords;
 DELETE FROM auth.users;
 
 
-
+ 
 -- table: keywords
 CREATE TABLE public.keywords (
   id uuid PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),

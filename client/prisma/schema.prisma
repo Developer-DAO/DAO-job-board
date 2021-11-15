@@ -9,3 +9,192 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Keywords {
+  id        String        @id @default(cuid()) // prisma generates unique id at runtime not implemented database level
+  name      String        @unique @db.VarChar(255)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  deletedAt DateTime? //optional field
+  users     UserKeyword[]
+  jobs      JobKeyword[]
+  keywords  GigKeyword[]
+}
+
+model Users {
+  id              String            @id @default(cuid())
+  avatarUrl       String //suggestion: making this field optional
+  coverPhotoUrl   String //suggestion: making this field optional
+  nounce          String // looks like authentication is planned to use a wallet extension other than the tradional email/pass
+  // as per https://github.com/Developer-DAO/DAO-job-board/issues/4
+  // so we need the above nounce field
+  // reference article : https://www.toptal.com/ethereum/one-click-login-flows-a-metamask-tutorial
+  // reference repo:
+  email           String?           @db.VarChar //made optional because authentication will be through a wallet extension
+  username        String            @unique @db.VarChar
+  preferences     String            @unique @db.VarChar //suggestion: making this field optional and not unique
+  walletAddress   String            @unique @db.VarChar(128)
+  disabledAt      DateTime? // optional field
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  deletedAt       DateTime? //optional field
+  links           Links[] //this field is only used for querying relation not implemented in database level
+  companyOwned    Companies[] //this field is only used for querying relation not implemented in database level
+  jobs            Jobs[] //this field is only used for querying relation not implemented in database level
+  gigs            Gigs[] //this field is only used for querying relation not implemented in database level
+  keyWords        UserKeyword[] //this field is only used for querying relation not implemented in database level
+  companies       CompanyMembers[] //this field is only used for querying relation not implemented in database level
+  JobApplications JobApplications[] //this field is only used for querying relation not implemented in database level
+  GigApplications GigApplications[]
+}
+
+model Links {
+  id               String    @id @default(cuid())
+  linkableId       String    @db.Uuid
+  linkableType     String    @db.VarChar
+  title            String    @db.VarChar
+  type             String    @db.VarChar
+  url              String    @unique @db.VarChar
+  featuredPhotoUrl String    @unique @db.VarChar
+  createdBy        String
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime? //optional field
+  creator          Users     @relation(fields: [createdBy], references: [id]) //this field is only used for querying relation not implemented in database level
+}
+
+model Companies {
+  id            String           @id @default(cuid())
+  name          String           @db.VarChar
+  email         String           @db.VarChar
+  description   String
+  logoUrl       String?          @db.VarChar //optional field
+  coverPhotoUrl String?          @db.VarChar //optional field
+  createdBy     String
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  deletedAt     DateTime? //optional field
+  creator       Users            @relation(fields: [createdBy], references: [id])
+  jobs          Jobs[]
+  members       CompanyMembers[]
+}
+
+model Jobs {
+  id               String            @id @default(cuid())
+  companyId        String
+  company          Companies         @relation(fields: [companyId], references: [id])
+  title            String            @db.VarChar
+  slug             String            @db.VarChar //required for detailview of the job
+  description      String
+  position         String?           @db.VarChar //optional field
+  opportunity      String?           @db.VarChar //optional field
+  featuredPhotoUrl String?           @db.VarChar //optional field
+  status           String?           @db.VarChar //suggestion: Enum field sholuld be more suitable here because we know the possible outcomes
+  createdBy        String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  deletedAt        DateTime? //optional field
+  creator          Users             @relation(fields: [createdBy], references: [id])
+  keywords         JobKeyword[]
+  applications     JobApplications[]
+  //sugestion: adding a location field
+}
+
+model Gigs {
+  id               String            @id @default(cuid())
+  title            String            @db.VarChar
+  slug             String            @db.VarChar //required for detailview of the gig
+  description      String
+  position         String?           @db.VarChar //optional field
+  featuredPhotoUrl String? //optional field
+  experienceLevel  String? //suggestion: Enum field sholuld be more suitable here because we know the possible outcomes
+  status           String?           @db.VarChar //suggestion: Enum field sholuld be more suitable here because we know the possible outcomes
+  createdBy        String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  deletedAt        DateTime? //optional field
+  creator          Users             @relation(fields: [createdBy], references: [id])
+  gigs             GigKeyword[]
+  applications     GigApplications[]
+
+}
+
+model JobApplications {
+  id        String    @id @default(cuid())
+  jobId     String
+  job       Jobs      @relation(fields: [jobId], references: [id])
+  pitch     String    @db.VarChar
+  content   String
+  status    String //suggestion: Enum field sholuld be more suitable here because we know the possible outcomes
+  userId    String
+  createdBy Users     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+}
+
+model GigApplications {
+  id        String    @id @default(cuid())
+  gigId     String
+  gig       Gigs      @relation(fields: [gigId], references: [id])
+  pitch     String    @db.VarChar
+  content   String
+  status    String //suggestion: Enum field sholuld be more suitable here because we know the possible outcomes
+  userId    String
+  createdBy Users     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+}
+
+// -- table: user_keyword
+model UserKeyword {
+  userId    String
+  user      Users     @relation(fields: [userId], references: [id])
+  keywordId String
+  keyword   Keywords  @relation(fields: [keywordId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+
+  @@id([userId, keywordId])
+}
+
+// -- table: company_members
+model CompanyMembers {
+  companyId String
+  company   Companies @relation(fields: [companyId], references: [id])
+  userId    String
+  user      Users     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+
+  @@id([companyId, userId])
+}
+
+// -- table: job_keyword
+model JobKeyword {
+  jobId     String
+  job       Jobs      @relation(fields: [jobId], references: [id])
+  keywordId String
+  keyword   Keywords  @relation(fields: [keywordId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+
+  @@id([keywordId, jobId])
+}
+
+// -- table: gig_keyword
+model GigKeyword {
+  gigId     String
+  gig       Gigs      @relation(fields: [gigId], references: [id])
+  keywordId String
+  keyword   Keywords  @relation(fields: [keywordId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? //optional field
+
+  @@id([keywordId, gigId])
+}
