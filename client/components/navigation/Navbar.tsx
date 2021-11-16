@@ -76,6 +76,7 @@ function Navbar() {
             left={0}
             h="100%"
             w="100%"
+            display={{ sm: 'flex', md: 'none' }}
             bg="white"
             spacing={10}
             fontSize="3xl"
