@@ -14,6 +14,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@supabase/supabase-js": "^1.25.2",
+    "@usedapp/core": "^0.5.4",
     "babel-plugin-styled-components": "^1.13.3",
     "cross-env": "^7.0.3",
     "framer-motion": "^4.1.17",
