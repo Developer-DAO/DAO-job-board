@@ -23,8 +23,6 @@ function Navbar() {
         px={5}
       >
         <NextLink
-        _hover={{textDecoration: "none"}}
-        _focus={{textDecoration: "none", border:"none"}}
          href={"/"} passHref>
           <HStack
           as="a"
