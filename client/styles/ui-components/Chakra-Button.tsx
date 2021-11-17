@@ -3,9 +3,10 @@ import { Button, ButtonGroup } from "@chakra-ui/react"
 type ChakraButtonProps = {
   children?:React.ReactNode
   onClick?: (event: React.MouseEvent) => void;
+  as?: React.ElementType;
 }
 
-export const ButtonBlack = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonBlack = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
   size="sm"
   bgColor= "#000000"
@@ -13,12 +14,14 @@ export const ButtonBlack = ({children, onClick}:ChakraButtonProps) => {
   textColor= 'white'
   m="5px"
   fontSize="14px"
-  onClick={onClick}>
+  onClick={onClick}
+  as={as}
+  >
   {children}
   </Button>
 }
 
-export const ButtonGray = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonGray = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
     bgColor="#EDF2F7"
     textColor="black"
@@ -28,12 +31,13 @@ export const ButtonGray = ({children, onClick}:ChakraButtonProps) => {
     w="auto"
     fontSize="14px"
     onClick={onClick}
+    as={as}
     >
     {children}
   </Button>
 }
 
-export const ButtonGray2 = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonGray2 = ({children, as,  onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#E2E9F0"
@@ -44,6 +48,7 @@ export const ButtonGray2 = ({children, onClick}:ChakraButtonProps) => {
     w="auto"
     fontSize="14px"
     onClick={onClick}
+    as={as}
     >
     {children}
   </Button>
@@ -65,7 +70,7 @@ export const ButtonGreen = ({children, onClick}:ChakraButtonProps) => {
   </Button>
 }
 
-export const ButtonRed = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonRed = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#E2252B"
@@ -76,12 +81,13 @@ export const ButtonRed = ({children, onClick}:ChakraButtonProps) => {
     w="auto"
     fontSize="14px"
     onClick={onClick}
+    as={as}
     >
     {children}
   </Button>
 }
 
-export const ButtonOrange = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonOrange = ({children, as,  onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#DD6B20"
@@ -92,6 +98,7 @@ export const ButtonOrange = ({children, onClick}:ChakraButtonProps) => {
     w="auto"
     fontSize="14px"
     onClick={onClick}
+    as={as}
     >
     {children}
   </Button>
@@ -113,7 +120,7 @@ export const ButtonBlue = ({children, onClick}:ChakraButtonProps) => {
   </Button>
 }
 
-export const ButtonBlue2 = ({children, onClick}:ChakraButtonProps) => {
+export const ButtonBlue2 = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
     size="sm"
     bgColor="#3182CE"
@@ -124,6 +131,7 @@ export const ButtonBlue2 = ({children, onClick}:ChakraButtonProps) => {
     w="auto"
     fontSize="14px"
     onClick={onClick}
+    as={as}
     >
     {children}
   </Button>

@@ -94,8 +94,7 @@ function Navbar() {
         </NextLink>
         </HStack>
 
-          <NextLink
-            href={"/auth"} passHref>
+          <NextLink href={"/auth"} passHref>
               <ButtonBlack
             as='a'>Sign Up</ButtonBlack>
           </NextLink>
