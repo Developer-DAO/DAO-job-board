@@ -2,11 +2,11 @@
   "name": "developerdao-job-board",
 	"private": true,
 	"scripts": {
-		"dev": "yarn workspace @developer-dao-job-board/client dev",
-    "build": "yarn workspace @developer-dao-job-board/client next build",
-    "start": "yarn workspace @developer-dao-job-board/client next start",
-    "lint": "yarn workspace @developer-dao-job-board/client next lint",
-    "type-check": "yarn workspace @developer-dao-job-board/client tsc --noEmit"
+		"dev": "yarn workspace client dev",
+    "build": "yarn workspace client build",
+    "start": "yarn workspace client start",
+    "lint": "yarn workspace client lint",
+    "type-check": "yarn workspace client type-check"
 	},
 	"workspaces": {
 		"packages": [

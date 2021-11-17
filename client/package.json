@@ -1,5 +1,5 @@
 {
-  "name": "@developer-dao-job-board/client",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
