@@ -1,10 +1,10 @@
 # DAO-job-board
-A job board connecting DAOs with talent.
+A job board to connect Web3 talent with Web3 opportunities 
 
 [Link to the Discord channel](https://discord.com/channels/883478451850473483/888867921089138729/888877424257925200)
 
 ## The motive
-Several people in the DAO have discussed how finding a DAO that they can contribute to has been a pain in the butt. This project aims to create a bridge between the talent & DAOs looking for talent.
+Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need. 
 
 ## **What is this repo?**
 
@@ -34,7 +34,7 @@ Job board for the DAO in development
 
 ## **How to Contribute**
 
-1. Check the [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
+1. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
 
 2. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
 
@@ -46,4 +46,4 @@ Job board for the DAO in development
 
 6. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.
 
-**NOTE**: The [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/docs/CONTRIBUTING.md) beforehand.
+**NOTE**: The [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/CONTRIBUTING.md) beforehand.
