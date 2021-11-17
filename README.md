@@ -25,10 +25,13 @@ Job board for the DAO in development
 ### Local Development Environment
 
 1. Clone this repo with git
-2. Install dependencies by running `yarn`
-3. Setup `.env.local` by copying from `env.example` (`cp client/.env.example client/.env.local`) and ask the secret keys 🔏 from [carlomigueldy](https://github.com/carlomigueldy)
-4. Start the development server with `cd client && yarn dev`
-5. Open development site by going to `http//:localhost:3000`
+2. Install dependencies by running `npm install`
+3. Install [Doppler](https://docs.doppler.com/docs/enclave-installation)
+4. Ask an invite to the doppler-workspace from [carlomigueldy](https://github.com/carlomigueldy)
+5. Run `cd client && doppler login`
+6. Run `doppler setup`
+7. Start the development server with `npm run dev`
+8. Open development site by going to `http//:localhost:3000`
 
 **NOTE:** The NextJS installation is located in the `client` folder.
 
