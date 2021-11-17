@@ -54,7 +54,6 @@ function Navbar() {
             borderRadius="18px"
             _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
             _focus={{textDecoration: "none", border:"none"}}
-            borderRadius="18px"
             >Gigs</Link>
         </NextLink>
         <NextLink href={'/jobs'} passHref>

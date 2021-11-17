@@ -83,11 +83,10 @@ export default function CreateProject() {
 
   return (
       <Box
-      bg={{lg: "#ffffff", sm:"none"}}
+      bg={"none"}
       width={{"2xl": "70%", lg: "70%", md: "90%", sm: "100%"}}
       margin="auto"
       boxSizing="border-box"
-      boxShadow={{lg: "0px 0px 2px 4px #e2e8f0", md: "none"}}
       p="0.5%"
       borderRadius="18px"
       mt="2.5%"

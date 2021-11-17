@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 // UI & CSS
 import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
 
-import { Heading, Input, Textarea, Select, Container, Text, ButtonGroup } from "@chakra-ui/react";
+import { Heading, Input, Textarea, Select, Container, Box, Text, ButtonGroup } from "@chakra-ui/react";
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -63,7 +63,7 @@ export default function JobBasics({
           as="i">Let us know what type of professional you are looking for</Text>
       </Container>
 
-      <Container
+      <Box
       maxW="100%"
       >
         <Heading
@@ -174,7 +174,7 @@ export default function JobBasics({
 
           <br />
 
-      </Container>
+      </Box>
 
       <ButtonGroup
       display="flex"
