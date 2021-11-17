@@ -8,6 +8,8 @@ import {
   Image,
   Button,
   VStack,
+  useDisclosure,
+  IconButton,
 } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -15,7 +17,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
-  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const hamburger = useDisclosure();
 
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
@@ -53,22 +55,21 @@ function Navbar() {
           </HStack>
         </Link>
 
-        <Button bg="gray.300" display={{ sm: 'block', md: 'none' }} zIndex={11}>
-          {isHamburgerOpen ? (
-            <CloseIcon
-              h={6}
-              w={6}
-              onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
-            />
-          ) : (
-            <HamburgerIcon
-              h={7}
-              w={7}
-              onClick={() => setIsHamburgerOpen(!isHamburgerOpen)}
-            />
-          )}
-        </Button>
-        {isHamburgerOpen && (
+        <IconButton
+          aria-label=""
+          display={{ sm: 'block', md: 'none' }}
+          zIndex={11}
+          onClick={hamburger.onToggle}
+          icon={
+            hamburger.isOpen ? (
+              <CloseIcon w={7} h={7} />
+            ) : (
+              <HamburgerIcon w={6} h={6} />
+            )
+          }
+        />
+
+        {hamburger.isOpen && (
           <VStack
             position="fixed"
             zIndex={10}
