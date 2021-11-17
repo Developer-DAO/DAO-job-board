@@ -1,6 +1,13 @@
 {
   "name": "developerdao-job-board",
 	"private": true,
+	"scripts": {
+		"dev": "yarn workspace client dev",
+    "build": "yarn workspace client build",
+    "start": "yarn workspace client start",
+    "lint": "yarn workspace client lint",
+    "type-check": "yarn workspace client type-check"
+	},
 	"workspaces": {
 		"packages": [
 			"./client",
