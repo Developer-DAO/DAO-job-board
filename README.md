@@ -34,7 +34,7 @@ Job board for the DAO in development
 
 ## **How to Contribute**
 
-1. Check the [ISSUES](https://github.com/angeljgomezc/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
+1. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues/) for a TO-DO list of problems to fix and things to add to the website.
 
 2. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
 
