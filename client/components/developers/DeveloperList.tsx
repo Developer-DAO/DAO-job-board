@@ -7,6 +7,7 @@ export default function DeveloperList() {
     <Box
       maxW={{lg: "70%", md: "100%"}}
       textAlign="center"
+      m="auto"
     >
       <Heading>Dev List</Heading>
       <Grid
