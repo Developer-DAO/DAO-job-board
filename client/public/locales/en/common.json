@@ -1,0 +1,16 @@
+{
+  "common": {
+    "title": "Job Board"
+  },
+  "login": {
+    "sign_up": "Sign Up"
+  },
+  "landing": {
+    "looking_for_talent": "Looking for Web3 Talent",
+    "looking_for_work": "Looking for Web3 Work",
+    "search_devs": "Search Devs",
+    "post_job": "Post Job",
+    "post_gig": "Post Gig",
+    "search_gig": "Search Gig"
+  }
+}
