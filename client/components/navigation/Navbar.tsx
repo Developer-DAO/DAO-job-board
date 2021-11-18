@@ -82,10 +82,6 @@ function Navbar() {
               <ButtonBlack
             as='a'>Sign Up</ButtonBlack>
           </NextLink>
-
-        <Link textDecoration="none" href="/auth">
-          <ButtonBlack>Sign Up</ButtonBlack>
-        </Link>
       </Flex>
     </chakra.nav>
   );

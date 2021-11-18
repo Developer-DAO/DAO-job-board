@@ -117,7 +117,7 @@ export default function CreateProfile() {
         boxShadow="none"
         flex={2}
       >
-        <Container p="0px" mt="5px" maxW={{ sm: '100%' }} display="inline-box">
+        <Box p="0px" mt="5px" maxW={{ sm: '100%' }} display="inline-box">
           <Heading size="md">Basic Details</Heading>
 
           <Text mt="2.5%">Name</Text>
@@ -176,32 +176,9 @@ export default function CreateProfile() {
             </Tag>
           </SimpleGrid>
 
-          <Accordion mt="2.5%" allowToggle>
-            <AccordionItem>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  <Heading size="md">Experience</Heading>
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel pb={4}>
-                <AddExperience />
-              </AccordionPanel>
-            </AccordionItem>
-
-            <AccordionItem>
-              <AccordionButton>
-                <Box flex="1" textAlign="left">
-                  <Heading size="md">Education</Heading>
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel pb={4}>
-                <AddEducation />
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
-        </Container>
+          <Text mt="2.5%">Social Links</Text>
+          <ButtonBlack>Add Social Links</ButtonBlack>
+        </Box>
       </Flex>
     </Box>
   );
