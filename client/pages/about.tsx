@@ -1,4 +1,4 @@
-import {Box, Heading} from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 function About() {
   return (
@@ -13,7 +13,7 @@ function About() {
     >
       <Heading>This is DevDAOs job list</Heading>
     </Box>
-  )
+  );
 }
 
 export default About;

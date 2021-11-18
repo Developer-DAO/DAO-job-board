@@ -1,6 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import {Box, Heading, Container, SimpleGrid, Link, Flex, Text, Tag, TagLabel} from "@chakra-ui/react"
+import {
+  Box,
+  Heading,
+  Container,
+  SimpleGrid,
+  Link,
+  Flex,
+  Text,
+  Tag,
+  TagLabel,
+} from '@chakra-ui/react';
 
 export default function GigItem() {
   return (
@@ -11,38 +21,35 @@ export default function GigItem() {
       bg="#ffffff"
     >
       <SimpleGrid
-      m="auto"
-      mt="1.5%"
-      ml="2%"
-      columns={3}
-      spacing={0}
-      gap={1}
-      w="100%">
-        <Link _hover={{textDecoration: "none"}}>
-          <Heading
-          size="md"
-          >Gig Title</Heading>
+        m="auto"
+        mt="1.5%"
+        ml="2%"
+        columns={3}
+        spacing={0}
+        gap={1}
+        w="100%"
+      >
+        <Link _hover={{ textDecoration: 'none' }}>
+          <Heading size="md">Gig Title</Heading>
         </Link>
         <Text>In Progress</Text>
       </SimpleGrid>
 
-      <Link _hover={{textDecoration: "none"}}>
-        <Heading
-        size="sm"
-        mb="2.5%"
-        mt="2.5%"
-        ml="2%"
-        >Gig Creator</Heading>
+      <Link _hover={{ textDecoration: 'none' }}>
+        <Heading size="sm" mb="2.5%" mt="2.5%" ml="2%">
+          Gig Creator
+        </Heading>
       </Link>
 
       <SimpleGrid
-      m="auto"
-      mt="5px"
-      mb="1.5%"
-      ml="2%"
-      columns={3}
-      spacing={1}
-      w="100%">
+        m="auto"
+        mt="5px"
+        mb="1.5%"
+        ml="2%"
+        columns={3}
+        spacing={1}
+        w="100%"
+      >
         <Text>1 ETH</Text>
         <Text>3 Days</Text>
         <Text># Applicants</Text>

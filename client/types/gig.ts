@@ -5,7 +5,7 @@ import {
   PostingStatus,
   PrimaryKey,
   WithTimestamp,
-} from "./common";
+} from './common';
 
 export type Gig = PrimaryKey & {
   title: string;
@@ -19,12 +19,12 @@ export type Gig = PrimaryKey & {
 
 export type GigForm = Pick<
   Gig,
-  | "title"
-  | "description"
-  | "position"
-  | "featured_photo_url"
-  | "experience_level"
-  | "status"
+  | 'title'
+  | 'description'
+  | 'position'
+  | 'featured_photo_url'
+  | 'experience_level'
+  | 'status'
 >;
 
 export type GigCategory = {
@@ -40,5 +40,5 @@ export type GigApplication = PrimaryKey & {
 
 export type GigApplicationForm = Pick<
   GigApplication,
-  "gig_id" | "pitch" | "content" | "status"
+  'gig_id' | 'pitch' | 'content' | 'status'
 >;
