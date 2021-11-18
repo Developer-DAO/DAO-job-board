@@ -1,6 +1,3 @@
-DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
-DROP FUNCTION IF EXISTS public.handle_new_auth_user;
-
 DROP TABLE IF EXISTS public.gig_keyword;
 DROP TABLE IF EXISTS public.gig_applications;
 DROP TABLE IF EXISTS public.gigs;
@@ -13,8 +10,6 @@ DROP TABLE IF EXISTS public.links;
 DROP TABLE IF EXISTS public.user_keyword;
 DROP TABLE IF EXISTS public.users;
 DROP TABLE IF EXISTS public.keywords;
--- setup: fresh auth.users
-DELETE FROM auth.users;
 
 
 
@@ -31,19 +26,18 @@ CREATE TABLE public.keywords (
 
 -- table: users
 CREATE TABLE public.users (
-  id uuid PRIMARY KEY NOT NULL REFERENCES auth.users (id),
+  id VARCHAR PRIMARY KEY NOT NULL UNIQUE CHECK (id <> ''),
   avatar_url VARCHAR CHECK (avatar_url <> ''),
   cover_photo_url VARCHAR CHECK (cover_photo_url <> ''),
   email VARCHAR UNIQUE CHECK (email <> ''),
   username VARCHAR UNIQUE CHECK (username <> ''),
   preferences VARCHAR UNIQUE CHECK (preferences <> ''),
-  wallet_address VARCHAR(128) UNIQUE CHECK (wallet_address <> ''),
   disabled_at TIMESTAMP,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP
 );
-COMMENT ON COLUMN public.users.id IS 'The auth.users reference';
+COMMENT ON COLUMN public.users.id IS 'References to a wallet address';
 -- ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 
 -- table: user_keyword
@@ -55,22 +49,6 @@ CREATE TABLE public.user_keyword (
   deleted_at TIMESTAMP,
   PRIMARY KEY (user_id, keyword_id)
 );
-
--- trigger: handle new registered user
-CREATE OR REPLACE FUNCTION public.handle_new_auth_user()
-RETURNS TRIGGER AS $$
-BEGIN 
-  INSERT INTO public.users (id, email) VALUES (new.id::UUID, new.email::TEXT);
-
-  return new;
-END
-$$
-LANGUAGE plpgsql SECURITY DEFINER;
-
-CREATE TRIGGER on_auth_user_created
-AFTER INSERT ON auth.users
-FOR EACH ROW
-EXECUTE PROCEDURE public.handle_new_auth_user();
 
 
 
