@@ -26,7 +26,31 @@ Job board for the DAO in development
 
 1. Clone this repo with git
 2. Install dependencies by running `npm install`
-3. Install [Doppler](https://docs.doppler.com/docs/enclave-installation)
+3. Setup [Doppler CLI](https://docs.doppler.com/docs/enclave-installation) on your local machine:
+   1. Installing Doppler CLI
+      ```bash
+      # [macOS]
+      brew install dopplerhq/cli/doppler
+
+      # -----
+
+      # [Debian/Ubuntu]
+      # Install pre-reqs
+      sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+
+      # Add Doppler's GPG key
+      curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
+
+      # Add Doppler's apt repo
+      echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
+
+      # Fetch and install latest doppler cli
+      sudo apt-get update && sudo apt-get install doppler
+      ```
+   2. Verify if Doppler CLI has been installed completely via `doppler --version`
+   3. Authenticate to Doppler by `doppler login`. It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
+
+
 4. Ask an invite to the doppler-workspace from [carlomigueldy](https://github.com/carlomigueldy)
 5. Run `cd client && doppler login`
 6. Run `doppler setup`
