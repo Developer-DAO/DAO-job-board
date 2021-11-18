@@ -2,21 +2,9 @@ import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
-import {
-  ButtonGreen,
-  ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
+import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
 
-import {
-  Heading,
-  Box,
-  Input,
-  Textarea,
-  Select,
-  Container,
-  Text,
-  ButtonGroup,
-} from '@chakra-ui/react';
+import { Heading, Input, Textarea, Select, Container, Box, Text, ButtonGroup } from "@chakra-ui/react";
 
 type JobBasicProps = {
   goToDetails: () => void;
