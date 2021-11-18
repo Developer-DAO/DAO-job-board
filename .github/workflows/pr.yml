@@ -35,9 +35,6 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
-        if: |
-          steps.yarn-cache.outputs.cache-hit != 'true' ||
-          steps.node-modules-cache.outputs.cache-hit != 'true'
         run: yarn install --prefer-offline --frozen-lockfile --non-interactive --silent
 
       - name: TypeScript
