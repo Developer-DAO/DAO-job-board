@@ -20,44 +20,41 @@ Job board for the DAO in development
 - [Next.js](https://nextjs.org/)
 - [Supabase](https://supabase.io/)
 - [NPM](https://www.npmjs.com/)
+- [Yarn Workspace](https://classic.yarnpkg.com/lang/en/docs/workspaces/)
 - [Chakra UI](https://chakra-ui.com/)
 
 ### Local Development Environment
 
-1. Clone this repo with git
-2. Install dependencies by running `npm install`
-3. Setup [Doppler CLI](https://docs.doppler.com/docs/enclave-installation) on your local machine:
-   1. Installing Doppler CLI
-      ```bash
-      # [macOS]
-      brew install dopplerhq/cli/doppler
+1. Clone this repo with Git
+2. Install dependencies by running `npm install` or `yarn install`
+3. Ask an invite to the Doppler Developer DAO workspace from [carlomigueldy.eth](https://github.com/carlomigueldy) or [angelgomez.eth](https://github.com/angeljgomezc)
+4. Install Doppler CLI into your local machine
+   ```bash
+   # [macOS]
+   brew install dopplerhq/cli/doppler
 
-      # -----
+   # -----
 
-      # [Debian/Ubuntu]
-      # Install pre-reqs
-      sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+   # [Debian/Ubuntu]
+   # Install pre-reqs
+   sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
 
-      # Add Doppler's GPG key
-      curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
+   # Add Doppler's GPG key
+   curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
 
-      # Add Doppler's apt repo
-      echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
+   # Add Doppler's apt repo
+   echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
 
-      # Fetch and install latest doppler cli
-      sudo apt-get update && sudo apt-get install doppler
-      ```
-   2. Verify if Doppler CLI has been installed completely via `doppler --version`
-   3. Authenticate to Doppler by `doppler login`. It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
-
-
-4. Ask an invite to the doppler-workspace from [carlomigueldy](https://github.com/carlomigueldy)
-5. Run `cd client && doppler login`
-6. Run `doppler setup`
-7. Start the development server with `npm run dev`
-8. Open development site by going to `http//:localhost:3000`
-
-**NOTE:** The NextJS installation is located in the `client` folder.
+   # Fetch and install latest doppler cli
+   sudo apt-get update && sudo apt-get install doppler
+   ```
+   For a thorough complete guide, read more from the [official docs](https://docs.doppler.com/docs/enclave-installation).
+   
+5. Verify if Doppler CLI has been installed completely running `doppler --version`
+6. Authenticate to Doppler by running `doppler login`. It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
+7. Run `doppler setup` and select "development"
+8. Start the development server with `npm run dev` or `yarn dev`
+9.  Open development site by going to `http//:localhost:3000`
 
 ## **How to Contribute**
 
