@@ -6,7 +6,8 @@
     "build": "yarn workspace client build",
     "start": "yarn workspace client start",
     "lint": "yarn workspace client lint",
-    "type-check": "yarn workspace client type-check"
+    "type-check": "yarn workspace client type-check",
+    "prepare": "husky install"
   },
   "workspaces": {
     "packages": [
