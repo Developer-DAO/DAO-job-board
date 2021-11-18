@@ -1,20 +1,8 @@
-import NextLink from 'next/link';
+import NextLink from 'next/link'
 
 //CSS and UI
-import {
-  Box,
-  Heading,
-  Container,
-  Flex,
-  Text,
-  Link,
-  Image,
-  HStack,
-  Tag,
-  TagLabel,
-} from '@chakra-ui/react';
-
-import { ButtonBlue } from '../../styles/ui-components/Chakra-Button';
+import {Box, Heading, Container, Flex, Text, Link, Image, SimpleGrid, HStack, Tag, TagLabel} from "@chakra-ui/react"
+import {ButtonBlue} from "../../styles/ui-components/Chakra-Button";
 
 
 export default function DeveloperItem() {
