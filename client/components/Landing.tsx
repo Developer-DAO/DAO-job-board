@@ -14,7 +14,7 @@ export default function Landing() {
         mt="2.5%"
       >
         <Image
-          borderRadius='180px'
+          borderRadius="180px"
           w="200"
           h="200"
           src="/DevDAO.png"

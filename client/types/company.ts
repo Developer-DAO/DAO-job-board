@@ -1,4 +1,4 @@
-import { CreatedBy, PrimaryKey, WithTimestamp } from "./common";
+import { CreatedBy, PrimaryKey, WithTimestamp } from './common';
 
 export type Company = PrimaryKey & {
   name: string;
@@ -16,5 +16,5 @@ export type CompanyMember = {
 
 export type CompanyForm = Pick<
   Company,
-  "cover_photo_url" | "description" | "email" | "logo_url" | "name"
+  'cover_photo_url' | 'description' | 'email' | 'logo_url' | 'name'
 >;

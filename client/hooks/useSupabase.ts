@@ -1,6 +1,6 @@
-import { supabase } from "../common/supabase";
-import { Table } from "../types";
-import { useLogger } from "./useLogger";
+import { supabase } from '../common/supabase';
+import { Table } from '../types';
+import { useLogger } from './useLogger';
 
 /**
  * @description
@@ -49,12 +49,12 @@ export const useSupabase = <T>(table: Table) => {
    *   });
    * }, []);
    */
-  async function all(columns: string = "*"): Promise<T[]> {
-    logger.log("all", { columns });
+  async function all(columns: string = '*'): Promise<T[]> {
+    logger.log('all', { columns });
     const { data, error } = await supabase.from(table).select(columns);
 
     if (error) {
-      logger.error("find", error, { columns });
+      logger.error('find', error, { columns });
       throw Error(`${error.code} ${error.message}`);
     }
 
@@ -90,17 +90,17 @@ export const useSupabase = <T>(table: Table) => {
    *   });
    * }, []);
    */
-  async function find(id: string, columns: string = "*"): Promise<T> {
-    logger.log("find", { id, columns });
+  async function find(id: string, columns: string = '*'): Promise<T> {
+    logger.log('find', { id, columns });
 
     const { data, error } = await supabase
       .from(table)
       .select(columns)
-      .eq("id", id)
+      .eq('id', id)
       .single();
 
     if (error) {
-      logger.error("find", error, { id, columns });
+      logger.error('find', error, { id, columns });
       throw Error(`${error.code} ${error.message}`);
     }
 
@@ -134,16 +134,16 @@ export const useSupabase = <T>(table: Table) => {
    * }, []);
    */
   async function create<Y>(payload: Y): Promise<T> {
-    logger.log("create", { payload });
+    logger.log('create', { payload });
 
     const { data, error } = await supabase.from(table).insert(payload).single();
 
     if (error) {
-      logger.error("create", error, { payload });
+      logger.error('create', error, { payload });
       throw Error(`${error.code} ${error.message}`);
     }
 
-    logger.info("create | A new record has been created", { payload, data });
+    logger.info('create | A new record has been created', { payload, data });
 
     return data;
   }
@@ -191,20 +191,20 @@ export const useSupabase = <T>(table: Table) => {
    * }, []);
    */
   async function update(id: string, payload: T): Promise<T> {
-    logger.log("update", { id, payload });
+    logger.log('update', { id, payload });
 
     const { data, error } = await supabase
       .from(table)
       .update(payload)
-      .eq("id", id)
+      .eq('id', id)
       .single();
 
     if (error) {
-      logger.error("create", error, { payload });
+      logger.error('create', error, { payload });
       throw Error(`${error.code} ${error.message}`);
     }
 
-    logger.info("update | A record has been updated", { payload, data });
+    logger.info('update | A record has been updated', { payload, data });
 
     return data;
   }
@@ -231,19 +231,19 @@ export const useSupabase = <T>(table: Table) => {
    * }
    */
   async function softDelete(id: string): Promise<void> {
-    logger.log("delete", { id });
+    logger.log('delete', { id });
 
-    const { data, error } = await supabase.rpc("soft_delete", {
+    const { data, error } = await supabase.rpc('soft_delete', {
       id,
       table: table,
     });
 
     if (error) {
-      logger.error("create", error, { id });
+      logger.error('create', error, { id });
       throw Error(`${error.code} ${error.message}`);
     }
 
-    logger.info("delete | A record has been soft-deleted", { id, data });
+    logger.info('delete | A record has been soft-deleted', { id, data });
   }
 
   return {

@@ -1,21 +1,21 @@
-
 import React from 'react';
-import NextLink from 'next/link'
+import {
+  chakra,
+  Link,
+  LinkOverlay,
+  Flex,
+  HStack,
+  Image,
+} from '@chakra-ui/react';
 
-import { chakra, Link, LinkOverlay, Flex, HStack, Image } from '@chakra-ui/react';
-
-import {ButtonBlack} from "../../styles/ui-components/Chakra-Button";
+import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
-
   return (
-    <chakra.nav
-    borderBottom="1px solid"
-    borderColor="gray.200"
-    >
+    <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
         justify="space-between"
-        maxW={{lg: "70%", md: "100%"}}
+        maxW={{ lg: '70%', md: '100%' }}
         align="center"
         mx="auto"
         py={3}
@@ -32,7 +32,7 @@ function Navbar() {
               boxSize="30px"
               alt="Home"
               src="/DevDAO.png"
-               />
+            />
             <chakra.span
               fontWeight="bold"
               fontSize="sm"
@@ -80,9 +80,10 @@ function Navbar() {
             as='a'>Sign Up</ButtonBlack>
           </NextLink>
 
+        <Link textDecoration="none" href="/auth">
+          <ButtonBlack>Sign Up</ButtonBlack>
+        </Link>
       </Flex>
-
-
     </chakra.nav>
   );
 }
