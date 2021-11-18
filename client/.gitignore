@@ -36,11 +36,3 @@ yarn-error.log*
 
 # typescript
 tsconfig.tsbuildinfo
-
-# components
-/pages/post-gig
-/pages/gigs
-/pages/companies
-/components/companies
-/components/post-gig
-/components/gigs

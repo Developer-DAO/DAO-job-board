@@ -1,3 +1,5 @@
+import NextLink from 'next/link';
+
 //CSS and UI
 import {
   Box,
@@ -7,7 +9,7 @@ import {
   Text,
   Link,
   Image,
-  SimpleGrid,
+  HStack,
   Tag,
   TagLabel,
 } from '@chakra-ui/react';

@@ -9,6 +9,7 @@ import {
 
 import {
   Heading,
+  Box,
   Input,
   Textarea,
   Select,
@@ -66,7 +67,7 @@ export default function JobBasics({
         </Text>
       </Container>
 
-      <Container maxW="100%">
+      <Box maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Write a clear title for your job post
         </Heading>
