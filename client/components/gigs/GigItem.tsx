@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import {Box, Heading, Container, SimpleGrid, Link, Flex, Text, Tag, TagLabel} from "@chakra-ui/react"
 
 export default function GigItem() {

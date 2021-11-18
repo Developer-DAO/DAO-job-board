@@ -18,7 +18,6 @@ function Navbar() {
         maxW={{lg: "70%", md: "100%"}}
         align="center"
         mx="auto"
-        minW="xl"
         py={3}
         px={5}
       >
@@ -47,15 +46,6 @@ function Navbar() {
         </NextLink>
 
         <HStack spacing={{ base: 2, sm: 7 }}>
-        <NextLink href={'/gigs'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-            >Gigs</Link>
-        </NextLink>
         <NextLink href={'/jobs'} passHref>
           <Link
             color="black"
@@ -73,15 +63,6 @@ function Navbar() {
             _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
             _focus={{textDecoration: "none", border:"none"}}
           >Devs</Link>
-        </NextLink>
-        <NextLink href={'/companies'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-          >Companies</Link>
         </NextLink>
         <NextLink href={'/about'} passHref>
           <Link

@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import { ButtonGreen, ButtonOrange, ButtonBlack } from "../../styles/ui-components/Chakra-Button"
 
 import {
-  Heading, Tag, Input, Textarea, Select, Container, Text, ButtonGroup, TagLabel,
+  Heading, Box, Container, Tag, Input, Textarea, Select, Text, ButtonGroup, TagLabel,
   TagCloseButton,
   HStack
 } from "@chakra-ui/react";
@@ -68,7 +68,7 @@ export default function GigDetails({
           as="i">Define the job category, compensation, and location</Text>
       </Container>
 
-      <Container
+      <Box
         maxW="100%"
       >
         <Heading
@@ -95,7 +95,8 @@ export default function GigDetails({
         mb="2.5%"
         border={!wrongData ? "none" : "1px solid red"}
         >
-          <ButtonBlack>
+          <ButtonBlack
+          >
               Select Keywords
           </ButtonBlack>
           <Tag
@@ -224,7 +225,7 @@ export default function GigDetails({
           placeholder='e.g California, US'
         />
 
-      </Container>
+      </Box>
       <br />
       <ButtonGroup
         display="flex"

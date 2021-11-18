@@ -7,7 +7,7 @@ import {
   Image,
   Heading,
   Text,
-  SimpleGrid,
+  HStack,
   Tag,
   TagLabel
 } from "@chakra-ui/react";
@@ -26,7 +26,7 @@ export default function JobItem() {
       bg="white"
     >
 
-      <Container ml="0.5%" maxW="100%">
+      <Box ml="0.5%" maxW="100%">
         <Link
           href="/jobs/project-1"
           _hover={{ textDecoration: "none" }}
@@ -50,11 +50,11 @@ export default function JobItem() {
             <Heading size="sm">Company Name</Heading>
           </Flex>
         </Link>
-      </Container>
+      </Box>
 
-      <Container ml="0.5%" pb="1%" maxW="100%">
+      <Box ml="0.5%" pb="1%" maxW="100%">
 
-        <SimpleGrid
+        <HStack
           m="auto"
           mt="2%"
           columns={3}
@@ -63,9 +63,9 @@ export default function JobItem() {
           <Text>Compensation</Text>
           <Text>Remote</Text>
           <Text>Full-Time</Text>
-        </SimpleGrid>
+        </HStack>
 
-          <SimpleGrid
+          <HStack
           mt="15px"
           templateColumns={{lg: "repeat(10, 1fr)", sm: "repeat(4, 2fr)"}}
           wordWrap="break-word"
@@ -121,9 +121,9 @@ export default function JobItem() {
           bgColor="#E2E9F0"
           color="black"
           ><TagLabel m="auto">ThreeJS</TagLabel></Tag>
-        </SimpleGrid>
+        </HStack>
 
-      </Container>
+      </Box>
     </Box>
   );
 }

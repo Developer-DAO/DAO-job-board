@@ -1,10 +1,10 @@
-import {Heading, Container, Grid, Text, Link} from "@chakra-ui/react"
+import {Heading, Box, Grid, Text, Link} from "@chakra-ui/react"
 
 import DeveloperItem from "./DeveloperItem";
 
 export default function DeveloperList() {
   return (
-    <Container
+    <Box
       maxW={{lg: "70%", md: "100%"}}
       textAlign="center"
     >
@@ -22,6 +22,6 @@ export default function DeveloperList() {
         <DeveloperItem />
 
       </Grid>
-    </Container>
+    </Box>
   );
 }

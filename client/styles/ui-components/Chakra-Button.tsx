@@ -10,7 +10,7 @@ export const ButtonBlack = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
   size="sm"
   bgColor= "#000000"
-  _hover={{bg: "#30363D"}}
+  _hover={{cursor: "pointer", bg: "#30363D"}}
   textColor= 'white'
   m="5px"
   fontSize="14px"
@@ -25,7 +25,7 @@ export const ButtonGray = ({children, as, onClick}:ChakraButtonProps) => {
   return <Button
     bgColor="#EDF2F7"
     textColor="black"
-    _hover={{bg: "#E2E9F0"}}
+    _hover={{cursor: "pointer", bg: "#E2E9F0"}}
     m="5px"
     ms="0px"
     w="auto"
@@ -42,7 +42,7 @@ export const ButtonGray2 = ({children, as,  onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#E2E9F0"
     textColor="black"
-    _hover={{bg: "#EDF2F7"}}
+    _hover={{cursor: "pointer", bg: "#EDF2F7"}}
     m="5px"
     ms="0px"
     w="auto"
@@ -59,7 +59,7 @@ export const ButtonGreen = ({children, onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#38A169"
     textColor="white"
-    _hover={{bg: "#2F855A"}}
+    _hover={{cursor: "pointer", bg: "#2F855A"}}
     m="5px"
     ms="0px"
     w="auto"
@@ -75,7 +75,7 @@ export const ButtonRed = ({children, as, onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#E2252B"
     textColor="white"
-    _hover={{bg: "#BB5348"}}
+    _hover={{cursor: "pointer", bg: "#BB5348"}}
     m="5px"
     ms="0px"
     w="auto"
@@ -92,7 +92,7 @@ export const ButtonOrange = ({children, as,  onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#DD6B20"
     textColor="white"
-    _hover={{bg: "#C05621"}}
+    _hover={{cursor: "pointer", bg: "#C05621"}}
     m="5px"
     ms="0px !important"
     w="auto"
@@ -109,7 +109,7 @@ export const ButtonBlue = ({children, onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#3B82F6"
     textColor="white"
-    _hover={{bg: "#1D4ED8"}}
+    _hover={{cursor: "pointer", bg: "#1D4ED8"}}
     m="5px"
     ms="0px"
     w="auto"
@@ -125,7 +125,7 @@ export const ButtonBlue2 = ({children, as, onClick}:ChakraButtonProps) => {
     size="sm"
     bgColor="#3182CE"
     textColor="white"
-    _hover={{bg: "#2B6CB0"}}
+    _hover={{cursor: "pointer", bg: "#2B6CB0"}}
     m="5px"
     ms="0px"
     w="auto"
