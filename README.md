@@ -21,6 +21,7 @@ Job board for the DAO in development
 - [React.js](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [Supabase](https://supabase.io/)
+- [PostgreSQL](https://www.postgresql.org/) ([See here](database) for the database schema & design)
 - [NPM](https://www.npmjs.com/)
 - [Chakra UI](https://chakra-ui.com/)
 
