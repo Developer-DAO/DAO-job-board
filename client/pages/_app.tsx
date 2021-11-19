@@ -1,7 +1,7 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
-import Navbar from '../components/navigation/Navbar';
+import Navbar from 'components/navigation/Navbar';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
-import { theme } from '../styles/theme';
+import { theme } from 'styles/theme';
 import { DAppProvider } from '@usedapp/core';
 import { AuthProvider } from '../hooks/useAuth';
 

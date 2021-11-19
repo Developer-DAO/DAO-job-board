@@ -5,7 +5,7 @@ import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
-} from '../../styles/ui-components/Chakra-Button';
+} from 'styles/ui-components/Chakra-Button';
 
 import {
   Heading, Box, Container, Tag, Input, Textarea, Select, Text, ButtonGroup, TagLabel,

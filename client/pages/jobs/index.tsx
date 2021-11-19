@@ -1,5 +1,5 @@
-import JobFilter from '../../components/jobs/JobFilter';
-import JobItem from '../../components/jobs/JobItem';
+import JobFilter from 'components/jobs/JobFilter';
+import JobItem from 'components/jobs/JobItem';
 
 import { Heading, Container, Text } from '@chakra-ui/react';
 

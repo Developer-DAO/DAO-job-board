@@ -1,5 +1,5 @@
-import { supabase } from '../common/supabase';
-import { Table } from '../types';
+import { supabase } from 'common/supabase';
+import { Table } from 'types';
 import { useLogger } from './useLogger';
 
 /**
