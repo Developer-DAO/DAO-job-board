@@ -20,10 +20,8 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
-  const hamburger = useDisclosure();
-
-
-function Navbar() {
+    const hamburger = useDisclosure();
+  
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
@@ -114,11 +112,11 @@ function Navbar() {
             _focus={{textDecoration: "none", border:"none"}}
             >About</Link>
         </NextLink>
-          <NextLink href={"/auth"} passHref>
-            <ButtonBlack
-            as='a'>Sign Up</ButtonBlack>
-          </NextLink>
-          </VStack>
+        <NextLink href={"/auth"} passHref>
+          <ButtonBlack
+          as='a'>Sign Up</ButtonBlack>
+        </NextLink>
+      </VStack>
         )}
 
         <HStack spacing={{ base: 2, sm: 7 }}>
