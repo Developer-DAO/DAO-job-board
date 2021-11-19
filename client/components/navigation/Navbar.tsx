@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  chakra,
-  Link,
-  LinkOverlay,
-  Flex,
-  HStack,
-  Image,
-} from '@chakra-ui/react';
+import { chakra, Link, Text, Flex, HStack, Image } from '@chakra-ui/react';
+import { useEthers } from '@usedapp/core';
 
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
+  const { account } = useEthers();
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
@@ -115,9 +110,13 @@ function Navbar() {
           </Link>
         </HStack>
 
-        <Link textDecoration="none" href="/auth">
-          <ButtonBlack>Sign Up</ButtonBlack>
-        </Link>
+        {account ? (
+          <Text>{account}</Text>
+        ) : (
+          <Link textDecoration="none" href="/auth">
+            <ButtonBlack>Sign Up</ButtonBlack>
+          </Link>
+        )}
       </Flex>
     </chakra.nav>
   );

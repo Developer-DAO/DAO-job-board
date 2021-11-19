@@ -4,7 +4,8 @@ import {
   ButtonGray,
 } from '../../styles/ui-components/Chakra-Button';
 import Image from 'next/image';
-import { useEthers, useEtherBalance } from '@usedapp/core';
+import { useEthers } from '@usedapp/core';
+import { useEffect } from 'react';
 
 export default function Index() {
   return <SignUp />;
@@ -25,6 +26,24 @@ function ConnectButton() {
     activateBrowserWallet();
   };
   const Button = isConnected() ? ButtonGreen : ButtonGray;
+
+  useEffect(() => {
+    if (account) {
+      fetch('/api/auth', {
+        method: 'POST',
+        body: JSON.stringify({ walletAddress: account }),
+      })
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((result) => {
+          console.log(result);
+          // Now we can set the user in a global auth context and redirect them
+          // to /create-profile if they don't have one yet
+        });
+    }
+  }, [account]);
 
   return (
     <Button onClick={handleOnConnectToWallet}>
