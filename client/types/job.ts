@@ -4,7 +4,7 @@ import {
   PostingStatus,
   PrimaryKey,
   WithTimestamp,
-} from "./common";
+} from './common';
 
 export type Job = PrimaryKey & {
   company_id: string;
@@ -19,13 +19,13 @@ export type Job = PrimaryKey & {
 
 export type JobForm = Pick<
   Job,
-  | "company_id"
-  | "description"
-  | "title"
-  | "position"
-  | "opportunity"
-  | "featured_photo_url"
-  | "status"
+  | 'company_id'
+  | 'description'
+  | 'title'
+  | 'position'
+  | 'opportunity'
+  | 'featured_photo_url'
+  | 'status'
 >;
 
 export type JobCategory = {
@@ -41,5 +41,5 @@ export type JobApplication = PrimaryKey & {
 
 export type JobApplicationForm = Pick<
   JobApplication,
-  "job_id" | "pitch" | "content" | "status"
+  'job_id' | 'pitch' | 'content' | 'status'
 >;

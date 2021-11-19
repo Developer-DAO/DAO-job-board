@@ -1,71 +1,59 @@
-import { Image, Heading, Container, Text, Link } from "@chakra-ui/react";
+import { Image, Heading, Box, Text, Link } from "@chakra-ui/react";
 
+import NextLink from 'next/link'
 
-import { ButtonRed, ButtonGreen, ButtonBlue } from "../styles/ui-components/Chakra-Button"
+import { ButtonRed, ButtonBlack, ButtonGreen, ButtonBlue } from "../styles/ui-components/Chakra-Button"
 
 export default function Landing() {
   return (
-    <Container>
-      <Container
+    <Box>
+      <Box
         w='auto'
         h='auto'
         m='auto'
         mt="2.5%"
       >
         <Image
-          borderRadius='180px'
+          borderRadius="180px"
           w="200"
           h="200"
           src="/DevDAO.png"
           alt="icon"
           m="auto"
         />
-      </Container>
+      </Box>
 
-      <Container
+      <Box
         textAlign='center'
       >
         <Heading
           m="10px"
           fontSize='28px'
         >Looking for Web3 talent?</Heading>
-        <Link href="/developers">
-          <ButtonGreen>
+        <NextLink href='/developers'>
+          <ButtonGreen as="a">
             Search  Devs
           </ButtonGreen>
-        </Link>
+        </NextLink>
 
-        <Link href="/post-job">
-          <ButtonBlue
+        <NextLink href='/post-job'>
+          <ButtonBlue as="a"
           >
             Post a Job
           </ButtonBlue>
-        </Link>
-
-        <Link href="/post-gig">
-          <ButtonRed
-          >
-            Post a Gig
-          </ButtonRed>
-        </Link>
-
+        </NextLink>
 
         <Heading
-        m="10px"
-        fontSize='28px'
+          m="10px"
+          fontSize='28px'
         >Looking for Web3 work?</Heading>
-        <Link href="/jobs">
-          <ButtonGreen>
-            Search Gigs
-          </ButtonGreen>
-        </Link>
-
-        <Link href="/gigs">
-          <ButtonRed>
-            Search Gigs
+        <NextLink href='/jobs'>
+          <ButtonRed as="a">
+            Search Jobs
           </ButtonRed>
-        </Link>
-      </Container>
-    </Container>
+        </NextLink>
+
+      </Box>
+    </Box>
   );
 }

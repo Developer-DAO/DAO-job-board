@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import NextLink from 'next/link';
+
 import {
   chakra,
   Link,
@@ -19,6 +22,8 @@ import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 function Navbar() {
   const hamburger = useDisclosure();
 
+
+function Navbar() {
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
@@ -26,17 +31,16 @@ function Navbar() {
         maxW={{ lg: '70%', md: '100%' }}
         align="center"
         mx="auto"
-        minW="xl"
         py={3}
         px={5}
       >
-        <Link
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ textDecoration: 'none', border: 'none' }}
-          href="/"
-          zIndex={11}
-        >
-          <HStack as="a" display="flex" alignItems="center">
+
+        <NextLink
+         href={"/"} passHref>
+          <HStack
+          as="a"
+          display="flex"
+          alignItems="center">
             <Image
               borderRadius="full"
               boxSize="30px"
@@ -53,7 +57,7 @@ function Navbar() {
               Job Board
             </chakra.span>
           </HStack>
-        </Link>
+        </NextLink>
 
         <IconButton
           aria-label=""
@@ -83,142 +87,74 @@ function Navbar() {
             fontSize="3xl"
             pt={20}
           >
-            <Link
-              color="black"
-              p="0.45rem"
-              m="0 0.25rem"
-              cursor="pointer"
-              textDecoration="none"
-              borderRadius="18px"
-              href="/gigs"
-            >
-              Gigs
-            </Link>
-            <Link
-              color="black"
-              p="0.45rem"
-              m="0 0.25rem"
-              cursor="pointer"
-              textDecoration="none"
-              borderRadius="18px"
-              href="/jobs"
-            >
-              Jobs
-            </Link>
-
-            <Link
-              color="black"
-              p="0.45rem"
-              m="0 0.25rem"
-              cursor="pointer"
-              textDecoration="none"
-              borderRadius="18px"
-              href="/developers"
-            >
-              Devs
-            </Link>
-            <Link
-              color="black"
-              p="0.45rem"
-              m="0 0.25rem"
-              cursor="pointer"
-              textDecoration="none"
-              borderRadius="18px"
-              href="/companies"
-            >
-              Companies
-            </Link>
-            <Link
-              color="black"
-              p="0.45rem"
-              m="0 0.25rem"
-              cursor="pointer"
-              textDecoration="none"
-              borderRadius="18px"
-              href="/about"
-            >
-              About
-            </Link>
-            <Link textDecoration="none" href="/auth">
-              <ButtonBlack>Sign Up</ButtonBlack>
-            </Link>
+          <NextLink href={'/jobs'} passHref>
+          <Link
+            color="black"
+            p="0.45rem"
+            borderRadius="18px"
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+            >Jobs</Link>
+        </NextLink>
+        <NextLink href={'/developers'} passHref>
+          <Link
+            color="black"
+            p="0.45rem"
+            borderRadius="18px"
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+          >Devs</Link>
+        </NextLink>
+        <NextLink href={'/about'} passHref>
+          <Link
+            color="black"
+            p="0.45rem"
+            borderRadius="18px"
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+            >About</Link>
+        </NextLink>
+          <NextLink href={"/auth"} passHref>
+            <ButtonBlack
+            as='a'>Sign Up</ButtonBlack>
+          </NextLink>
           </VStack>
         )}
 
-        <HStack
-          spacing={{ base: 2, sm: 7 }}
-          display={{ sm: 'none', md: 'block' }}
-        >
+        <HStack spacing={{ base: 2, sm: 7 }}>
+        <NextLink href={'/jobs'} passHref>
           <Link
             color="black"
             p="0.45rem"
-            m="0 0.25rem"
-            cursor="pointer"
-            textDecoration="none"
-            _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
             borderRadius="18px"
-            href="/gigs"
-          >
-            Gigs
-          </Link>
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+            >Jobs</Link>
+        </NextLink>
+        <NextLink href={'/developers'} passHref>
           <Link
             color="black"
             p="0.45rem"
-            m="0 0.25rem"
-            cursor="pointer"
-            textDecoration="none"
             borderRadius="18px"
-            _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-            href="/jobs"
-          >
-            Jobs
-          </Link>
-
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+          >Devs</Link>
+        </NextLink>
+        <NextLink href={'/about'} passHref>
           <Link
             color="black"
             p="0.45rem"
-            m="0 0.25rem"
-            cursor="pointer"
-            textDecoration="none"
-            _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
             borderRadius="18px"
-            href="/developers"
-          >
-            Devs
-          </Link>
-          <Link
-            color="black"
-            p="0.45rem"
-            m="0 0.25rem"
-            cursor="pointer"
-            textDecoration="none"
-            _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-            borderRadius="18px"
-            href="/companies"
-          >
-            Companies
-          </Link>
-          <Link
-            color="black"
-            p="0.45rem"
-            m="0 0.25rem"
-            cursor="pointer"
-            textDecoration="none"
-            _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-            borderRadius="18px"
-            href="/about"
-          >
-            About
-          </Link>
-          <Link textDecoration="none" href="/auth">
-            <ButtonBlack>Sign Up</ButtonBlack>
-          </Link>
+            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
+            _focus={{textDecoration: "none", border:"none"}}
+            >About</Link>
+        </NextLink>
         </HStack>
+
+          <NextLink href={"/auth"} passHref>
+              <ButtonBlack
+            as='a'>Sign Up</ButtonBlack>
+          </NextLink>
       </Flex>
     </chakra.nav>
   );

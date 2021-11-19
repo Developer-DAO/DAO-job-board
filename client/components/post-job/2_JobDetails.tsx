@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
-import { ButtonGreen, ButtonOrange, ButtonBlack } from "../../styles/ui-components/Chakra-Button"
+import {
+  ButtonGreen,
+  ButtonOrange,
+  ButtonBlack,
+} from '../../styles/ui-components/Chakra-Button';
 
 import {
-  Heading, Tag, Input, Textarea, Select, Container, Text, ButtonGroup, TagLabel,
+  Heading, Box, Container, Tag, Input, Textarea, Select, Text, ButtonGroup, TagLabel,
   TagCloseButton,
-  HStack
-} from "@chakra-ui/react";
+  HStack,
+} from '@chakra-ui/react';
 
 type JobDetailProps = {
   goToBasics: () => void;
@@ -26,9 +30,8 @@ export default function GigDetails({
   onChange,
   setFormData,
   addLocation,
-  locationActive
+  locationActive,
 }: JobDetailProps) {
-
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
@@ -38,11 +41,10 @@ export default function GigDetails({
     jobmin,
     jobmax,
     jobequity,
-    joblocation
+    joblocation,
   } = formData;
 
   const nextPage = () => {
-
     if (jobcategory) {
       goToSummary();
     } else {
@@ -51,24 +53,20 @@ export default function GigDetails({
   };
 
   const selectCategory = () => {
-    setFormData({ ...formData, jobcategory: 'category' })
-  }
+    setFormData({ ...formData, jobcategory: 'category' });
+  };
 
   return (
     <>
-      <Container
-        textAlign="center"
-        mt="2.5%"
-        mb="2.5%"
-      >   <Heading
-        color="black">Job Details</Heading>
-
-        <Text
-          color="black"
-          as="i">Define the job category, compensation, and location</Text>
+      <Container textAlign="center" mt="2.5%" mb="2.5%">
+        {' '}
+        <Heading color="black">Job Details</Heading>
+        <Text color="black" as="i">
+          Define the job category, compensation, and location
+        </Text>
       </Container>
 
-      <Container
+      <Box
         maxW="100%"
       >
         <Heading
@@ -95,7 +93,8 @@ export default function GigDetails({
         mb="2.5%"
         border={!wrongData ? "none" : "1px solid red"}
         >
-          <ButtonBlack>
+          <ButtonBlack
+          >
               Select Keywords
           </ButtonBlack>
           <Tag
@@ -111,27 +110,24 @@ export default function GigDetails({
           </Tag>
         </HStack>
 
-        <Heading
-          mb='5px'
-          color="black"
-          fontSize="md"
-          textAlign="left"
-        >Explain compensation (optional)</Heading>
-        <Text
-          fontSize="xs"
-          textAlign="left"
-          mb="2.5%"
-        >Jobs with compensation info get more applications</Text>
+        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+          Explain compensation (optional)
+        </Heading>
+        <Text fontSize="xs" textAlign="left" mb="2.5%">
+          Jobs with compensation info get more applications
+        </Text>
         <Select
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
-          name='jobcompensation'
+          name="jobcompensation"
           value={jobcompensation}
-          onChange={e => onChange(e)}
+          onChange={(e) => onChange(e)}
         >
-          <option value="" disabled hidden>Token / Currency</option>
+          <option value="" disabled hidden>
+            Token / Currency
+          </option>
           <optgroup label="Crypto">
             <option value="ETH">ETH</option>
             <option value="SOL">SOL</option>
@@ -151,48 +147,46 @@ export default function GigDetails({
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: "black" }}
+          _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder='Min'
-          name='jobmin'
+          placeholder="Min"
+          name="jobmin"
           value={jobmin}
-          onChange={e => onChange(e)}
-          type='number'
+          onChange={(e) => onChange(e)}
+          type="number"
         />
 
         <Input
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: "black" }}
+          _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder='Max'
-          name='jobmax'
+          placeholder="Max"
+          name="jobmax"
           value={jobmax}
-          onChange={e => onChange(e)}
-          type='number'
+          onChange={(e) => onChange(e)}
+          type="number"
         />
 
         <br />
 
-        <Heading
-          mb='1%'
-          mt='1%'
-          color="black"
-          fontSize="md"
-          textAlign="left"
-        >Do you offer equity? (optional)</Heading>
+        <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
+          Do you offer equity? (optional)
+        </Heading>
 
         <Select
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
-          onChange={e => onChange(e)}
+          onChange={(e) => onChange(e)}
           value={jobequity}
-          name='jobequity'
+          name="jobequity"
         >
-          <option value="" disabled selected hidden>Equity Range</option>
+          <option value="" disabled selected hidden>
+            Equity Range
+          </option>
           <option value="0.01-1%">0.01-1%</option>
           <option value="1%-2%">1%-2%</option>
           <option value="2%-5%">2%-5%</option>
@@ -201,50 +195,36 @@ export default function GigDetails({
 
         <br />
 
-        <Heading
-          mb='5px'
-          color="black"
-          fontSize="md"
-          textAlign="left"
-        >Location (optional)</Heading>
-        <Text
-          fontSize="xs"
-          textAlign="left"
-          mb="1%"
-        >Defaults to remote if empty</Text>
+        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+          Location (optional)
+        </Heading>
+        <Text fontSize="xs" textAlign="left" mb="1%">
+          Defaults to remote if empty
+        </Text>
         <Input
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: "black" }}
-          type='string'
-          onChange={e => onChange(e)}
+          _placeholder={{ color: 'black' }}
+          type="string"
+          onChange={(e) => onChange(e)}
           value={joblocation}
-          name='joblocation'
-          placeholder='e.g California, US'
+          name="joblocation"
+          placeholder="e.g California, US"
         />
 
-      </Container>
+      </Box>
       <br />
-      <ButtonGroup
-        display="flex"
-        flexDirection="column"
-        m="5px"
-        padding="1px"
-      >
-        <ButtonGreen
-          onClick={nextPage}
-        >Continue</ButtonGreen>
-        <ButtonOrange
-          onClick={goToBasics}
-        >Back</ButtonOrange>
+      <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
+        <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
+        <ButtonOrange onClick={goToBasics}>Back</ButtonOrange>
       </ButtonGroup>
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: { FormData }
-  }
-}
+    props: { FormData },
+  };
+};

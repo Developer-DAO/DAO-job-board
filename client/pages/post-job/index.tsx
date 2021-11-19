@@ -1,37 +1,37 @@
-import { useState } from "react";
-import {useRouter} from "next/router";
-import { Box } from "@chakra-ui/react";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { Box } from '@chakra-ui/react';
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from "../../components/post-job/1_JobBasics";
-import JobDetails from "../../components/post-job/2_JobDetails";
-import JobSummary from "../../components/post-job/3_JobSummary";
+import JobBasics from '../../components/post-job/1_JobBasics';
+import JobDetails from '../../components/post-job/2_JobDetails';
+import JobSummary from '../../components/post-job/3_JobSummary';
 
 type IFormData = {
-  jobtitle: string,
-  jobdescription: string,
-  jobtype: string,
-  jobposition: string,
-  jobcompensation: string,
-  jobmax: string,
-  jobmin: string,
-  jobequity: string,
-  joblocation: string,
-  jobcontact: string
-}
+  jobtitle: string;
+  jobdescription: string;
+  jobtype: string;
+  jobposition: string;
+  jobcompensation: string;
+  jobmax: string;
+  jobmin: string;
+  jobequity: string;
+  joblocation: string;
+  jobcontact: string;
+};
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
-    jobtitle: "",
-    jobdescription: "",
-    jobtype: "",
-    jobposition: "",
-    jobcompensation: "",
-    jobmax: "",
-    jobmin: "",
-    jobequity: "",
-    joblocation: "",
-    jobcontact: ""
+    jobtitle: '',
+    jobdescription: '',
+    jobtype: '',
+    jobposition: '',
+    jobcompensation: '',
+    jobmax: '',
+    jobmin: '',
+    jobequity: '',
+    joblocation: '',
+    jobcontact: '',
   });
 
   const [timeframeActive, setTimeframeActive] = useState(false);
@@ -39,8 +39,8 @@ export default function CreateProject() {
   const [locationActive, setLocationActive] = useState(false);
 
   const addLocation = () => {
-  setLocationActive(true);
-  }
+    setLocationActive(true);
+  };
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);
@@ -66,64 +66,66 @@ export default function CreateProject() {
   };
 
   //Sent to JobBasics as a way to get out of Create Gig page.
-  const router = useRouter()
+  const router = useRouter();
   const goBack = () => {
-     router.back();
+    router.back();
   };
 
   // Handles state changes for inputs, selectors, and textarea
   const onChange = (e: React.FormEvent) =>
-    setFormData({ ...formData, [(e.target as any).name]: (e.target as any).value });
+    setFormData({
+      ...formData,
+      [(e.target as any).name]: (e.target as any).value,
+    });
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
-  }
+  };
 
   return (
       <Box
-      bg={{lg: "#ffffff", sm:"none"}}
+      bg={"none"}
       width={{"2xl": "70%", lg: "70%", md: "90%", sm: "100%"}}
       margin="auto"
       boxSizing="border-box"
-      boxShadow={{lg: "0px 0px 2px 4px #e2e8f0", md: "none"}}
       p="0.5%"
       borderRadius="18px"
       mt="2.5%"
-      >
-        <form>
-          {basicsPage ? (
-            <JobBasics
-              goToDetails={goToDetails}
-              goBack={goBack}
-              formData={formData}
-              onChange={onChange}
-            />
-          ) : null}
+    >
+      <form>
+        {basicsPage ? (
+          <JobBasics
+            goToDetails={goToDetails}
+            goBack={goBack}
+            formData={formData}
+            onChange={onChange}
+          />
+        ) : null}
 
-          {detailsPage ? (
-            <JobDetails
-              goToBasics={goToBasics}
-              goToSummary={goToSummary}
-              formData={formData}
-              setFormData={setFormData}
-              locationActive={locationActive}
-              addLocation={addLocation}
-              onChange={onChange}
-            />
-          ) : null}
+        {detailsPage ? (
+          <JobDetails
+            goToBasics={goToBasics}
+            goToSummary={goToSummary}
+            formData={formData}
+            setFormData={setFormData}
+            locationActive={locationActive}
+            addLocation={addLocation}
+            onChange={onChange}
+          />
+        ) : null}
 
-          {summaryPage ? (
-            <JobSummary
-              formData={formData}
-              goToDetails={goToDetails}
-              goToBasics={goToBasics}
-              createJob={createJob}
-              onChange={onChange}
-            />
-          ) : null}
-        </form>
-      </Box>
+        {summaryPage ? (
+          <JobSummary
+            formData={formData}
+            goToDetails={goToDetails}
+            goToBasics={goToBasics}
+            createJob={createJob}
+            onChange={onChange}
+          />
+        ) : null}
+      </form>
+    </Box>
   );
 }

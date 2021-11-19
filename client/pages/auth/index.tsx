@@ -1,10 +1,10 @@
-import {  Container, Stack, Heading, Flex, Center } from "@chakra-ui/react";
+import {  Container, Box, Stack, Heading, Flex, Center } from "@chakra-ui/react";
 import {
   ButtonGreen,
   ButtonGray,
-} from "../../styles/ui-components/Chakra-Button";
-import Image from "next/image";
-import { useEthers, useEtherBalance } from "@usedapp/core";
+} from '../../styles/ui-components/Chakra-Button';
+import Image from 'next/image';
+import { useEthers, useEtherBalance } from '@usedapp/core';
 
 export default function Index() {
   return <SignUp />;
@@ -38,14 +38,14 @@ function ConnectButton() {
 
 function SignUp() {
   return (
-    <Container>
+    <Box>
       <Stack>
-        <Heading>LOG-IN</Heading>
+        <Heading m="auto">LOG-IN</Heading>
 
         <Center>
           <ConnectButton />
         </Center>
       </Stack>
-    </Container>
+    </Box>
   );
 }
