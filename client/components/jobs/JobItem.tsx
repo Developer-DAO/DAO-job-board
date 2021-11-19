@@ -9,15 +9,15 @@ import {
   Text,
   SimpleGrid,
   Tag,
-  TagLabel
-} from "@chakra-ui/react";
+  TagLabel,
+} from '@chakra-ui/react';
 
 export default function JobItem() {
   return (
     <Box
       boxSizing="border-box"
       boxShadow="0px 1px 1px rgba(0, 0, 0, 0.25), 1px 0px 1px rgba(0, 0, 0, 0.25)"
-      height={{ lg: "fit-content", md: "fit-content", sm: "max-content" }}
+      height={{ lg: 'fit-content', md: 'fit-content', sm: 'max-content' }}
       m="auto"
       mb="0.5%"
       mt="2.5%"
@@ -25,27 +25,31 @@ export default function JobItem() {
       textAlign="left"
       bg="white"
     >
-
       <Container ml="0.5%" maxW="100%">
         <Link
           href="/jobs/project-1"
-          _hover={{ textDecoration: "none" }}
-          _focus={{ textDecoration: "none", border: "none" }}
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ textDecoration: 'none', border: 'none' }}
         >
-          <Heading size="lg" mb="2.5%">Project 1</Heading>
+          <Heading size="lg" mb="2.5%">
+            Project 1
+          </Heading>
         </Link>
 
         <Link
           href="/company/company-1"
-          _hover={{ textDecoration: "none" }}
-          _focus={{ textDecoration: "none", border: "none" }}
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ textDecoration: 'none', border: 'none' }}
         >
-
           <Flex mt="1%" mb="2.5%" align="center">
-            <Image w="45px" h="45px" borderRadius="180px"
-            border="1px solid black"
-            src="/ETHEREUM.png"
-            alt="company"/>
+            <Image
+              w="45px"
+              h="45px"
+              borderRadius="180px"
+              border="1px solid black"
+              src="/ETHEREUM.png"
+              alt="company"
+            />
             <Spacer maxW="5px" />
             <Heading size="sm">Company Name</Heading>
           </Flex>
@@ -53,26 +57,21 @@ export default function JobItem() {
       </Container>
 
       <Container ml="0.5%" pb="1%" maxW="100%">
-
-        <SimpleGrid
-          m="auto"
-          mt="2%"
-          columns={3}
-          spacing={1}
-        >
+        <SimpleGrid m="auto" mt="2%" columns={3} spacing={1}>
           <Text>Compensation</Text>
           <Text>Remote</Text>
           <Text>Full-Time</Text>
         </SimpleGrid>
 
-          <SimpleGrid
+        <SimpleGrid
           mt="15px"
-          templateColumns={{lg: "repeat(10, 1fr)", sm: "repeat(4, 2fr)"}}
+          templateColumns={{ lg: 'repeat(10, 1fr)', sm: 'repeat(4, 2fr)' }}
           wordWrap="break-word"
           overflow="ellipsis"
           autoRows="fit-content"
           gap="0.5rem"
-          spacing={1}>
+          spacing={1}
+        >
           <Tag
             w="fit-content"
             size="md"
@@ -80,7 +79,9 @@ export default function JobItem() {
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
-          ><TagLabel m="auto">Solidity</TagLabel></Tag>
+          >
+            <TagLabel m="auto">Solidity</TagLabel>
+          </Tag>
           <Tag
             w="fit-content"
             size="md"
@@ -88,7 +89,9 @@ export default function JobItem() {
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
-          ><TagLabel m="auto">Hardhat</TagLabel></Tag>
+          >
+            <TagLabel m="auto">Hardhat</TagLabel>
+          </Tag>
           <Tag
             w="fit-content"
             size="md"
@@ -96,7 +99,9 @@ export default function JobItem() {
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
-          ><TagLabel m="auto">Rust</TagLabel></Tag>
+          >
+            <TagLabel m="auto">Rust</TagLabel>
+          </Tag>
           <Tag
             w="fit-content"
             size="md"
@@ -104,25 +109,30 @@ export default function JobItem() {
             borderRadius="8px"
             bgColor="#E2E9F0"
             color="black"
-          ><TagLabel m="auto">Javascript</TagLabel></Tag>
+          >
+            <TagLabel m="auto">Javascript</TagLabel>
+          </Tag>
           <Tag
-          w="fit-content"
-          size="md"
-          p="10px"
-          borderRadius="8px"
-          bgColor="#E2E9F0"
-          color="black"
-          ><TagLabel m="auto">React</TagLabel></Tag>
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          >
+            <TagLabel m="auto">React</TagLabel>
+          </Tag>
           <Tag
-          w="fit-content"
-          size="md"
-          p="10px"
-          borderRadius="8px"
-          bgColor="#E2E9F0"
-          color="black"
-          ><TagLabel m="auto">ThreeJS</TagLabel></Tag>
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          >
+            <TagLabel m="auto">ThreeJS</TagLabel>
+          </Tag>
         </SimpleGrid>
-
       </Container>
     </Box>
   );

@@ -1,20 +1,20 @@
-import { CreatedBy, PrimaryKey, WithTimestamp } from "./common";
+import { CreatedBy, PrimaryKey, WithTimestamp } from './common';
 
 /**
  * Add more table names when necessary.
  */
-export type LinkableType = "users" | "companies";
+export type LinkableType = 'users' | 'companies';
 
 export type LinkType =
-  | "facebook"
-  | "instagram"
-  | "linkedin"
-  | "twitter"
-  | "youtube"
-  | "dev.to"
-  | "medium"
-  | "website"
-  | "others";
+  | 'facebook'
+  | 'instagram'
+  | 'linkedin'
+  | 'twitter'
+  | 'youtube'
+  | 'dev.to'
+  | 'medium'
+  | 'website'
+  | 'others';
 
 export type Link = PrimaryKey & {
   /**
@@ -42,10 +42,10 @@ export type Link = PrimaryKey & {
 
 export type LinkForm = Pick<
   Link,
-  | "linkable_id"
-  | "linkable_type"
-  | "title"
-  | "type"
-  | "url"
-  | "featured_photo_url"
+  | 'linkable_id'
+  | 'linkable_type'
+  | 'title'
+  | 'type'
+  | 'url'
+  | 'featured_photo_url'
 >;

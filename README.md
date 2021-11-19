@@ -1,10 +1,12 @@
 # DAO-job-board
-A job board to connect Web3 talent with Web3 opportunities 
+
+A job board to connect Web3 talent with Web3 opportunities
 
 [Link to the Discord channel](https://discord.com/channels/883478451850473483/888867921089138729/888877424257925200)
 
 ## The motive
-Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need. 
+
+Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need.
 
 ## **What is this repo?**
 
