@@ -1,55 +1,44 @@
 # DAO-job-board
 
-A job board to connect Web3 talent with Web3 opportunities
+*In Development 🏗️*
+
+A job board to connect Web3 talent with Web3 opportunities 
 
 [Link to the Discord channel](https://discord.com/channels/883478451850473483/888867921089138729/888877424257925200)
 
-## The motive
+## The Motive
 
-Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need.
+Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need. 
 
-## **What is this repo?**
+## Technologies
 
-This is the code for the job board at [Vercel](https://job-board-sage.vercel.app)
+This project is possible thanks to all these open source languages, libraries, and frameworks.
 
-Job board for the DAO in development
+| Tech                                          | Description                               |
+| --------------------------------------------- | ----------------------------------------- |
+| [React](https://reactjs.org/)                 | Front end user interface                  |
+| [Next.js](https://nextjs.org/)                | A React.js framework                      |
+| [ChakraUI](https://chakra-ui.com/)            | A simple & modular component library      |
+| [TypeScript](https://www.typescriptlang.org/) | Static type-checking programming language |
+| [Supabase](https://supabase.io/)              | An open source Firebase alternative       |
+| [Node.js](https://nodejs.org/en/)             | JavaScript runtime for the backend        |
+| [Express](https://expressjs.com/)             | Server framework                          |
+| [ESLint](https://eslint.org/)                 | TypeScript linting                        |
 
-# **Development**
+## How to Contribute
 
-## **How's this Built?**
+1. Read the [CONTRIBUTING GUIDELINES](/CONTRIBUTING.md).
+ 
+2. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website. Read every issue to understand what's needed and whether it's something you can help with. 
 
-- [React.js](https://reactjs.org/)
-- [Next.js](https://nextjs.org/)
-- [Supabase](https://supabase.io/)
-- [PostgreSQL](https://www.postgresql.org/) ([See here](database) for the database schema & design)
-- [NPM](https://www.npmjs.com/)
-- [Chakra UI](https://chakra-ui.com/)
+3. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
 
-### Local Development Environment
+4. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
+   
+5. Setup your local development environment. Instructions [here](/CONTRIBUTING.md#installation)
 
-1. Clone this repo with git
-2. Install dependencies by running `npm install`
-3. Install [Doppler](https://docs.doppler.com/docs/enclave-installation)
-4. Ask an invite to the doppler-workspace from [carlomigueldy](https://github.com/carlomigueldy)
-5. Run `cd client && doppler login`
-6. Run `doppler setup`
-7. Start the development server with `npm run dev`
-8. Open development site by going to `http//:localhost:3000`
+6. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
 
-**NOTE:** The NextJS installation is located in the `client` folder.
+7. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing.
 
-## **How to Contribute**
-
-1. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website.
-
-2. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
-
-3. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
-
-4. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
-
-5. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing.
-
-6. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.
-
-**NOTE**: The [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/CONTRIBUTING.md) beforehand.
+8. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.

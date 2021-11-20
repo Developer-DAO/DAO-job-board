@@ -1,4 +1,4 @@
-import { Container, Stack, Heading, Flex, Center } from '@chakra-ui/react';
+import {  Container, Box, Stack, Heading, Flex, Center } from "@chakra-ui/react";
 import {
   ButtonGreen,
   ButtonGray,
@@ -64,14 +64,14 @@ function ConnectButton() {
 
 function SignUp() {
   return (
-    <Container>
+    <Box>
       <Stack>
-        <Heading>LOG-IN</Heading>
+        <Heading m="auto">LOG-IN</Heading>
 
         <Center>
           <ConnectButton />
         </Center>
       </Stack>
-    </Container>
+    </Box>
   );
 }

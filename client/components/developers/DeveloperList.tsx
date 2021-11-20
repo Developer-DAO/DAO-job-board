@@ -1,10 +1,14 @@
-import { Heading, Container, Grid, Text, Link } from '@chakra-ui/react';
+import {Heading, Box, Grid, Text, Link} from "@chakra-ui/react"
 
 import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
   return (
-    <Container maxW={{ lg: '70%', md: '100%' }} textAlign="center">
+    <Box
+      maxW={{lg: "70%", md: "100%"}}
+      textAlign="center"
+      m="auto"
+    >
       <Heading>Dev List</Heading>
       <Grid
         templateColumns={{
@@ -22,6 +26,6 @@ export default function DeveloperList() {
         <DeveloperItem />
         <DeveloperItem />
       </Grid>
-    </Container>
+    </Box>
   );
 }

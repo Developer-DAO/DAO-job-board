@@ -8,15 +8,7 @@ import {
 } from '../../styles/ui-components/Chakra-Button';
 
 import {
-  Heading,
-  Tag,
-  Input,
-  Textarea,
-  Select,
-  Container,
-  Text,
-  ButtonGroup,
-  TagLabel,
+  Heading, Box, Container, Tag, Input, Textarea, Select, Text, ButtonGroup, TagLabel,
   TagCloseButton,
   HStack,
 } from '@chakra-ui/react';
@@ -74,28 +66,37 @@ export default function GigDetails({
         </Text>
       </Container>
 
-      <Container maxW="100%">
-        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
-          Pick a job keyword category
-        </Heading>
+      <Box
+        maxW="100%"
+      >
+        <Heading
+          mb='5px'
+          color="black"
+          fontSize="md"
+          textAlign="left"
+        >Pick a job keyword category</Heading>
 
-        {!wrongData ? (
-          <Text fontSize="xs" textAlign="left">
-            Keywords help categorize your job post (pick at least 3)
-          </Text>
-        ) : (
-          <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
-            Make sure to pick at least 3 keywords
-          </Text>
-        )}
+        {!wrongData ? <Text
+          fontSize="xs"
+          textAlign="left"
+        >Keywords help categorize your job post (pick at least 3)</Text> :
+        <Text
+          fontSize="xs"
+          textAlign="left"
+          color="red"
+          fontWeight="bold"
+        >Make sure to pick at least 3 keywords</Text>
+        }
 
-        <HStack
-          spacing={4}
-          mt="2.5%"
-          mb="2.5%"
-          border={!wrongData ? 'none' : '1px solid red'}
+        <HStack spacing={4}
+        mt="2.5%"
+        mb="2.5%"
+        border={!wrongData ? "none" : "1px solid red"}
         >
-          <ButtonBlack>Select Keywords</ButtonBlack>
+          <ButtonBlack
+          >
+              Select Keywords
+          </ButtonBlack>
           <Tag
             onClick={selectCategory}
             size="md"
@@ -211,7 +212,8 @@ export default function GigDetails({
           name="joblocation"
           placeholder="e.g California, US"
         />
-      </Container>
+
+      </Box>
       <br />
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
