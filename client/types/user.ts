@@ -1,4 +1,4 @@
-import { PrimaryKey, WithTimestamp } from "./common";
+import { PrimaryKey, WithTimestamp } from './common';
 
 export type User = PrimaryKey & {
   avatar_url?: string;
@@ -17,10 +17,10 @@ export type UserCategory = {
 
 export type UserForm = Pick<
   User,
-  | "avatar_url"
-  | "cover_photo_url"
-  | "email"
-  | "username"
-  | "preferences"
-  | "wallet_address"
+  | 'avatar_url'
+  | 'cover_photo_url'
+  | 'email'
+  | 'username'
+  | 'preferences'
+  | 'wallet_address'
 >;

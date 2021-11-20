@@ -1,17 +1,33 @@
 {
   "name": "developerdao-job-board",
-	"private": true,
-	"scripts": {
-		"dev": "yarn workspace client dev",
+  "private": true,
+  "scripts": {
+    "dev": "yarn workspace client dev",
     "build": "yarn workspace client build",
     "start": "yarn workspace client start",
     "lint": "yarn workspace client lint",
-    "type-check": "yarn workspace client type-check"
-	},
-	"workspaces": {
-		"packages": [
-			"./client",
-			"./database"
-		]
-	}
+    "type-check": "yarn workspace client type-check",
+    "prepare": "husky install"
+  },
+  "workspaces": {
+    "packages": [
+      "./client",
+      "./database"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
+    "prettier": "^2.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md,json}": [
+      "prettier --write"
+    ]
+  }
 }
