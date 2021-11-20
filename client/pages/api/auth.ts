@@ -9,6 +9,7 @@ function isAddress(address: string) {
     console.log(e);
     return false;
   }
+
   return true;
 }
 
@@ -23,22 +24,33 @@ export default async function handler(
     return;
   }
 
+  const nonce = Math.floor(Math.random() * 10000000);
+
   // This will be used within a session to verify whether the eth-signature is valid for this nonce.
   const user = await supabase
     .from('users')
     .select()
-    .match({ wallet_address: walletAddress })
+    .match({ id: walletAddress })
     .single();
   if (user.data) {
-    res.status(200).json(user.data);
+    const result = await supabase
+      .from('users')
+      .update({ nonce })
+      .eq('id', walletAddress);
+    if (result.data) {
+      res.status(200).json(result.data);
+    } else {
+      res.status(result.status).json(result.error);
+    }
     return;
   } else {
     const result = await supabase.from('users').insert({
-      wallet_address: walletAddress,
+      id: walletAddress,
+      nonce,
     });
 
     if (result.data) {
-      res.status(200).json(result.data);
+      res.status(200).json({ ...result.data, isNew: true });
     } else {
       res.status(result.status).json({ message: result.error.message });
     }

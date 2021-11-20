@@ -6,6 +6,7 @@ import {
 import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Index() {
   return <SignUp />;
@@ -19,7 +20,9 @@ function formatAccount(account: String, length = 10) {
 
 // TODO: Move to components
 function ConnectButton() {
-  const { activateBrowserWallet, account } = useEthers();
+  const router = useRouter();
+
+  const { activateBrowserWallet, account, deactivate } = useEthers();
 
   const isConnected = () => !!account;
   const handleOnConnectToWallet = () => {
@@ -34,16 +37,20 @@ function ConnectButton() {
         body: JSON.stringify({ walletAddress: account }),
       })
         .then((response) => {
-          console.log(response);
+          if (response.status !== 200) {
+            deactivate();
+          }
           return response.json();
         })
         .then((result) => {
-          console.log(result);
-          // Now we can set the user in a global auth context and redirect them
-          // to /create-profile if they don't have one yet
+          if (result.isNew) {
+            router.push('/create-profile');
+          } else if (result.id) {
+            router.push('/');
+          }
         });
     }
-  }, [account]);
+  }, [account, deactivate, router]);
 
   return (
     <Button onClick={handleOnConnectToWallet}>
