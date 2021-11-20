@@ -1,4 +1,4 @@
-import {  Container, Box, Stack, Heading, Flex, Center } from "@chakra-ui/react";
+import { Container, Box, Stack, Heading, Flex, Center } from '@chakra-ui/react';
 import {
   ButtonGreen,
   ButtonGray,
@@ -32,23 +32,23 @@ function ConnectButton() {
 
   useEffect(() => {
     if (account) {
-      fetch('/api/auth', {
-        method: 'POST',
-        body: JSON.stringify({ walletAddress: account }),
-      })
-        .then((response) => {
-          if (response.status !== 200) {
-            deactivate();
-          }
-          return response.json();
-        })
-        .then((result) => {
-          if (result.isNew) {
-            router.push('/create-profile');
-          } else if (result.id) {
-            router.push('/');
-          }
+      const performAuth = async () => {
+        const response = await fetch('/api/auth', {
+          method: 'POST',
+          body: JSON.stringify({ walletAddress: account }),
         });
+
+        if (response.status !== 200) {
+          deactivate();
+        }
+
+        const result = await response.json();
+        if (result.isNew) {
+          router.push('/create-profile');
+        } else if (result.id) {
+          router.push('/');
+        }
+      };
     }
   }, [account, deactivate, router]);
 
