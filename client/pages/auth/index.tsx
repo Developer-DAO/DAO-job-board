@@ -49,6 +49,8 @@ function ConnectButton() {
           router.push('/');
         }
       };
+
+      performAuth();
     }
   }, [account, deactivate, router]);
 
