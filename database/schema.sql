@@ -27,6 +27,7 @@ CREATE TABLE public.keywords (
 -- table: users
 CREATE TABLE public.users (
   id VARCHAR PRIMARY KEY NOT NULL UNIQUE CHECK (id <> ''),
+  nonce UUID UNIQUE,
   avatar_url VARCHAR CHECK (avatar_url <> ''),
   cover_photo_url VARCHAR CHECK (cover_photo_url <> ''),
   email VARCHAR UNIQUE CHECK (email <> ''),
