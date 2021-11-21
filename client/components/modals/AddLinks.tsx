@@ -29,12 +29,19 @@ import {
   faDribbble,
 } from '@fortawesome/free-brands-svg-icons';
 
+type LinksProps = {
+  profileLinks: Array<string>;
+  openLinksModal: () => void;
+  closeLinksModal: () => void;
+  linksDataHandler: () => void;
+};
+
 export default function AddLinks({
   profileLinks,
   openLinksModal,
   closeLinksModal,
   linksDataHandler,
-}) {
+}: LinksProps) {
   //formData where links are stored (takes the profileLinks props from parent component)
   const [formData, setFormData] = useState(profileLinks);
 
@@ -64,13 +71,14 @@ export default function AddLinks({
       <Box
         position="fixed"
         borderRadius="18px"
-        p={2}
+        p={5}
         m="auto"
-        left="50%"
-        top="50%"
-        mt="-25%"
-        ml="-25%"
+        left="10vw"
+        right="25vw"
+        top="25vh"
+        bottom="25vh"
         w={{ '2xl': '50%', sm: '80%' }}
+        h="fit-content"
         textAlign="center"
         bg="#ffffff"
         zIndex={1000}
@@ -151,7 +159,7 @@ export default function AddLinks({
               w="100%"
             >
               <ButtonBlue onClick={onSubmit}>Save Links</ButtonBlue>
-              <ButtonOrange onClick={closeLinksModal}>Go Back</ButtonOrange>
+              <ButtonOrange onClick={closeLinksModal}>Cancel</ButtonOrange>
             </ButtonGroup>
           </VStack>
         </chakra.form>
@@ -159,3 +167,9 @@ export default function AddLinks({
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { profileLinks },
+  };
+};
