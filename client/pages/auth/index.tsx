@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function Index() {
   return <SignUp />;
@@ -21,6 +22,7 @@ function formatAccount(account: String, length = 10) {
 // TODO: Move to components
 function ConnectButton() {
   const router = useRouter();
+  const { setUser } = useAuth();
 
   const { activateBrowserWallet, account, deactivate } = useEthers();
 
@@ -44,15 +46,17 @@ function ConnectButton() {
 
         const result = await response.json();
         if (result.isNew) {
+          setUser(result);
           router.push('/create-profile');
         } else if (result.id) {
+          setUser(result);
           router.push('/');
         }
       };
 
       performAuth();
     }
-  }, [account, deactivate, router]);
+  }, [account, deactivate, setUser, router]);
 
   return (
     <Button onClick={handleOnConnectToWallet}>

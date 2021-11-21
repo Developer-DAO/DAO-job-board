@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { utils } from 'ethers';
 import { supabase } from '../../common/supabase';
+import { v4 } from 'uuid';
 
 function isAddress(address: string) {
   try {
@@ -24,7 +25,7 @@ export default async function handler(
     return;
   }
 
-  const nonce = Math.floor(Math.random() * 10000000);
+  const nonce = v4();
 
   // This will be used within a session to verify whether the eth-signature is valid for this nonce.
   const user = await supabase
@@ -32,6 +33,7 @@ export default async function handler(
     .select()
     .match({ id: walletAddress })
     .single();
+
   if (user.data) {
     const result = await supabase
       .from('users')
