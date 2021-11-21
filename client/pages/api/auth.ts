@@ -38,22 +38,26 @@ export default async function handler(
     const result = await supabase
       .from('users')
       .update({ nonce })
-      .eq('id', walletAddress);
+      .eq('id', walletAddress)
+      .single();
     if (result.data) {
       res.status(200).json(result.data);
-    } else {
-      res.status(result.status).json(result.error);
+    } else if (result.error) {
+      res.status(result.status).json({ message: result.error.message });
     }
     return;
   } else {
-    const result = await supabase.from('users').insert({
-      id: walletAddress,
-      nonce,
-    });
+    const result = await supabase
+      .from('users')
+      .insert({
+        id: walletAddress,
+        nonce,
+      })
+      .single();
 
     if (result.data) {
       res.status(200).json({ ...result.data, isNew: true });
-    } else {
+    } else if (result.error) {
       res.status(result.status).json({ message: result.error.message });
     }
   }
