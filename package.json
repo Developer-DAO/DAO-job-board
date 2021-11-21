@@ -15,7 +15,12 @@
     "deploy:rinkeby": "yarn workspace hardhat-project deploy:rinkeby",
     "deploy:mainnet": "yarn workspace hardhat-project deploy:mainnet",
     "compile": "yarn workspace hardhat-project compile",
-    "prettier": "yarn workspace hardhat-project prettier"
+    "prettier": "yarn workspace hardhat-project prettier",
+    "accounts": "yarn workspace hardhat-project accounts",
+    "clean": "yarn workspace hardhat-project clean",
+    "coverage": "yarn workspace hardhat-project coverage",
+    "eslint": "yarn workspace hardhat-project eslint",
+    "solhint": "yarn workspace hardhat-project solhint"
   },
   "workspaces": {
     "packages": [

@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "test": "hardhat test",
+    "accounts": "hardhat accounts",
+    "clean": "hardhat clean",
+    "coverage": "hardhat coverage",
     "chain": "hardhat node",
     "type-check": "tsc --noEmit",
     "compile": "npm run prettier && hardhat compile",
@@ -12,7 +15,9 @@
     "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
     "deploy:rinkeby": "hardhat run scripts/deploy.ts --network rinkeby",
     "deploy:mainnet": "hardhat run scripts/deploy.ts --network mainnet",
-    "lint": "prettier --list-different contracts/**/*.sol scripts/* test/*"
+    "lint": "prettier --list-different contracts/**/*.sol scripts/* test/*",
+    "eslint": "eslint **/*.{js,ts} --fix",
+    "solhint": "solhint contracts/**/*.sol --fix"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -23,11 +28,11 @@
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
