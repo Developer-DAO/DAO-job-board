@@ -26,9 +26,10 @@ export type JobForm = Pick<
   | 'opportunity'
   | 'featured_photo_url'
   | 'status'
+  | 'created_by'
 >;
 
-export type JobCategory = {
+export type JobKeyword = {
   job_id: string;
   category_id: string;
 } & WithTimestamp;
@@ -41,5 +42,5 @@ export type JobApplication = PrimaryKey & {
 
 export type JobApplicationForm = Pick<
   JobApplication,
-  'job_id' | 'pitch' | 'content' | 'status'
+  'job_id' | 'pitch' | 'content' | 'status' | 'created_by'
 >;
