@@ -1,5 +1,5 @@
 export * from './common';
-export * from './company';
+export * from './organization';
 export * from './gig';
 export * from './job';
 export * from './link';
