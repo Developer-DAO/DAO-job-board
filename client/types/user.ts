@@ -3,6 +3,7 @@ import { PrimaryKey, WithTimestamp } from './common';
 export type User = PrimaryKey & {
   avatar_url?: string;
   cover_photo_url?: string;
+  nonce?: string;
   email: string;
   username?: string;
   preferences?: string;

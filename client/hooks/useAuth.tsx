@@ -1,10 +1,7 @@
 import { useEthers } from '@usedapp/core';
 import React from 'react';
+import { User } from '../types';
 
-type User = {
-  id: string;
-  nonce: string;
-};
 type UserPayload = { user: User | null; setUser: React.Dispatch<User | null> };
 
 const AuthContext = React.createContext<UserPayload | null>(null);
