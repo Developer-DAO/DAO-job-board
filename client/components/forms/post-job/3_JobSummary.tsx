@@ -1,22 +1,23 @@
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 
+import KeywordsSection from '../KeywordsSection.tsx';
+
 // UI & CSS
 import {
   ButtonBlue,
   ButtonGray,
   ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
+} from '../../../styles/ui-components/Chakra-Button';
 import {
   Heading,
-  Tag,
+  Stack,
   Input,
   Container,
   Text,
   ButtonGroup,
   TagLabel,
   TagCloseButton,
-  HStack,
 } from '@chakra-ui/react';
 
 type JobSummaryProps = {
@@ -25,10 +26,12 @@ type JobSummaryProps = {
   onChange: (e: React.FormEvent) => void;
   formData: any;
   createJob: (e: React.FormEvent) => void;
+  jobKeywords: Array<string>;
 };
 
 export default function GigSummary({
   formData,
+  jobKeywords,
   goToDetails,
   onChange,
   createJob,
@@ -41,7 +44,6 @@ export default function GigSummary({
     jobtitle,
     jobdescription,
     jobtype,
-    jobcategory,
     jobposition,
     jobcompensation,
     jobmin,
@@ -66,16 +68,19 @@ export default function GigSummary({
         <Text>Check that everything is correct (click edit if not)</Text>
       </Container>
 
-      <Container margin="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">Job Basics</Heading>
-        <ButtonGray onClick={goToBasics}>Edit</ButtonGray>
+      <Container m="auto" textAlign="center" maxW="100%">
+        <Heading fontSize="lg">
+          Job Basics <ButtonGray onClick={goToBasics}>Edit</ButtonGray>
+        </Heading>
       </Container>
 
-      <Container maxW="100%">
-        <Heading fontSize="sm">Job Name:</Heading> {jobtitle}
+      <Stack spacing={2} p={2} maxW="100%">
+        <Heading fontSize="sm">Job Name:</Heading>{' '}
+        {jobtitle && <Text>{jobtitle}</Text>}
         <br />
         <br />
-        <Heading fontSize="sm">Job Description:</Heading> {jobdescription}
+        <Heading fontSize="sm">Job Description:</Heading>{' '}
+        {jobdescription && <Text>{jobdescription}</Text>}
         <br />
         <br />
         {jobposition && (
@@ -90,22 +95,23 @@ export default function GigSummary({
             <Heading fontSize="sm">Job Type:</Heading> {jobtype}
           </>
         )}
-      </Container>
+      </Stack>
 
       <br />
 
       <Container margin="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">Job Details</Heading>
-        <ButtonGray onClick={goToDetails}>Edit</ButtonGray>
+        <Heading fontSize="lg">
+          Job Details <ButtonGray onClick={goToDetails}>Edit</ButtonGray>
+        </Heading>
       </Container>
 
-      <Container maxW="100%">
-        <Heading fontSize="sm">Category:</Heading>
-        <HStack spacing={4} mt="2.5%" mb="2.5%">
-          <Tag size="md" borderRadius="full" variant="solid" color="black">
-            <TagLabel>Keyword</TagLabel>
-          </Tag>
-        </HStack>
+      <Stack spacing={2} p={2} maxW="100%">
+        <Heading fontSize="sm">Keywords:</Heading>
+
+        <KeywordsSection keywordsData={jobKeywords} />
+
+        <br />
+        <br />
 
         {jobcompensation && jobmin && jobmax ? (
           <>
@@ -113,28 +119,22 @@ export default function GigSummary({
             {jobcompensation}
           </>
         ) : null}
-
         <br />
         <br />
-
         {jobequity ? (
           <>
             <Heading fontSize="sm">Equity Offer:</Heading> {jobequity}
           </>
         ) : null}
-
         <br />
         <br />
-
         {joblocation ? (
           <>
             <Heading fontSize="sm">Job Location:</Heading> {joblocation}
           </>
         ) : null}
-
         <br />
         <br />
-
         <Heading fontSize="md">
           How should people contact you or your company?
         </Heading>
@@ -157,7 +157,7 @@ export default function GigSummary({
             Add an email or website link
           </Text>
         ) : null}
-      </Container>
+      </Stack>
 
       <br />
 

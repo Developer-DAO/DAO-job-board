@@ -1,18 +1,16 @@
 import { SimpleGrid, Tag, TagLabel } from '@chakra-ui/react';
 
-type profileKeywordsProps = {
-  profileKeywords: Array<string>;
+type keywordDataProps = {
+  keywordsData: Array<string>;
 };
 
-export default function KeywordsSection({
-  profileKeywords,
-}: profileKeywordsProps) {
+export default function KeywordsSection({ keywordsData }: keywordDataProps) {
   return (
     <>
-      {profileKeywords && (
+      {keywordsData && (
         <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
-          {profileKeywords &&
-            profileKeywords.map((keyword) => (
+          {keywordsData &&
+            keywordsData.map((keyword) => (
               <Tag
                 w="fit-content"
                 size="lg"

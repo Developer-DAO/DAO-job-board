@@ -6,10 +6,11 @@ import LinksSection from '../../components/create-profile/LinksSection.tsx';
 
 //Keywords Components
 import KeywordSelect from '../../components/modals/SelectKeywords.tsx';
-import KeywordsSection from '../../components/create-profile/KeywordsSection.tsx';
+import KeywordsSection from '../../components/forms/KeywordsSection.tsx';
 
 import {
   Box,
+  Container,
   ButtonGroup,
   Heading,
   Flex,
@@ -40,7 +41,7 @@ import {
 import {
   ButtonBlack,
   ButtonGreen,
-  ButtonRed,
+  ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
 
 //FontAwesome Icons
@@ -85,6 +86,7 @@ export default function CreateProfile() {
 
   const openKeywordModal = () => {
     setChangeProfileKeywords(true);
+    console.log(profileKeywords);
   };
 
   const closeKeywordModal = () => {
@@ -92,8 +94,8 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = async (keywordData) => {
-    await setProfileKeywords(keywordData);
+  const keywordsDataHandler = async (selectedKeywords) => {
+    await setProfileKeywords(selectedKeywords);
     console.log(profileKeywords);
   };
 
@@ -139,139 +141,154 @@ export default function CreateProfile() {
         <KeywordSelect
           keywordsDataHandler={keywordsDataHandler}
           closeKeywordModal={closeKeywordModal}
-          profileKeywords={profileKeywords}
+          keywordsData={profileKeywords}
         />
       )}
 
-      <Flex
-        bg={{ lg: '#ffffff', sm: 'none' }}
-        flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}
-        width={{ '2xl': '70%', md: '90%', sm: '100%' }}
+      <Box
         m="auto"
+        width={{ '2xl': '70%', md: '90%', sm: '100%' }}
         boxSizing="border-box"
         boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
+        bg={{ lg: '#ffffff', sm: 'none' }}
         p="2%"
         mt="2.5%"
       >
-        <Stack
-          direction="column"
-          width="100%"
-          m="auto"
-          textAlign="center"
-          boxSizing="border-box"
-          boxShadow="none"
-          flex={2}
-          spacing={5}
-        >
-          <Heading size="md">Identity</Heading>
+        <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
+          <Stack
+            direction="column"
+            width="100%"
+            m="auto"
+            textAlign="center"
+            boxSizing="border-box"
+            boxShadow="none"
+            flex={2}
+            spacing={5}
+          >
+            <Heading size="md">Identity</Heading>
 
-          <Box m="auto">
-            <Text size="md">PFP</Text>
-            <Image
-              w="8rem"
-              h="8rem"
-              margin="auto"
-              borderRadius="180px"
-              src="/DevDAO.png"
-              alt="developer"
-            />
-          </Box>
-
-          <Stack direction="column" textAlign="left" spacing={2}>
-            <Text>Username</Text>
-            <Text fontSize="xs">Make it easy for people to know it is you</Text>
-            <InputGroup position="static">
-              <InputLeftAddon>@</InputLeftAddon>
-              <Input
-                position="static"
-                bgColor="white"
-                w={{ '2xl': '85%', sm: '85%' }}
-                placeholder="Write your favorite username"
-                name="username"
-                value={username}
-                onChange={(e) => onChange(e)}
+            <Box m="auto">
+              <Text size="md">PFP</Text>
+              <Image
+                w="8rem"
+                h="8rem"
+                margin="auto"
+                borderRadius="180px"
+                src="/DevDAO.png"
+                alt="developer"
               />
-            </InputGroup>
+            </Box>
 
-            <Text>Profile Keywords</Text>
-            <Text fontSize="xs">
-              Keywords help categorize your profile in skills and sectors
-            </Text>
-            <ButtonGroup>
-              <ButtonBlack onClick={openKeywordModal}>
-                Choose Keywords
-              </ButtonBlack>
-            </ButtonGroup>
-            <KeywordsSection profileKeywords={profileKeywords} />
-          </Stack>
-        </Stack>
-
-        <Stack direction="column" width="100%" flex={2}>
-          <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
-            <Stack spacing={2} mt="2.5%">
-              <Heading size="md" textAlign="center">
-                Basic Details
-              </Heading>
-
-              <Text>Name</Text>
-              <Input
-                position="static"
-                bgColor="white"
-                placeholder="The name that will be displayed on your profile"
-                name="name"
-                value={name}
-                onChange={(e) => onChange(e)}
-              />
-
-              <Text>Description</Text>
-              <Textarea
-                position="static"
-                bgColor="white"
-                placeholder="Here goes a brief description of yourself"
-                name="description"
-                value={description}
-                onChange={(e) => onChange(e)}
-              />
-
-              <Heading size="md" textAlign="center">
-                Links and Socials
-              </Heading>
-
-              <Text size="sm">Website</Text>
-              <Input
-                position="static"
-                bgColor="white"
-                placeholder="e.g. developer.com"
-                name="website"
-                value={website}
-                onChange={(e) => onChange(e)}
-              />
-              <Text size="sm">GitHub</Text>
+            <Stack direction="column" textAlign="left" spacing={2}>
+              <Text>Username</Text>
+              <Text fontSize="xs">
+                Make it easy for people to know it is you
+              </Text>
               <InputGroup position="static">
-                <InputLeftAddon>
-                  {' '}
-                  <FontAwesomeIcon icon={faGithub} />
-                </InputLeftAddon>
+                <InputLeftAddon>@</InputLeftAddon>
                 <Input
                   position="static"
                   bgColor="white"
-                  placeholder="e.g. github.com/github-username"
-                  name="githubusername"
-                  value={githubusername}
+                  w={{ '2xl': '85%', sm: '85%' }}
+                  placeholder="Write your favorite username"
+                  name="username"
+                  value={username}
                   onChange={(e) => onChange(e)}
                 />
               </InputGroup>
-              <Text size="sm">Social Links</Text>
 
-              <ButtonGroup w="50%">
-                <ButtonBlack onClick={openLinksModal}>Add Links</ButtonBlack>
+              <Text>Profile Keywords</Text>
+              <Text fontSize="xs">
+                Keywords help categorize your profile in skills and sectors
+              </Text>
+              <ButtonGroup>
+                <ButtonBlack onClick={openKeywordModal}>
+                  Choose Keywords
+                </ButtonBlack>
               </ButtonGroup>
-
-              <LinksSection profileLinks={profileLinks} />
+              <KeywordsSection keywordsData={profileKeywords} />
             </Stack>
-          </Box>
-        </Stack>
-      </Flex>
+          </Stack>
+
+          <Stack direction="column" width="100%" flex={2}>
+            <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
+              <Stack spacing={2} mt="2.5%">
+                <Heading size="md" textAlign="center">
+                  Basic Details
+                </Heading>
+
+                <Text>Name</Text>
+                <Input
+                  position="static"
+                  bgColor="white"
+                  placeholder="The name that will be displayed on your profile"
+                  name="name"
+                  value={name}
+                  onChange={(e) => onChange(e)}
+                />
+
+                <Text>Description</Text>
+                <Textarea
+                  position="static"
+                  bgColor="white"
+                  placeholder="Here goes a brief description of yourself"
+                  name="description"
+                  value={description}
+                  onChange={(e) => onChange(e)}
+                />
+
+                <Heading size="md" textAlign="center">
+                  Links and Socials
+                </Heading>
+
+                <Text size="sm">Website</Text>
+                <Input
+                  position="static"
+                  bgColor="white"
+                  placeholder="e.g. developer.com"
+                  name="website"
+                  value={website}
+                  onChange={(e) => onChange(e)}
+                />
+                <Text size="sm">GitHub</Text>
+                <InputGroup position="static">
+                  <InputLeftAddon>
+                    {' '}
+                    <FontAwesomeIcon icon={faGithub} />
+                  </InputLeftAddon>
+                  <Input
+                    position="static"
+                    bgColor="white"
+                    placeholder="e.g. github.com/github-username"
+                    name="githubusername"
+                    value={githubusername}
+                    onChange={(e) => onChange(e)}
+                  />
+                </InputGroup>
+                <Text size="sm">Social Links</Text>
+
+                <ButtonGroup w="50%">
+                  <ButtonBlack onClick={openLinksModal}>Add Links</ButtonBlack>
+                </ButtonGroup>
+
+                <LinksSection profileLinks={profileLinks} />
+              </Stack>
+            </Box>
+          </Stack>
+        </Flex>
+
+        <ButtonGroup
+          display="flex"
+          flexDirection="column"
+          m="5px"
+          mt="2.5%"
+          padding="1px"
+          w="100%"
+        >
+          <ButtonGreen>Save Profile</ButtonGreen>
+          <ButtonOrange>Dismiss Changes</ButtonOrange>
+        </ButtonGroup>
+      </Box>
     </>
   );
 }

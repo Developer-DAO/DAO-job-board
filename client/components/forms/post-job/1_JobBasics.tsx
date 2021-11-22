@@ -2,9 +2,21 @@ import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
-import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
+import {
+  ButtonGreen,
+  ButtonOrange,
+} from '../../../styles/ui-components/Chakra-Button';
 
-import { Heading, Input, Textarea, Select, Container, Box, Text, ButtonGroup } from "@chakra-ui/react";
+import {
+  Heading,
+  Input,
+  Textarea,
+  Select,
+  Container,
+  Stack,
+  Text,
+  ButtonGroup,
+} from '@chakra-ui/react';
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -55,7 +67,7 @@ export default function JobBasics({
         </Text>
       </Container>
 
-      <Box maxW="100%">
+      <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Write a clear title for your job post
         </Heading>
@@ -154,8 +166,7 @@ export default function JobBasics({
             Make sure description is at least 100 characters long{' '}
           </Text>
         )}
-
-      </Box>
+      </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>

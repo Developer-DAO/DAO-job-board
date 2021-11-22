@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { keywordsSamples } from '../../constants/keywords-sample';
 
@@ -28,7 +28,7 @@ import {
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
 type KeywordProps = {
-  profileKeywords: Array<string>;
+  keywordsData: Array<string>;
   keywordsDataHandler: () => void;
   closeKeywordModal: () => void;
 };
@@ -36,13 +36,21 @@ type KeywordProps = {
 export default function KeywordSelect({
   keywordsDataHandler,
   closeKeywordModal,
-  profileKeywords,
+  keywordsData,
 }: KeywordProps) {
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState(profileKeywords);
+  const [selectedKeywords, setSelectedKeywords] = useState([]);
   const [keywordsActive, setKeywordsActive] = useState(false);
+
+  useEffect(() => {
+    if (keywordsData && selectedKeywords) {
+      Object.values(keywordsData).forEach((keyword) => {
+        selectKeyword(keyword.keyword);
+      });
+    }
+  }, [selectedKeywords]);
 
   const selectKeyword = (e) => {
     //Limits the number of selected keywords to 10

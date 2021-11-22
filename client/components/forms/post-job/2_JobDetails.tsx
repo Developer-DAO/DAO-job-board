@@ -1,26 +1,35 @@
 import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
+//Keywords Components
+import KeywordSelect from '../../modals/SelectKeywords.tsx';
+import KeywordsSection from '../KeywordsSection.tsx';
+
 import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
-} from '../../styles/ui-components/Chakra-Button';
+} from '../../../styles/ui-components/Chakra-Button';
 
 import {
-  Heading, Box, Container, Tag, Input, Textarea, Select, Text, ButtonGroup, TagLabel,
-  TagCloseButton,
-  HStack,
+  Heading,
+  Stack,
+  Container,
+  Input,
+  Textarea,
+  Select,
+  Text,
+  ButtonGroup,
 } from '@chakra-ui/react';
 
 type JobDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
+  jobKeywords: Array<string>;
+  setJobKeywords: any;
   formData: any;
   setFormData: any;
-  addLocation: () => void;
-  locationActive: boolean;
 };
 
 export default function GigDetails({
@@ -28,36 +37,52 @@ export default function GigDetails({
   goToSummary,
   formData,
   onChange,
+  jobKeywords,
+  setJobKeywords,
   setFormData,
-  addLocation,
-  locationActive,
 }: JobDetailProps) {
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
-  const {
-    jobcategory,
-    jobcompensation,
-    jobmin,
-    jobmax,
-    jobequity,
-    joblocation,
-  } = formData;
+  //Breaks down the formData state
+  const { jobcompensation, jobmin, jobmax, jobequity, joblocation } = formData;
 
+  //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
-    if (jobcategory) {
+    if (jobKeywords.length > 0) {
       goToSummary();
     } else {
       setWrongData(true);
     }
   };
 
-  const selectCategory = () => {
-    setFormData({ ...formData, jobcategory: 'category' });
+  //To Open and Close Keywords Modal
+  const [changeJobKeywords, setChangeJobKeywords] = useState(false);
+
+  const openKeywordModal = () => {
+    setChangeJobKeywords(true);
+  };
+
+  const closeKeywordModal = () => {
+    setChangeJobKeywords(false);
+  };
+
+  //Handles the job keywords sent from modal
+  const keywordsDataHandler = async (keywordData) => {
+    await setJobKeywords(keywordData);
+    console.log(jobKeywords);
   };
 
   return (
     <>
+      {changeJobKeywords && (
+        <KeywordSelect
+          keywordsDataHandler={keywordsDataHandler}
+          closeKeywordModal={closeKeywordModal}
+          keywordsData={jobKeywords}
+        />
+      )}
+
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         {' '}
         <Heading color="black">Job Details</Heading>
@@ -66,49 +91,26 @@ export default function GigDetails({
         </Text>
       </Container>
 
-      <Box
-        maxW="100%"
-      >
-        <Heading
-          mb='5px'
-          color="black"
-          fontSize="md"
-          textAlign="left"
-        >Pick a job keyword category</Heading>
+      <Stack p={2} spacing={2} maxW="100%">
+        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+          Pick a job keyword category
+        </Heading>
 
-        {!wrongData ? <Text
-          fontSize="xs"
-          textAlign="left"
-        >Keywords help categorize your job post (pick at least 3)</Text> :
-        <Text
-          fontSize="xs"
-          textAlign="left"
-          color="red"
-          fontWeight="bold"
-        >Make sure to pick at least 3 keywords</Text>
-        }
+        {!wrongData ? (
+          <Text fontSize="xs" textAlign="left">
+            Keywords help categorize your job post (pick at least 3)
+          </Text>
+        ) : (
+          <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
+            Make sure to pick at least 3 keywords
+          </Text>
+        )}
 
-        <HStack spacing={4}
-        mt="2.5%"
-        mb="2.5%"
-        border={!wrongData ? "none" : "1px solid red"}
-        >
-          <ButtonBlack
-          >
-              Select Keywords
-          </ButtonBlack>
-          <Tag
-            onClick={selectCategory}
-            size="md"
-            borderRadius="full"
-            variant="solid"
-            colorScheme="red"
-            color="black"
-          >
-            <TagLabel>Keyword</TagLabel>
-            <TagCloseButton />
-          </Tag>
-        </HStack>
+        <Container>
+          <ButtonBlack onClick={openKeywordModal}>Select Keywords</ButtonBlack>
+        </Container>
+
+        <KeywordsSection keywordsData={jobKeywords} />
 
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Explain compensation (optional)
@@ -117,6 +119,7 @@ export default function GigDetails({
           Jobs with compensation info get more applications
         </Text>
         <Select
+          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -142,8 +145,9 @@ export default function GigDetails({
             <option value="AUD">AUD</option>
           </optgroup>
         </Select>
-        <br />
+
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -157,6 +161,7 @@ export default function GigDetails({
         />
 
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -169,13 +174,12 @@ export default function GigDetails({
           type="number"
         />
 
-        <br />
-
         <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
           Do you offer equity? (optional)
         </Heading>
 
         <Select
+          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -193,8 +197,6 @@ export default function GigDetails({
           <option value="+5%">+5%</option>
         </Select>
 
-        <br />
-
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Location (optional)
         </Heading>
@@ -202,6 +204,7 @@ export default function GigDetails({
           Defaults to remote if empty
         </Text>
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -212,9 +215,8 @@ export default function GigDetails({
           name="joblocation"
           placeholder="e.g California, US"
         />
+      </Stack>
 
-      </Box>
-      <br />
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
         <ButtonOrange onClick={goToBasics}>Back</ButtonOrange>
