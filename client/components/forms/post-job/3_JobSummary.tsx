@@ -108,7 +108,10 @@ export default function GigSummary({
       <Stack spacing={2} p={2} maxW="100%">
         <Heading fontSize="sm">Keywords:</Heading>
 
-        <KeywordsSection keywordsData={jobKeywords} />
+        <KeywordsSection
+          keywordsData={jobKeywords}
+          templateColumns="repeat(3, 3fr)"
+        />
 
         <br />
         <br />
@@ -136,7 +139,7 @@ export default function GigSummary({
         <br />
         <br />
         <Heading fontSize="md">
-          How should people contact you or your company?
+          How should people contact you or your organization?
         </Heading>
         <Text fontSize="xs" textAlign="left" mb="2.5%">
           Write your website job post link or an email

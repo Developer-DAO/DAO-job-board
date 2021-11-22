@@ -4,11 +4,14 @@ type keywordDataProps = {
   keywordsData: Array<string>;
 };
 
-export default function KeywordsSection({ keywordsData }: keywordDataProps) {
+export default function KeywordsSection({
+  keywordsData,
+  templateColumns,
+}: keywordDataProps) {
   return (
     <>
       {keywordsData && (
-        <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
+        <SimpleGrid spacing={2} templateColumns={templateColumns}>
           {keywordsData &&
             keywordsData.map((keyword) => (
               <Tag

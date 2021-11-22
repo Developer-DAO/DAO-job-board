@@ -110,7 +110,10 @@ export default function GigDetails({
           <ButtonBlack onClick={openKeywordModal}>Select Keywords</ButtonBlack>
         </Container>
 
-        <KeywordsSection keywordsData={jobKeywords} />
+        <KeywordsSection
+          keywordsData={jobKeywords}
+          templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
+        />
 
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Explain compensation (optional)

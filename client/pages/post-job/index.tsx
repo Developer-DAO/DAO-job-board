@@ -87,7 +87,6 @@ export default function CreateProject() {
       boxSizing="border-box"
       p="0.5%"
       borderRadius="18px"
-      mt="2.5%"
     >
       <form>
         {basicsPage ? (
@@ -114,6 +113,7 @@ export default function CreateProject() {
         {summaryPage ? (
           <JobSummary
             formData={formData}
+            jobKeywords={jobKeywords}
             goToDetails={goToDetails}
             goToBasics={goToBasics}
             createJob={createJob}
