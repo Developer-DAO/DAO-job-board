@@ -28,7 +28,7 @@ export type GigForm = Pick<
   | 'created_by'
 >;
 
-export type GigCategory = {
+export type GigKeyword = {
   gig_id: string;
   category_id: string;
 } & WithTimestamp;

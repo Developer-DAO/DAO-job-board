@@ -9,7 +9,7 @@ export type User = PrimaryKey & {
   disabled_at?: Date;
 } & WithTimestamp;
 
-export type UserCategory = {
+export type UserKeyword = {
   user_id: string;
   category_id: string;
 } & WithTimestamp;

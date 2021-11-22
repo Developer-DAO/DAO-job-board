@@ -29,7 +29,7 @@ export type JobForm = Pick<
   | 'created_by'
 >;
 
-export type JobCategory = {
+export type JobKeyword = {
   job_id: string;
   category_id: string;
 } & WithTimestamp;
