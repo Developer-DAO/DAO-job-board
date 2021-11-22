@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 
-import KeywordsSection from '../KeywordsSection.tsx';
+import KeywordsSection from '../KeywordsSection';
 
 // UI & CSS
 import {
@@ -96,8 +96,6 @@ export default function GigSummary({
           </>
         )}
       </Stack>
-
-      <br />
 
       <Container margin="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">

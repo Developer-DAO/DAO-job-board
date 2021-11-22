@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 //Keywords Components
-import KeywordSelect from '../../modals/SelectKeywords.tsx';
-import KeywordsSection from '../KeywordsSection.tsx';
+import KeywordSelect from '../../modals/SelectKeywords';
+import KeywordsSection from '../KeywordsSection';
 
 import {
   ButtonGreen,
@@ -68,7 +68,7 @@ export default function GigDetails({
   };
 
   //Handles the job keywords sent from modal
-  const keywordsDataHandler = async (keywordData) => {
+  const keywordsDataHandler = async (keywordData: React.FormEvent) => {
     await setJobKeywords(keywordData);
     console.log(jobKeywords);
   };

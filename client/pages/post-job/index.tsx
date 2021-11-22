@@ -35,7 +35,7 @@ export default function CreateProject() {
   });
 
   //Job Keywords
-  const [jobKeywords, setJobKeywords] = useState();
+  const [jobKeywords, setJobKeywords] = useState<any>();
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);

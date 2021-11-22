@@ -1,7 +1,8 @@
 import { SimpleGrid, Tag, TagLabel } from '@chakra-ui/react';
 
 type keywordDataProps = {
-  keywordsData: Array<string>;
+  keywordsData: any;
+  templateColumns: any;
 };
 
 export default function KeywordsSection({
@@ -13,8 +14,9 @@ export default function KeywordsSection({
       {keywordsData && (
         <SimpleGrid spacing={2} templateColumns={templateColumns}>
           {keywordsData &&
-            keywordsData.map((keyword) => (
+            keywordsData.map((keyword: any, index: any) => (
               <Tag
+                key={index}
                 w="fit-content"
                 size="lg"
                 borderRadius="8px"

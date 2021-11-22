@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 type profileLinksProps = {
-  profileLinks: Array<string>;
+  profileLinks: any;
 };
 
 export default function LinksSection({ profileLinks }: profileLinksProps) {

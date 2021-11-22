@@ -7,9 +7,8 @@ import {
   Heading,
   Input,
   InputGroup,
-  InputLeftElement,
+  InputLeftAddon,
   Container,
-  Flex,
   Text,
   Stack,
   SimpleGrid,
@@ -28,8 +27,8 @@ import {
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
 type KeywordProps = {
-  keywordsData: Array<string>;
-  keywordsDataHandler: () => void;
+  keywordsData: any;
+  keywordsDataHandler: (keywordData: React.FormEvent) => void;
   closeKeywordModal: () => void;
 };
 
@@ -37,31 +36,32 @@ export default function KeywordSelect({
   keywordsDataHandler,
   closeKeywordModal,
   keywordsData,
-}: KeywordProps) {
+}: KeywordProps): any {
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState([]);
+  const [selectedKeywords, setSelectedKeywords] = useState<any>([]);
   const [keywordsActive, setKeywordsActive] = useState(false);
 
   useEffect(() => {
-    if (keywordsData && selectedKeywords) {
+    if (keywordsData && selectedKeywords.length === 0) {
       Object.values(keywordsData).forEach((keyword) => {
-        selectKeyword(keyword.keyword);
+        selectKeyword((keyword as any).keyword);
       });
     }
-  }, [selectedKeywords]);
+  }, [selectedKeywords, keywordsData]);
 
-  const selectKeyword = (e) => {
+  const selectKeyword = (e: string) => {
     //Limits the number of selected keywords to 10
-    const isInArray = selectedKeywords.find((element) => element.keyword === e);
+    const isInArray = selectedKeywords.find(
+      (element: any) => element.keyword === e
+    );
     if (isInArray || selectedKeywords.length >= 10) {
       return;
     }
-
     //Merges the selected keywords with the state
-    setSelectedKeywords((prevKeywords) => {
-      const updatedKeywords = [...prevKeywords];
+    setSelectedKeywords((prevKeywords: any) => {
+      const updatedKeywords: any = [...prevKeywords];
       updatedKeywords.unshift({ keyword: e, id: Math.random().toString() });
       return updatedKeywords;
     });
@@ -69,16 +69,16 @@ export default function KeywordSelect({
   };
 
   //Deletes keywords from selected list
-  const deleteKeywords = (e) => {
-    setSelectedKeywords((prevKeywords) => {
-      const updatedKeywords = prevKeywords.filter(
-        (keyword) => keyword.id !== e
+  const deleteKeywords = async (e: any) => {
+    setSelectedKeywords((prevKeywords: any) => {
+      const updatedKeywords: any = prevKeywords.filter(
+        (keyword: any) => keyword.id !== e
       );
       return updatedKeywords;
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     keywordsDataHandler(selectedKeywords);
     closeKeywordModal();
@@ -119,15 +119,14 @@ export default function KeywordSelect({
           white-space="pre-wrap"
         >
           <Stack m="auto" textAlign="center" spacing={2}>
-            <Heading size="md">Keywords to Choose</Heading>
+            <Heading size="md">Search Keywords</Heading>
             <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                children={<SearchIcon color="gray.300" />}
-              />
+              <InputLeftAddon>
+                <SearchIcon color="gray.500" />
+              </InputLeftAddon>
               <Input
                 value={searchKeywords}
-                onInput={(e) => setSearchKeywords(e.target.value)}
+                onInput={(e) => setSearchKeywords((e.target as any).value)}
                 placeholder="Write skills or positions"
                 w="100%"
                 textAlign="center"
@@ -175,9 +174,9 @@ export default function KeywordSelect({
             </Heading>
           </Container>
           <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
-            {selectedKeywords &&
+            {keywordsActive &&
               selectedKeywords.length >= 0 &&
-              selectedKeywords.map((keyword, index) => (
+              selectedKeywords.map((keyword: any, index: any) => (
                 <Tag
                   colorScheme="red"
                   w="100%"

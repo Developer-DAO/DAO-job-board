@@ -2,32 +2,18 @@ import React, { useState } from 'react';
 
 //Social Links Components
 import AddLinks from '../../components/modals/AddLinks';
-import LinksSection from '../../components/create-profile/LinksSection.tsx';
+import LinksSection from '../../components/create-profile/LinksSection';
 
 //Keywords Components
-import KeywordSelect from '../../components/modals/SelectKeywords.tsx';
-import KeywordsSection from '../../components/forms/KeywordsSection.tsx';
+import KeywordSelect from '../../components/modals/SelectKeywords';
+import KeywordsSection from '../../components/forms/KeywordsSection';
 
 import {
   Box,
-  Container,
   ButtonGroup,
   Heading,
   Flex,
-  HStack,
-  VStack,
   Stack,
-  Tag,
-  TagLabel,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Spacer,
-  Switch,
   InputGroup,
   Input,
   InputLeftAddon,
@@ -35,7 +21,6 @@ import {
   Textarea,
   Image,
   Select,
-  useDisclosure,
 } from '@chakra-ui/react';
 
 import {
@@ -58,6 +43,7 @@ export default function CreateProfile() {
     location: '',
     website: '',
     links: '',
+    githubusername: '',
   });
 
   const {
@@ -94,7 +80,7 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = async (selectedKeywords) => {
+  const keywordsDataHandler = async (selectedKeywords: any) => {
     await setProfileKeywords(selectedKeywords);
     console.log(profileKeywords);
   };
@@ -111,7 +97,7 @@ export default function CreateProfile() {
   };
 
   //Sets links data and sends to database
-  const linksDataHandler = async (linkData) => {
+  const linksDataHandler = async (linkData: any) => {
     await setProfileLinks(linkData);
     console.log(profileLinks);
   };
@@ -197,6 +183,18 @@ export default function CreateProfile() {
                 />
               </InputGroup>
 
+              <Text>Professional Title</Text>
+              <Text fontSize="xs">What kind of professional are you?</Text>
+              <Input
+                position="static"
+                bgColor="white"
+                w="95%"
+                placeholder="Write a profile title e.g. (Developer, Designer, Marketer)"
+                name="title"
+                value={title}
+                onChange={(e) => onChange(e)}
+              />
+
               <Text>Profile Keywords</Text>
               <Text fontSize="xs">
                 Keywords help categorize your profile in skills and sectors
@@ -206,7 +204,10 @@ export default function CreateProfile() {
                   Choose Keywords
                 </ButtonBlack>
               </ButtonGroup>
-              <KeywordsSection keywordsData={profileKeywords} />
+              <KeywordsSection
+                templateColumns="repeat(2, 3fr)"
+                keywordsData={profileKeywords}
+              />
             </Stack>
           </Stack>
 
@@ -285,7 +286,7 @@ export default function CreateProfile() {
           padding="1px"
           w="100%"
         >
-          <ButtonGreen>Save Profile</ButtonGreen>
+          <ButtonGreen onClick={onSubmit}>Save Profile</ButtonGreen>
           <ButtonOrange>Dismiss Changes</ButtonOrange>
         </ButtonGroup>
       </Box>

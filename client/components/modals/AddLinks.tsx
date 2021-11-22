@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import {
   chakra,
   Box,
-  Text,
   Icon,
-  Form,
   Input,
   Heading,
   VStack,
@@ -30,15 +28,13 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 type LinksProps = {
-  profileLinks: Array<string>;
-  openLinksModal: () => void;
+  profileLinks: any;
   closeLinksModal: () => void;
-  linksDataHandler: () => void;
+  linksDataHandler: (formData: any) => void;
 };
 
 export default function AddLinks({
   profileLinks,
-  openLinksModal,
   closeLinksModal,
   linksDataHandler,
 }: LinksProps) {
@@ -47,10 +43,13 @@ export default function AddLinks({
 
   const { linkedin, twitter, behance, dribbble, producthunt } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e: React.FormEvent) =>
+    setFormData({
+      ...formData,
+      [(e.target as any).name]: (e.target as any).value,
+    });
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     linksDataHandler(formData);
     closeLinksModal();
@@ -167,9 +166,3 @@ export default function AddLinks({
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: { profileLinks },
-  };
-};
