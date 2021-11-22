@@ -68,22 +68,22 @@ export default function AddLinks({
         onClick={closeLinksModal}
       ></Box>
 
-      <Box
+      <VStack
+        spacing={2}
         position="fixed"
         borderRadius="18px"
         p={5}
         m="auto"
-        left="10vw"
-        right="25vw"
-        top="25vh"
-        bottom="25vh"
-        w={{ '2xl': '50%', sm: '80%' }}
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%);"
+        w={{ '2xl': 'fit-content', sm: '70%' }}
         h="fit-content"
         textAlign="center"
         bg="#ffffff"
         zIndex={1000}
       >
-        <Heading>Add Socials</Heading>
+        <Heading size="md">Add Socials</Heading>
         <chakra.form>
           <VStack spacing={4}>
             <InputGroup>
@@ -163,7 +163,7 @@ export default function AddLinks({
             </ButtonGroup>
           </VStack>
         </chakra.form>
-      </Box>
+      </VStack>
     </>
   );
 }

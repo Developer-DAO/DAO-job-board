@@ -5,35 +5,53 @@ import { keywordsSamples } from '../../constants/keywords-sample';
 import {
   Box,
   Heading,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Container,
   Flex,
   Text,
+  Stack,
   SimpleGrid,
   Tag,
   TagLabel,
+  TagCloseButton,
+  TagRightIcon,
+  ButtonGroup,
 } from '@chakra-ui/react';
 
-type KeywordProps = {};
+import {
+  ButtonBlue,
+  ButtonOrange,
+} from '../../styles/ui-components/Chakra-Button';
+
+import { AddIcon, SearchIcon } from '@chakra-ui/icons';
+
+type KeywordProps = {
+  profileKeywords: Array<string>;
+  keywordsDataHandler: () => void;
+  closeKeywordModal: () => void;
+};
 
 export default function KeywordSelect({
   keywordsDataHandler,
   closeKeywordModal,
-  keywordsData,
+  profileKeywords,
 }: KeywordProps) {
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState([]);
+  const [selectedKeywords, setSelectedKeywords] = useState(profileKeywords);
   const [keywordsActive, setKeywordsActive] = useState(false);
 
-  const [formData, setFormData] = useState(keywords);
-
   const selectKeyword = (e) => {
+    //Limits the number of selected keywords to 10
     const isInArray = selectedKeywords.find((element) => element.keyword === e);
-    if (isInArray || selectedKeywords.length >= 6) {
+    if (isInArray || selectedKeywords.length >= 10) {
       return;
     }
 
+    //Merges the selected keywords with the state
     setSelectedKeywords((prevKeywords) => {
       const updatedKeywords = [...prevKeywords];
       updatedKeywords.unshift({ keyword: e, id: Math.random().toString() });
@@ -42,13 +60,20 @@ export default function KeywordSelect({
     setKeywordsActive(true);
   };
 
-  const deleyeKeywords = (e) => {
+  //Deletes keywords from selected list
+  const deleteKeywords = (e) => {
     setSelectedKeywords((prevKeywords) => {
       const updatedKeywords = prevKeywords.filter(
         (keyword) => keyword.id !== e
       );
       return updatedKeywords;
     });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    keywordsDataHandler(selectedKeywords);
+    closeKeywordModal();
   };
 
   return (
@@ -68,17 +93,16 @@ export default function KeywordSelect({
         borderRadius="18px"
         p={5}
         m="auto"
-        left="10vw"
-        right="25vw"
-        top="25vh"
-        bottom="25vh"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%);"
         w={{ '2xl': '50%', sm: '80%' }}
         h="fit-content"
         textAlign="center"
         bg="#ffffff"
         zIndex={1000}
       >
-        <Box
+        <Stack
           width="100%"
           height="fit-content"
           overflow="hidden"
@@ -86,52 +110,89 @@ export default function KeywordSelect({
           word-break="break-all"
           white-space="pre-wrap"
         >
-          {keywords
-            .filter((keyword) => {
-              if (searchKeywords === '') {
-                return keyword;
-              } else if (
-                keyword.name
-                  .toLowerCase()
-                  .includes(searchKeywords.toLowerCase())
-              ) {
-                return keyword;
-              }
-              {
-                return false;
-              }
-            })
-            .map((keyword, index) => (
-              <Tag key={index} onClick={(e) => selectKeyword(keyword.name)}>
-                {keyword.name}
-              </Tag>
-            ))}
-        </Box>
+          <Stack m="auto" textAlign="center" spacing={2}>
+            <Heading size="md">Keywords to Choose</Heading>
+            <InputGroup>
+              <InputLeftElement
+                pointerEvents="none"
+                children={<SearchIcon color="gray.300" />}
+              />
+              <Input
+                value={searchKeywords}
+                onInput={(e) => setSearchKeywords(e.target.value)}
+                placeholder="Write skills or positions"
+                w="100%"
+                textAlign="center"
+              />
+            </InputGroup>
+          </Stack>
+          <SimpleGrid spacing={1} templateColumns="repeat(3, 3fr)" h="52px">
+            {keywords
+              .filter((keyword) => {
+                if (searchKeywords === '') {
+                  return keyword;
+                } else if (
+                  keyword.name
+                    .toLowerCase()
+                    .includes(searchKeywords.toLowerCase())
+                ) {
+                  return keyword;
+                }
+                {
+                  return false;
+                }
+              })
+              .map((keyword, index) => (
+                <Tag
+                  cursor="pointer"
+                  colorScheme="blue"
+                  w="100%"
+                  key={index}
+                  onClick={(e) => selectKeyword(keyword.name)}
+                >
+                  <TagLabel m="auto">{keyword.name}</TagLabel>
+                  <TagRightIcon as={AddIcon} />
+                </Tag>
+              ))}
+          </SimpleGrid>
+        </Stack>
 
-        {keywordsActive && selectedKeywords ? (
-          <>
-            <Container>
-              <Heading size="sm">
-                Selected Keywords{' '}
-                <Text as="em" fontWeight="light">
-                  (Max 6)
-                </Text>
-              </Heading>
-            </Container>
-            <SimpleGrid columns={1} row={2} spacing={2}>
-              {selectedKeywords &&
-                selectedKeywords.map((keyword, index) => (
-                  <Tag
-                    w="50%"
-                    key={index}
-                    onClick={(e) => deleyeKeywords(keyword.id)}
-                  >
-                    <TagLabel m="auto">{keyword.keyword}</TagLabel>
-                  </Tag>
-                ))}{' '}
-            </SimpleGrid>
-          </>
-        ) : null}
+        <Stack spacing={2} mt="2.5%">
+          <Container>
+            <Heading size="sm">
+              {selectedKeywords && selectedKeywords.length} Selected Keywords{' '}
+              <Text as="em" fontWeight="light">
+                (Max 10)
+              </Text>
+            </Heading>
+          </Container>
+          <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
+            {selectedKeywords &&
+              selectedKeywords.length >= 0 &&
+              selectedKeywords.map((keyword, index) => (
+                <Tag
+                  colorScheme="red"
+                  w="100%"
+                  key={index}
+                  onClick={(e) => deleteKeywords(keyword.id)}
+                >
+                  <TagLabel m="auto">{keyword.keyword}</TagLabel>
+                  <TagCloseButton />
+                </Tag>
+              ))}
+          </SimpleGrid>
+        </Stack>
+
+        <ButtonGroup
+          display="flex"
+          flexDirection="column"
+          m="5px"
+          padding="1px"
+          w="100%"
+        >
+          <ButtonBlue onClick={onSubmit}>Save Links</ButtonBlue>
+          <ButtonOrange onClick={closeKeywordModal}>Cancel</ButtonOrange>
+        </ButtonGroup>
       </Box>
     </>
   );

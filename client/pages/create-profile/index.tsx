@@ -6,6 +6,7 @@ import LinksSection from '../../components/create-profile/LinksSection.tsx';
 
 //Keywords Components
 import KeywordSelect from '../../components/modals/SelectKeywords.tsx';
+import KeywordsSection from '../../components/create-profile/KeywordsSection.tsx';
 
 import {
   Box,
@@ -93,18 +94,18 @@ export default function CreateProfile() {
   //Sets profile keywords data
   const keywordsDataHandler = async (keywordData) => {
     await setProfileKeywords(keywordData);
-    console.log(keywordData);
+    console.log(profileKeywords);
   };
 
   //To Open and Close Links Modal
   const [changeProfileLinks, setChangeProfileLinks] = useState(false);
 
   const openLinksModal = () => {
-    setChangeLinks(true);
+    setChangeProfileLinks(true);
   };
 
   const closeLinksModal = () => {
-    setChangeLinks(false);
+    setChangeProfileLinks(false);
   };
 
   //Sets links data and sends to database
@@ -138,7 +139,7 @@ export default function CreateProfile() {
         <KeywordSelect
           keywordsDataHandler={keywordsDataHandler}
           closeKeywordModal={closeKeywordModal}
-          keywordsData={profileKeywords}
+          profileKeywords={profileKeywords}
         />
       )}
 
@@ -201,23 +202,7 @@ export default function CreateProfile() {
                 Choose Keywords
               </ButtonBlack>
             </ButtonGroup>
-            <HStack
-              mt="15px"
-              templateColumns="repeat(5, 2fr)"
-              autoRows="fit-content"
-              gap="0.5rem"
-              spacing={1}
-            >
-              <Tag
-                w="fit-content"
-                size="md"
-                borderRadius="8px"
-                bgColor="#E2E9F0"
-                color="black"
-              >
-                <TagLabel m="auto">First Keyword</TagLabel>
-              </Tag>
-            </HStack>
+            <KeywordsSection profileKeywords={profileKeywords} />
           </Stack>
         </Stack>
 
