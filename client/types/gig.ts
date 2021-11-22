@@ -25,6 +25,7 @@ export type GigForm = Pick<
   | 'featured_photo_url'
   | 'experience_level'
   | 'status'
+  | 'created_by'
 >;
 
 export type GigCategory = {
@@ -40,5 +41,5 @@ export type GigApplication = PrimaryKey & {
 
 export type GigApplicationForm = Pick<
   GigApplication,
-  'gig_id' | 'pitch' | 'content' | 'status'
+  'gig_id' | 'pitch' | 'content' | 'status' | 'created_by'
 >;

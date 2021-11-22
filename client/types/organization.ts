@@ -16,5 +16,10 @@ export type OrganizationMember = {
 
 export type OrganizationForm = Pick<
   Organization,
-  'cover_photo_url' | 'description' | 'email' | 'logo_url' | 'name'
+  | 'cover_photo_url'
+  | 'description'
+  | 'email'
+  | 'logo_url'
+  | 'name'
+  | 'created_by'
 >;
