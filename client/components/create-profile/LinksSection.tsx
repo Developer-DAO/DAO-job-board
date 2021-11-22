@@ -1,4 +1,5 @@
-import { HStack, Tag, TagLabel } from '@chakra-ui/react';
+import { HStack, Tag, TagLabel, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,81 +20,102 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
   return (
     <>
       {profileLinks && (
-        <HStack
-          mt="15px"
-          templateColumns="repeat(5, 2fr)"
-          autoRows="fit-content"
-          gap="0.5rem"
-          spacing={1}
-        >
+        <HStack mt="15px" gap="0.5rem" spacing={1}>
           {profileLinks && twitter ? (
-            <Tag
-              w="fit-content"
-              size="lg"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
-            >
-              <TagLabel m="auto">
-                <FontAwesomeIcon icon={faTwitter} />
-              </TagLabel>
-            </Tag>
+            <NextLink href={`https://www.twitter.com/${twitter}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
           ) : null}
 
           {profileLinks && linkedin ? (
-            <Tag
-              w="fit-content"
-              size="lg"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
-            >
-              <TagLabel m="auto">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </TagLabel>
-            </Tag>
+            <NextLink href={`https://www.linkedin.com/${linkedin}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faLinkedinIn} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
           ) : null}
 
           {profileLinks && producthunt ? (
-            <Tag
-              w="fit-content"
-              size="lg"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
+            <NextLink
+              href={`https://www.producthunt.com/@${producthunt}`}
+              passHref
             >
-              <TagLabel m="auto">
-                <FontAwesomeIcon icon={faProductHunt} />
-              </TagLabel>
-            </Tag>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faProductHunt} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
           ) : null}
 
           {profileLinks && dribbble ? (
-            <Tag
-              w="fit-content"
-              size="lg"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
-            >
-              <TagLabel m="auto">
-                <FontAwesomeIcon icon={faDribbble} />
-              </TagLabel>
-            </Tag>
+            <NextLink href={`https://www.dribbble.com/${dribbble}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faDribbble} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
           ) : null}
 
           {profileLinks && behance ? (
-            <Tag
-              w="fit-content"
-              size="lg"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
-            >
-              <TagLabel m="auto">
-                <FontAwesomeIcon icon={faBehance} />
-              </TagLabel>
-            </Tag>
+            <NextLink href={`https://www.behance.net/${behance}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faBehance} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
           ) : null}
         </HStack>
       )}

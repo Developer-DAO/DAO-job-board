@@ -16,8 +16,6 @@ import {
   Container,
   Text,
   ButtonGroup,
-  TagLabel,
-  TagCloseButton,
 } from '@chakra-ui/react';
 
 type JobSummaryProps = {

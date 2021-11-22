@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 //Social Links Components
 import AddLinks from '../../components/modals/AddLinks';
 import LinksSection from '../../components/create-profile/LinksSection';
@@ -21,6 +20,9 @@ import {
   Textarea,
   Image,
   Select,
+  Modal,
+  ModalOverlay,
+  ModalContent,
 } from '@chakra-ui/react';
 
 import {
@@ -116,11 +118,16 @@ export default function CreateProfile() {
   return (
     <>
       {changeProfileLinks && (
-        <AddLinks
-          closeLinksModal={closeLinksModal}
-          linksDataHandler={linksDataHandler}
-          profileLinks={profileLinks}
-        />
+        <Modal isOpen={changeProfileLinks} onClose={closeLinksModal}>
+          <ModalOverlay onClick={closeLinksModal} />
+          <ModalContent>
+            <AddLinks
+              closeLinksModal={closeLinksModal}
+              linksDataHandler={linksDataHandler}
+              profileLinks={profileLinks}
+            />
+          </ModalContent>
+        </Modal>
       )}
 
       {changeProfileKeywords && (
@@ -141,16 +148,7 @@ export default function CreateProfile() {
         mt="2.5%"
       >
         <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
-          <Stack
-            direction="column"
-            width="100%"
-            m="auto"
-            textAlign="center"
-            boxSizing="border-box"
-            boxShadow="none"
-            flex={2}
-            spacing={5}
-          >
+          <Stack direction="column" textAlign="center" flex={2} spacing={5}>
             <Heading size="md">Identity</Heading>
 
             <Box m="auto">
@@ -168,7 +166,7 @@ export default function CreateProfile() {
             <Stack direction="column" textAlign="left" spacing={2}>
               <Text>Username</Text>
               <Text fontSize="xs">
-                Make it easy for people to know it is you
+                Make it easy for people to know it is you {'(min 3 characters)'}
               </Text>
               <InputGroup position="static">
                 <InputLeftAddon>@</InputLeftAddon>
@@ -184,16 +182,47 @@ export default function CreateProfile() {
               </InputGroup>
 
               <Text>Professional Title</Text>
-              <Text fontSize="xs">What kind of professional are you?</Text>
+              <Text fontSize="xs">
+                What kind of professional are you? {'(min 3 characters)'}
+              </Text>
               <Input
                 position="static"
                 bgColor="white"
-                w="95%"
+                w={{ '2xl': '95%', sm: '92.5%' }}
                 placeholder="Write a profile title e.g. (Developer, Designer, Marketer)"
                 name="title"
                 value={title}
                 onChange={(e) => onChange(e)}
               />
+
+              <Text>Status</Text>
+              <Text fontSize="xs">
+                Let people know your status at the moment
+              </Text>
+              <Select
+                position="initial"
+                w={{ '2xl': '95%', sm: '92.5%' }}
+                bgColor="white"
+                bg="white"
+                borderColor="#e2e8f0"
+                _hover={{ borderColor: '#97c0e6' }}
+                name="status"
+                value={status}
+                onChange={(e) => onChange(e)}
+              >
+                <option value="" disabled hidden>
+                  Select Status
+                </option>
+                <option value="Available Full-Time ">
+                  Available Full-Time
+                </option>
+                <option value="Available Part-Time">Available Part-Time</option>
+                <option value="Looking for Contracts">
+                  Looking for Contracts
+                </option>
+                <option value="Looking for Gigs">Looking for Gigs</option>
+                <option value="Not Available">Not Available</option>
+              </Select>
 
               <Text>Profile Keywords</Text>
               <Text fontSize="xs">
@@ -205,7 +234,7 @@ export default function CreateProfile() {
                 </ButtonBlack>
               </ButtonGroup>
               <KeywordsSection
-                templateColumns="repeat(2, 3fr)"
+                templateColumns="repeat(3, 3fr)"
                 keywordsData={profileKeywords}
               />
             </Stack>
@@ -219,6 +248,9 @@ export default function CreateProfile() {
                 </Heading>
 
                 <Text>Name</Text>
+                <Text fontSize="xs">
+                  How would you like people to find you?
+                </Text>
                 <Input
                   position="static"
                   bgColor="white"
@@ -229,12 +261,26 @@ export default function CreateProfile() {
                 />
 
                 <Text>Description</Text>
+                <Text fontSize="xs">
+                  Let people know what is going on in your life
+                </Text>
                 <Textarea
                   position="static"
                   bgColor="white"
                   placeholder="Here goes a brief description of yourself"
                   name="description"
                   value={description}
+                  onChange={(e) => onChange(e)}
+                />
+
+                <Text size="sm">Location</Text>
+                <Text fontSize="xs">Where are you located right now?</Text>
+                <Input
+                  position="static"
+                  bgColor="white"
+                  placeholder="e.g. Madrid, Spain or Nomad"
+                  name="location"
+                  value={location}
                   onChange={(e) => onChange(e)}
                 />
 

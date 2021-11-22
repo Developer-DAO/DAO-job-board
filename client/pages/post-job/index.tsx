@@ -7,19 +7,6 @@ import JobBasics from '../../components/forms/post-job/1_JobBasics';
 import JobDetails from '../../components/forms/post-job/2_JobDetails';
 import JobSummary from '../../components/forms/post-job/3_JobSummary';
 
-type IFormData = {
-  jobtitle: string;
-  jobdescription: string;
-  jobtype: string;
-  jobposition: string;
-  jobcompensation: string;
-  jobmax: string;
-  jobmin: string;
-  jobequity: string;
-  joblocation: string;
-  jobcontact: string;
-};
-
 export default function CreateProject() {
   const [formData, setFormData] = useState({
     jobtitle: '',
