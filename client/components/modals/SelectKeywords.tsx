@@ -92,7 +92,6 @@ export default function KeywordSelect({
         left="0"
         w="100%"
         h="100vh"
-        bg="rgba(0, 0, 0, 0.5)"
         onClick={closeKeywordModal}
       ></Box>
 
@@ -133,7 +132,7 @@ export default function KeywordSelect({
               />
             </InputGroup>
           </Stack>
-          <SimpleGrid spacing={1} templateColumns="repeat(3, 3fr)" h="52px">
+          <SimpleGrid spacing={1} templateColumns="repeat(2, 3fr)" h="52px">
             {keywords
               .filter((keyword) => {
                 if (searchKeywords === '') {

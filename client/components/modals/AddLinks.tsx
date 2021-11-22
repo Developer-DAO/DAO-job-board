@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import {
   chakra,
   Box,
-  Icon,
   Input,
   Heading,
   VStack,
@@ -19,7 +18,6 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faGithub,
   faProductHunt,
   faTwitter,
   faLinkedinIn,
@@ -63,7 +61,6 @@ export default function AddLinks({
         left="0"
         w="100%"
         h="100vh"
-        bg="rgba(0, 0, 0, 0.5)"
         onClick={closeLinksModal}
       ></Box>
 
@@ -117,7 +114,7 @@ export default function AddLinks({
                 <FontAwesomeIcon icon={faProductHunt} />
               </InputLeftAddon>
               <Input
-                placeholder="@username"
+                placeholder="username"
                 name="producthunt"
                 value={producthunt}
                 onChange={(e) => onChange(e)}

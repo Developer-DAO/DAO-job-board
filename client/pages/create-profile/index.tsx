@@ -118,7 +118,11 @@ export default function CreateProfile() {
   return (
     <>
       {changeProfileLinks && (
-        <Modal isOpen={changeProfileLinks} onClose={closeLinksModal}>
+        <Modal
+          isOpen={changeProfileLinks}
+          onClose={closeLinksModal}
+          motionPreset="none"
+        >
           <ModalOverlay onClick={closeLinksModal} />
           <ModalContent>
             <AddLinks
@@ -131,11 +135,20 @@ export default function CreateProfile() {
       )}
 
       {changeProfileKeywords && (
-        <KeywordSelect
-          keywordsDataHandler={keywordsDataHandler}
-          closeKeywordModal={closeKeywordModal}
-          keywordsData={profileKeywords}
-        />
+        <Modal
+          isOpen={changeProfileKeywords}
+          onClose={closeKeywordModal}
+          motionPreset="none"
+        >
+          <ModalOverlay onClick={closeKeywordModal} />
+          <ModalContent>
+            <KeywordSelect
+              keywordsDataHandler={keywordsDataHandler}
+              closeKeywordModal={closeKeywordModal}
+              keywordsData={profileKeywords}
+            />
+          </ModalContent>
+        </Modal>
       )}
 
       <Box
