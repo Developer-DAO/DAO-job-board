@@ -20,6 +20,9 @@ import {
   Select,
   Text,
   ButtonGroup,
+  Modal,
+  ModalOverlay,
+  ModalContent,
 } from '@chakra-ui/react';
 
 type JobDetailProps = {
@@ -76,11 +79,20 @@ export default function GigDetails({
   return (
     <>
       {changeJobKeywords && (
-        <KeywordSelect
-          keywordsDataHandler={keywordsDataHandler}
-          closeKeywordModal={closeKeywordModal}
-          keywordsData={jobKeywords}
-        />
+        <Modal
+          isOpen={changeJobKeywords}
+          onClose={closeKeywordModal}
+          motionPreset="none"
+        >
+          <ModalOverlay onClick={closeKeywordModal} />
+          <ModalContent>
+            <KeywordSelect
+              keywordsDataHandler={keywordsDataHandler}
+              closeKeywordModal={closeKeywordModal}
+              keywordsData={jobKeywords}
+            />
+          </ModalContent>
+        </Modal>
       )}
 
       <Container textAlign="center" mt="2.5%" mb="2.5%">

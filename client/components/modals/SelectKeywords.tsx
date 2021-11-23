@@ -196,7 +196,7 @@ export default function KeywordSelect({
           padding="1px"
           w="100%"
         >
-          <ButtonBlue onClick={onSubmit}>Save Links</ButtonBlue>
+          <ButtonBlue onClick={onSubmit}>Save Keywords</ButtonBlue>
           <ButtonOrange onClick={closeKeywordModal}>Cancel</ButtonOrange>
         </ButtonGroup>
       </Box>
