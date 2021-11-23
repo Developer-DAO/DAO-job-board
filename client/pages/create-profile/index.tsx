@@ -32,6 +32,7 @@ import {
   ButtonGreen,
   ButtonRed,
 } from '../../styles/ui-components/Chakra-Button';
+import AddAvatar from './add-avatar';
 
 export default function CreateProfile() {
   const [formData, setFormData] = useState({
@@ -81,15 +82,7 @@ export default function CreateProfile() {
         flex={1}
       >
         <Heading size="md">PFP</Heading>
-        <Image
-          w="8rem"
-          h="8rem"
-          margin="auto"
-          mt="5%"
-          borderRadius="180px"
-          src="/DevDAO.png"
-          alt="developer"
-        />
+        <AddAvatar src="/DevDAO.png" />
         <Heading mt="5%" size="md">
           Content Visibility
         </Heading>
