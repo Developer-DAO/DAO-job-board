@@ -25,7 +25,6 @@ export default function JobItem() {
       textAlign="left"
       bg="white"
     >
-
       <Box ml="0.5%" maxW="100%">
         <Link
           href="/jobs/project-1"
@@ -38,7 +37,7 @@ export default function JobItem() {
         </Link>
 
         <Link
-          href="/company/company-1"
+          href="/jobs/company-1/marketing-manager"
           _hover={{ textDecoration: 'none' }}
           _focus={{ textDecoration: 'none', border: 'none' }}
         >
@@ -58,19 +57,13 @@ export default function JobItem() {
       </Box>
 
       <Box ml="0.5%" pb="1%" maxW="100%">
-
-        <HStack
-          m="auto"
-          mt="2%"
-          columns={3}
-          spacing={1}
-        >
+        <HStack m="auto" mt="2%" columns={3} spacing={1}>
           <Text>Compensation</Text>
           <Text>Remote</Text>
           <Text>Full-Time</Text>
         </HStack>
 
-          <HStack
+        <HStack
           mt="15px"
           templateColumns={{ lg: 'repeat(10, 1fr)', sm: 'repeat(4, 2fr)' }}
           wordWrap="break-word"
@@ -130,15 +123,16 @@ export default function JobItem() {
             <TagLabel m="auto">React</TagLabel>
           </Tag>
           <Tag
-          w="fit-content"
-          size="md"
-          p="10px"
-          borderRadius="8px"
-          bgColor="#E2E9F0"
-          color="black"
-          ><TagLabel m="auto">ThreeJS</TagLabel></Tag>
+            w="fit-content"
+            size="md"
+            p="10px"
+            borderRadius="8px"
+            bgColor="#E2E9F0"
+            color="black"
+          >
+            <TagLabel m="auto">ThreeJS</TagLabel>
+          </Tag>
         </HStack>
-
       </Box>
     </Box>
   );

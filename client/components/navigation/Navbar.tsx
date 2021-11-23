@@ -15,12 +15,16 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 
+import { useEthers } from '@usedapp/core';
+
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
-    const hamburger = useDisclosure();
+    
+  const hamburger = useDisclosure();
+  const { account } = useEthers();
   
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
@@ -32,7 +36,6 @@ function Navbar() {
         py={3}
         px={5}
       >
-
         <NextLink
          href={"/"} passHref>
           <HStack
@@ -84,6 +87,7 @@ function Navbar() {
             spacing={10}
             fontSize="3xl"
             pt={20}
+            onClick={hamburger.onClose}
           >
           <NextLink href={'/jobs'} passHref>
           <Link
@@ -119,40 +123,53 @@ function Navbar() {
       </VStack>
         )}
 
-        <HStack spacing={{ base: 2, sm: 7 }}>
-        <NextLink href={'/jobs'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-            >Jobs</Link>
-        </NextLink>
-        <NextLink href={'/developers'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-          >Devs</Link>
-        </NextLink>
-        <NextLink href={'/about'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-            >About</Link>
-        </NextLink>
+        <HStack 
+          display={{ sm: 'none', md: 'flex' }}
+          spacing={{ base: 2, sm: 7 }}>
+          <NextLink href={'/jobs'} passHref>
+            <Link
+              color="black"
+              p="0.45rem"
+              borderRadius="18px"
+              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+              _focus={{ textDecoration: 'none', border: 'none' }}
+            >
+              Jobs
+            </Link>
+          </NextLink>
+          <NextLink href={'/developers'} passHref>
+            <Link
+              color="black"
+              p="0.45rem"
+              borderRadius="18px"
+              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+              _focus={{ textDecoration: 'none', border: 'none' }}
+            >
+              Devs
+            </Link>
+          </NextLink>
+          <NextLink href={'/about'} passHref>
+            <Link
+              color="black"
+              p="0.45rem"
+              borderRadius="18px"
+              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+              _focus={{ textDecoration: 'none', border: 'none' }}
+            >
+              About
+            </Link>
+          </NextLink>
         </HStack>
 
-          <NextLink href={"/auth"} passHref>
-              <ButtonBlack
-            as='a'>Sign Up</ButtonBlack>
+        {account ? (
+          <>{account}</>
+        ) : (
+          <NextLink href={'/auth'} passHref>
+            <Link display={{ sm: 'none', md: 'flex' }}>
+            <ButtonBlack as="a">Sign Up</ButtonBlack>
+            </Link>
           </NextLink>
+        )}
       </Flex>
     </chakra.nav>
   );
