@@ -1,7 +1,7 @@
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { ColorModeScript } from '@chakra-ui/react';
-import { theme } from 'styles/theme';
+import { theme } from '@/styles/theme';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

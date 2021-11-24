@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { Box } from '@chakra-ui/react';
 
 //The number in the file names tell you which step in the form they are
-import GigBasics from 'components/post-gig/1_GigBasics';
-import GigDetails from 'components/post-gig/2_GigDetails';
-import GigSummary from 'components/post-gig/3_GigSummary';
+import GigBasics from '@/components/post-gig/1_GigBasics';
+import GigDetails from '@/components/post-gig/2_GigDetails';
+import GigSummary from '@/components/post-gig/3_GigSummary';
 
 type IFormData = {
   gigname: string;
