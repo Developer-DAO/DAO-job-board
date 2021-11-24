@@ -69,8 +69,8 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = async (selectedKeywords: string[]) => {
-    await setProfileKeywords(selectedKeywords);
+  const keywordsDataHandler = (selectedKeywords: string[]) => {
+    setProfileKeywords(selectedKeywords);
   };
 
   //To Open and Close Links Modal
@@ -85,8 +85,8 @@ export default function CreateProfile() {
   };
 
   //Sets links data and sends to database
-  const linksDataHandler = async (linkData: any) => {
-    await setProfileLinks(linkData);
+  const linksDataHandler = (linkData: any) => {
+    setProfileLinks(linkData);
   };
 
   const onChange = (e: React.FormEvent) =>

@@ -22,7 +22,7 @@ export default function CreateProject() {
   });
 
   //Job Keywords
-  const [jobKeywords, setJobKeywords] = useState<any>();
+  const [jobKeywords, setJobKeywords] = useState<string[]>();
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);
@@ -90,7 +90,7 @@ export default function CreateProject() {
           <JobDetails
             goToBasics={goToBasics}
             goToSummary={goToSummary}
-            jobKeywords={jobKeywords}
+            jobKeywords={jobKeywords as string[]}
             setJobKeywords={setJobKeywords}
             formData={formData}
             onChange={onChange}
@@ -100,7 +100,7 @@ export default function CreateProject() {
         {summaryPage ? (
           <JobSummary
             formData={formData}
-            jobKeywords={jobKeywords}
+            jobKeywords={jobKeywords as string[]}
             goToDetails={goToDetails}
             goToBasics={goToBasics}
             createJob={createJob}

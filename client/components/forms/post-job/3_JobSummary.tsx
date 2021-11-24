@@ -23,7 +23,18 @@ type JobSummaryProps = {
   goToBasics: () => void;
   goToDetails: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobtype: string;
+    jobposition: string;
+    jobcompensation: string;
+    jobmin: string;
+    jobmax: string;
+    jobequity: string;
+    joblocation: string;
+    jobcontact: string;
+  };
   createJob: (e: React.FormEvent) => void;
   jobKeywords: Array<string>;
 };

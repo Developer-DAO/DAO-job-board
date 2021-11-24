@@ -60,8 +60,8 @@ export default function KeywordSelect({
       return;
     }
     //Merges the selected keywords with the state
-    setSelectedKeywords((prevKeywords: typeof selectedKeywords) => {
-      const updatedKeywords: any = [...prevKeywords];
+    setSelectedKeywords((prevKeywords: any) => {
+      const updatedKeywords = [...prevKeywords];
       updatedKeywords.unshift({ keyword: e, id: Math.random().toString() });
       return updatedKeywords;
     });
@@ -125,7 +125,9 @@ export default function KeywordSelect({
               </InputLeftAddon>
               <Input
                 value={searchKeywords}
-                onInput={(e) => setSearchKeywords((e.target as any).value)}
+                onInput={(e) =>
+                  setSearchKeywords((e.target as HTMLTextAreaElement).value)
+                }
                 placeholder="Write skills or positions"
                 w="100%"
                 textAlign="center"
@@ -154,7 +156,7 @@ export default function KeywordSelect({
                   colorScheme="blue"
                   w="100%"
                   key={index}
-                  onClick={(e) => selectKeyword(keyword.name)}
+                  onClick={() => selectKeyword(keyword.name)}
                 >
                   <TagLabel m="auto">{keyword.name}</TagLabel>
                   <TagRightIcon as={AddIcon} />
@@ -180,7 +182,7 @@ export default function KeywordSelect({
                   colorScheme="red"
                   w="100%"
                   key={index}
-                  onClick={(e) => deleteKeywords(keyword.id)}
+                  onClick={() => deleteKeywords(keyword.id)}
                 >
                   <TagLabel m="auto">{keyword.keyword}</TagLabel>
                   <TagCloseButton />

@@ -68,7 +68,9 @@ export default function CreateProject() {
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as any).name]: (e.target as any).value,
+      [(e.target as HTMLTextAreaElement).name]: (
+        e.target as HTMLTextAreaElement
+      ).value,
     });
 
   //Sends data to database (sent to GigSummary as props)
