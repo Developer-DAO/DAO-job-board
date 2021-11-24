@@ -16,7 +16,6 @@ import {
   Stack,
   Container,
   Input,
-  Textarea,
   Select,
   Text,
   ButtonGroup,
@@ -75,8 +74,8 @@ export default function GigDetails({
   };
 
   //Handles the job keywords sent from modal
-  const keywordsDataHandler = async (keywordData: React.FormEvent) => {
-    await setJobKeywords(keywordData);
+  const keywordsDataHandler = (keywordData: string[]) => {
+    setJobKeywords(keywordData);
   };
 
   return (
