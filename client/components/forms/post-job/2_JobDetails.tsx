@@ -30,9 +30,14 @@ type JobDetailProps = {
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
   jobKeywords: Array<string>;
-  setJobKeywords: any;
-  formData: any;
-  setFormData: any;
+  setJobKeywords: (jobKeywords: Array<string>) => void;
+  formData: {
+    jobcompensation: string;
+    jobmin: string;
+    jobmax: string;
+    jobequity: string;
+    joblocation: string;
+  };
 };
 
 export default function GigDetails({
@@ -42,7 +47,6 @@ export default function GigDetails({
   onChange,
   jobKeywords,
   setJobKeywords,
-  setFormData,
 }: JobDetailProps) {
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);

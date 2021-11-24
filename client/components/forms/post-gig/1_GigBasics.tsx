@@ -21,7 +21,12 @@ type GigBasicProps = {
   goToDetails: () => void;
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
+  formData: {
+    gigname: string;
+    gigdescription: string;
+    gigwebsite: string;
+    gigrepo: string;
+  };
 };
 
 export default function GigBasics({

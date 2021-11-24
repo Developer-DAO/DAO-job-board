@@ -57,7 +57,9 @@ export default function CreateProject() {
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as Element).name]: (e.target as Element).value,
+      [(e.target as HTMLTextAreaElement).name]: (
+        e.target as HTMLTextAreaElement
+      ).value,
     });
 
   //Sends data to database (sent to JobSummary as props)
@@ -91,7 +93,6 @@ export default function CreateProject() {
             jobKeywords={jobKeywords}
             setJobKeywords={setJobKeywords}
             formData={formData}
-            setFormData={setFormData}
             onChange={onChange}
           />
         ) : null}

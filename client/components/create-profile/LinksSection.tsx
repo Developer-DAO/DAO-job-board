@@ -12,7 +12,14 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 type profileLinksProps = {
-  profileLinks: any;
+  profileLinks: {
+    linkedin: string;
+    twitter: string;
+    behance: string;
+    dribbble: string;
+    producthunt: string;
+    github: string;
+  };
 };
 
 export default function LinksSection({ profileLinks }: profileLinksProps) {

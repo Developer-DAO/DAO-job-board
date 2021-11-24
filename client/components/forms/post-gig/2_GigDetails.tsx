@@ -25,8 +25,13 @@ type GigDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
-  setFormData: any;
+  formData: {
+    gigcategory: string;
+    gigreward: string;
+    gigamount: string;
+    gigtimeframe: string;
+  };
+  setFormData: (formData: React.ReactNode) => void;
   addTimeframe: () => void;
   timeframeActive: boolean;
 };

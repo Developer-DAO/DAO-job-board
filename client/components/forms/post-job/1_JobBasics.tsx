@@ -22,7 +22,12 @@ type JobBasicProps = {
   goToDetails: () => void;
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+  };
 };
 
 export default function JobBasics({

@@ -22,7 +22,16 @@ import {
 type GigSummaryProps = {
   goToDetails: () => void;
   goToBasics: () => void;
-  formData: any;
+  formData: {
+    gigname: string;
+    gigdescription: string;
+    gigcategory: string;
+    gigwebsite: string;
+    gigrepo: string;
+    gigreward: string;
+    gigamount: string;
+    gigtimeframe: string;
+  };
   createGig: (e: React.FormEvent) => void;
 };
 

@@ -31,10 +31,6 @@ import {
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
 
-//FontAwesome Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-
 export default function CreateProfile() {
   const [formData, setFormData] = useState({
     status: '',
@@ -47,18 +43,11 @@ export default function CreateProfile() {
     links: '',
   });
 
-  const {
-    status,
-    name,
-    username,
-    title,
-    location,
-    description,
-    website,
-    githubusername,
-  } = formData;
+  const { status, name, username, title, location, description, website } =
+    formData;
 
   const [profileLinks, setProfileLinks] = useState({
+    github: '',
     linkedin: '',
     twitter: '',
     behance: '',
@@ -66,7 +55,7 @@ export default function CreateProfile() {
     producthunt: '',
   });
 
-  const [profileKeywords, setProfileKeywords] = useState();
+  const [profileKeywords, setProfileKeywords] = useState<string[]>();
 
   //To Open and Close Keywords Modal
   const [changeProfileKeywords, setChangeProfileKeywords] = useState(false);
@@ -80,7 +69,7 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = async (selectedKeywords: any) => {
+  const keywordsDataHandler = async (selectedKeywords: string[]) => {
     await setProfileKeywords(selectedKeywords);
   };
 
@@ -103,7 +92,9 @@ export default function CreateProfile() {
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as any).name]: (e.target as any).value,
+      [(e.target as HTMLTextAreaElement).name]: (
+        e.target as HTMLTextAreaElement
+      ).value,
     });
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -141,7 +132,7 @@ export default function CreateProfile() {
             <KeywordSelect
               keywordsDataHandler={keywordsDataHandler}
               closeKeywordModal={closeKeywordModal}
-              keywordsData={profileKeywords}
+              keywordsData={profileKeywords as string[]}
             />
           </ModalContent>
         </Modal>
@@ -244,7 +235,7 @@ export default function CreateProfile() {
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
-                keywordsData={profileKeywords}
+                keywordsData={profileKeywords as string[]}
               />
             </Stack>
           </Stack>

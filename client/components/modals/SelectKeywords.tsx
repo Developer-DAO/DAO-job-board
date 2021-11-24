@@ -27,8 +27,8 @@ import {
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
 type KeywordProps = {
-  keywordsData: any;
-  keywordsDataHandler: (keywordData: React.FormEvent) => void;
+  keywordsData: string[];
+  keywordsDataHandler: (setSelectedKeywords: string[]) => void;
   closeKeywordModal: () => void;
 };
 
@@ -36,11 +36,11 @@ export default function KeywordSelect({
   keywordsDataHandler,
   closeKeywordModal,
   keywordsData,
-}: KeywordProps): any {
+}: KeywordProps) {
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState<any>([]);
+  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   const [keywordsActive, setKeywordsActive] = useState(false);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function KeywordSelect({
       return;
     }
     //Merges the selected keywords with the state
-    setSelectedKeywords((prevKeywords: any) => {
+    setSelectedKeywords((prevKeywords: typeof selectedKeywords) => {
       const updatedKeywords: any = [...prevKeywords];
       updatedKeywords.unshift({ keyword: e, id: Math.random().toString() });
       return updatedKeywords;
@@ -69,7 +69,7 @@ export default function KeywordSelect({
   };
 
   //Deletes keywords from selected list
-  const deleteKeywords = async (e: any) => {
+  const deleteKeywords = async (e: string) => {
     setSelectedKeywords((prevKeywords: any) => {
       const updatedKeywords: any = prevKeywords.filter(
         (keyword: any) => keyword.id !== e

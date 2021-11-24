@@ -27,9 +27,16 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 type LinksProps = {
-  profileLinks: any;
+  profileLinks: {
+    linkedin: string;
+    twitter: string;
+    behance: string;
+    dribbble: string;
+    producthunt: string;
+    github: string;
+  };
   closeLinksModal: () => void;
-  linksDataHandler: (formData: any) => void;
+  linksDataHandler: (formData: React.ReactNode) => void;
 };
 
 export default function AddLinks({
@@ -46,7 +53,9 @@ export default function AddLinks({
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as any).name]: (e.target as any).value,
+      [(e.target as HTMLTextAreaElement).name]: (
+        e.target as HTMLTextAreaElement
+      ).value,
     });
 
   const onSubmit = (e: React.FormEvent) => {
