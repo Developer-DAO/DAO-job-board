@@ -11,7 +11,7 @@ import {
   TagLabel,
 } from '@chakra-ui/react';
 
-import { ButtonGray } from 'styles/ui-components/Chakra-Button';
+import { ButtonGray } from '@/styles/ui-components/Chakra-Button';
 
 export default function CompanyItem() {
   return (

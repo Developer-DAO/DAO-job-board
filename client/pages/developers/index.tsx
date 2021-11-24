@@ -1,4 +1,4 @@
-import DeveloperList from 'components/developers/DeveloperList';
+import DeveloperList from '@/components/developers/DeveloperList';
 
 export default function Index() {
   return <DeveloperList />;

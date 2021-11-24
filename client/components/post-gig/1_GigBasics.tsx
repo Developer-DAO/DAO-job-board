@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
-import { ButtonGreen, ButtonOrange } from 'styles/ui-components/Chakra-Button';
+import {
+  ButtonGreen,
+  ButtonOrange,
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,

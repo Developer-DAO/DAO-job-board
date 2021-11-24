@@ -14,17 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "."
-    // "paths": {
-    //   "@common/*": ["common/"],
-    //   "@components/*": ["components/"],
-    //   "@constants/*": ["constants/"],
-    //   "@hooks/*": ["hooks/"],
-    //   "@pages/*": ["pages/"],
-    //   "@public/*": ["public/"],
-    //   "@styles/*": ["styles/"],
-    //   "@types/*": ["types/"]
-    // }
+    "baseUrl": ".",
+    "paths": {
+      "@/components": ["components/*"],
+      "@/*": ["*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
