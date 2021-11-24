@@ -2,7 +2,7 @@ import { SimpleGrid, Tag, TagLabel } from '@chakra-ui/react';
 
 type keywordDataProps = {
   keywordsData: string[];
-  templateColumns: CSS.Properties;
+  templateColumns: any;
 };
 
 export default function KeywordsSection({
