@@ -27,7 +27,7 @@ export default function JobItem() {
     >
       <Box ml="0.5%" maxW="100%">
         <Link
-          href="/jobs/job-post-name"
+          href="/jobs/username/marketing-manager"
           _hover={{ textDecoration: 'none' }}
           _focus={{ textDecoration: 'none', border: 'none' }}
         >
