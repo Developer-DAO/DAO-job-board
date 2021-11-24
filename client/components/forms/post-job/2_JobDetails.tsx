@@ -73,7 +73,6 @@ export default function GigDetails({
   //Handles the job keywords sent from modal
   const keywordsDataHandler = async (keywordData: React.FormEvent) => {
     await setJobKeywords(keywordData);
-    console.log(jobKeywords);
   };
 
   return (

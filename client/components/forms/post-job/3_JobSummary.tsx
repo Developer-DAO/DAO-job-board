@@ -10,6 +10,7 @@ import {
   ButtonOrange,
 } from '../../../styles/ui-components/Chakra-Button';
 import {
+  Box,
   Heading,
   Stack,
   Input,
@@ -72,22 +73,25 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={2} p={2} maxW="100%">
-        <Heading fontSize="sm">Job Name:</Heading>{' '}
-        {jobtitle && <Text>{jobtitle}</Text>}
-        <br />
-        <br />
-        <Heading fontSize="sm">Job Description:</Heading>{' '}
-        {jobdescription && <Text>{jobdescription}</Text>}
-        <br />
-        <br />
+      <Stack spacing={3} p={2} maxW="100%">
+        {jobtitle && (
+          <>
+            <Heading fontSize="sm">Job Name:</Heading> {jobtitle}
+          </>
+        )}
+
+        {jobdescription && (
+          <>
+            <Heading fontSize="sm">Job Description:</Heading> {jobdescription}
+          </>
+        )}
+
         {jobposition && (
           <>
             <Heading fontSize="sm">Job Position:</Heading> {jobposition}
           </>
         )}
-        <br />
-        <br />
+
         {jobtype && (
           <>
             <Heading fontSize="sm">Job Type:</Heading> {jobtype}
@@ -101,7 +105,7 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={2} p={2} maxW="100%">
+      <Stack spacing={5} p={2} maxW="100%">
         <Heading fontSize="sm">Keywords:</Heading>
 
         <KeywordsSection
@@ -109,56 +113,49 @@ export default function GigSummary({
           templateColumns="repeat(3, 3fr)"
         />
 
-        <br />
-        <br />
-
-        {jobcompensation && jobmin && jobmax ? (
+        {jobcompensation && (
           <>
             <Heading fontSize="sm">Job Compensation:</Heading> {jobmin}-{jobmax}{' '}
             {jobcompensation}
           </>
-        ) : null}
-        <br />
-        <br />
+        )}
+
         {jobequity ? (
           <>
             <Heading fontSize="sm">Equity Offer:</Heading> {jobequity}
           </>
         ) : null}
-        <br />
-        <br />
+
         {joblocation ? (
           <>
             <Heading fontSize="sm">Job Location:</Heading> {joblocation}
           </>
         ) : null}
-        <br />
-        <br />
-        <Heading fontSize="md">
-          How should people contact you or your organization?
-        </Heading>
-        <Text fontSize="xs" textAlign="left" mb="2.5%">
-          Write your website job post link or an email
-        </Text>
-        <Input
-          _placeholder={{ color: 'black' }}
-          borderColor={`${!wrongData ? '#e2e8f0' : 'red'}`}
-          bgColor="white"
-          color="black"
-          _hover={{ borderColor: '#97c0e6' }}
-          placeholder="e.g. www.company.com/job or company@email.com"
-          name="jobcontact"
-          value={jobcontact}
-          onChange={(e) => onChange(e)}
-        />
-        {wrongData ? (
-          <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
-            Add an email or website link
+        <Box>
+          <Heading fontSize="md">
+            How should people contact you or your organization?
+          </Heading>
+          <Text fontSize="xs" textAlign="left" mb="1%">
+            Write your website job post link or an email
           </Text>
-        ) : null}
+          <Input
+            borderColor={`${!wrongData ? '#e2e8f0' : 'red'}`}
+            bgColor="white"
+            color="black"
+            _hover={{ borderColor: '#97c0e6' }}
+            placeholder="e.g. www.company.com/job or company@email.com"
+            _placeholder={{ color: 'black' }}
+            name="jobcontact"
+            value={jobcontact}
+            onChange={(e) => onChange(e)}
+          />
+          {wrongData ? (
+            <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
+              Add an email or website link
+            </Text>
+          ) : null}
+        </Box>
       </Stack>
-
-      <br />
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonBlue onClick={(e) => sendJobData(e)}>Post Job</ButtonBlue>

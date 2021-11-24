@@ -45,7 +45,6 @@ export default function CreateProfile() {
     location: '',
     website: '',
     links: '',
-    githubusername: '',
   });
 
   const {
@@ -74,7 +73,6 @@ export default function CreateProfile() {
 
   const openKeywordModal = () => {
     setChangeProfileKeywords(true);
-    console.log(profileKeywords);
   };
 
   const closeKeywordModal = () => {
@@ -84,7 +82,6 @@ export default function CreateProfile() {
   //Sets profile keywords data
   const keywordsDataHandler = async (selectedKeywords: any) => {
     await setProfileKeywords(selectedKeywords);
-    console.log(profileKeywords);
   };
 
   //To Open and Close Links Modal
@@ -101,7 +98,6 @@ export default function CreateProfile() {
   //Sets links data and sends to database
   const linksDataHandler = async (linkData: any) => {
     await setProfileLinks(linkData);
-    console.log(profileLinks);
   };
 
   const onChange = (e: React.FormEvent) =>
@@ -310,21 +306,7 @@ export default function CreateProfile() {
                   value={website}
                   onChange={(e) => onChange(e)}
                 />
-                <Text size="sm">GitHub</Text>
-                <InputGroup position="static">
-                  <InputLeftAddon>
-                    {' '}
-                    <FontAwesomeIcon icon={faGithub} />
-                  </InputLeftAddon>
-                  <Input
-                    position="static"
-                    bgColor="white"
-                    placeholder="e.g. github.com/github-username"
-                    name="githubusername"
-                    value={githubusername}
-                    onChange={(e) => onChange(e)}
-                  />
-                </InputGroup>
+
                 <Text size="sm">Social Links</Text>
 
                 <ButtonGroup w="50%">

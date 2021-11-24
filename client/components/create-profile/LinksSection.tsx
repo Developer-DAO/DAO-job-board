@@ -8,6 +8,7 @@ import {
   faLinkedinIn,
   faBehance,
   faDribbble,
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 
 type profileLinksProps = {
@@ -15,13 +16,32 @@ type profileLinksProps = {
 };
 
 export default function LinksSection({ profileLinks }: profileLinksProps) {
-  const { linkedin, twitter, behance, dribbble, producthunt } = profileLinks;
+  const { linkedin, twitter, behance, dribbble, producthunt, github } =
+    profileLinks;
 
   return (
     <>
       {profileLinks && (
         <HStack mt="15px" gap="0.5rem" spacing={1}>
-          {profileLinks && twitter ? (
+          {github ? (
+            <NextLink href={`https://www.github.com/${github}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faGithub} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
+          ) : null}
+
+          {twitter ? (
             <NextLink href={`https://www.twitter.com/${twitter}`} passHref>
               <Link target="_blank">
                 <Tag
@@ -39,7 +59,7 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
             </NextLink>
           ) : null}
 
-          {profileLinks && linkedin ? (
+          {linkedin ? (
             <NextLink href={`https://www.linkedin.com/${linkedin}`} passHref>
               <Link target="_blank">
                 <Tag
@@ -58,7 +78,7 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
             </NextLink>
           ) : null}
 
-          {profileLinks && producthunt ? (
+          {producthunt ? (
             <NextLink
               href={`https://www.producthunt.com/@${producthunt}`}
               passHref
@@ -80,7 +100,7 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
             </NextLink>
           ) : null}
 
-          {profileLinks && dribbble ? (
+          {dribbble ? (
             <NextLink href={`https://www.dribbble.com/${dribbble}`} passHref>
               <Link target="_blank">
                 <Tag
@@ -99,7 +119,7 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
             </NextLink>
           ) : null}
 
-          {profileLinks && behance ? (
+          {behance ? (
             <NextLink href={`https://www.behance.net/${behance}`} passHref>
               <Link target="_blank">
                 <Tag

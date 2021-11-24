@@ -18,6 +18,7 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faGithub,
   faProductHunt,
   faTwitter,
   faLinkedinIn,
@@ -39,7 +40,8 @@ export default function AddLinks({
   //formData where links are stored (takes the profileLinks props from parent component)
   const [formData, setFormData] = useState(profileLinks);
 
-  const { linkedin, twitter, behance, dribbble, producthunt } = formData;
+  const { linkedin, twitter, behance, dribbble, producthunt, github } =
+    formData;
 
   const onChange = (e: React.FormEvent) =>
     setFormData({
@@ -82,6 +84,20 @@ export default function AddLinks({
         <Heading size="md">Add Socials</Heading>
         <chakra.form>
           <VStack spacing={4}>
+            <InputGroup>
+              <InputLeftAddon>
+                {' '}
+                <FontAwesomeIcon icon={faGithub} />
+              </InputLeftAddon>
+              <Input
+                bgColor="white"
+                placeholder="e.g. github.com/github-username"
+                name="github"
+                value={github}
+                onChange={(e) => onChange(e)}
+              />
+            </InputGroup>
+
             <InputGroup>
               <InputLeftAddon>
                 {' '}

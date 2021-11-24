@@ -74,7 +74,6 @@ export default function CreateProject() {
   //Sends data to database (sent to GigSummary as props)
   const createGig = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   return (

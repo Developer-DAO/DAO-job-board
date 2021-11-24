@@ -56,7 +56,7 @@ export default function KeywordSelect({
     const isInArray = selectedKeywords.find(
       (element: any) => element.keyword === e
     );
-    if (isInArray || selectedKeywords.length >= 10) {
+    if (isInArray || selectedKeywords.length > 10) {
       return;
     }
     //Merges the selected keywords with the state

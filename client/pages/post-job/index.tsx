@@ -57,13 +57,12 @@ export default function CreateProject() {
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as any).name]: (e.target as any).value,
+      [(e.target as Element).name]: (e.target as Element).value,
     });
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   return (
