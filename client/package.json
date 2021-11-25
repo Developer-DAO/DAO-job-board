@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.6.12",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
