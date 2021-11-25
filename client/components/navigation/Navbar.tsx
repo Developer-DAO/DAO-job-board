@@ -61,7 +61,7 @@ function Navbar() {
         </NextLink>
 
         <IconButton
-          aria-label=""
+          aria-label={hamburger.isOpen ? 'Close menu' : 'Open menu'}
           display={{ sm: 'block', md: 'none' }}
           zIndex={11}
           onClick={hamburger.onToggle}
