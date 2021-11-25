@@ -10,6 +10,10 @@ A job board to connect Web3 talent with Web3 opportunities
 
 Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need. 
 
+## RFC
+
+- [User Stories for DAO Job Board](https://forum.developerdao.com/t/rfc-user-stories-for-dao-job-board/507)
+
 ## Technologies
 
 This project is possible thanks to all these open source languages, libraries, and frameworks.
