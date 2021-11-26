@@ -22,10 +22,9 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
-    
   const hamburger = useDisclosure();
   const { account } = useEthers();
-  
+
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
@@ -36,12 +35,8 @@ function Navbar() {
         py={3}
         px={5}
       >
-        <NextLink
-         href={"/"} passHref>
-          <HStack
-          as="a"
-          display="flex"
-          alignItems="center">
+        <NextLink href={'/'} passHref>
+          <HStack as="a" display="flex" alignItems="center">
             <Image
               borderRadius="full"
               boxSize="30px"
@@ -89,43 +84,49 @@ function Navbar() {
             pt={20}
             onClick={hamburger.onClose}
           >
-          <NextLink href={'/jobs'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-            >Jobs</Link>
-        </NextLink>
-        <NextLink href={'/developers'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-          >Devs</Link>
-        </NextLink>
-        <NextLink href={'/about'} passHref>
-          <Link
-            color="black"
-            p="0.45rem"
-            borderRadius="18px"
-            _hover={{textDecoration: "none", bgColor:"#e2e8f0"}}
-            _focus={{textDecoration: "none", border:"none"}}
-            >About</Link>
-        </NextLink>
-        <NextLink href={"/auth"} passHref>
-          <ButtonBlack
-          as='a'>Sign Up</ButtonBlack>
-        </NextLink>
-      </VStack>
+            <NextLink href={'/jobs'} passHref>
+              <Link
+                color="black"
+                p="0.45rem"
+                borderRadius="18px"
+                _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+                _focus={{ textDecoration: 'none', border: 'none' }}
+              >
+                Jobs
+              </Link>
+            </NextLink>
+            <NextLink href={'/developers'} passHref>
+              <Link
+                color="black"
+                p="0.45rem"
+                borderRadius="18px"
+                _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+                _focus={{ textDecoration: 'none', border: 'none' }}
+              >
+                Devs
+              </Link>
+            </NextLink>
+            <NextLink href={'/about'} passHref>
+              <Link
+                color="black"
+                p="0.45rem"
+                borderRadius="18px"
+                _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
+                _focus={{ textDecoration: 'none', border: 'none' }}
+              >
+                About
+              </Link>
+            </NextLink>
+            <NextLink href={'/auth'} passHref>
+              <ButtonBlack as="a">Sign Up</ButtonBlack>
+            </NextLink>
+          </VStack>
         )}
 
-        <HStack 
+        <HStack
           display={{ sm: 'none', md: 'flex' }}
-          spacing={{ base: 2, sm: 7 }}>
+          spacing={{ base: 2, sm: 7 }}
+        >
           <NextLink href={'/jobs'} passHref>
             <Link
               color="black"
@@ -166,7 +167,7 @@ function Navbar() {
         ) : (
           <NextLink href={'/auth'} passHref>
             <Link display={{ sm: 'none', md: 'flex' }}>
-            <ButtonBlack as="a">Sign Up</ButtonBlack>
+              <ButtonBlack as="a">Sign Up</ButtonBlack>
             </Link>
           </NextLink>
         )}
