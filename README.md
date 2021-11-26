@@ -1,14 +1,18 @@
 # DAO-job-board
 
-*In Development 🏗️*
+_In Development 🏗️_
 
-A job board to connect Web3 talent with Web3 opportunities 
+A job board to connect Web3 talent with Web3 opportunities
 
 [Link to the Discord channel](https://discord.com/channels/883478451850473483/888867921089138729/888877424257925200)
 
 ## The Motive
 
-Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need. 
+Finding meaningful work, giving people new opportunities, and helping organizations find the talent they need.
+
+## RFC
+
+- [User Stories for DAO Job Board](https://forum.developerdao.com/t/rfc-user-stories-for-dao-job-board/507)
 
 ## Technologies
 
@@ -28,13 +32,12 @@ This project is possible thanks to all these open source languages, libraries, a
 ## How to Contribute
 
 1. Read the [CONTRIBUTING GUIDELINES](/CONTRIBUTING.md).
- 
-2. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website. Read every issue to understand what's needed and whether it's something you can help with. 
+
+2. Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website. Read every issue to understand what's needed and whether it's something you can help with.
 
 3. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task.
 
 4. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
-   
 5. Setup your local development environment. Instructions [here](/CONTRIBUTING.md#installation)
 
 6. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.

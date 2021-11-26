@@ -48,4 +48,5 @@ export type LinkForm = Pick<
   | 'type'
   | 'url'
   | 'featured_photo_url'
+  | 'created_by'
 >;

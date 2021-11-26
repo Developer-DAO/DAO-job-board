@@ -1,14 +1,15 @@
 export type Table =
   | 'users'
-  | 'user_category'
+  | 'user_keyword'
+  | 'organizations'
   | 'jobs'
-  | 'job_category'
+  | 'job_keyword'
   | 'job_applications'
   | 'gigs'
-  | 'gig_category'
+  | 'gig_keyword'
   | 'gig_applications'
-  | 'categories'
-  | 'company_members'
+  | 'keywords'
+  | 'organization_members'
   | 'links';
 
 export type WithTimestamp = {
@@ -32,6 +33,7 @@ export type Application = {
 };
 
 /**
+ * @description
  * Status indicator for job/gig applications.
  *
  * Default status should always be "Draft"
@@ -49,6 +51,7 @@ export enum ApplicationStatus {
 }
 
 /**
+ * @description
  * Status for job/gig postings.
  *
  * Default status should always be "Draft"
