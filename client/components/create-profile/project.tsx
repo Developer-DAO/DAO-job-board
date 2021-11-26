@@ -25,7 +25,7 @@ const Project: React.FC<ProjectProps> = ({
           value={title}
           onChange={(e) => changeHandler(index, 'title', e.target.value)}
           placeholder="Enter title"
-          size="sm"
+          size="md"
         />
       </Box>
       <Box>
@@ -34,7 +34,7 @@ const Project: React.FC<ProjectProps> = ({
           value={githubUrl}
           onChange={(e) => changeHandler(index, 'githubUrl', e.target.value)}
           placeholder="Enter Github URL"
-          size="sm"
+          size="md"
         />
       </Box>
       <Box>
@@ -43,7 +43,7 @@ const Project: React.FC<ProjectProps> = ({
           value={description}
           onChange={(e) => changeHandler(index, 'description', e.target.value)}
           placeholder="Enter Description"
-          size="sm"
+          size="md"
         />
       </Box>
     </Stack>
