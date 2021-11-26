@@ -7,6 +7,11 @@ import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
 
+interface Keywords {
+  keyword: string;
+  id: string;
+}
+
 export default function CreateProject() {
   const [formData, setFormData] = useState({
     jobtitle: '',
@@ -22,7 +27,7 @@ export default function CreateProject() {
   });
 
   //Job Keywords
-  const [jobKeywords, setJobKeywords] = useState<string[]>();
+  const [jobKeywords, setJobKeywords] = useState<any>();
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);
@@ -90,7 +95,7 @@ export default function CreateProject() {
           <JobDetails
             goToBasics={goToBasics}
             goToSummary={goToSummary}
-            jobKeywords={jobKeywords as string[]}
+            jobKeywords={jobKeywords as Keywords[]}
             setJobKeywords={setJobKeywords}
             formData={formData}
             onChange={onChange}

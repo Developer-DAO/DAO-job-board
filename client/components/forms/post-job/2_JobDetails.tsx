@@ -13,17 +13,11 @@ import {
 
 import {
   Heading,
-  Box,
   Container,
-  Tag,
   Input,
-  Textarea,
   Select,
   Text,
   ButtonGroup,
-  TagLabel,
-  TagCloseButton,
-  HStack,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -34,8 +28,8 @@ type JobDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
-  jobKeywords: Array<string>;
-  setJobKeywords: (jobKeywords: Array<string>) => void;
+  jobKeywords: Keywords[];
+  setJobKeywords: (jobKeywords: Keywords[]) => void;
   formData: {
     jobcompensation: string;
     jobmin: string;
@@ -44,6 +38,11 @@ type JobDetailProps = {
     joblocation: string;
   };
 };
+
+interface Keywords {
+  keyword: string;
+  id: string;
+}
 
 export default function GigDetails({
   goToBasics,
@@ -80,7 +79,7 @@ export default function GigDetails({
   };
 
   //Handles the job keywords sent from modal
-  const keywordsDataHandler = (keywordData: string[]) => {
+  const keywordsDataHandler = (keywordData: any) => {
     setJobKeywords(keywordData);
   };
 
@@ -97,7 +96,7 @@ export default function GigDetails({
             <KeywordSelect
               keywordsDataHandler={keywordsDataHandler}
               closeKeywordModal={closeKeywordModal}
-              keywordsData={jobKeywords}
+              keywordsData={jobKeywords as Keywords[]}
             />
           </ModalContent>
         </Modal>
@@ -131,7 +130,7 @@ export default function GigDetails({
         </Container>
 
         <KeywordsSection
-          keywordsData={jobKeywords}
+          keywordsData={jobKeywords as Keywords[]}
           templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
         />
 

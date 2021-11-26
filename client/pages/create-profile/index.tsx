@@ -26,8 +26,13 @@ import {
   ButtonGreen,
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
-import KeywordsSection from '@/components/forms/KeywordsSection';
-import KeywordSelect from '@/components/modals/SelectKeywords';
+import KeywordsSection from '../../components/forms/KeywordsSection';
+import KeywordSelect from '../../components/modals/SelectKeywords';
+
+interface Keywords {
+  keyword: string;
+  id: string;
+}
 
 export default function CreateProfile() {
   const [formData, setFormData] = useState({
@@ -53,7 +58,7 @@ export default function CreateProfile() {
     producthunt: '',
   });
 
-  const [profileKeywords, setProfileKeywords] = useState<string[]>();
+  const [profileKeywords, setProfileKeywords] = useState<any>();
 
   //To Open and Close Keywords Modal
   const [changeProfileKeywords, setChangeProfileKeywords] = useState(false);
@@ -67,7 +72,7 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = (selectedKeywords: string[]) => {
+  const keywordsDataHandler = (selectedKeywords: Keywords) => {
     setProfileKeywords(selectedKeywords);
   };
 
@@ -130,7 +135,7 @@ export default function CreateProfile() {
             <KeywordSelect
               keywordsDataHandler={keywordsDataHandler}
               closeKeywordModal={closeKeywordModal}
-              keywordsData={profileKeywords as string[]}
+              keywordsData={profileKeywords as Keywords[]}
             />
           </ModalContent>
         </Modal>
@@ -233,7 +238,7 @@ export default function CreateProfile() {
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
-                keywordsData={profileKeywords as string[]}
+                keywordsData={profileKeywords}
               />
             </Stack>
           </Stack>
