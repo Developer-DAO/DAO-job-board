@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.6.12",
     "@chakra-ui/icons": "^1.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

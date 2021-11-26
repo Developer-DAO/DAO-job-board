@@ -18,10 +18,10 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
+
   const hamburger = useDisclosure();
-
   const { account } = useEthers();
-
+  
   return (
     <chakra.nav borderBottom="1px solid" borderColor="gray.200">
       <Flex
@@ -32,8 +32,12 @@ function Navbar() {
         py={3}
         px={5}
       >
-        <NextLink href={'/'} passHref>
-          <HStack as="a" display="flex" alignItems="center">
+        <NextLink
+         href={"/"} passHref>
+          <HStack
+          as="a"
+          display="flex"
+          alignItems="center">
             <Image
               borderRadius="full"
               boxSize="30px"
@@ -53,7 +57,7 @@ function Navbar() {
         </NextLink>
 
         <IconButton
-          aria-label=""
+          aria-label={hamburger.isOpen ? 'Close menu' : 'Open menu'}
           display={{ sm: 'block', md: 'none' }}
           zIndex={11}
           onClick={hamburger.onToggle}
@@ -129,6 +133,7 @@ function Navbar() {
           spacing={{ base: 2, sm: 7 }}
           mx="auto"
         >
+
           <NextLink href={'/jobs'} passHref>
             <Link
               color="black"
