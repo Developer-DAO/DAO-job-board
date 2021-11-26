@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { Button } from '@chakra-ui/button';
+import { StackDivider } from '@chakra-ui/layout';
 import AddExperience from '@/components/create-profile/add-experience';
 import AddEducation from '@/components/create-profile/add-education';
 
@@ -25,6 +26,7 @@ import {
   AccordionPanel,
   AccordionItem,
   Accordion,
+  VStack,
 } from '@chakra-ui/react';
 
 import {
@@ -32,9 +34,27 @@ import {
   ButtonGreen,
   ButtonRed,
 } from '../../styles/ui-components/Chakra-Button';
+import Project from '@/components/create-profile/project';
+import { DeleteIcon } from '@chakra-ui/icons';
+
+interface Projects {
+  title: string;
+  githubUrl: string;
+  description: string;
+}
+interface formData {
+  status: string;
+  name: string;
+  username: string;
+  description: string;
+  title: string;
+  location: string;
+  website: string;
+  projects: Projects[];
+}
 
 export default function CreateProfile() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<formData>({
     status: '',
     name: '',
     username: '',
@@ -42,6 +62,13 @@ export default function CreateProfile() {
     title: '',
     location: '',
     website: '',
+    projects: [
+      {
+        githubUrl: '',
+        title: '',
+        description: '',
+      },
+    ],
   });
 
   const { status, name, username, title, location, description, website } =
@@ -58,8 +85,25 @@ export default function CreateProfile() {
     console.log(formData);
   };
 
+  const projectDataChangeHandler = (
+    index: number,
+    field: string,
+    value: string
+  ) => {
+    const newProjects = [...formData.projects];
+    newProjects[index] = {
+      ...newProjects[index],
+      [field]: value,
+    };
+    setFormData({
+      ...formData,
+      projects: newProjects,
+    });
+  };
+
   return (
     <Box
+      overflowY="auto"
       display="flex"
       bg={{ lg: '#ffffff', sm: 'none' }}
       flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}
@@ -178,6 +222,60 @@ export default function CreateProfile() {
 
           <Text mt="2.5%">Social Links</Text>
           <ButtonBlack>Add Social Links</ButtonBlack>
+
+          <Text mt="2.5%">Projects</Text>
+          <VStack
+            divider={<StackDivider borderColor="gray.200" />}
+            align="stretch"
+            spacing={4}
+          >
+            {formData.projects.map((project, index) => {
+              return (
+                <Flex justify="space-between" key={index}>
+                  <Project
+                    index={index}
+                    changeHandler={projectDataChangeHandler}
+                    title={project.title}
+                    githubUrl={project.githubUrl}
+                    description={project.description}
+                  />
+                  <DeleteIcon
+                    mt={4}
+                    mr={4}
+                    boxSize={6}
+                    cursor="pointer"
+                    onClick={() => {
+                      const newProjects = [...formData.projects];
+                      newProjects.splice(index, 1);
+                      setFormData({
+                        ...formData,
+                        projects: newProjects,
+                      });
+                    }}
+                  />
+                </Flex>
+              );
+            })}
+          </VStack>
+
+          <Button
+            mt={4}
+            onClick={() => {
+              setFormData({
+                ...formData,
+                projects: [
+                  ...formData.projects,
+                  {
+                    githubUrl: '',
+                    title: '',
+                    description: '',
+                  },
+                ],
+              });
+            }}
+          >
+            Add Project
+          </Button>
         </Box>
       </Flex>
     </Box>
