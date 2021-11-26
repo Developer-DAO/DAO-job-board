@@ -19,7 +19,7 @@ import { useEthers } from '@usedapp/core';
 
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
+import { ButtonBlack } from '@/styles/ui-components/Chakra-Button';
 
 function Navbar() {
   const hamburger = useDisclosure();

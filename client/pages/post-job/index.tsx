@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { Box } from '@chakra-ui/react';
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from '../../components/post-job/1_JobBasics';
-import JobDetails from '../../components/post-job/2_JobDetails';
-import JobSummary from '../../components/post-job/3_JobSummary';
+import JobBasics from '@/components/post-job/1_JobBasics';
+import JobDetails from '@/components/post-job/2_JobDetails';
+import JobSummary from '@/components/post-job/3_JobSummary';
 
 type IFormData = {
   jobtitle: string;
@@ -85,9 +85,9 @@ export default function CreateProject() {
   };
 
   return (
-      <Box
-      bg={"none"}
-      width={{"2xl": "70%", lg: "70%", md: "90%", sm: "100%"}}
+    <Box
+      bg={'none'}
+      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
       margin="auto"
       boxSizing="border-box"
       p="0.5%"

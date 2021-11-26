@@ -2,9 +2,21 @@ import { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
-import { ButtonGreen, ButtonOrange } from "../../styles/ui-components/Chakra-Button"
+import {
+  ButtonGreen,
+  ButtonOrange,
+} from '@/styles/ui-components/Chakra-Button';
 
-import { Heading, Input, Textarea, Select, Container, Box, Text, ButtonGroup } from "@chakra-ui/react";
+import {
+  Heading,
+  Input,
+  Textarea,
+  Select,
+  Container,
+  Box,
+  Text,
+  ButtonGroup,
+} from '@chakra-ui/react';
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -154,7 +166,6 @@ export default function JobBasics({
             Make sure description is at least 100 characters long{' '}
           </Text>
         )}
-
       </Box>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">

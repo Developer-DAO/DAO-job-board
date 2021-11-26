@@ -5,7 +5,7 @@ import {
   ButtonBlue,
   ButtonGray,
   ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,

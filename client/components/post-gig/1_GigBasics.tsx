@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import {
   ButtonGreen,
   ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,

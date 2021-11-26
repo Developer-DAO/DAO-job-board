@@ -1,6 +1,6 @@
 import { useEthers } from '@usedapp/core';
 import React from 'react';
-import { User } from '../types';
+import { User } from '@/types';
 
 type UserPayload = { user: User | null; setUser: React.Dispatch<User | null> };
 

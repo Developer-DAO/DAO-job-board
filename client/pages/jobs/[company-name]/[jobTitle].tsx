@@ -1,4 +1,4 @@
-import JobDetail from '../../../components/jobs/JobDetail';
+import JobDetail from '@/components/jobs/JobDetail';
 
 export default function JobDetails() {
   return <JobDetail />;

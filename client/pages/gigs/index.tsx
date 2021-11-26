@@ -1,5 +1,5 @@
-import GigFilter from '../../components/gigs/GigFilter';
-import GigItem from '../../components/gigs/GigItem';
+import GigFilter from '@/components/gigs/GigFilter';
+import GigItem from '@/components/gigs/GigItem';
 
 import {
   Box,

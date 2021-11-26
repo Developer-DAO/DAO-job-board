@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import AddExperience from '../../components/create-profile/add-experience';
-import AddEducation from '../../components/create-profile/add-education';
+import AddExperience from '@/components/create-profile/add-experience';
+import AddEducation from '@/components/create-profile/add-education';
 
 import {
   Box,
