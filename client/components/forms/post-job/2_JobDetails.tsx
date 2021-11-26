@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 //Keywords Components
@@ -9,19 +9,25 @@ import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
-} from '../../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,
-  Stack,
+  Box,
   Container,
+  Tag,
   Input,
+  Textarea,
   Select,
   Text,
   ButtonGroup,
+  TagLabel,
+  TagCloseButton,
+  HStack,
   Modal,
   ModalOverlay,
   ModalContent,
+  Stack,
 } from '@chakra-ui/react';
 
 type JobDetailProps = {

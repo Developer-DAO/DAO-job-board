@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 import AddLinks from '../../components/modals/AddLinks';
 import LinksSection from '../../components/create-profile/LinksSection';
 
-//Keywords Components
-import KeywordSelect from '../../components/modals/SelectKeywords';
-import KeywordsSection from '../../components/forms/KeywordsSection';
-
 import {
   Box,
   ButtonGroup,
@@ -30,6 +26,8 @@ import {
   ButtonGreen,
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
+import KeywordsSection from '@/components/forms/KeywordsSection';
+import KeywordSelect from '@/components/modals/SelectKeywords';
 
 export default function CreateProfile() {
   const [formData, setFormData] = useState({

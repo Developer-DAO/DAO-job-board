@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { utils } from 'ethers';
-import { supabase } from '../../common/supabase';
+import { supabase } from '@/common/supabase';
 import { v4 } from 'uuid';
 
 function isAddress(address: string) {

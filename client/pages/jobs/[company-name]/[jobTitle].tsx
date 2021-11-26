@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import {
   ButtonGroup,
   chakra,
@@ -13,8 +13,7 @@ import {
   UnorderedList,
   ListItem,
 } from '@chakra-ui/react';
-
-import { ButtonBlue } from '../../../styles/ui-components/Chakra-Button';
+import { ButtonBlue } from '@/styles/ui-components/Chakra-Button';
 
 const CategoryTag = chakra(Tag, {
   baseStyle: {

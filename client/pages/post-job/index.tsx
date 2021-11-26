@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { Box } from '@chakra-ui/react';
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from '../../components/forms/post-job/1_JobBasics';
-import JobDetails from '../../components/forms/post-job/2_JobDetails';
-import JobSummary from '../../components/forms/post-job/3_JobSummary';
+import JobBasics from '@/components/forms/post-job/1_JobBasics';
+import JobDetails from '@/components/forms/post-job/2_JobDetails';
+import JobSummary from '@/components/forms/post-job/3_JobSummary';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({

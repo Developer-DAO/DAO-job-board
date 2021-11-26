@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
 import {
   ButtonGreen,
   ButtonOrange,
-} from '../../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,
@@ -13,9 +13,10 @@ import {
   Textarea,
   Select,
   Container,
-  Stack,
+  Box,
   Text,
   ButtonGroup,
+  Stack,
 } from '@chakra-ui/react';
 
 type JobBasicProps = {

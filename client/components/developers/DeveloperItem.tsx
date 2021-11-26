@@ -14,7 +14,8 @@ import {
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-import { ButtonGreen } from '../../styles/ui-components/Chakra-Button';
+import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
+import React from 'react';
 
 export default function DeveloperItem() {
   return (
