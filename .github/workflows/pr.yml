@@ -38,6 +38,6 @@ jobs:
         run: yarn install --prefer-offline --frozen-lockfile --non-interactive --silent
 
       - name: TypeScript
-        run: yarn workspace client run type-check
+        run: yarn workspace website run type-check
       - name: Linting
-        run: yarn workspace client run lint
+        run: yarn workspace website run lint
