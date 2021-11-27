@@ -8,7 +8,7 @@ import {
   ButtonBlue,
   ButtonGray,
   ButtonOrange,
-} from '@/styles/ui-components/Chakra-Button';
+} from '../../../styles/ui-components/Chakra-Button';
 import {
   Box,
   Heading,
@@ -36,8 +36,13 @@ type JobSummaryProps = {
     jobcontact: string;
   };
   createJob: (e: React.FormEvent) => void;
-  jobKeywords: Array<string>;
+  jobKeywords: Keywords[];
 };
+
+interface Keywords {
+  keyword: string;
+  index: string;
+}
 
 export default function GigSummary({
   formData,

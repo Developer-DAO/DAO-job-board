@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import {
   chakra,
-  Box,
   Input,
   Heading,
   VStack,
@@ -70,24 +69,22 @@ export default function AddLinks({
     return faIconArray;
   };
 
-  const linkInputs = () => {
+  function linkInputs() {
     for (let link in profileLinks) {
       return (
-        <>
-          <InputGroup>
-            <InputLeftAddon> {linksIcons}</InputLeftAddon>
-            <Input
-              bgColor="white"
-              placeholder="user"
-              name={link}
-              value={link}
-              onChange={(e) => onChange(e)}
-            />
-          </InputGroup>
-        </>
+        <InputGroup>
+          <InputLeftAddon> {linksIcons}</InputLeftAddon>
+          <Input
+            bgColor="white"
+            placeholder="user"
+            name={link}
+            value={link}
+            onChange={(e) => onChange(e)}
+          />
+        </InputGroup>
       );
     }
-  };
+  }
 
   const onChange = (e: React.FormEvent) =>
     setFormData({

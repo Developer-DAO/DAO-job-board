@@ -9,7 +9,7 @@ import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
-} from '@/styles/ui-components/Chakra-Button';
+} from '../../../styles/ui-components/Chakra-Button';
 
 import {
   Heading,
@@ -130,7 +130,7 @@ export default function GigDetails({
         </Container>
 
         <KeywordsSection
-          keywordsData={jobKeywords as Keywords[]}
+          keywordsData={jobKeywords as any}
           templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
         />
 
