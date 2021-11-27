@@ -1,6 +1,6 @@
 # DAO-job-board
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -59,6 +59,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://linktr.ee/carlomigueldy"><img src="https://avatars.githubusercontent.com/u/45052332?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Carlo Miguel Dy</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=carlomigueldy" title="Code">💻</a> <a href="#maintenance-carlomigueldy" title="Maintenance">🚧</a> <a href="https://github.com/Developer-DAO/DAO-job-board/issues?q=author%3Acarlomigueldy" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://www.angelgomez.tech"><img src="https://avatars.githubusercontent.com/u/53134194?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Angel Gomez</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=angeljgomezc" title="Code">💻</a> <a href="#maintenance-angeljgomezc" title="Maintenance">🚧</a> <a href="https://github.com/Developer-DAO/DAO-job-board/issues?q=author%3Aangeljgomezc" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
