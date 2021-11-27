@@ -1,6 +1,6 @@
 # DAO-job-board
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -63,6 +63,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://dhaiwat.com"><img src="https://avatars.githubusercontent.com/u/39617427?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dhaiwat Pandya</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=Dhaiwat10" title="Code">💻</a> <a href="#maintenance-Dhaiwat10" title="Maintenance">🚧</a> <a href="#ideas-Dhaiwat10" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://with-heart.me/"><img src="https://avatars.githubusercontent.com/u/1954752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>with-heart</b></sub></a><br /><a href="#maintenance-with-heart" title="Maintenance">🚧</a> <a href="#mentoring-with-heart" title="Mentoring">🧑‍🏫</a></td>
     <td align="center"><a href="https://web3jobz.com"><img src="https://avatars.githubusercontent.com/u/5667044?v=4?s=100" width="100px;" alt=""/><br /><sub><b>B Nobel</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=frankTurtle" title="Code">💻</a></td>
+    <td align="center"><a href="https://nazeeh.dev/"><img src="https://avatars.githubusercontent.com/u/56908732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nazeeh Vahora</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=Nazeeh21" title="Code">💻</a></td>
   </tr>
 </table>
 
