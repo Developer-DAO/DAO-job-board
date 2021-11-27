@@ -15,6 +15,7 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
 ## Installation
 
 1. [Install Yarn](https://classic.yarnpkg.com/lang/en/docs/install) if you haven't already.
+
 2. Clone this repository and install dependencies.
 
    ```bash
@@ -24,6 +25,7 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
    ```
 
 3. Ask an invite to the Doppler Developer DAO workspace from [carlomigueldy.eth](https://github.com/carlomigueldy) or [angelgomez.eth](https://github.com/angeljgomezc)
+
 4. Install Doppler CLI into your local machine
 
    ```bash
@@ -63,17 +65,21 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
    ```bash
    doppler --version
    ```
+
 6. Authenticate to Doppler.
    ```bash
    doppler login
    ```
    It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
+
 7. Setting up Doppler. (Select "Development")
    ```bash
    doppler setup
    ```
+
 8. Start the development server with
    ```bash
    npm run dev # or `yarn dev`
    ```
+
 9. Open to browser `http://localhost:3000`
