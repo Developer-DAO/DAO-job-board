@@ -14,6 +14,7 @@
     "@chakra-ui/react": "^1.6.12",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@hookform/resolvers": "^2.8.3",
     "@supabase/supabase-js": "^1.25.2",
     "@usedapp/core": "^0.5.4",
     "cross-env": "^7.0.3",
@@ -22,7 +23,9 @@
     "nextjs": "0.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "uuid": "^8.3.2"
+    "react-hook-form": "^7.20.4",
+    "uuid": "^8.3.2",
+    "zod": "^3.11.6"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
