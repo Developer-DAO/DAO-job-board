@@ -1,72 +1,77 @@
-import { useState } from 'react';
-import { GetStaticProps } from 'next';
-
+import { useState, Dispatch, SetStateAction } from 'react';
+import {
+  TextInput,
+  Select,
+  NumberInput,
+  FormControl,
+} from '@/components/form-elements';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
 } from '@/styles/ui-components/Chakra-Button';
-
+import type { JobFormData } from '@/types';
 import {
   Heading,
   Box,
   Container,
   Tag,
-  Input,
-  Textarea,
-  Select,
+  Stack,
   Text,
   ButtonGroup,
   TagLabel,
   TagCloseButton,
   HStack,
+  VisuallyHidden,
+  FormLabel,
 } from '@chakra-ui/react';
 
 type JobDetailProps = {
-  goToBasics: () => void;
-  goToSummary: () => void;
-  onChange: (e: React.FormEvent) => void;
-  formData: any;
-  setFormData: any;
-  addLocation: () => void;
-  locationActive: boolean;
+  setStep: Dispatch<SetStateAction<number>>;
+  setFormData: Dispatch<SetStateAction<JobFormData>>;
+  formData: JobFormData;
 };
 
-export default function GigDetails({
-  goToBasics,
-  goToSummary,
-  formData,
-  onChange,
-  setFormData,
-  addLocation,
-  locationActive,
-}: JobDetailProps) {
+const schema = z.object({
+  compensation: z.string().min(1, 'this field is required'),
+  min: z.string(),
+  max: z.string(),
+  // min: z.number(),
+  // max: z.number(),
+  equity: z.string(),
+  location: z.string(),
+});
+
+export type Inputs = z.infer<typeof schema>;
+
+export default function JobDetails(props: JobDetailProps) {
+  const { setFormData, setStep, formData } = props;
+  const { compensation, min, max, equity, location } = formData;
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
   const {
-    jobcategory,
-    jobcompensation,
-    jobmin,
-    jobmax,
-    jobequity,
-    joblocation,
-  } = formData;
-
-  const nextPage = () => {
-    if (jobcategory) {
-      goToSummary();
-    } else {
-      setWrongData(true);
-    }
-  };
-
-  const selectCategory = () => {
-    setFormData({ ...formData, jobcategory: 'category' });
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({
+    resolver: zodResolver(schema),
+    defaultValues: { compensation, min, max, equity, location },
+  });
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setFormData((prev) => {
+      return { ...prev, ...data };
+    });
+    setStep((prev) => {
+      return prev + 1;
+    });
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         {' '}
         <Heading color="black">Job Details</Heading>
@@ -98,7 +103,7 @@ export default function GigDetails({
         >
           <ButtonBlack>Select Keywords</ButtonBlack>
           <Tag
-            onClick={selectCategory}
+            // onClick={selectCategory}
             size="md"
             borderRadius="full"
             variant="solid"
@@ -116,58 +121,68 @@ export default function GigDetails({
         <Text fontSize="xs" textAlign="left" mb="2.5%">
           Jobs with compensation info get more applications
         </Text>
-        <Select
-          bg="white"
-          bgColor="white"
-          borderColor="#e2e8f0"
-          _hover={{ borderColor: '#97c0e6' }}
-          name="jobcompensation"
-          value={jobcompensation}
-          onChange={(e) => onChange(e)}
-        >
-          <option value="" disabled hidden>
-            Token / Currency
-          </option>
-          <optgroup label="Crypto">
-            <option value="ETH">ETH</option>
-            <option value="SOL">SOL</option>
-            <option value="BTC">BTC</option>
-            <option value="USDT">USDT</option>
-          </optgroup>
-          <optgroup label="Fiat">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            <option value="CAD">CAD</option>
-            <option value="AUD">AUD</option>
-          </optgroup>
-        </Select>
-        <br />
-        <Input
-          borderColor="#e2e8f0"
-          bgColor="white"
-          _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: 'black' }}
-          w="50%"
-          placeholder="Min"
-          name="jobmin"
-          value={jobmin}
-          onChange={(e) => onChange(e)}
-          type="number"
-        />
+        <FormControl errors={errors.compensation}>
+          <VisuallyHidden>
+            <FormLabel htmlFor="compensation">Job compensation</FormLabel>
+          </VisuallyHidden>
+          <Select
+            bg="white"
+            bgColor="white"
+            borderColor="#e2e8f0"
+            _hover={{ borderColor: '#97c0e6' }}
+            name="compensation"
+            placeholder="Token / Currency"
+            register={register}
+            errors={errors.compensation}
+          >
+            <optgroup label="Crypto">
+              {['ETH', 'SOL', 'BTC', 'USDT'].map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Fiat">
+              {['USD', 'EUR', 'GBP', 'CAD', 'AUD'].map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </optgroup>
+          </Select>
+        </FormControl>
 
-        <Input
-          borderColor="#e2e8f0"
-          bgColor="white"
-          _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: 'black' }}
-          w="50%"
-          placeholder="Max"
-          name="jobmax"
-          value={jobmax}
-          onChange={(e) => onChange(e)}
-          type="number"
-        />
+        <br />
+        <Stack direction={['column', 'row']} spacing="24px">
+          <FormControl errors={errors.min}>
+            <VisuallyHidden>
+              <FormLabel htmlFor="min">compensation minimum</FormLabel>
+            </VisuallyHidden>
+            <NumberInput
+              id="min"
+              inputField={{ placeholder: 'min amount' }}
+              name="min"
+              register={register}
+              errors={errors.min}
+              // options={{ valueAsNumber: true }}
+              // defaultValue={0}
+            />
+          </FormControl>
+          <FormControl errors={errors.max}>
+            <VisuallyHidden>
+              <FormLabel htmlFor="max">compensation maximum</FormLabel>
+            </VisuallyHidden>
+            <NumberInput
+              id="max"
+              inputField={{ placeholder: 'max amount' }}
+              name="max"
+              register={register}
+              errors={errors.max}
+              // options={{ valueAsNumber: true }}
+              // defaultValue={0}
+            />
+          </FormControl>
+        </Stack>
 
         <br />
 
@@ -175,23 +190,28 @@ export default function GigDetails({
           Do you offer equity? (optional)
         </Heading>
 
-        <Select
-          bg="white"
-          bgColor="white"
-          borderColor="#e2e8f0"
-          _hover={{ borderColor: '#97c0e6' }}
-          onChange={(e) => onChange(e)}
-          value={jobequity}
-          name="jobequity"
-        >
-          <option value="" disabled selected hidden>
-            Equity Range
-          </option>
-          <option value="0.01-1%">0.01-1%</option>
-          <option value="1%-2%">1%-2%</option>
-          <option value="2%-5%">2%-5%</option>
-          <option value="+5%">+5%</option>
-        </Select>
+        <FormControl errors={errors.equity}>
+          <VisuallyHidden>
+            <FormLabel htmlFor="equity">Job Equity Range</FormLabel>
+          </VisuallyHidden>
+          <Select
+            id="equity"
+            bgColor="white"
+            bg="white"
+            borderColor="#e2e8f0"
+            _hover={{ borderColor: '#97c0e6' }}
+            name="equity"
+            register={register}
+            errors={errors.equity}
+            placeholder="Equity Range"
+          >
+            {['0.01-1%', '1%-2%', '2%-5%', '+5%'].map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </Select>
+        </FormControl>
 
         <br />
 
@@ -201,29 +221,32 @@ export default function GigDetails({
         <Text fontSize="xs" textAlign="left" mb="1%">
           Defaults to remote if empty
         </Text>
-        <Input
-          borderColor="#e2e8f0"
-          bgColor="white"
-          _hover={{ borderColor: '#97c0e6' }}
-          _placeholder={{ color: 'black' }}
-          type="string"
-          onChange={(e) => onChange(e)}
-          value={joblocation}
-          name="joblocation"
-          placeholder="e.g California, US"
-        />
+
+        <FormControl errors={errors.location}>
+          <VisuallyHidden>
+            <FormLabel htmlFor="location">Job location</FormLabel>
+          </VisuallyHidden>
+          <TextInput
+            id="location"
+            bgColor="white"
+            bg="white"
+            color="black"
+            _hover={{ borderColor: '#97c0e6' }}
+            placeholder="e.g California, US"
+            name="location"
+            register={register}
+            errors={errors.location}
+          />
+        </FormControl>
       </Box>
       <br />
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
-        <ButtonOrange onClick={goToBasics}>Back</ButtonOrange>
+        <ButtonGreen type="submit">Continue</ButtonGreen>
+        <ButtonBlack onClick={() => setStep((prev) => prev - 1)}>
+          Go back
+        </ButtonBlack>
+        <ButtonOrange>Cancel</ButtonOrange>
       </ButtonGroup>
-    </>
+    </form>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: { FormData },
-  };
-};
