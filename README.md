@@ -1,6 +1,6 @@
 # DAO-job-board
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -65,6 +65,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://web3jobz.com"><img src="https://avatars.githubusercontent.com/u/5667044?v=4?s=100" width="100px;" alt=""/><br /><sub><b>B Nobel</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=frankTurtle" title="Code">💻</a></td>
     <td align="center"><a href="https://nazeeh.dev/"><img src="https://avatars.githubusercontent.com/u/56908732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nazeeh Vahora</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=Nazeeh21" title="Code">💻</a></td>
     <td align="center"><a href="http://kasthor.com"><img src="https://avatars.githubusercontent.com/u/221603?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Giancarlo Palavicini</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=kasthor" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/phil-billingsby/"><img src="https://avatars.githubusercontent.com/u/45179070?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Phil B</b></sub></a><br /><a href="#ideas-PBillingsby" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
