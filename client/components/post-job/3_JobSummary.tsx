@@ -1,6 +1,8 @@
-import { GetStaticProps } from 'next';
-import { useState } from 'react';
-
+import { useState, Dispatch, SetStateAction } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { TextInput, FormControl } from '@/components/form-elements';
+import * as z from 'zod';
 // UI & CSS
 import {
   ButtonBlue,
@@ -10,57 +12,67 @@ import {
 import {
   Heading,
   Tag,
-  Input,
+  VisuallyHidden,
   Container,
   Text,
   ButtonGroup,
   TagLabel,
-  TagCloseButton,
   HStack,
+  FormLabel,
 } from '@chakra-ui/react';
-
+import type { JobFormData } from '@/types';
 type JobSummaryProps = {
-  goToBasics: () => void;
-  goToDetails: () => void;
-  onChange: (e: React.FormEvent) => void;
-  formData: any;
-  createJob: (e: React.FormEvent) => void;
+  setStep: Dispatch<SetStateAction<number>>;
+  setFormData: Dispatch<SetStateAction<JobFormData>>;
+  formData: JobFormData;
+  createJob: () => void;
 };
 
-export default function GigSummary({
-  formData,
-  goToDetails,
-  onChange,
-  createJob,
-  goToBasics,
-}: JobSummaryProps) {
+const schema = z.object({
+  contact: z.string().min(1, 'this field is required'),
+});
+
+export type Inputs = z.infer<typeof schema>;
+
+export default function JobSummary(props: JobSummaryProps) {
   //Active state makes inputs red if data is not correct
-  const [wrongData, setWrongData] = useState(false);
-
+  const { setFormData, setStep, formData, createJob } = props;
   const {
-    jobtitle,
-    jobdescription,
-    jobtype,
-    jobcategory,
-    jobposition,
-    jobcompensation,
-    jobmin,
-    jobmax,
-    jobequity,
-    joblocation,
-    jobcontact,
+    title,
+    description,
+    type,
+    position,
+    compensation,
+    min,
+    max,
+    equity,
+    location,
+    contact,
   } = formData;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({
+    resolver: zodResolver(schema),
+    defaultValues: { contact },
+  });
 
-  const sendJobData = (e: React.FormEvent) => {
-    if (jobcontact) {
-      createJob(e);
-    } else {
-      setWrongData(true);
-    }
+  const goToDetails = () => {
+    setStep(2);
+  };
+  const goToBasics = () => {
+    setStep(1);
+  };
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setFormData((prev) => {
+      return { ...prev, ...data };
+    });
+    createJob();
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         <Heading>Job Summary</Heading>
         <Text>Check that everything is correct (click edit if not)</Text>
@@ -72,22 +84,22 @@ export default function GigSummary({
       </Container>
 
       <Container maxW="100%">
-        <Heading fontSize="sm">Job Name:</Heading> {jobtitle}
+        <Heading fontSize="sm">Job Name:</Heading> {title}
         <br />
         <br />
-        <Heading fontSize="sm">Job Description:</Heading> {jobdescription}
+        <Heading fontSize="sm">Job Description:</Heading> {description}
         <br />
         <br />
-        {jobposition && (
+        {position && (
           <>
-            <Heading fontSize="sm">Job Position:</Heading> {jobposition}
+            <Heading fontSize="sm">Job Position:</Heading> {position}
           </>
         )}
         <br />
         <br />
-        {jobtype && (
+        {type && (
           <>
-            <Heading fontSize="sm">Job Type:</Heading> {jobtype}
+            <Heading fontSize="sm">Job Type:</Heading> {type}
           </>
         )}
       </Container>
@@ -107,28 +119,28 @@ export default function GigSummary({
           </Tag>
         </HStack>
 
-        {jobcompensation && jobmin && jobmax ? (
+        {compensation && min && max ? (
           <>
-            <Heading fontSize="sm">Job Compensation:</Heading> {jobmin}-{jobmax}{' '}
-            {jobcompensation}
+            <Heading fontSize="sm">Job Compensation:</Heading> {min}-{max}{' '}
+            {compensation}
           </>
         ) : null}
 
         <br />
         <br />
 
-        {jobequity ? (
+        {equity ? (
           <>
-            <Heading fontSize="sm">Equity Offer:</Heading> {jobequity}
+            <Heading fontSize="sm">Equity Offer:</Heading> {equity}
           </>
         ) : null}
 
         <br />
         <br />
 
-        {joblocation ? (
+        {location ? (
           <>
-            <Heading fontSize="sm">Job Location:</Heading> {joblocation}
+            <Heading fontSize="sm">Job Location:</Heading> {location}
           </>
         ) : null}
 
@@ -141,37 +153,31 @@ export default function GigSummary({
         <Text fontSize="xs" textAlign="left" mb="2.5%">
           Write your website job post link or an email
         </Text>
-        <Input
-          _placeholder={{ color: 'black' }}
-          borderColor={`${!wrongData ? '#e2e8f0' : 'red'}`}
-          bgColor="white"
-          color="black"
-          _hover={{ borderColor: '#97c0e6' }}
-          placeholder="e.g. www.company.com/job or company@email.com"
-          name="jobcontact"
-          value={jobcontact}
-          onChange={(e) => onChange(e)}
-        />
-        {wrongData ? (
-          <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
-            Add an email or website link
-          </Text>
-        ) : null}
+        <FormControl errors={errors.contact}>
+          <VisuallyHidden>
+            <FormLabel htmlFor="contact">Job contact link or email</FormLabel>
+          </VisuallyHidden>
+          <TextInput
+            id="contact"
+            bgColor="white"
+            bg="white"
+            color="black"
+            _hover={{ borderColor: '#97c0e6' }}
+            placeholder="e.g. www.company.com/job or company@email.com"
+            name="contact"
+            register={register}
+            errors={errors.contact}
+          />
+        </FormControl>
       </Container>
 
       <br />
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonBlue onClick={(e) => sendJobData(e)}>Post Job</ButtonBlue>
+        <ButtonBlue type="submit">Post Job</ButtonBlue>
 
         <ButtonOrange onClick={goToDetails}>Back</ButtonOrange>
       </ButtonGroup>
-    </>
+    </form>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: { FormData },
-  };
-};
