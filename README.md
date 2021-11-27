@@ -59,13 +59,28 @@ Thanks goes to these wonderful people:
 <table>
   <tr>
     <td align="center">
-      <a href="https://linktr.ee/carlomigueldy">
+      <a href="https://twitter.com/angelgomeztw">
+        <img src="https://avatars.githubusercontent.com/u/53134194?v=4?s=50" width="50px;" alt="angelgomez.eth"/>
+        <br />
+        <sub>
+          <b>Angel Gomez</b>
+        </sub>
+      </a>
+      <br />
+      <a href="#" title="Champion">🏆</a>
+      <a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=angeljgomezc" title="Code">💻</a> 
+      <a href="https://github.com/Developer-DAO/DAO-job-board/issues?q=author%3Aangeljgomezc" title="Bug Reports">🐛</a>
+    </td>
+    <td align="center">
+      <a href="https://twitter.com/CarloMiguelDy">
         <img src="https://avatars.githubusercontent.com/u/45052332?v=4?s=50" width="50px;" alt="carlomigueldy.eth"/>
         <br />
         <sub>
-          <b>Carlo Miguel Dy</b></sub>
+          <b>Carlo Miguel Dy</b>
+        </sub>
       </a>
       <br />
+      <a href="#" title="Champion">🏆</a>
       <a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=carlomigueldy" title="Code">💻</a> 
       <a href="https://github.com/Developer-DAO/DAO-job-board/issues?q=author%3Acarlomigueldy" title="Bug Reports">🐛</a>
     </td>
