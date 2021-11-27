@@ -47,6 +47,15 @@
         "maintenance",
         "mentoring"
       ]
+    },
+    {
+      "login": "frankTurtle",
+      "name": "B Nobel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5667044?v=4",
+      "profile": "https://web3jobz.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
