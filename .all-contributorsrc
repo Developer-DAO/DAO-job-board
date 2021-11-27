@@ -35,7 +35,73 @@
       "contributions": [
         "code",
         "maintenance",
-        "bug"
+        "ideas"
+      ]
+    },
+    {
+      "login": "with-heart",
+      "name": "with-heart",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1954752?v=4",
+      "profile": "https://with-heart.me/",
+      "contributions": [
+        "maintenance",
+        "mentoring"
+      ]
+    },
+    {
+      "login": "frankTurtle",
+      "name": "B Nobel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5667044?v=4",
+      "profile": "https://web3jobz.com",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "Nazeeh21",
+      "name": "Nazeeh Vahora",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56908732?v=4",
+      "profile": "https://nazeeh.dev/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kasthor",
+      "name": "Giancarlo Palavicini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/221603?v=4",
+      "profile": "http://kasthor.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "swetshaw",
+      "name": "Sweta Shaw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26214362?v=4",
+      "profile": "https://github.com/swetshaw",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "PBillingsby",
+      "name": "Phil B",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45179070?v=4",
+      "profile": "https://www.linkedin.com/in/phil-billingsby/",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "JoviDeCroock",
+      "name": "Jovi De Croock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17125876?v=4",
+      "profile": "https://www.jovidecroock.com/",
+      "contributions": [
+        "code",
+        "infra"
       ]
     }
   ],
