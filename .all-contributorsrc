@@ -1,0 +1,48 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "carlomigueldy",
+      "name": "Carlo Miguel Dy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45052332?v=4",
+      "profile": "https://linktr.ee/carlomigueldy",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
+    },
+    {
+      "login": "angeljgomezc",
+      "name": "Angel Gomez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53134194?v=4",
+      "profile": "http://www.angelgomez.tech",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
+    },
+    {
+      "login": "Dhaiwat10",
+      "name": "Dhaiwat Pandya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39617427?v=4",
+      "profile": "http://dhaiwat.com",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "DAO-job-board",
+  "projectOwner": "Developer-DAO",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
