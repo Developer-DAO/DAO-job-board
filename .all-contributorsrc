@@ -15,6 +15,17 @@
         "maintenance",
         "bug"
       ]
+    },
+    {
+      "login": "angeljgomezc",
+      "name": "Angel Gomez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53134194?v=4",
+      "profile": "http://www.angelgomez.tech",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
