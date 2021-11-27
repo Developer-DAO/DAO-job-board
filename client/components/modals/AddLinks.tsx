@@ -21,17 +21,6 @@ import {
   IconPrefix,
 } from '@fortawesome/fontawesome-svg-core';
 
-import {
-  faGithub,
-  faProductHunt,
-  faTwitter,
-  faLinkedinIn,
-  faBehance,
-  faDribbble,
-} from '@fortawesome/free-brands-svg-icons';
-
-import fontawesome from '@fortawesome/fontawesome';
-
 type LinksProps = {
   profileLinks: Links[];
   closeLinksModal: () => void;
@@ -55,32 +44,18 @@ export default function AddLinks({
   //formData where links are stored (takes the profileLinks props from parent component)
   const [formData, setFormData] = useState(profileLinks);
 
-  fontawesome.library.add(
-    faGithub,
-    faProductHunt,
-    faTwitter,
-    faLinkedinIn,
-    faBehance,
-    faDribbble
-  );
-
   const linksIcons = (link: string) => {
-    let propIcon = null;
-    const linkText = link.charAt(0).toUpperCase() + link.slice(1);
-    const iconText = linkText;
-
-    propIcon = iconText;
-
-    if (iconText === 'Producthunt') {
-      propIcon = 'ProductHunt';
+    let propIcon = link;
+    if (link === 'producthunt') {
+      propIcon = 'product-hunt';
     }
 
-    if (iconText === 'Linkedin') {
-      propIcon = 'LinkedinIn';
+    if (link === 'linkedin') {
+      propIcon = 'linkedin-in';
     }
 
     return (
-      <FontAwesomeIcon icon={['fa' as IconPrefix, propIcon as IconName]} />
+      <FontAwesomeIcon icon={['fab' as IconPrefix, propIcon as IconName]} />
     );
   };
 
