@@ -8,16 +8,18 @@ import {
   InputGroup,
   InputLeftAddon,
   ButtonGroup,
+  Text,
 } from '@chakra-ui/react';
 
-import {
-  ButtonBlue,
-  ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
+import { ButtonBlue, ButtonOrange } from '@/styles/ui-components/Chakra-Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import {
+  IconProp,
+  IconName,
+  IconPrefix,
+} from '@fortawesome/fontawesome-svg-core';
 
 import {
   faGithub,
@@ -28,18 +30,22 @@ import {
   faDribbble,
 } from '@fortawesome/free-brands-svg-icons';
 
+import fontawesome from '@fortawesome/fontawesome';
+
 type LinksProps = {
-  profileLinks: {
-    linkedin: string;
-    twitter: string;
-    behance: string;
-    dribbble: string;
-    producthunt: string;
-    github: string;
-  };
+  profileLinks: Links[];
   closeLinksModal: () => void;
   linksDataHandler: (formData: React.ReactNode) => void;
 };
+
+interface Links {
+  linkedin: string;
+  twitter: string;
+  behance: string;
+  dribbble: string;
+  producthunt: string;
+  github: string;
+}
 
 export default function AddLinks({
   profileLinks,
@@ -47,44 +53,52 @@ export default function AddLinks({
   linksDataHandler,
 }: LinksProps) {
   //formData where links are stored (takes the profileLinks props from parent component)
-  const [formData, setFormData] = useState({
-    github: '',
-    linkedin: '',
-    twitter: '',
-    behance: '',
-    dribbble: '',
-    producthunt: '',
-  });
+  const [formData, setFormData] = useState(profileLinks);
 
-  const linksIcons = () => {
-    let faIconArray = [];
-    for (let link in profileLinks) {
-      const linkText = link.charAt(0).toUpperCase() + link.slice(1);
-      const faIconText = 'fa' + linkText;
-      const faPropIcon = faIconText as IconProp;
+  fontawesome.library.add(
+    faGithub,
+    faProductHunt,
+    faTwitter,
+    faLinkedinIn,
+    faBehance,
+    faDribbble
+  );
 
-      faIconArray.push(<FontAwesomeIcon icon={faPropIcon} />);
+  const linksIcons = (link: string) => {
+    let propIcon = null;
+    const linkText = link.charAt(0).toUpperCase() + link.slice(1);
+    const iconText = linkText;
+
+    propIcon = iconText;
+
+    if (iconText === 'Producthunt') {
+      propIcon = 'ProductHunt';
     }
 
-    return faIconArray;
+    if (iconText === 'Linkedin') {
+      propIcon = 'LinkedinIn';
+    }
+
+    return (
+      <FontAwesomeIcon icon={['fa' as IconPrefix, propIcon as IconName]} />
+    );
   };
 
-  function linkInputs() {
-    for (let link in profileLinks) {
-      return (
+  const linkInputs = (
+    <>
+      {Object.keys(profileLinks).map((link) => (
         <InputGroup>
-          <InputLeftAddon> {linksIcons}</InputLeftAddon>
+          <InputLeftAddon>{linksIcons(link)}</InputLeftAddon>
           <Input
             bgColor="white"
-            placeholder="user"
+            placeholder={`your ${link} username`}
             name={link}
-            value={link}
             onChange={(e) => onChange(e)}
           />
         </InputGroup>
-      );
-    }
-  }
+      ))}
+    </>
+  );
 
   const onChange = (e: React.FormEvent) =>
     setFormData({
@@ -96,8 +110,9 @@ export default function AddLinks({
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    linksDataHandler(formData);
-    closeLinksModal();
+    console.log(formData);
+    // linksDataHandler(formData);
+    // closeLinksModal();
   };
 
   return (
@@ -138,83 +153,3 @@ export default function AddLinks({
     </>
   );
 }
-
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faGithub} />
-//   </InputLeftAddon>
-//   <Input
-//     bgColor="white"
-//     placeholder="user"
-//     name="github"
-//     value={github}
-//     onChange={(e) => onChange(e)}
-//   />
-// </InputGroup>
-//
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faTwitter} />
-//   </InputLeftAddon>
-//   <Input
-//     placeholder="username"
-//     name="twitter"
-//     value={twitter}
-//     onChange={(e) => onChange(e)}
-//   ></Input>
-// </InputGroup>
-//
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faLinkedinIn} />
-//   </InputLeftAddon>
-//   <Input
-//     placeholder="username"
-//     name="linkedin"
-//     value={linkedin}
-//     onChange={(e) => onChange(e)}
-//   ></Input>
-// </InputGroup>
-//
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faProductHunt} />
-//   </InputLeftAddon>
-//   <Input
-//     placeholder="username"
-//     name="producthunt"
-//     value={producthunt}
-//     onChange={(e) => onChange(e)}
-//   ></Input>
-// </InputGroup>
-//
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faBehance} />
-//   </InputLeftAddon>
-//   <Input
-//     placeholder="username"
-//     name="behance"
-//     value={behance}
-//     onChange={(e) => onChange(e)}
-//   ></Input>
-// </InputGroup>
-//
-// <InputGroup>
-//   <InputLeftAddon>
-//     {' '}
-//     <FontAwesomeIcon icon={faDribbble} />
-//   </InputLeftAddon>
-//   <Input
-//     placeholder="username"
-//     name="dribbble"
-//     value={dribbble}
-//     onChange={(e) => onChange(e)}
-//   ></Input>
-// </InputGroup>
-//

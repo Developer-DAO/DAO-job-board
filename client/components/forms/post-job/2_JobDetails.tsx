@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 //Keywords Components
-import KeywordSelect from '../../modals/SelectKeywords';
-import KeywordsSection from '../KeywordsSection';
+import KeywordSelect from '@/modals/SelectKeywords';
+import KeywordsSection from '@/KeywordsSection';
 
 import {
   ButtonGreen,
   ButtonOrange,
   ButtonBlack,
-} from '../../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import {
   Heading,

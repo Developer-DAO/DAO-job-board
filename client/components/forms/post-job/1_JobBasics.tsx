@@ -43,7 +43,7 @@ export default function JobBasics({
   const { jobtitle, jobdescription, jobposition, jobtype } = formData;
 
   const nextPage = () => {
-    if (jobtitle.length >= 10 && jobdescription.length >= 100) {
+    if (jobtitle.length >= 7 && jobdescription.length >= 100) {
       goToDetails();
     } else if (!jobtitle && !jobdescription) {
       setWrongDescription(true);
@@ -82,7 +82,7 @@ export default function JobBasics({
           bg="white"
           color="black"
           _hover={{ borderColor: '#97c0e6' }}
-          minLength={10}
+          minLength={7}
           placeholder="e.g. Full-Stack Blockchain Engineer"
           name="jobtitle"
           value={jobtitle}
