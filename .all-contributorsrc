@@ -74,6 +74,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "swetshaw",
+      "name": "Sweta Shaw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26214362?v=4",
+      "profile": "https://github.com/swetshaw",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
