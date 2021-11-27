@@ -1,9 +1,7 @@
 # DAO-job-board
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -73,6 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/swetshaw"><img src="https://avatars.githubusercontent.com/u/26214362?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sweta Shaw</b></sub></a><br /><a href="#ideas-swetshaw" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/phil-billingsby/"><img src="https://avatars.githubusercontent.com/u/45179070?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Phil B</b></sub></a><br /><a href="#ideas-PBillingsby" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://www.jovidecroock.com/"><img src="https://avatars.githubusercontent.com/u/17125876?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jovi De Croock</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=JoviDeCroock" title="Code">💻</a> <a href="#infra-JoviDeCroock" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/miralsuthar"><img src="https://avatars.githubusercontent.com/u/57826091?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Miral Suthar</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=miralsuthar" title="Code">💻</a></td>
   </tr>
 </table>
 
