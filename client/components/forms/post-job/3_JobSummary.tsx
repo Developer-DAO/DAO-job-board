@@ -1,14 +1,6 @@
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
-
 import KeywordsSection from '../KeywordsSection';
-
-// UI & CSS
-import {
-  ButtonBlue,
-  ButtonGray,
-  ButtonOrange,
-} from '../../../styles/ui-components/Chakra-Button';
 import {
   Box,
   Heading,
@@ -18,6 +10,12 @@ import {
   Text,
   ButtonGroup,
 } from '@chakra-ui/react';
+import {
+  ButtonBlue,
+  ButtonGray,
+  ButtonOrange,
+} from '@/styles/ui-components/Chakra-Button';
+import { Keyword } from '@/types';
 
 type JobSummaryProps = {
   goToBasics: () => void;
@@ -36,13 +34,8 @@ type JobSummaryProps = {
     jobcontact: string;
   };
   createJob: (e: React.FormEvent) => void;
-  jobKeywords: Keywords[];
+  jobKeywords: Keyword[];
 };
-
-interface Keywords {
-  keyword: string;
-  index: string;
-}
 
 export default function GigSummary({
   formData,

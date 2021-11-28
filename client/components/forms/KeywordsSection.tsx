@@ -1,19 +1,15 @@
+import { Keyword } from '@/types';
 import { SimpleGrid, Tag, TagLabel } from '@chakra-ui/react';
 
-type keywordDataProps = {
-  keywordsData: Keywords[];
+type KeywordDataProps = {
+  keywordsData: Keyword[];
   templateColumns: any;
 };
-
-interface Keywords {
-  keyword: string;
-  index: string;
-}
 
 export default function KeywordsSection({
   keywordsData,
   templateColumns,
-}: keywordDataProps) {
+}: KeywordDataProps) {
   return (
     <>
       {keywordsData && (
@@ -28,7 +24,7 @@ export default function KeywordsSection({
                 bgColor="#E2E9F0"
                 color="black"
               >
-                <TagLabel m="auto">{keyword.keyword}</TagLabel>
+                <TagLabel m="auto">{keyword.name}</TagLabel>
               </Tag>
             ))}
         </SimpleGrid>
