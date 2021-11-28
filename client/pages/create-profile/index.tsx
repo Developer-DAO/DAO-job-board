@@ -102,7 +102,6 @@ export default function CreateProfile() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   return (

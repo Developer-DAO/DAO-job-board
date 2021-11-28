@@ -52,7 +52,6 @@ export default function KeywordSelect({
     if (keywordsData && selectedKeywords.length === 0) {
       for (let keyword of keywordsData) {
         selectKeyword(keyword.keyword);
-        console.log(keyword);
       }
     }
   }, [selectedKeywords, keywordsData]);

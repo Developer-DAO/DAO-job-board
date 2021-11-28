@@ -8,18 +8,24 @@ import {
   InputGroup,
   InputLeftAddon,
   ButtonGroup,
-  Text,
 } from '@chakra-ui/react';
 
 import { ButtonBlue, ButtonOrange } from '@/styles/ui-components/Chakra-Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+
 import {
-  IconProp,
-  IconName,
-  IconPrefix,
-} from '@fortawesome/fontawesome-svg-core';
+  faGithub,
+  faProductHunt,
+  faTwitter,
+  faLinkedinIn,
+  faBehance,
+  faDribbble,
+} from '@fortawesome/free-brands-svg-icons';
 
 type LinksProps = {
   profileLinks: Links[];
@@ -44,6 +50,15 @@ export default function AddLinks({
   //formData where links are stored (takes the profileLinks props from parent component)
   const [formData, setFormData] = useState(profileLinks);
 
+  library.add(
+    faGithub,
+    faProductHunt,
+    faTwitter,
+    faLinkedinIn,
+    faBehance,
+    faDribbble
+  );
+
   const linksIcons = (link: string) => {
     let propIcon = link;
     if (link === 'producthunt') {
@@ -59,22 +74,28 @@ export default function AddLinks({
     );
   };
 
+  const inputValues = (link: string) => {
+    let stateValue = link.valueOf();
+    console.log(stateValue);
+    return stateValue;
+  };
+
   const linkInputs = (
     <>
-      {Object.keys(profileLinks).map((link) => (
+      {Object.keys(formData).map((link) => (
         <InputGroup>
           <InputLeftAddon>{linksIcons(link)}</InputLeftAddon>
           <Input
             bgColor="white"
             placeholder={`your ${link} username`}
             name={link}
+            value={inputValues(link) as any}
             onChange={(e) => onChange(e)}
           />
         </InputGroup>
       ))}
     </>
   );
-
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
