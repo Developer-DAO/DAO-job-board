@@ -55,9 +55,9 @@ export default function LinksSection(props: LinksSectionProps) {
 
   const links = Object.keys(props.profileLinks).map<ProfileLinkProps | null>(
     (key) => {
-      const value = (props.profileLinks || {})[
-        key as keyof LinksSectionProps['profileLinks']
-      ];
+      // TS thinks that props.profileLinks can be undefined here allthough we return null.
+      const value =
+        props.profileLinks![key as keyof LinksSectionProps['profileLinks']];
       if (!value) return null;
 
       switch (key) {
