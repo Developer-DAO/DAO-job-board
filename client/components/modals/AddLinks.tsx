@@ -48,7 +48,7 @@ export default function AddLinks({
   linksDataHandler,
 }: LinksProps) {
   //formData where links are stored (takes the profileLinks props from parent component)
-  const [formData, setFormData] = useState(profileLinks);
+  const [formData, setFormData] = useState<Links[]>(profileLinks);
 
   library.add(
     faGithub,
@@ -75,8 +75,12 @@ export default function AddLinks({
   };
 
   const inputValues = (link: string) => {
-    let stateValue = link.valueOf();
-    console.log(stateValue);
+    let stateValue;
+
+    for (let state in profileLinks) {
+      state === link && stateValue == state;
+    }
+
     return stateValue;
   };
 
@@ -99,16 +103,15 @@ export default function AddLinks({
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as HTMLTextAreaElement).name]: (
-        e.target as HTMLTextAreaElement
-      ).value,
+      [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement)
+        .value,
     });
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
-    // linksDataHandler(formData);
-    // closeLinksModal();
+    linksDataHandler(formData);
+    closeLinksModal();
   };
 
   return (
