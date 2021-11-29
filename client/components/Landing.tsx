@@ -1,5 +1,6 @@
 import { Image, Heading, Box, Text, Link } from '@chakra-ui/react';
 
+import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 
 import {
@@ -10,6 +11,8 @@ import {
 } from '@/styles/ui-components/Chakra-Button';
 
 export default function Landing() {
+  const { t } = useTranslation('common');
+
   return (
     <Box>
       <Box w="auto" h="auto" m="auto" mt="2.5%">
@@ -25,21 +28,21 @@ export default function Landing() {
 
       <Box textAlign="center">
         <Heading m="10px" fontSize="28px">
-          Looking for Web3 talent?
+          {t('landing.looking_for_talent')}
         </Heading>
         <NextLink href="/developers">
-          <ButtonGreen as="a">Search Devs</ButtonGreen>
+          <ButtonGreen as="a">{t('landing.search_devs')}</ButtonGreen>
         </NextLink>
 
         <NextLink href="/post-job">
-          <ButtonBlue as="a">Post a Job</ButtonBlue>
+          <ButtonBlue as="a">{t('landing.post_job')}</ButtonBlue>
         </NextLink>
 
         <Heading m="10px" fontSize="28px">
-          Looking for Web3 work?
+          {t('landing.looking_for_work')}
         </Heading>
         <NextLink href="/jobs">
-          <ButtonRed as="a">Search Jobs</ButtonRed>
+          <ButtonRed as="a">{t('landing.search_jobs')}</ButtonRed>
         </NextLink>
       </Box>
     </Box>
