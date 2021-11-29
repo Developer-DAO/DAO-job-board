@@ -11,191 +11,113 @@ import {
   faDribbble,
   faDev,
   faMedium,
+  IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
 
-type profileLinksProps = {
-  profileLinks: {
-    linkedin: string;
-    twitter: string;
-    behance: string;
-    dribbble: string;
-    producthunt: string;
-    github: string;
-    dev: string;
-    medium: string;
+type ProfileLinkProps = {
+  href: string;
+  icon: IconDefinition;
+};
+
+export const ProfileLink = (props: ProfileLinkProps) => (
+  <NextLink href={props.href} passHref>
+    <Link target="_blank">
+      <Tag
+        w="fit-content"
+        size="lg"
+        borderRadius="8px"
+        bgColor="#E2E9F0"
+        color="black"
+      >
+        <TagLabel m="auto">
+          <FontAwesomeIcon icon={props.icon} />
+        </TagLabel>
+      </Tag>
+    </Link>
+  </NextLink>
+);
+
+type LinksSectionProps = {
+  profileLinks?: {
+    linkedin?: string;
+    twitter?: string;
+    behance?: string;
+    dribbble?: string;
+    producthunt?: string;
+    github?: string;
+    dev?: string;
+    medium?: string;
   };
 };
 
-export default function LinksSection({ profileLinks }: profileLinksProps) {
-  const {
-    linkedin,
-    twitter,
-    behance,
-    dribbble,
-    producthunt,
-    github,
-    dev,
-    medium,
-  } = profileLinks;
+export default function LinksSection(props: LinksSectionProps) {
+  if (!props.profileLinks) return null;
+
+  const links = Object.keys(props.profileLinks).map<ProfileLinkProps | null>(
+    (key) => {
+      // TS thinks that we can get here somehow...
+      const value =
+        props.profileLinks![key as keyof LinksSectionProps['profileLinks']];
+      if (!value) return null;
+
+      switch (key) {
+        case 'github': {
+          return {
+            href: 'https://github.com/' + value,
+            icon: faGithub,
+          };
+        }
+        case 'twitter': {
+          return {
+            href: 'https://www.twitter.com/' + value,
+            icon: faTwitter,
+          };
+        }
+        case 'behance': {
+          return {
+            href: 'https://www.behance.net/' + value,
+            icon: faBehance,
+          };
+        }
+        case 'producthunt': {
+          return {
+            href: 'https://www.producthunt.com/@' + value,
+            icon: faProductHunt,
+          };
+        }
+        case 'linkedin': {
+          return {
+            href: 'https://www.linkedin.com/' + value,
+            icon: faLinkedinIn,
+          };
+        }
+        case 'dev': {
+          return {
+            href: 'https://www.dev.to/' + value,
+            icon: faDev,
+          };
+        }
+        case 'dribble': {
+          return {
+            href: 'https://www.dribbble.com/' + value,
+            icon: faDribbble,
+          };
+        }
+        case 'medium': {
+          return {
+            href: `https://www.${value}.medium.com`,
+            icon: faMedium,
+          };
+        }
+        default:
+          return null;
+      }
+    }
+  );
 
   return (
-    <>
-      {profileLinks && (
-        <HStack mt="15px" gap="0.5rem" spacing={1}>
-          {github ? (
-            <NextLink href={`https://www.github.com/${github}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {twitter ? (
-            <NextLink href={`https://www.twitter.com/${twitter}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {linkedin ? (
-            <NextLink href={`https://www.linkedin.com/${linkedin}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {producthunt ? (
-            <NextLink
-              href={`https://www.producthunt.com/@${producthunt}`}
-              passHref
-            >
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faProductHunt} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {dribbble ? (
-            <NextLink href={`https://www.dribbble.com/${dribbble}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faDribbble} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {behance ? (
-            <NextLink href={`https://www.behance.net/${behance}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faBehance} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {dev ? (
-            <NextLink href={`https://www.dev.to/${dev}`} passHref>
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faDev} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-
-          {medium ? (
-            <NextLink href={`https://www.${medium}.medium.com`} passHref>
-              <Link target="_blank">
-                <Tag
-                  cursor="pointer"
-                  w="fit-content"
-                  size="lg"
-                  borderRadius="8px"
-                  bgColor="#E2E9F0"
-                  color="black"
-                >
-                  <TagLabel m="auto">
-                    <FontAwesomeIcon icon={faMedium} />
-                  </TagLabel>
-                </Tag>
-              </Link>
-            </NextLink>
-          ) : null}
-        </HStack>
-      )}
-    </>
+    <HStack mt="15px" gap="0.5rem" spacing={1}>
+      {links.map((link) => link && <ProfileLink key={link.href} {...link} />)}
+    </HStack>
   );
 }
