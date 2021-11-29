@@ -121,6 +121,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "UnwrittenTech",
+      "name": "Zubar Miah",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5767901?v=4",
+      "profile": "https://github.com/UnwrittenTech",
+      "contributions": [
+        "ideas",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
