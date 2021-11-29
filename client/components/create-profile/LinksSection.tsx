@@ -3,12 +3,14 @@ import NextLink from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faGithub,
   faProductHunt,
   faTwitter,
   faLinkedinIn,
   faBehance,
   faDribbble,
-  faGithub,
+  faDev,
+  faMedium,
 } from '@fortawesome/free-brands-svg-icons';
 
 type profileLinksProps = {
@@ -19,12 +21,22 @@ type profileLinksProps = {
     dribbble: string;
     producthunt: string;
     github: string;
+    dev: string;
+    medium: string;
   };
 };
 
 export default function LinksSection({ profileLinks }: profileLinksProps) {
-  const { linkedin, twitter, behance, dribbble, producthunt, github } =
-    profileLinks;
+  const {
+    linkedin,
+    twitter,
+    behance,
+    dribbble,
+    producthunt,
+    github,
+    dev,
+    medium,
+  } = profileLinks;
 
   return (
     <>
@@ -139,6 +151,44 @@ export default function LinksSection({ profileLinks }: profileLinksProps) {
                 >
                   <TagLabel m="auto">
                     <FontAwesomeIcon icon={faBehance} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
+          ) : null}
+
+          {dev ? (
+            <NextLink href={`https://www.dev.to/${dev}`} passHref>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faDev} />
+                  </TagLabel>
+                </Tag>
+              </Link>
+            </NextLink>
+          ) : null}
+
+          {medium ? (
+            <NextLink href={`https://www.${medium}.medium.com`} passHref>
+              <Link target="_blank">
+                <Tag
+                  cursor="pointer"
+                  w="fit-content"
+                  size="lg"
+                  borderRadius="8px"
+                  bgColor="#E2E9F0"
+                  color="black"
+                >
+                  <TagLabel m="auto">
+                    <FontAwesomeIcon icon={faMedium} />
                   </TagLabel>
                 </Tag>
               </Link>

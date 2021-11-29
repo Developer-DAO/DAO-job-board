@@ -25,6 +25,8 @@ import {
   faLinkedinIn,
   faBehance,
   faDribbble,
+  faDev,
+  faMedium,
 } from '@fortawesome/free-brands-svg-icons';
 
 type LinksProps = {
@@ -40,6 +42,8 @@ type ProfileLinkPayload = {
   dribbble: string;
   producthunt: string;
   github: string;
+  dev: string;
+  medium: string;
 };
 
 export default function AddLinks({
@@ -56,7 +60,9 @@ export default function AddLinks({
     faTwitter,
     faLinkedinIn,
     faBehance,
-    faDribbble
+    faDribbble,
+    faDev,
+    faMedium
   );
 
   const linksIcons = (link: string) => {

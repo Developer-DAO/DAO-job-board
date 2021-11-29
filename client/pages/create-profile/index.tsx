@@ -48,9 +48,11 @@ export default function CreateProfile() {
     github: '',
     linkedin: '',
     twitter: '',
+    producthunt: '',
+    medium: '',
+    dev: '',
     behance: '',
     dribbble: '',
-    producthunt: '',
   });
 
   const [profileKeywords, setProfileKeywords] = useState<Keyword[]>([]);
