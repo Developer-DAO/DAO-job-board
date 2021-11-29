@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import { keywordsSamples } from '../../constants/keywords-sample';
+import { keywordsSamples } from '@/constants/keywords-sample';
+import { Keyword } from '@/types';
 
 import {
   Box,
@@ -27,15 +28,10 @@ import {
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
 type KeywordProps = {
-  keywordsData: Array<Keywords>;
-  keywordsDataHandler: (setSelectedKeywords: Keywords) => void;
+  keywordsData: Array<Keyword>;
+  keywordsDataHandler: (setSelectedKeywords: Keyword[]) => void;
   closeKeywordModal: () => void;
 };
-
-interface Keywords {
-  keyword: string;
-  id: string;
-}
 
 export default function KeywordSelect({
   keywordsDataHandler,
@@ -45,29 +41,29 @@ export default function KeywordSelect({
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState<any>([]);
+  const [selectedKeywords, setSelectedKeywords] = useState<Keyword[]>([]);
   const [keywordsActive, setKeywordsActive] = useState(false);
 
   useEffect(() => {
     if (keywordsData && selectedKeywords.length === 0) {
       for (let keyword of keywordsData) {
-        selectKeyword(keyword.keyword);
+        selectKeyword(keyword.name);
       }
     }
   }, [selectedKeywords, keywordsData]);
 
-  const selectKeyword = (e: string) => {
+  const selectKeyword = (keyword: string) => {
     //Limits the number of selected keywords to 10
     const isInArray = selectedKeywords.find(
-      (element: Keywords) => element.keyword === e
+      (element: Keyword) => element.name === keyword
     );
     if (isInArray || selectedKeywords.length > 10) {
       return;
     }
     //Merges the selected keywords with the state
-    setSelectedKeywords((prevKeywords: Keywords[]) => {
+    setSelectedKeywords((prevKeywords: Keyword[]) => {
       const updatedKeywords = [...prevKeywords];
-      updatedKeywords.unshift({ keyword: e, id: Math.random().toString() });
+      updatedKeywords.unshift({ name: keyword, id: Math.random().toString() });
       return updatedKeywords;
     });
     setKeywordsActive(true);
@@ -75,7 +71,7 @@ export default function KeywordSelect({
 
   //Deletes keywords from selected list
   const deleteKeywords = async (e: string) => {
-    setSelectedKeywords((prevKeywords: Keywords[]) => {
+    setSelectedKeywords((prevKeywords: Keyword[]) => {
       const updatedKeywords = prevKeywords.filter(
         (keyword) => keyword.id !== e
       );
@@ -182,14 +178,14 @@ export default function KeywordSelect({
           <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
             {keywordsActive &&
               selectedKeywords.length >= 0 &&
-              selectedKeywords.map((keyword: Keywords, index: string) => (
+              selectedKeywords.map((keyword: Keyword, index: number) => (
                 <Tag
                   colorScheme="red"
                   w="100%"
                   key={index}
-                  onClick={() => deleteKeywords(keyword.id)}
+                  onClick={() => deleteKeywords(keyword.id!)}
                 >
-                  <TagLabel m="auto">{keyword.keyword}</TagLabel>
+                  <TagLabel m="auto">{keyword.name}</TagLabel>
                   <TagCloseButton />
                 </Tag>
               ))}

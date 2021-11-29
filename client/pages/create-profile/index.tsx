@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 //Social Links Components
-import AddLinks from '../../components/modals/AddLinks';
-import LinksSection from '../../components/create-profile/LinksSection';
-
+import AddLinks from '@/components/modals/AddLinks';
+import LinksSection from '@/components/create-profile/LinksSection';
+import KeywordsSection from '@/components/forms/KeywordsSection';
+import KeywordSelect from '@/components/modals/SelectKeywords';
+import { Keyword } from '@/types';
 import {
   Box,
   ButtonGroup,
@@ -25,14 +27,7 @@ import {
   ButtonBlack,
   ButtonGreen,
   ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
-import KeywordsSection from '../../components/forms/KeywordsSection';
-import KeywordSelect from '../../components/modals/SelectKeywords';
-
-interface Keywords {
-  keyword: string;
-  id: string;
-}
+} from '@/styles/ui-components/Chakra-Button';
 
 export default function CreateProfile() {
   const [formData, setFormData] = useState({
@@ -58,7 +53,7 @@ export default function CreateProfile() {
     producthunt: '',
   });
 
-  const [profileKeywords, setProfileKeywords] = useState<any>();
+  const [profileKeywords, setProfileKeywords] = useState<Keyword[]>([]);
 
   //To Open and Close Keywords Modal
   const [changeProfileKeywords, setChangeProfileKeywords] = useState(false);
@@ -72,7 +67,7 @@ export default function CreateProfile() {
   };
 
   //Sets profile keywords data
-  const keywordsDataHandler = (selectedKeywords: Keywords) => {
+  const keywordsDataHandler = (selectedKeywords: Keyword[]) => {
     setProfileKeywords(selectedKeywords);
   };
 
@@ -134,7 +129,7 @@ export default function CreateProfile() {
             <KeywordSelect
               keywordsDataHandler={keywordsDataHandler}
               closeKeywordModal={closeKeywordModal}
-              keywordsData={profileKeywords as Keywords[]}
+              keywordsData={profileKeywords}
             />
           </ModalContent>
         </Modal>

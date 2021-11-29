@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
+import { Keyword } from '@/types';
 
 //Keywords Components
-import KeywordSelect from '@/modals/SelectKeywords';
-import KeywordsSection from '@/KeywordsSection';
+import KeywordSelect from '@/components/modals/SelectKeywords';
+import KeywordsSection from '../KeywordsSection';
 
 import {
   ButtonGreen,
@@ -28,8 +29,8 @@ type JobDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
-  jobKeywords: Keywords[];
-  setJobKeywords: (jobKeywords: Keywords[]) => void;
+  jobKeywords: Keyword[];
+  setJobKeywords: (jobKeywords: Keyword[]) => void;
   formData: {
     jobcompensation: string;
     jobmin: string;
@@ -38,11 +39,6 @@ type JobDetailProps = {
     joblocation: string;
   };
 };
-
-interface Keywords {
-  keyword: string;
-  id: string;
-}
 
 export default function GigDetails({
   goToBasics,
@@ -96,7 +92,7 @@ export default function GigDetails({
             <KeywordSelect
               keywordsDataHandler={keywordsDataHandler}
               closeKeywordModal={closeKeywordModal}
-              keywordsData={jobKeywords as Keywords[]}
+              keywordsData={jobKeywords}
             />
           </ModalContent>
         </Modal>
@@ -130,7 +126,7 @@ export default function GigDetails({
         </Container>
 
         <KeywordsSection
-          keywordsData={jobKeywords as any}
+          keywordsData={jobKeywords}
           templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
         />
 

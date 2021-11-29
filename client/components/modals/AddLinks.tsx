@@ -28,19 +28,19 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 type LinksProps = {
-  profileLinks: Links[];
+  profileLinks: ProfileLinkPayload;
   closeLinksModal: () => void;
   linksDataHandler: (formData: React.ReactNode) => void;
 };
 
-interface Links {
+type ProfileLinkPayload = {
   linkedin: string;
   twitter: string;
   behance: string;
   dribbble: string;
   producthunt: string;
   github: string;
-}
+};
 
 export default function AddLinks({
   profileLinks,
@@ -48,7 +48,7 @@ export default function AddLinks({
   linksDataHandler,
 }: LinksProps) {
   //formData where links are stored (takes the profileLinks props from parent component)
-  const [formData, setFormData] = useState<Links[]>(profileLinks);
+  const [formData, setFormData] = useState<ProfileLinkPayload>(profileLinks);
 
   library.add(
     faGithub,
@@ -86,8 +86,8 @@ export default function AddLinks({
 
   const linkInputs = (
     <>
-      {Object.keys(formData).map((link) => (
-        <InputGroup>
+      {Object.keys(formData).map((link, index) => (
+        <InputGroup key={index}>
           <InputLeftAddon>{linksIcons(link)}</InputLeftAddon>
           <Input
             bgColor="white"
