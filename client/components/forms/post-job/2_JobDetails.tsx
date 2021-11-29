@@ -1,5 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
+import { Keyword } from '@/types';
+
+//Keywords Components
+import KeywordSelect from '@/components/modals/SelectKeywords';
+import KeywordsSection from '../KeywordsSection';
 
 import {
   ButtonGreen,
@@ -9,27 +14,30 @@ import {
 
 import {
   Heading,
-  Box,
   Container,
-  Tag,
   Input,
-  Textarea,
   Select,
   Text,
   ButtonGroup,
-  TagLabel,
-  TagCloseButton,
-  HStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  Stack,
 } from '@chakra-ui/react';
 
 type JobDetailProps = {
   goToBasics: () => void;
   goToSummary: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
-  setFormData: any;
-  addLocation: () => void;
-  locationActive: boolean;
+  jobKeywords: Keyword[];
+  setJobKeywords: (jobKeywords: Keyword[]) => void;
+  formData: {
+    jobcompensation: string;
+    jobmin: string;
+    jobmax: string;
+    jobequity: string;
+    joblocation: string;
+  };
 };
 
 export default function GigDetails({
@@ -37,36 +45,59 @@ export default function GigDetails({
   goToSummary,
   formData,
   onChange,
-  setFormData,
-  addLocation,
-  locationActive,
+  jobKeywords,
+  setJobKeywords,
 }: JobDetailProps) {
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
-  const {
-    jobcategory,
-    jobcompensation,
-    jobmin,
-    jobmax,
-    jobequity,
-    joblocation,
-  } = formData;
+  //Breaks down the formData state
+  const { jobcompensation, jobmin, jobmax, jobequity, joblocation } = formData;
 
+  //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
-    if (jobcategory) {
+    if (jobKeywords.length > 0) {
       goToSummary();
     } else {
       setWrongData(true);
     }
   };
 
-  const selectCategory = () => {
-    setFormData({ ...formData, jobcategory: 'category' });
+  //To Open and Close Keywords Modal
+  const [changeJobKeywords, setChangeJobKeywords] = useState(false);
+
+  const openKeywordModal = () => {
+    setChangeJobKeywords(true);
+  };
+
+  const closeKeywordModal = () => {
+    setChangeJobKeywords(false);
+  };
+
+  //Handles the job keywords sent from modal
+  const keywordsDataHandler = (keywordData: any) => {
+    setJobKeywords(keywordData);
   };
 
   return (
     <>
+      {changeJobKeywords && (
+        <Modal
+          isOpen={changeJobKeywords}
+          onClose={closeKeywordModal}
+          motionPreset="none"
+        >
+          <ModalOverlay onClick={closeKeywordModal} />
+          <ModalContent>
+            <KeywordSelect
+              keywordsDataHandler={keywordsDataHandler}
+              closeKeywordModal={closeKeywordModal}
+              keywordsData={jobKeywords}
+            />
+          </ModalContent>
+        </Modal>
+      )}
+
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         {' '}
         <Heading color="black">Job Details</Heading>
@@ -75,7 +106,7 @@ export default function GigDetails({
         </Text>
       </Container>
 
-      <Box maxW="100%">
+      <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Pick a job keyword category
         </Heading>
@@ -90,25 +121,14 @@ export default function GigDetails({
           </Text>
         )}
 
-        <HStack
-          spacing={4}
-          mt="2.5%"
-          mb="2.5%"
-          border={!wrongData ? 'none' : '1px solid red'}
-        >
-          <ButtonBlack>Select Keywords</ButtonBlack>
-          <Tag
-            onClick={selectCategory}
-            size="md"
-            borderRadius="full"
-            variant="solid"
-            colorScheme="red"
-            color="black"
-          >
-            <TagLabel>Keyword</TagLabel>
-            <TagCloseButton />
-          </Tag>
-        </HStack>
+        <Container>
+          <ButtonBlack onClick={openKeywordModal}>Select Keywords</ButtonBlack>
+        </Container>
+
+        <KeywordsSection
+          keywordsData={jobKeywords}
+          templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
+        />
 
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Explain compensation (optional)
@@ -117,6 +137,7 @@ export default function GigDetails({
           Jobs with compensation info get more applications
         </Text>
         <Select
+          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -142,8 +163,9 @@ export default function GigDetails({
             <option value="AUD">AUD</option>
           </optgroup>
         </Select>
-        <br />
+
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -157,6 +179,7 @@ export default function GigDetails({
         />
 
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -169,13 +192,12 @@ export default function GigDetails({
           type="number"
         />
 
-        <br />
-
         <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
           Do you offer equity? (optional)
         </Heading>
 
         <Select
+          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -193,8 +215,6 @@ export default function GigDetails({
           <option value="+5%">+5%</option>
         </Select>
 
-        <br />
-
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Location (optional)
         </Heading>
@@ -202,6 +222,7 @@ export default function GigDetails({
           Defaults to remote if empty
         </Text>
         <Input
+          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -212,8 +233,8 @@ export default function GigDetails({
           name="joblocation"
           placeholder="e.g California, US"
         />
-      </Box>
-      <br />
+      </Stack>
+
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
         <ButtonOrange onClick={goToBasics}>Back</ButtonOrange>

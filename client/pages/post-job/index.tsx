@@ -1,24 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box } from '@chakra-ui/react';
+import { Keyword } from '@/types';
 
 //The number in the file names tell you which step in the form they are
-import JobBasics from '@/components/post-job/1_JobBasics';
-import JobDetails from '@/components/post-job/2_JobDetails';
-import JobSummary from '@/components/post-job/3_JobSummary';
-
-type IFormData = {
-  jobtitle: string;
-  jobdescription: string;
-  jobtype: string;
-  jobposition: string;
-  jobcompensation: string;
-  jobmax: string;
-  jobmin: string;
-  jobequity: string;
-  joblocation: string;
-  jobcontact: string;
-};
+import JobBasics from '@/components/forms/post-job/1_JobBasics';
+import JobDetails from '@/components/forms/post-job/2_JobDetails';
+import JobSummary from '@/components/forms/post-job/3_JobSummary';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -34,13 +22,8 @@ export default function CreateProject() {
     jobcontact: '',
   });
 
-  const [timeframeActive, setTimeframeActive] = useState(false);
-
-  const [locationActive, setLocationActive] = useState(false);
-
-  const addLocation = () => {
-    setLocationActive(true);
-  };
+  //Job Keywords
+  const [jobKeywords, setJobKeywords] = useState<any>();
 
   //Page States will change depending on whether the user clicks on Continue or Back
   const [basicsPage, setBasicsPage] = useState(true);
@@ -75,13 +58,14 @@ export default function CreateProject() {
   const onChange = (e: React.FormEvent) =>
     setFormData({
       ...formData,
-      [(e.target as any).name]: (e.target as any).value,
+      [(e.target as HTMLTextAreaElement).name]: (
+        e.target as HTMLTextAreaElement
+      ).value,
     });
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   return (
@@ -92,7 +76,6 @@ export default function CreateProject() {
       boxSizing="border-box"
       p="0.5%"
       borderRadius="18px"
-      mt="2.5%"
     >
       <form>
         {basicsPage ? (
@@ -108,10 +91,9 @@ export default function CreateProject() {
           <JobDetails
             goToBasics={goToBasics}
             goToSummary={goToSummary}
+            jobKeywords={jobKeywords as Keyword[]}
+            setJobKeywords={setJobKeywords}
             formData={formData}
-            setFormData={setFormData}
-            locationActive={locationActive}
-            addLocation={addLocation}
             onChange={onChange}
           />
         ) : null}
@@ -119,6 +101,7 @@ export default function CreateProject() {
         {summaryPage ? (
           <JobSummary
             formData={formData}
+            jobKeywords={jobKeywords as any}
             goToDetails={goToDetails}
             goToBasics={goToBasics}
             createJob={createJob}

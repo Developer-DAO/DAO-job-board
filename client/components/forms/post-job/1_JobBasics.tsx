@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 
 // UI & CSS
@@ -13,16 +13,21 @@ import {
   Textarea,
   Select,
   Container,
-  Box,
   Text,
   ButtonGroup,
+  Stack,
 } from '@chakra-ui/react';
 
 type JobBasicProps = {
   goToDetails: () => void;
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
-  formData: any;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+  };
 };
 
 export default function JobBasics({
@@ -38,7 +43,7 @@ export default function JobBasics({
   const { jobtitle, jobdescription, jobposition, jobtype } = formData;
 
   const nextPage = () => {
-    if (jobtitle.length >= 10 && jobdescription.length >= 100) {
+    if (jobtitle.length >= 7 && jobdescription.length >= 100) {
       goToDetails();
     } else if (!jobtitle && !jobdescription) {
       setWrongDescription(true);
@@ -67,7 +72,7 @@ export default function JobBasics({
         </Text>
       </Container>
 
-      <Box maxW="100%">
+      <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Write a clear title for your job post
         </Heading>
@@ -77,7 +82,7 @@ export default function JobBasics({
           bg="white"
           color="black"
           _hover={{ borderColor: '#97c0e6' }}
-          minLength={10}
+          minLength={7}
           placeholder="e.g. Full-Stack Blockchain Engineer"
           name="jobtitle"
           value={jobtitle}
@@ -166,7 +171,7 @@ export default function JobBasics({
             Make sure description is at least 100 characters long{' '}
           </Text>
         )}
-      </Box>
+      </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
