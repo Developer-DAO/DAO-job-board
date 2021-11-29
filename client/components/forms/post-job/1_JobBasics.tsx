@@ -8,7 +8,7 @@ import {
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import type { JobFormData } from '@/types';
+
 // UI & CSS
 import {
   ButtonGreen,
@@ -24,6 +24,8 @@ import {
   FormLabel,
   VisuallyHidden,
 } from '@chakra-ui/react';
+
+import type { JobFormData } from '@/types';
 
 type JobBasicProps = {
   setStep: Dispatch<SetStateAction<number>>;

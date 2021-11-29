@@ -5,13 +5,13 @@ import dynamic from 'next/dynamic';
 //The number in the file names tell you which step in the form they are
 
 const JobBasics = dynamic(
-  () => import('../../components/post-job/1_JobBasics')
+  () => import('../../components/forms/post-job/1_JobBasics')
 );
 const JobDetails = dynamic(
-  () => import('../../components/post-job/2_JobDetails')
+  () => import('../../components/forms/post-job/2_JobDetails')
 );
 const JobSummary = dynamic(
-  () => import('../../components/post-job/3_JobSummary')
+  () => import('../../components/forms/post-job/3_JobSummary')
 );
 
 import type { JobFormData } from '@/types';

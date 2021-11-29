@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-
 import NextLink from 'next/link';
 
 import {
   chakra,
   Link,
-  LinkOverlay,
   Flex,
   HStack,
   Image,
-  Button,
   VStack,
   useDisclosure,
   IconButton,
@@ -19,7 +15,7 @@ import { useEthers } from '@usedapp/core';
 
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-import { ButtonBlack } from '@/styles/ui-components/Chakra-Button';
+import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar() {
   const hamburger = useDisclosure();
@@ -117,15 +113,20 @@ function Navbar() {
                 About
               </Link>
             </NextLink>
-            <NextLink href={'/auth'} passHref>
-              <ButtonBlack as="a">Sign Up</ButtonBlack>
-            </NextLink>
+            {account ? (
+              <>{account}</>
+            ) : (
+              <NextLink href={'/auth'} passHref>
+                <ButtonBlack as="a">Sign Up</ButtonBlack>
+              </NextLink>
+            )}
           </VStack>
         )}
 
         <HStack
           display={{ sm: 'none', md: 'flex' }}
           spacing={{ base: 2, sm: 7 }}
+          mx="auto"
         >
           <NextLink href={'/jobs'} passHref>
             <Link

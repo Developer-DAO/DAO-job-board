@@ -13,8 +13,8 @@ export type Table =
   | 'links';
 
 export type WithTimestamp = {
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
   deleted_at?: Date;
 };
 
@@ -23,7 +23,7 @@ export type CreatedBy = {
 };
 
 export type PrimaryKey = {
-  id: string;
+  id?: string;
 };
 
 export type Application = {

@@ -9,6 +9,7 @@ import {
   ButtonGray,
   ButtonOrange,
 } from '@/styles/ui-components/Chakra-Button';
+
 import {
   Heading,
   Tag,
@@ -20,7 +21,9 @@ import {
   HStack,
   FormLabel,
 } from '@chakra-ui/react';
+
 import type { JobFormData } from '@/types';
+
 type JobSummaryProps = {
   setStep: Dispatch<SetStateAction<number>>;
   setFormData: Dispatch<SetStateAction<JobFormData>>;

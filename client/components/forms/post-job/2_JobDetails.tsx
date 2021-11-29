@@ -13,7 +13,7 @@ import {
   ButtonOrange,
   ButtonBlack,
 } from '@/styles/ui-components/Chakra-Button';
-import type { JobFormData } from '@/types';
+
 import {
   Heading,
   Box,
@@ -28,6 +28,8 @@ import {
   VisuallyHidden,
   FormLabel,
 } from '@chakra-ui/react';
+
+import type { JobFormData } from '@/types';
 
 type JobDetailProps = {
   setStep: Dispatch<SetStateAction<number>>;

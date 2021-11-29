@@ -1,6 +1,6 @@
-import type { Inputs as JobBasicsInputs } from '@/components/post-job/1_JobBasics';
-import type { Inputs as JobDetailsInputs } from '@/components/post-job/2_JobDetails';
-import type { Inputs as JobSummaryInputs } from '@/components/post-job/3_JobSummary';
+import type { Inputs as JobBasicsInputs } from '@/components/forms/post-job/1_JobBasics';
+import type { Inputs as JobDetailsInputs } from '@/components/forms/post-job/2_JobDetails';
+import type { Inputs as JobSummaryInputs } from '@/components/forms/post-job/3_JobSummary';
 import {
   Application,
   CreatedBy,

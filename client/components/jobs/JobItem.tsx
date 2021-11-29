@@ -27,7 +27,7 @@ export default function JobItem() {
     >
       <Box ml="0.5%" maxW="100%">
         <Link
-          href="/jobs/project-1"
+          href="/jobs/username/marketing-manager"
           _hover={{ textDecoration: 'none' }}
           _focus={{ textDecoration: 'none', border: 'none' }}
         >
@@ -37,7 +37,7 @@ export default function JobItem() {
         </Link>
 
         <Link
-          href="/jobs/company-1/marketing-manager"
+          href="/recruiter-name"
           _hover={{ textDecoration: 'none' }}
           _focus={{ textDecoration: 'none', border: 'none' }}
         >
@@ -47,17 +47,17 @@ export default function JobItem() {
               h="45px"
               borderRadius="180px"
               border="1px solid black"
-              src="/ETHEREUM.png"
+              src="/DevDAO.png"
               alt="company"
             />
             <Spacer maxW="5px" />
-            <Heading size="sm">Company Name</Heading>
+            <Heading size="sm">Recruiter Username</Heading>
           </Flex>
         </Link>
       </Box>
 
       <Box ml="0.5%" pb="1%" maxW="100%">
-        <HStack m="auto" mt="2%" columns={3} spacing={1}>
+        <HStack m="auto" mt="2%" columns={3} spacing={5}>
           <Text>Compensation</Text>
           <Text>Remote</Text>
           <Text>Full-Time</Text>
