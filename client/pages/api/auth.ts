@@ -3,6 +3,8 @@ import { utils } from 'ethers';
 import { supabase } from '@/common/supabase';
 import { v4 } from 'uuid';
 
+import { definitions } from '../../types/supabase';
+
 function isAddress(address: string) {
   try {
     utils.getAddress(address);
@@ -29,14 +31,14 @@ export default async function handler(
 
   // This will be used within a session to verify whether the eth-signature is valid for this nonce.
   const user = await supabase
-    .from('users')
-    .select()
+    .from<definitions['users']>('users')
+    .select('*')
     .match({ id: walletAddress })
     .single();
 
   if (user.data) {
     const result = await supabase
-      .from('users')
+      .from<definitions['users']>('users')
       .update({ nonce })
       .eq('id', walletAddress)
       .single();
@@ -48,7 +50,7 @@ export default async function handler(
     return;
   } else {
     const result = await supabase
-      .from('users')
+      .from<definitions['users']>('users')
       .insert({
         id: walletAddress,
         nonce,
