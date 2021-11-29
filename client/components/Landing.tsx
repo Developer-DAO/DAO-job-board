@@ -1,14 +1,13 @@
-import { Image, Heading, Box, Text, Link } from '@chakra-ui/react';
+import { Image, Heading, Box } from '@chakra-ui/react';
 
 import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 
 import {
   ButtonRed,
-  ButtonBlack,
   ButtonGreen,
   ButtonBlue,
-} from '@/styles/ui-components/Chakra-Button';
+} from '../styles/ui-components/Chakra-Button';
 
 export default function Landing() {
   const { t } = useTranslation('common');

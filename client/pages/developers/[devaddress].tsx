@@ -18,9 +18,6 @@ import {
 export default function DeveloperPage() {
   const router = useRouter();
 
-  console.log(router.pathname);
-  console.log(router.query);
-
   return (
     <Box
       display="flex"
