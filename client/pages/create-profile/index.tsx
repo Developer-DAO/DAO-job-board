@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@chakra-ui/button';
-import { StackDivider } from '@chakra-ui/layout';
+import { Grid, GridItem, StackDivider } from '@chakra-ui/layout';
 import AddExperience from '@/components/create-profile/add-experience';
 import AddEducation from '@/components/create-profile/add-education';
 
@@ -62,13 +62,7 @@ export default function CreateProfile() {
     title: '',
     location: '',
     website: '',
-    projects: [
-      {
-        githubUrl: '',
-        title: '',
-        description: '',
-      },
-    ],
+    projects: [],
   });
 
   const { status, name, username, title, location, description, website } =
@@ -102,164 +96,185 @@ export default function CreateProfile() {
   };
 
   return (
-    <Box
-      overflowY="auto"
-      display="flex"
+    <Grid
+      templateColumns="repeat(2, 1fr)"
+      gap={2}
       bg={{ lg: '#ffffff', sm: 'none' }}
-      flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}
       width={{ '2xl': '70%', md: '90%', sm: '100%' }}
       margin="auto"
       boxSizing="border-box"
+      justifyContent="start"
       boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
-      p="0.5%"
+      pt="2%"
+      pl="0.5%"
+      pr="0.5%"
+      pb="0.5%"
       mt="2.5%"
     >
-      <Flex
+      <Container
+        mt={0}
+        overflowY="auto"
         bg="none"
-        direction="column"
+        height="100%"
         width="100%"
         margin="auto"
-        textAlign="center"
         boxSizing="border-box"
         boxShadow="none"
-        flex={1}
       >
-        <Heading size="md">PFP</Heading>
+        <Heading textAlign="center" size="md">
+          Identity
+        </Heading>
+        <Text textAlign="center" mt={5}>
+          PFP
+        </Text>
         <Image
-          w="8rem"
-          h="8rem"
+          w="9rem"
+          h="9rem"
           margin="auto"
-          mt="5%"
           borderRadius="180px"
           src="/DevDAO.png"
           alt="developer"
         />
-        <Heading mt="5%" size="md">
-          Content Visibility
-        </Heading>
-        <Text mt="2.5%" fontSize="xs">
-          Choose what you want people to see on your profile
+        <Text mt={4}>Username</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          Make it easy for people to know it is you (min 3 characters)
         </Text>
+        <InputGroup>
+          <InputLeftAddon>@</InputLeftAddon>
+          <Input
+            placeholder="Write your favorite username"
+            name="username"
+            value={username}
+            onChange={(e) => onChange(e)}
+          />
+        </InputGroup>
 
-        <Stack width="50%" m="auto" mt="5%" textAlign="left" direction="column">
-          <Switch>Basic Details</Switch>
-          <Switch>PFP</Switch>
-          <Switch>Description</Switch>
-          <Switch>Username</Switch>
-          <Switch>Keywords</Switch>
-          <Switch>Experience</Switch>
-          <Switch>Education</Switch>
-        </Stack>
-      </Flex>
+        <Text mt={4}>Professional Title</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          What kind of professional are you? (min 3 characters)
+        </Text>
+        <Input
+          placeholder="Write a profile title e.g. (Developer, Designer, Marketer)"
+          name="title"
+          value={title}
+          onChange={(e) => onChange(e)}
+        />
 
-      <Flex
+        <Text mt={4}>Status</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          Let people know your status at the moment
+        </Text>
+        <Select placeholder="Select Status">
+          <option value="option1">Available Full-Time</option>
+          <option value="option2">Available Part-Time</option>
+          <option value="option3">Looking for Contracts</option>
+          <option value="option3">Looking for Gigs</option>
+          <option value="option3">Not Available</option>
+        </Select>
+
+        <Text mt={4}>Profile Keywords</Text>
+        <Text mt={2} mb={2} fontSize="xs">
+          Keywords help categorize your profile in skills and sectors
+        </Text>
+        <ButtonBlack>Choose Keywords</ButtonBlack>
+      </Container>
+      <Container
+        mt={2}
         bg="none"
-        direction="column"
         width="100%"
         margin="auto"
         boxSizing="border-box"
         boxShadow="none"
-        flex={2}
+        maxW={{ sm: '100%' }}
       >
-        <Box p="0px" mt="5px" maxW={{ sm: '100%' }} display="inline-box">
-          <Heading size="md">Basic Details</Heading>
+        <Heading textAlign="center" size="md">
+          Basic Details
+        </Heading>
 
-          <Text mt="2.5%">Name</Text>
-          <Input
-            placeholder="The name that will be displayed on your profile"
-            name="name"
-            value={name}
-            onChange={(e) => onChange(e)}
-          />
+        <Text mt="2.5%">Name</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          How would you like people to find you?
+        </Text>
+        <Input
+          placeholder="The name that will be displayed on your profile"
+          name="name"
+          value={name}
+          onChange={(e) => onChange(e)}
+        />
 
-          <Text mt="2.5%">Description</Text>
-          <Textarea
-            placeholder="Here goes a brief description of yourself"
-            name="description"
-            value={description}
-            onChange={(e) => onChange(e)}
-          />
+        <Text mt="2.5%">Description</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          Let people know what is going on in your life
+        </Text>
+        <Textarea
+          placeholder="Here goes a brief description of yourself"
+          name="description"
+          value={description}
+          onChange={(e) => onChange(e)}
+        />
 
-          <Heading mt="2.5%" size="md">
-            Identity
-          </Heading>
+        <Text mt="2.5%">Location</Text>
+        <Text mt={2} mb={2} fontSize="sm">
+          Where are you located right now?
+        </Text>
+        <Input
+          placeholder="e.g. Madrid, Spain or Nomad"
+          name="location"
+          value={location}
+          onChange={(e) => onChange(e)}
+        />
 
-          <Text mt="2.5%">Username</Text>
-          <Text fontSize="xs">Make it easy for people to know it is you</Text>
-          <InputGroup>
-            <InputLeftAddon>@</InputLeftAddon>
-            <Input
-              placeholder="Write your favorite username"
-              name="username"
-              value={username}
-              onChange={(e) => onChange(e)}
-            />
-          </InputGroup>
+        <Heading mt={3} textAlign="center" size="md">
+          Links and Socials
+        </Heading>
+        <Text mt="2.5%">Website</Text>
+        <Input
+          placeholder="e.g. developer.com"
+          name="website"
+          value={website}
+          onChange={(e) => onChange(e)}
+        />
 
-          <Text mt="2.5%">Profile Keywords</Text>
-          <Text fontSize="xs">
-            Keywords help categorize your profile in skills and sectors
-          </Text>
-          <ButtonBlack>Choose Keywords</ButtonBlack>
+        <Text mt="2.5%">Social Links</Text>
+        <ButtonBlack>Add Links</ButtonBlack>
 
-          <SimpleGrid
-            mt="15px"
-            templateColumns="repeat(5, 2fr)"
-            autoRows="fit-content"
-            gap="0.5rem"
-            spacing={1}
-          >
-            <Tag
-              w="fit-content"
-              size="md"
-              borderRadius="8px"
-              bgColor="#E2E9F0"
-              color="black"
-            >
-              <TagLabel m="auto">First Keyword</TagLabel>
-            </Tag>
-          </SimpleGrid>
+        <Text mt="2.5%">Projects</Text>
+        <VStack
+          divider={<StackDivider borderColor="gray.200" />}
+          align="stretch"
+          spacing={4}
+        >
+          {formData.projects.map((project, index) => {
+            return (
+              <Flex alignItems="center" justify="space-between" key={index}>
+                <Project
+                  index={index}
+                  changeHandler={projectDataChangeHandler}
+                  title={project.title}
+                  githubUrl={project.githubUrl}
+                  description={project.description}
+                />
+                <DeleteIcon
+                  mt={4}
+                  mr={4}
+                  boxSize={6}
+                  cursor="pointer"
+                  onClick={() => {
+                    const newProjects = [...formData.projects];
+                    newProjects.splice(index, 1);
+                    setFormData({
+                      ...formData,
+                      projects: newProjects,
+                    });
+                  }}
+                />
+              </Flex>
+            );
+          })}
+        </VStack>
 
-          <Text mt="2.5%">Social Links</Text>
-          <ButtonBlack>Add Social Links</ButtonBlack>
-
-          <Text mt="2.5%">Projects</Text>
-          <VStack
-            divider={<StackDivider borderColor="gray.200" />}
-            align="stretch"
-            spacing={4}
-          >
-            {formData.projects.map((project, index) => {
-              return (
-                <Flex justify="space-between" key={index}>
-                  <Project
-                    index={index}
-                    changeHandler={projectDataChangeHandler}
-                    title={project.title}
-                    githubUrl={project.githubUrl}
-                    description={project.description}
-                  />
-                  <DeleteIcon
-                    mt={4}
-                    mr={4}
-                    boxSize={6}
-                    cursor="pointer"
-                    onClick={() => {
-                      const newProjects = [...formData.projects];
-                      newProjects.splice(index, 1);
-                      setFormData({
-                        ...formData,
-                        projects: newProjects,
-                      });
-                    }}
-                  />
-                </Flex>
-              );
-            })}
-          </VStack>
-
-          <Button
-            mt={4}
+        <Box mt={4}>
+          <ButtonBlack
             onClick={() => {
               setFormData({
                 ...formData,
@@ -275,9 +290,25 @@ export default function CreateProfile() {
             }}
           >
             Add Project
-          </Button>
+          </ButtonBlack>
         </Box>
-      </Flex>
-    </Box>
+      </Container>
+      <GridItem width="95%" p={2} colSpan={2} margin="auto">
+        <Button color="white" width="100%" m={4} bg="#38A169" variant="solid">
+          Save Profile
+        </Button>
+        <Button
+          color="white"
+          width="100%"
+          ml={4}
+          mr={4}
+          mb={4}
+          bg="#DD6B20"
+          variant="solid"
+        >
+          Dismiss Changes
+        </Button>
+      </GridItem>
+    </Grid>
   );
 }

@@ -1,5 +1,6 @@
 import { Input } from '@chakra-ui/input';
-import { Box, Flex, Stack, Text } from '@chakra-ui/layout';
+import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/layout';
+import { Textarea } from '@chakra-ui/textarea';
 import React from 'react';
 
 interface ProjectProps {
@@ -18,8 +19,8 @@ const Project: React.FC<ProjectProps> = ({
   changeHandler,
 }) => {
   return (
-    <Stack spacing={2}>
-      <Box>
+    <Grid width="90%" templateColumns="repeat(2, 1fr)" gap={4}>
+      <GridItem w="100%">
         <Text mt={2}>Title</Text>
         <Input
           value={title}
@@ -27,8 +28,8 @@ const Project: React.FC<ProjectProps> = ({
           placeholder="Enter title"
           size="md"
         />
-      </Box>
-      <Box>
+      </GridItem>
+      <GridItem>
         <Text mt={2}>Github URL</Text>
         <Input
           value={githubUrl}
@@ -36,17 +37,17 @@ const Project: React.FC<ProjectProps> = ({
           placeholder="Enter Github URL"
           size="md"
         />
-      </Box>
-      <Box>
+      </GridItem>
+      <GridItem colSpan={2}>
         <Text mt={2}>Description</Text>
-        <Input
+        <Textarea
           value={description}
           onChange={(e) => changeHandler(index, 'description', e.target.value)}
           placeholder="Enter Description"
           size="md"
         />
-      </Box>
-    </Stack>
+      </GridItem>
+    </Grid>
   );
 };
 
