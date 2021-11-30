@@ -2,6 +2,8 @@
 
 DAO Job Board is an open source project, and contributions of any kind are welcome and appreciated. Open issues, bugs, and enhancements are all listed on the [issues](https://github.com/Developer-DAO/DAO-job-board/issues) tab and labeled accordingly. Feel free to open bug tickets and make feature requests. Easy bugs and features will be tagged with the `good first issue` label.
 
+If you're a member of Developer DAO then please request to be invited over into the [GitHub Organization](https://github.com/Developer-DAO), this will allow your pull requests to have Vercel preview builds which makes reviewing pull requests easier. Reach out over Discord on **_#github-org-invitations_** channel at **Development Guild** category
+
 ## Issues
 
 If you encounter a bug, please file a bug report. If you have a feature to request, please open a feature request. If you would like to work on an issue or feature, there is no need to request permission. Please add tests to any new features.
@@ -12,16 +14,20 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
 
 ## Installation
 
-1. Clone this repository and install dependencies.
+1. [Install Yarn](https://classic.yarnpkg.com/lang/en/docs/install) if you haven't already.
+
+2. Clone this repository and install dependencies.
+
    ```bash
    git clone https://github.com/Developer-DAO/DAO-job-board
 
    npm install # or `yarn install`
    ```
 
-2. Ask an invite to the Doppler Developer DAO workspace from [carlomigueldy.eth](https://github.com/carlomigueldy) or [angelgomez.eth](https://github.com/angeljgomezc)
-   
-3. Install Doppler CLI into your local machine
+3. Ask an invite to the Doppler Developer DAO workspace from [carlomigueldy.eth](https://github.com/carlomigueldy) or [angelgomez.eth](https://github.com/angeljgomezc)
+
+4. Install Doppler CLI into your local machine
+
    ```bash
    # [macOS]
    brew install dopplerhq/cli/doppler
@@ -52,27 +58,33 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
    # Fetch and install latest doppler cli
    sudo apt-get update && sudo apt-get install doppler
    ```
+
    For a thorough complete guide, read more from the [official docs](https://docs.doppler.com/docs/enclave-installation).
-   
-4. Verify if Doppler CLI has been installed 
+
+5. Verify if Doppler CLI has been installed
+
    ```bash
    doppler --version
    ```
-   
-5. Authenticate to Doppler.
+
+6. Authenticate to Doppler.
+
    ```bash
    doppler login
    ```
+
    It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
-   
-6. Setting up Doppler. (Select "Development")
+
+7. Setting up Doppler. (Select "Development")
+
    ```bash
    doppler setup
    ```
-   
-7. Start the development server with 
+
+8. Start the development server with
+
    ```bash
    npm run dev # or `yarn dev`
    ```
-   
-8. Open to browser `http://localhost:3000`
+
+9. Open to browser `http://localhost:3000`

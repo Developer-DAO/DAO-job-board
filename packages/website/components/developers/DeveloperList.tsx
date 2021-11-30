@@ -1,4 +1,4 @@
-import { Heading, Box, Grid, Text, Link } from '@chakra-ui/react';
+import { Heading, Box, Grid } from '@chakra-ui/react';
 
 import DeveloperItem from './DeveloperItem';
 
@@ -9,8 +9,9 @@ export default function DeveloperList() {
       <Grid
         templateColumns={{
           '2xl': 'repeat(4, 2fr)',
+          lg: 'repeat(3, 2fr)',
           md: 'repeat(2, 2fr)',
-          sm: 'repeat(2, 1fr)',
+          sm: 'repeat(1, 1fr)',
         }}
         gap="3"
         mx="auto"
