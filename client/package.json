@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "doppler run -c development -- next dev",
+    "generate-types": "doppler run -c development -- openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_PUBLIC_KEY --output ./types/supabase.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -38,6 +39,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.1",
     "eslint-config-prettier": "^8.3.0",
+    "openapi-typescript": "^4.4.0",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   }
