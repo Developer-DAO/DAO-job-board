@@ -24,7 +24,7 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  VStack
+  VStack,
 } from '@chakra-ui/react';
 
 import {
@@ -41,7 +41,7 @@ type Projects = {
   githubUrl: string;
   description: string;
 };
-    
+
 type formData = {
   status: string;
   name: string;
@@ -348,8 +348,8 @@ export default function CreateProfile() {
             </Box>
           </Stack>
         </Flex>
-        
-         <Text size="sm">Projects</Text>
+
+        <Text size="sm">Projects</Text>
         <VStack
           divider={<StackDivider borderColor="gray.200" />}
           align="stretch"
@@ -416,6 +416,6 @@ export default function CreateProfile() {
           <ButtonOrange>Dismiss Changes</ButtonOrange>
         </ButtonGroup>
       </Box>
-    </>    
+    </>
   );
 }

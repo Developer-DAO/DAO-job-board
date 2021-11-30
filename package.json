@@ -2,11 +2,11 @@
   "name": "developerdao-job-board",
   "private": true,
   "scripts": {
-    "dev": "yarn workspace client dev",
-    "build": "yarn workspace client build",
-    "start": "yarn workspace client start",
-    "lint": "yarn workspace client lint && yarn workspace hardhat-project lint",
-    "type-check": "yarn workspace client type-check && yarn workspace hardhat-project type-check",
+    "dev": "yarn workspace website dev",
+    "build": "yarn workspace website build",
+    "start": "yarn workspace website start",
+    "lint": "yarn workspace website lint && yarn workspace hardhat-project lint",
+    "type-check": "yarn workspace website type-check && yarn workspace hardhat-project type-check",
     "prepare": "husky install",
     "chain": "yarn workspace hardhat-project chain",
     "test": "yarn workspace hardhat-project test",
@@ -24,7 +24,6 @@
   },
   "workspaces": {
     "packages": [
-      "./client",
       "./database",
       "packages/*"
     ]
