@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { Button } from '@chakra-ui/button';
 import { Grid, GridItem, StackDivider } from '@chakra-ui/layout';
 import AddExperience from '@/components/create-profile/add-experience';
 import AddEducation from '@/components/create-profile/add-education';
@@ -27,6 +26,7 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
+  VStack
 } from '@chakra-ui/react';
 
 import {
@@ -65,7 +65,6 @@ export default function CreateProfile() {
     location: '',
     website: '',
     projects: [],
-    links: '',
   });
 
   const { status, name, username, title, location, description, website } =
