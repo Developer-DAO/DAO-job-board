@@ -1,13 +1,12 @@
-import { Image, Heading, Box, Text, Link } from '@chakra-ui/react';
+import { Image, Heading, Box } from '@chakra-ui/react';
 
 import NextLink from 'next/link';
 
 import {
   ButtonRed,
-  ButtonBlack,
   ButtonGreen,
   ButtonBlue,
-} from '@/styles/ui-components/Chakra-Button';
+} from '../styles/ui-components/Chakra-Button';
 
 export default function Landing() {
   return (
