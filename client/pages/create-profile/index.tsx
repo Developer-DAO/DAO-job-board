@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { Grid, GridItem, StackDivider } from '@chakra-ui/layout';
+
 //Social Links Components
 import AddLinks from '@/components/modals/AddLinks';
 import LinksSection from '@/components/create-profile/LinksSection';
@@ -21,16 +24,37 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
+  VStack
 } from '@chakra-ui/react';
 
 import {
   ButtonBlack,
   ButtonGreen,
+  ButtonRed,
   ButtonOrange,
-} from '@/styles/ui-components/Chakra-Button';
+} from '../../styles/ui-components/Chakra-Button';
+import Project from '@/components/create-profile/project';
+import { DeleteIcon } from '@chakra-ui/icons';
+
+type Projects = {
+  title: string;
+  githubUrl: string;
+  description: string;
+};
+    
+type formData = {
+  status: string;
+  name: string;
+  username: string;
+  description: string;
+  title: string;
+  location: string;
+  website: string;
+  projects: Projects[];
+};
 
 export default function CreateProfile() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<formData>({
     status: '',
     name: '',
     username: '',
@@ -38,7 +62,7 @@ export default function CreateProfile() {
     title: '',
     location: '',
     website: '',
-    links: '',
+    projects: [],
   });
 
   const { status, name, username, title, location, description, website } =
@@ -99,6 +123,22 @@ export default function CreateProfile() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  };
+
+  const projectDataChangeHandler = (
+    index: number,
+    field: string,
+    value: string
+  ) => {
+    const newProjects = [...formData.projects];
+    newProjects[index] = {
+      ...newProjects[index],
+      [field]: value,
+    };
+    setFormData({
+      ...formData,
+      projects: newProjects,
+    });
   };
 
   return (
@@ -308,6 +348,61 @@ export default function CreateProfile() {
             </Box>
           </Stack>
         </Flex>
+        
+         <Text size="sm">Projects</Text>
+        <VStack
+          divider={<StackDivider borderColor="gray.200" />}
+          align="stretch"
+          spacing={4}
+        >
+          {formData.projects.map((project, index) => {
+            return (
+              <Flex alignItems="center" justify="space-between" key={index}>
+                <Project
+                  index={index}
+                  changeHandler={projectDataChangeHandler}
+                  title={project.title}
+                  githubUrl={project.githubUrl}
+                  description={project.description}
+                />
+                <DeleteIcon
+                  mt={4}
+                  mr={4}
+                  boxSize={6}
+                  cursor="pointer"
+                  onClick={() => {
+                    const newProjects = [...formData.projects];
+                    newProjects.splice(index, 1);
+                    setFormData({
+                      ...formData,
+                      projects: newProjects,
+                    });
+                  }}
+                />
+              </Flex>
+            );
+          })}
+        </VStack>
+
+        <Box mt={4}>
+          <ButtonBlack
+            onClick={() => {
+              setFormData({
+                ...formData,
+                projects: [
+                  ...formData.projects,
+                  {
+                    githubUrl: '',
+                    title: '',
+                    description: '',
+                  },
+                ],
+              });
+            }}
+          >
+            Add Project
+          </ButtonBlack>
+        </Box>
 
         <ButtonGroup
           display="flex"
@@ -321,6 +416,6 @@ export default function CreateProfile() {
           <ButtonOrange>Dismiss Changes</ButtonOrange>
         </ButtonGroup>
       </Box>
-    </>
+    </>    
   );
 }
