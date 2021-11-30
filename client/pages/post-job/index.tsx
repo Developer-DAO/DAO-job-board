@@ -1,72 +1,65 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box } from '@chakra-ui/react';
-import { Keyword } from '@/types';
-
+import dynamic from 'next/dynamic';
 //The number in the file names tell you which step in the form they are
-import JobBasics from '@/components/forms/post-job/1_JobBasics';
-import JobDetails from '@/components/forms/post-job/2_JobDetails';
-import JobSummary from '@/components/forms/post-job/3_JobSummary';
 
+const JobBasics = dynamic(
+  () => import('../../components/forms/post-job/1_JobBasics')
+);
+const JobDetails = dynamic(
+  () => import('../../components/forms/post-job/2_JobDetails')
+);
+const JobSummary = dynamic(
+  () => import('../../components/forms/post-job/3_JobSummary')
+);
+
+import type { JobFormData } from '@/types';
 export default function CreateProject() {
-  const [formData, setFormData] = useState({
-    jobtitle: '',
-    jobdescription: '',
-    jobtype: '',
-    jobposition: '',
-    jobcompensation: '',
-    jobmax: '',
-    jobmin: '',
-    jobequity: '',
-    joblocation: '',
-    jobcontact: '',
+  const [formData, setFormData] = useState<JobFormData>({
+    title: '',
+    description: '',
+    type: '',
+    position: '',
+    compensation: '',
+    max: '',
+    min: '',
+    equity: '',
+    location: '',
+    contact: '',
   });
-
-  //Job Keywords
-  const [jobKeywords, setJobKeywords] = useState<any>();
-
-  //Page States will change depending on whether the user clicks on Continue or Back
-  const [basicsPage, setBasicsPage] = useState(true);
-  const [detailsPage, setDetailsPage] = useState(false);
-  const [summaryPage, setSummaryPage] = useState(false);
-
-  //Change Page on Click - either to Continue or go Back to previous components
-  const goToBasics = () => {
-    setBasicsPage(true);
-    setDetailsPage(false);
-    setSummaryPage(false);
+  const [step, setStep] = useState(1);
+  const createJob = () => {
+    console.log(formData);
   };
+  let Form: null | JSX.Element = null;
 
-  const goToDetails = () => {
-    setDetailsPage(true);
-    setBasicsPage(false);
-    setSummaryPage(false);
-  };
-
-  const goToSummary = () => {
-    setSummaryPage(true);
-    setDetailsPage(false);
-  };
-
-  //Sent to JobBasics as a way to get out of Create Gig page.
-  const router = useRouter();
-  const goBack = () => {
-    router.back();
-  };
-
-  // Handles state changes for inputs, selectors, and textarea
-  const onChange = (e: React.FormEvent) =>
-    setFormData({
-      ...formData,
-      [(e.target as HTMLTextAreaElement).name]: (
-        e.target as HTMLTextAreaElement
-      ).value,
-    });
-
-  //Sends data to database (sent to JobSummary as props)
-  const createJob = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
+  if (step == 2) {
+    Form = (
+      <JobDetails
+        setStep={setStep}
+        setFormData={setFormData}
+        formData={formData}
+      />
+    );
+  } else if (step == 3) {
+    Form = (
+      <JobSummary
+        setStep={setStep}
+        setFormData={setFormData}
+        formData={formData}
+        createJob={createJob}
+      />
+    );
+  } else {
+    Form = (
+      <JobBasics
+        setStep={setStep}
+        setFormData={setFormData}
+        formData={formData}
+      />
+    );
+  }
 
   return (
     <Box
@@ -76,39 +69,9 @@ export default function CreateProject() {
       boxSizing="border-box"
       p="0.5%"
       borderRadius="18px"
+      mt="2.5%"
     >
-      <form>
-        {basicsPage ? (
-          <JobBasics
-            goToDetails={goToDetails}
-            goBack={goBack}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
-
-        {detailsPage ? (
-          <JobDetails
-            goToBasics={goToBasics}
-            goToSummary={goToSummary}
-            jobKeywords={jobKeywords as Keyword[]}
-            setJobKeywords={setJobKeywords}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
-
-        {summaryPage ? (
-          <JobSummary
-            formData={formData}
-            jobKeywords={jobKeywords as any}
-            goToDetails={goToDetails}
-            goToBasics={goToBasics}
-            createJob={createJob}
-            onChange={onChange}
-          />
-        ) : null}
-      </form>
+      {Form}
     </Box>
   );
 }
