@@ -14,7 +14,8 @@ import {
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-import { ButtonBlue } from '@/styles/ui-components/Chakra-Button';
+import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
+import React from 'react';
 
 export default function DeveloperItem() {
   return (
@@ -70,7 +71,7 @@ export default function DeveloperItem() {
       </HStack>
 
       <NextLink href={'/developers/developer1'} passHref>
-        <ButtonBlue>See Profile</ButtonBlue>
+        <ButtonGreen>See Profile</ButtonGreen>
       </NextLink>
     </Box>
   );
