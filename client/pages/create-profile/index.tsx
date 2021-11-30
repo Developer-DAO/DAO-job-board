@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 import { Grid, GridItem, StackDivider } from '@chakra-ui/layout';
-import AddExperience from '@/components/create-profile/add-experience';
-import AddEducation from '@/components/create-profile/add-education';
 
 //Social Links Components
 import AddLinks from '@/components/modals/AddLinks';
