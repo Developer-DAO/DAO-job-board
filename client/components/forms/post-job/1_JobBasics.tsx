@@ -1,13 +1,5 @@
-import { Dispatch, SetStateAction } from 'react';
-import {
-  TextInput,
-  Select,
-  Textarea,
-  FormControl,
-} from '@/components/form-elements';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
+import React, { useState } from 'react';
+import { GetStaticProps } from 'next';
 
 // UI & CSS
 import {
@@ -17,169 +9,180 @@ import {
 
 import {
   Heading,
+  Input,
+  Textarea,
+  Select,
   Container,
-  Box,
   Text,
   ButtonGroup,
-  FormLabel,
-  VisuallyHidden,
+  Stack,
 } from '@chakra-ui/react';
 
-import type { JobFormData } from '@/types';
-
 type JobBasicProps = {
-  setStep: Dispatch<SetStateAction<number>>;
-  setFormData: Dispatch<SetStateAction<JobFormData>>;
-  formData: JobFormData;
+  goToDetails: () => void;
+  goBack: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobposition: string;
+    jobtype: string;
+  };
 };
 
-const schema = z.object({
-  title: z.string().min(10, 'minimum required length is 10'),
-  position: z.string().min(1, 'this field is required'),
-  type: z.string().min(1, 'this field is required'),
-  description: z.string().min(100, 'minimum required length is 100'),
-});
+export default function JobBasics({
+  goToDetails,
+  goBack,
+  formData,
+  onChange,
+}: JobBasicProps) {
+  //Active state makes inputs red if data is not correct
+  const [wrongTitle, setWrongTitle] = useState(false);
+  const [wrongDescription, setWrongDescription] = useState(false);
 
-export type Inputs = z.infer<typeof schema>;
+  const { jobtitle, jobdescription, jobposition, jobtype } = formData;
 
-export default function JobBasics(props: JobBasicProps) {
-  const { setFormData, setStep, formData } = props;
-  const { title, position, type, description } = formData;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>({
-    resolver: zodResolver(schema),
-    defaultValues: { title, position, type, description },
-  });
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setFormData((prev) => {
-      return { ...prev, ...data };
-    });
-    setStep((prev) => {
-      return prev + 1;
-    });
+  const nextPage = () => {
+    if (jobtitle.length >= 7 && jobdescription.length >= 100) {
+      goToDetails();
+    } else if (!jobtitle && !jobdescription) {
+      setWrongDescription(true);
+      setWrongTitle(true);
+    } else if (
+      (jobtitle.length >= 10 && jobdescription.length < 100) ||
+      !jobdescription
+    ) {
+      setWrongTitle(false);
+      setWrongDescription(true);
+    } else if (
+      (jobdescription.length >= 100 && jobtitle.length < 10) ||
+      !jobtitle
+    ) {
+      setWrongDescription(false);
+      setWrongTitle(true);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         <Heading color="black">Job Basics</Heading>
         <Text color="black" as="i">
           Let us know what type of professional you are looking for
         </Text>
       </Container>
-      <Box maxW="100%">
+
+      <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           Write a clear title for your job post
         </Heading>
-        <FormControl errors={errors.title}>
-          <VisuallyHidden>
-            <FormLabel htmlFor="title">Job title</FormLabel>
-          </VisuallyHidden>
-          <TextInput
-            id="title"
-            bgColor="white"
-            bg="white"
-            color="black"
-            _hover={{ borderColor: '#97c0e6' }}
-            placeholder="e.g. Full-Stack Blockchain Engineer"
-            name="title"
-            register={register}
-            errors={errors.title}
-          />
-        </FormControl>
+        <Input
+          borderColor={`${!wrongTitle ? '#e2e8f0' : 'red'}`}
+          bgColor="white"
+          bg="white"
+          color="black"
+          _hover={{ borderColor: '#97c0e6' }}
+          minLength={7}
+          placeholder="e.g. Full-Stack Blockchain Engineer"
+          name="jobtitle"
+          value={jobtitle}
+          onChange={(e) => onChange(e)}
+        />
+
+        {!wrongTitle ? (
+          <Text fontSize="xs">At least 10 characters</Text>
+        ) : (
+          <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
+            Make sure title is at least 10 characters long
+          </Text>
+        )}
 
         <br />
 
         <Heading mb="5px" fontSize="md" textAlign="left">
           Pick a job position
         </Heading>
-        <FormControl errors={errors.position}>
-          <VisuallyHidden>
-            <FormLabel htmlFor="position">Job Positions</FormLabel>
-          </VisuallyHidden>
-          <Select
-            id="position"
-            bgColor="white"
-            bg="white"
-            borderColor="#e2e8f0"
-            _hover={{ borderColor: '#97c0e6' }}
-            name="position"
-            register={register}
-            errors={errors.position}
-            placeholder="Select Job Positions"
-          >
-            {[
-              'Co-Founder',
-              'Engineering',
-              'Marketing',
-              'Sales',
-              'Design',
-              'Community',
-              'Art',
-              'Customer Support',
-              'Writing',
-              'Other',
-            ].map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </Select>
-        </FormControl>
+        <Select
+          bgColor="white"
+          bg="white"
+          borderColor="#e2e8f0"
+          _hover={{ borderColor: '#97c0e6' }}
+          name="jobposition"
+          value={jobposition}
+          onChange={(e) => onChange(e)}
+        >
+          <option value="" disabled hidden>
+            Select Job Positions
+          </option>
+          <option value="Co-Founder">Co-Founder</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Sales">Sales</option>
+          <option value="Design">Design</option>
+          <option value="Community">Community</option>
+          <option value="Art">Art</option>
+          <option value="Customer Support">Customer Support</option>
+          <option value="Writing">Writing</option>
+          <option value="Other">Other</option>
+        </Select>
+
         <br />
+
         <Heading mb="5px" fontSize="md" textAlign="left">
           What type of job is it?
         </Heading>
-        <FormControl errors={errors.type}>
-          <VisuallyHidden>
-            <FormLabel htmlFor="type">Job Positions</FormLabel>
-          </VisuallyHidden>
-          <Select
-            id="type"
-            bgColor="white"
-            bg="white"
-            borderColor="#e2e8f0"
-            _hover={{ borderColor: '#97c0e6' }}
-            name="type"
-            register={register}
-            errors={errors.type}
-            placeholder="Select Job Positions"
-          >
-            {['Full-Time', 'Part-Time', 'Contract', 'Paid Internship'].map(
-              (option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              )
-            )}
-          </Select>
-        </FormControl>
+        <Select
+          borderColor="#e2e8f0"
+          _hover={{ borderColor: '#97c0e6' }}
+          name="jobtype"
+          value={jobtype}
+          onChange={(e) => onChange(e)}
+          bg="white"
+        >
+          <option value="" disabled hidden>
+            Select Type of Job
+          </option>
+          <option value="Full-Time">Full-Time</option>
+          <option value="Part-Time">Part-Time</option>
+          <option value="Contract">Contract</option>
+          <option value="Paid Internship">Paid Internship</option>
+        </Select>
+
         <br />
+
         <Heading mb="5px" fontSize="md" textAlign="left">
           Describe the job
         </Heading>
-        <FormControl errors={errors.description}>
-          <VisuallyHidden>
-            <FormLabel htmlFor="description">Job description</FormLabel>
-          </VisuallyHidden>
-          <Textarea
-            id="description"
-            bgColor="white"
-            _hover={{ borderColor: '#97c0e6' }}
-            name="description"
-            register={register}
-            errors={errors.description}
-            placeholder="e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years..."
-          />
-        </FormControl>
-      </Box>
+        <Textarea
+          borderColor={`${!wrongDescription ? '#e2e8f0' : 'red'}`}
+          bgColor="white"
+          _hover={{ borderColor: '#97c0e6' }}
+          minLength={100}
+          placeholder="e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years..."
+          name="jobdescription"
+          value={jobdescription}
+          onChange={(e) => onChange(e)}
+        />
+
+        {!wrongDescription ? (
+          <Text fontSize="xs">At least 100 characters</Text>
+        ) : (
+          <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
+            Make sure description is at least 100 characters long{' '}
+          </Text>
+        )}
+      </Stack>
+
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen type="submit">Continue</ButtonGreen>
-        <ButtonOrange>Cancel</ButtonOrange>
+        <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
+        <ButtonOrange onClick={goBack}>Cancel</ButtonOrange>
       </ButtonGroup>
-    </form>
+    </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData },
+  };
+};
