@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { Box } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
@@ -112,3 +114,9 @@ export default function CreateProject() {
     </Box>
   );
 }
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});

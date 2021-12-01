@@ -1,11 +1,14 @@
 import { Heading, Box, Grid } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 
 import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
+  const { t } = useTranslation('common');
+
   return (
     <Box maxW={{ lg: '70%', md: '100%' }} textAlign="center" m="auto">
-      <Heading>Dev List</Heading>
+      <Heading>{t('components.developers.developer_list.dev_list')}</Heading>
       <Grid
         templateColumns={{
           '2xl': 'repeat(4, 2fr)',

@@ -16,8 +16,11 @@ import {
 } from '@chakra-ui/react';
 import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
 
 export default function DeveloperItem() {
+  const { t } = useTranslation('common');
+
   return (
     <Box
       bg="#ffffff"
@@ -71,7 +74,9 @@ export default function DeveloperItem() {
       </HStack>
 
       <NextLink href={'/developers/developer1'} passHref>
-        <ButtonGreen>See Profile</ButtonGreen>
+        <ButtonGreen>
+          {t('components.developers.developer_item.button_text')}
+        </ButtonGreen>
       </NextLink>
     </Box>
   );
