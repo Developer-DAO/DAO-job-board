@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Grid, GridItem, StackDivider } from '@chakra-ui/layout';
+import { StackDivider } from '@chakra-ui/layout';
 
 //Social Links Components
 import AddLinks from '@/components/modals/AddLinks';
@@ -24,13 +24,12 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  VStack
+  VStack,
 } from '@chakra-ui/react';
 
 import {
   ButtonBlack,
   ButtonGreen,
-  ButtonRed,
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
 import Project from '@/components/create-profile/project';
@@ -41,7 +40,7 @@ type Projects = {
   githubUrl: string;
   description: string;
 };
-    
+
 type formData = {
   status: string;
   name: string;
@@ -348,8 +347,8 @@ export default function CreateProfile() {
             </Box>
           </Stack>
         </Flex>
-        
-         <Text size="sm">Projects</Text>
+
+        <Text size="sm">Projects</Text>
         <VStack
           divider={<StackDivider borderColor="gray.200" />}
           align="stretch"
@@ -416,6 +415,6 @@ export default function CreateProfile() {
           <ButtonOrange>Dismiss Changes</ButtonOrange>
         </ButtonGroup>
       </Box>
-    </>    
+    </>
   );
 }
