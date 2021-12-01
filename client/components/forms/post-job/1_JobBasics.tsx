@@ -17,6 +17,7 @@ import {
   ButtonGroup,
   Stack,
 } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 
 type JobBasicProps = {
   goToDetails: () => void;
@@ -36,6 +37,8 @@ export default function JobBasics({
   formData,
   onChange,
 }: JobBasicProps) {
+  const { t } = useTranslation('common');
+
   //Active state makes inputs red if data is not correct
   const [wrongTitle, setWrongTitle] = useState(false);
   const [wrongDescription, setWrongDescription] = useState(false);
@@ -66,15 +69,17 @@ export default function JobBasics({
   return (
     <>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
-        <Heading color="black">Job Basics</Heading>
+        <Heading color="black">
+          {t('components.forms.post_job.job_basics.header')}
+        </Heading>
         <Text color="black" as="i">
-          Let us know what type of professional you are looking for
+          {t('components.forms.post_job.job_basics.sub_header')}
         </Text>
       </Container>
 
       <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
-          Write a clear title for your job post
+          {t('components.forms.post_job.job_basics.title_header')}
         </Heading>
         <Input
           borderColor={`${!wrongTitle ? '#e2e8f0' : 'red'}`}
@@ -83,24 +88,32 @@ export default function JobBasics({
           color="black"
           _hover={{ borderColor: '#97c0e6' }}
           minLength={7}
-          placeholder="e.g. Full-Stack Blockchain Engineer"
+          placeholder={t(
+            'components.forms.post_job.job_basics.title_placeholder'
+          )}
           name="jobtitle"
           value={jobtitle}
           onChange={(e) => onChange(e)}
         />
 
         {!wrongTitle ? (
-          <Text fontSize="xs">At least 10 characters</Text>
+          <Text fontSize="xs">
+            {t('components.forms.post_job.job_basics.char_min_title', {
+              count: 10,
+            })}
+          </Text>
         ) : (
           <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
-            Make sure title is at least 10 characters long
+            {t('components.forms.post_job.job_basics.char_min_title_error', {
+              count: 10,
+            })}
           </Text>
         )}
 
         <br />
 
         <Heading mb="5px" fontSize="md" textAlign="left">
-          Pick a job position
+          {t('components.forms.post_job.job_basics.position_header')}
         </Heading>
         <Select
           bgColor="white"
@@ -112,7 +125,7 @@ export default function JobBasics({
           onChange={(e) => onChange(e)}
         >
           <option value="" disabled hidden>
-            Select Job Positions
+            {t('components.forms.post_job.job_basics.title_placeholder')}
           </option>
           <option value="Co-Founder">Co-Founder</option>
           <option value="Engineering">Engineering</option>
@@ -129,7 +142,7 @@ export default function JobBasics({
         <br />
 
         <Heading mb="5px" fontSize="md" textAlign="left">
-          What type of job is it?
+          {t('components.forms.post_job.job_basics.type_header')}
         </Heading>
         <Select
           borderColor="#e2e8f0"
@@ -140,7 +153,7 @@ export default function JobBasics({
           bg="white"
         >
           <option value="" disabled hidden>
-            Select Type of Job
+            {t('components.forms.post_job.job_basics.select_default')}
           </option>
           <option value="Full-Time">Full-Time</option>
           <option value="Part-Time">Part-Time</option>
@@ -151,31 +164,44 @@ export default function JobBasics({
         <br />
 
         <Heading mb="5px" fontSize="md" textAlign="left">
-          Describe the job
+          {t('components.forms.post_job.job_basics.description_header')}
         </Heading>
         <Textarea
           borderColor={`${!wrongDescription ? '#e2e8f0' : 'red'}`}
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
           minLength={100}
-          placeholder="e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years..."
+          placeholder={t(
+            'components.forms.post_job.job_basics.description_placeholder'
+          )}
           name="jobdescription"
           value={jobdescription}
           onChange={(e) => onChange(e)}
         />
 
         {!wrongDescription ? (
-          <Text fontSize="xs">At least 100 characters</Text>
+          <Text fontSize="xs">
+            {t('components.forms.post_job.job_basics.char_min_description', {
+              count: 100,
+            })}
+          </Text>
         ) : (
           <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
-            Make sure description is at least 100 characters long{' '}
+            {t(
+              'components.forms.post_job.job_basics.char_min_description_error',
+              { count: 100 }
+            )}
           </Text>
         )}
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
-        <ButtonOrange onClick={goBack}>Cancel</ButtonOrange>
+        <ButtonGreen onClick={nextPage}>
+          {t('components.forms.post_job.job_basics.continue_button_text')}
+        </ButtonGreen>
+        <ButtonOrange onClick={goBack}>
+          {t('components.forms.post_job.job_basics.cancel_button_text')}
+        </ButtonOrange>
       </ButtonGroup>
     </>
   );

@@ -35,6 +35,8 @@ import {
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 type Projects = {
   title: string;
   githubUrl: string;
@@ -418,3 +420,9 @@ export default function CreateProfile() {
     </>
   );
 }
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
