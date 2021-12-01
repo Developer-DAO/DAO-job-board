@@ -131,6 +131,15 @@
         "ideas",
         "test"
       ]
+    },
+    {
+      "login": "jamesnicholls04",
+      "name": "jazza.eth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68249898?v=4",
+      "profile": "https://github.com/jamesnicholls04",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
