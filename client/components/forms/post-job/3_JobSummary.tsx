@@ -1,8 +1,9 @@
-import { useState, Dispatch, SetStateAction } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { TextInput, FormControl } from '@/components/form-elements';
-import * as z from 'zod';
+import { GetStaticProps } from 'next';
+import { useState } from 'react';
+
+import KeywordsSection from '../KeywordsSection';
+import { Keyword } from '@/types';
+
 // UI & CSS
 import {
   ButtonBlue,
@@ -11,176 +12,175 @@ import {
 } from '@/styles/ui-components/Chakra-Button';
 
 import {
+  Box,
   Heading,
-  Tag,
-  VisuallyHidden,
+  Stack,
+  Input,
   Container,
   Text,
   ButtonGroup,
-  TagLabel,
-  HStack,
-  FormLabel,
 } from '@chakra-ui/react';
 
-import type { JobFormData } from '@/types';
-
 type JobSummaryProps = {
-  setStep: Dispatch<SetStateAction<number>>;
-  setFormData: Dispatch<SetStateAction<JobFormData>>;
-  formData: JobFormData;
-  createJob: () => void;
+  goToBasics: () => void;
+  goToDetails: () => void;
+  onChange: (e: React.FormEvent) => void;
+  formData: {
+    jobtitle: string;
+    jobdescription: string;
+    jobtype: string;
+    jobposition: string;
+    jobcompensation: string;
+    jobmin: string;
+    jobmax: string;
+    jobequity: string;
+    joblocation: string;
+    jobcontact: string;
+  };
+  createJob: (e: React.FormEvent) => void;
+  jobKeywords: Keyword[];
 };
 
-const schema = z.object({
-  contact: z.string().min(1, 'this field is required'),
-});
-
-export type Inputs = z.infer<typeof schema>;
-
-export default function JobSummary(props: JobSummaryProps) {
+export default function GigSummary({
+  formData,
+  jobKeywords,
+  goToDetails,
+  onChange,
+  createJob,
+  goToBasics,
+}: JobSummaryProps) {
   //Active state makes inputs red if data is not correct
-  const { setFormData, setStep, formData, createJob } = props;
-  const {
-    title,
-    description,
-    type,
-    position,
-    compensation,
-    min,
-    max,
-    equity,
-    location,
-    contact,
-  } = formData;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>({
-    resolver: zodResolver(schema),
-    defaultValues: { contact },
-  });
+  const [wrongData, setWrongData] = useState(false);
 
-  const goToDetails = () => {
-    setStep(2);
-  };
-  const goToBasics = () => {
-    setStep(1);
-  };
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setFormData((prev) => {
-      return { ...prev, ...data };
-    });
-    createJob();
+  const {
+    jobtitle,
+    jobdescription,
+    jobtype,
+    jobposition,
+    jobcompensation,
+    jobmin,
+    jobmax,
+    jobequity,
+    joblocation,
+    jobcontact,
+  } = formData;
+
+  const sendJobData = (e: React.FormEvent) => {
+    if (jobcontact) {
+      createJob(e);
+    } else {
+      setWrongData(true);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         <Heading>Job Summary</Heading>
         <Text>Check that everything is correct (click edit if not)</Text>
       </Container>
 
-      <Container margin="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">Job Basics</Heading>
-        <ButtonGray onClick={goToBasics}>Edit</ButtonGray>
-      </Container>
-
-      <Container maxW="100%">
-        <Heading fontSize="sm">Job Name:</Heading> {title}
-        <br />
-        <br />
-        <Heading fontSize="sm">Job Description:</Heading> {description}
-        <br />
-        <br />
-        {position && (
-          <>
-            <Heading fontSize="sm">Job Position:</Heading> {position}
-          </>
-        )}
-        <br />
-        <br />
-        {type && (
-          <>
-            <Heading fontSize="sm">Job Type:</Heading> {type}
-          </>
-        )}
-      </Container>
-
-      <br />
-
-      <Container margin="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">Job Details</Heading>
-        <ButtonGray onClick={goToDetails}>Edit</ButtonGray>
-      </Container>
-
-      <Container maxW="100%">
-        <Heading fontSize="sm">Category:</Heading>
-        <HStack spacing={4} mt="2.5%" mb="2.5%">
-          <Tag size="md" borderRadius="full" variant="solid" color="black">
-            <TagLabel>Keyword</TagLabel>
-          </Tag>
-        </HStack>
-
-        {compensation && min && max ? (
-          <>
-            <Heading fontSize="sm">Job Compensation:</Heading> {min}-{max}{' '}
-            {compensation}
-          </>
-        ) : null}
-
-        <br />
-        <br />
-
-        {equity ? (
-          <>
-            <Heading fontSize="sm">Equity Offer:</Heading> {equity}
-          </>
-        ) : null}
-
-        <br />
-        <br />
-
-        {location ? (
-          <>
-            <Heading fontSize="sm">Job Location:</Heading> {location}
-          </>
-        ) : null}
-
-        <br />
-        <br />
-
-        <Heading fontSize="md">
-          How should people contact you or your company?
+      <Container m="auto" textAlign="center" maxW="100%">
+        <Heading fontSize="lg">
+          Job Basics <ButtonGray onClick={goToBasics}>Edit</ButtonGray>
         </Heading>
-        <Text fontSize="xs" textAlign="left" mb="2.5%">
-          Write your website job post link or an email
-        </Text>
-        <FormControl errors={errors.contact}>
-          <VisuallyHidden>
-            <FormLabel htmlFor="contact">Job contact link or email</FormLabel>
-          </VisuallyHidden>
-          <TextInput
-            id="contact"
+      </Container>
+
+      <Stack spacing={3} p={2} maxW="100%">
+        {jobtitle && (
+          <>
+            <Heading fontSize="sm">Job Name:</Heading> {jobtitle}
+          </>
+        )}
+
+        {jobdescription && (
+          <>
+            <Heading fontSize="sm">Job Description:</Heading> {jobdescription}
+          </>
+        )}
+
+        {jobposition && (
+          <>
+            <Heading fontSize="sm">Job Position:</Heading> {jobposition}
+          </>
+        )}
+
+        {jobtype && (
+          <>
+            <Heading fontSize="sm">Job Type:</Heading> {jobtype}
+          </>
+        )}
+      </Stack>
+
+      <Container margin="auto" textAlign="center" maxW="100%">
+        <Heading fontSize="lg">
+          Job Details <ButtonGray onClick={goToDetails}>Edit</ButtonGray>
+        </Heading>
+      </Container>
+
+      <Stack spacing={5} p={2} maxW="100%">
+        <Heading fontSize="sm">Keywords:</Heading>
+
+        <KeywordsSection
+          keywordsData={jobKeywords}
+          templateColumns="repeat(3, 3fr)"
+        />
+
+        {jobcompensation && (
+          <>
+            <Heading fontSize="sm">Job Compensation:</Heading> {jobmin}-{jobmax}{' '}
+            {jobcompensation}
+          </>
+        )}
+
+        {jobequity ? (
+          <>
+            <Heading fontSize="sm">Equity Offer:</Heading> {jobequity}
+          </>
+        ) : null}
+
+        {joblocation ? (
+          <>
+            <Heading fontSize="sm">Job Location:</Heading> {joblocation}
+          </>
+        ) : null}
+        <Box>
+          <Heading fontSize="md">
+            How should people contact you or your organization?
+          </Heading>
+          <Text fontSize="xs" textAlign="left" mb="1%">
+            Write your website job post link or an email
+          </Text>
+          <Input
+            borderColor={`${!wrongData ? '#e2e8f0' : 'red'}`}
             bgColor="white"
-            bg="white"
             color="black"
             _hover={{ borderColor: '#97c0e6' }}
             placeholder="e.g. www.company.com/job or company@email.com"
-            name="contact"
-            register={register}
-            errors={errors.contact}
+            _placeholder={{ color: 'black' }}
+            name="jobcontact"
+            value={jobcontact}
+            onChange={(e) => onChange(e)}
           />
-        </FormControl>
-      </Container>
-
-      <br />
+          {wrongData ? (
+            <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
+              Add an email or website link
+            </Text>
+          ) : null}
+        </Box>
+      </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonBlue type="submit">Post Job</ButtonBlue>
+        <ButtonBlue onClick={(e) => sendJobData(e)}>Post Job</ButtonBlue>
 
         <ButtonOrange onClick={goToDetails}>Back</ButtonOrange>
       </ButtonGroup>
-    </form>
+    </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { FormData },
+  };
+};

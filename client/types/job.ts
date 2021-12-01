@@ -1,6 +1,3 @@
-import type { Inputs as JobBasicsInputs } from '@/components/forms/post-job/1_JobBasics';
-import type { Inputs as JobDetailsInputs } from '@/components/forms/post-job/2_JobDetails';
-import type { Inputs as JobSummaryInputs } from '@/components/forms/post-job/3_JobSummary';
 import {
   Application,
   CreatedBy,
@@ -47,5 +44,3 @@ export type JobApplicationForm = Pick<
   JobApplication,
   'job_id' | 'pitch' | 'content' | 'status' | 'created_by'
 >;
-
-export type JobFormData = JobBasicsInputs & JobDetailsInputs & JobSummaryInputs;
