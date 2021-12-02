@@ -1,12 +1,12 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
-import Navbar from '../components/navigation/Navbar';
+import Navbar from '@/components/navigation/Navbar';
+import Sidebar from '@/components/navigation/sidebar';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { theme } from '../styles/theme';
 import { DAppProvider } from '@usedapp/core';
 
 import { AuthProvider } from '@/hooks/useAuth';
 import { appWithTranslation } from 'next-i18next';
-
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ChakraProvider theme={theme}>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Navbar />
+          <Sidebar />
           <Component {...pageProps} />
         </ChakraProvider>
       </DAppProvider>

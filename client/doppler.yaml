@@ -1,2 +1,3 @@
 setup:
   project: dao-job-board
+  config: dev

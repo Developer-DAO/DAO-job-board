@@ -2,8 +2,9 @@ import NextLink from 'next/link';
 
 import {
   chakra,
+  Box,
   Link,
-  Flex,
+  Heading,
   HStack,
   Image,
   VStack,
@@ -22,34 +23,36 @@ function Navbar() {
   const { account } = useEthers();
 
   return (
-    <chakra.nav borderBottom="1px solid" borderColor="gray.200">
-      <Flex
+    <chakra.nav bgColor="white" borderBottom="1px solid" borderColor="gray.200">
+      <HStack
         justify="space-between"
-        maxW={{ lg: '70%', md: '100%' }}
+        maxW="100%"
         align="center"
         mx="auto"
         py={3}
         px={5}
       >
-        <NextLink href={'/'} passHref>
-          <HStack as="a" display="flex" alignItems="center">
-            <Image
-              borderRadius="full"
-              boxSize="30px"
-              alt="Home"
-              src="/DevDAO.png"
-            />
-            <chakra.span
-              fontWeight="bold"
-              fontSize="sm"
-              color="gray.600"
-              transition="color 300ms ease-in-out"
-              _hover={{ color: 'black' }}
-            >
-              Job Board
-            </chakra.span>
-          </HStack>
-        </NextLink>
+        <Box w="14%" borderRight="1px solid" borderColor="gray.200">
+          <NextLink href={'/'} passHref>
+            <HStack as="a" display="flex" alignItems="center">
+              <Image
+                borderRadius="full"
+                boxSize="30px"
+                alt="Home"
+                src="/DevDAO.png"
+              />
+              <chakra.span
+                fontWeight="bold"
+                fontSize="sm"
+                color="gray.600"
+                transition="color 300ms ease-in-out"
+                _hover={{ color: 'black' }}
+              >
+                Job Board
+              </chakra.span>
+            </HStack>
+          </NextLink>
+        </Box>
 
         <IconButton
           aria-label={hamburger.isOpen ? 'Close menu' : 'Open menu'}
@@ -128,39 +131,7 @@ function Navbar() {
           spacing={{ base: 2, sm: 7 }}
           mx="auto"
         >
-          <NextLink href={'/jobs'} passHref>
-            <Link
-              color="black"
-              p="0.45rem"
-              borderRadius="18px"
-              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-              _focus={{ textDecoration: 'none', border: 'none' }}
-            >
-              Jobs
-            </Link>
-          </NextLink>
-          <NextLink href={'/developers'} passHref>
-            <Link
-              color="black"
-              p="0.45rem"
-              borderRadius="18px"
-              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-              _focus={{ textDecoration: 'none', border: 'none' }}
-            >
-              Devs
-            </Link>
-          </NextLink>
-          <NextLink href={'/about'} passHref>
-            <Link
-              color="black"
-              p="0.45rem"
-              borderRadius="18px"
-              _hover={{ textDecoration: 'none', bgColor: '#e2e8f0' }}
-              _focus={{ textDecoration: 'none', border: 'none' }}
-            >
-              About
-            </Link>
-          </NextLink>
+          <Heading>Developers</Heading>
         </HStack>
 
         {account ? (
@@ -172,7 +143,7 @@ function Navbar() {
             </Link>
           </NextLink>
         )}
-      </Flex>
+      </HStack>
     </chakra.nav>
   );
 }
