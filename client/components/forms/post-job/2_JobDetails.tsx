@@ -60,7 +60,7 @@ export default function GigDetails({
 
   //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
-    if (jobKeywords.length > 0) {
+    if (jobKeywords != null && jobKeywords.length > 0) {
       goToSummary();
     } else {
       setWrongData(true);
@@ -179,7 +179,7 @@ export default function GigDetails({
           _hover={{ borderColor: '#97c0e6' }}
           _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder="Min"
+          placeholder={t('components.forms.post_job.job_details.min')}
           name="jobmin"
           value={jobmin}
           onChange={(e) => onChange(e)}
@@ -193,7 +193,7 @@ export default function GigDetails({
           _hover={{ borderColor: '#97c0e6' }}
           _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder="Max"
+          placeholder={t('components.forms.post_job.job_details.max')}
           name="jobmax"
           value={jobmax}
           onChange={(e) => onChange(e)}

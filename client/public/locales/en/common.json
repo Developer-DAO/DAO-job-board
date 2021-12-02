@@ -66,7 +66,9 @@
           "equity_default": "Equity Range",
           "location_header": "Location (optional)",
           "location_sub_header": "Defaults to remote if empty",
-          "location_placeholder": "e.g California, US"
+          "location_placeholder": "e.g California, US",
+          "min": "Min",
+          "max": "Max"
         }
       }
     }
