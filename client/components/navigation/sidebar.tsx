@@ -14,6 +14,10 @@ import NextLink from 'next/link';
 
 import { CloseIcon } from '@chakra-ui/icons';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
+
 export default function Sidebar() {
   const sidebar = useDisclosure();
 
@@ -23,12 +27,11 @@ export default function Sidebar() {
       color="black"
       bg="white"
       h="100vh"
-      w="15%"
+      w="250px"
       p="1%"
       overflow="none"
       borderRight="1px solid"
       borderColor="gray.200"
-      spacing={5}
     >
       <IconButton
         aria-label="Close Sidebar"
@@ -41,6 +44,7 @@ export default function Sidebar() {
         color="black"
         _hover={{ bg: 'none' }}
       />
+
       <Stack borderWidth="0px" w="100%">
         <Heading
           color="gray.300"
@@ -65,7 +69,7 @@ export default function Sidebar() {
             _focus={{ textDecoration: 'none', border: 'none' }}
             transition="0.2s"
           >
-            Devs
+            <FontAwesomeIcon icon={faUsers} /> Devs
           </Link>
         </NextLink>
       </Stack>
@@ -94,7 +98,33 @@ export default function Sidebar() {
             _focus={{ textDecoration: 'none', border: 'none' }}
             transition="0.2s"
           >
-            Jobs List
+            <FontAwesomeIcon icon={faClipboardList} /> Jobs List
+          </Link>
+        </NextLink>
+      </Stack>
+
+      <Stack
+        borderWidth="0px"
+        w="110%"
+        borderTop="1px solid"
+        borderColor="gray.200"
+        textAlign="center"
+      >
+        <NextLink href={'/jobs'} passHref>
+          <Link
+            color="gray.400"
+            p="0.45rem"
+            w="100%"
+            borderRadius="0px"
+            _hover={{
+              textDecoration: 'none',
+              color: 'black',
+              borderLeft: '5px solid #4E00EC',
+            }}
+            _focus={{ textDecoration: 'none', border: 'none' }}
+            transition="0.2s"
+          >
+            <FontAwesomeIcon icon={faClipboardList} /> Jobs List
           </Link>
         </NextLink>
       </Stack>
