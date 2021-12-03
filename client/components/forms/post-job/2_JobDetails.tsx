@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
+import { useTranslation } from 'next-i18next';
+
 import { Keyword } from '@/types';
 
 //Keywords Components
@@ -48,6 +50,8 @@ export default function GigDetails({
   jobKeywords,
   setJobKeywords,
 }: JobDetailProps) {
+  const { t } = useTranslation('common');
+
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
@@ -56,7 +60,7 @@ export default function GigDetails({
 
   //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
-    if (jobKeywords.length > 0) {
+    if (jobKeywords != null && jobKeywords.length > 0) {
       goToSummary();
     } else {
       setWrongData(true);
@@ -100,29 +104,33 @@ export default function GigDetails({
 
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         {' '}
-        <Heading color="black">Job Details</Heading>
+        <Heading color="black">
+          {t('components.forms.post_job.job_details.header')}
+        </Heading>
         <Text color="black" as="i">
-          Define the job category, compensation, and location
+          {t('components.forms.post_job.job_details.sub_header')}
         </Text>
       </Container>
 
       <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
-          Pick a job keyword category
+          {t('components.forms.post_job.job_details.category_header')}
         </Heading>
 
         {!wrongData ? (
           <Text fontSize="xs" textAlign="left">
-            Keywords help categorize your job post (pick at least 3)
+            {t('components.forms.post_job.job_details.category_sub_header')}
           </Text>
         ) : (
           <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
-            Make sure to pick at least 3 keywords
+            {t('components.forms.post_job.job_details.category_error')}
           </Text>
         )}
 
         <Container>
-          <ButtonBlack onClick={openKeywordModal}>Select Keywords</ButtonBlack>
+          <ButtonBlack onClick={openKeywordModal}>
+            {t('components.forms.post_job.job_details.keyword_button_text')}
+          </ButtonBlack>
         </Container>
 
         <KeywordsSection
@@ -131,10 +139,10 @@ export default function GigDetails({
         />
 
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
-          Explain compensation (optional)
+          {t('components.forms.post_job.job_details.compensation_header')}
         </Heading>
         <Text fontSize="xs" textAlign="left" mb="2.5%">
-          Jobs with compensation info get more applications
+          {t('components.forms.post_job.job_details.compensation_sub_header')}
         </Text>
         <Select
           position="static"
@@ -147,7 +155,7 @@ export default function GigDetails({
           onChange={(e) => onChange(e)}
         >
           <option value="" disabled hidden>
-            Token / Currency
+            {t('components.forms.post_job.job_details.token_default')}
           </option>
           <optgroup label="Crypto">
             <option value="ETH">ETH</option>
@@ -171,7 +179,7 @@ export default function GigDetails({
           _hover={{ borderColor: '#97c0e6' }}
           _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder="Min"
+          placeholder={t('components.forms.post_job.job_details.min')}
           name="jobmin"
           value={jobmin}
           onChange={(e) => onChange(e)}
@@ -185,7 +193,7 @@ export default function GigDetails({
           _hover={{ borderColor: '#97c0e6' }}
           _placeholder={{ color: 'black' }}
           w="50%"
-          placeholder="Max"
+          placeholder={t('components.forms.post_job.job_details.max')}
           name="jobmax"
           value={jobmax}
           onChange={(e) => onChange(e)}
@@ -193,7 +201,7 @@ export default function GigDetails({
         />
 
         <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
-          Do you offer equity? (optional)
+          {t('components.forms.post_job.job_details.equity_header')}
         </Heading>
 
         <Select
@@ -207,7 +215,7 @@ export default function GigDetails({
           name="jobequity"
         >
           <option value="" disabled selected hidden>
-            Equity Range
+            {t('components.forms.post_job.job_details.equity_default')}
           </option>
           <option value="0.01-1%">0.01-1%</option>
           <option value="1%-2%">1%-2%</option>
@@ -216,10 +224,10 @@ export default function GigDetails({
         </Select>
 
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
-          Location (optional)
+          {t('components.forms.post_job.job_details.location_header')}
         </Heading>
         <Text fontSize="xs" textAlign="left" mb="1%">
-          Defaults to remote if empty
+          {t('components.forms.post_job.job_details.location_sub_header')}
         </Text>
         <Input
           position="static"
@@ -231,13 +239,19 @@ export default function GigDetails({
           onChange={(e) => onChange(e)}
           value={joblocation}
           name="joblocation"
-          placeholder="e.g California, US"
+          placeholder={t(
+            'components.forms.post_job.job_details.location_placeholder'
+          )}
         />
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen onClick={nextPage}>Continue</ButtonGreen>
-        <ButtonOrange onClick={goToBasics}>Back</ButtonOrange>
+        <ButtonGreen onClick={nextPage}>
+          {t('components.forms.post_job.continue_button_text')}
+        </ButtonGreen>
+        <ButtonOrange onClick={goToBasics}>
+          {t('components.forms.post_job.back_button_text')}
+        </ButtonOrange>
       </ButtonGroup>
     </>
   );

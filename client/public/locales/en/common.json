@@ -33,6 +33,9 @@
     },
     "forms": {
       "post_job": {
+        "continue_button_text": "Continue",
+        "cancel_button_text": "Cancel",
+        "back_button_text": "Back",
         "job_basics": {
           "header": "Job Basics",
           "sub_header": "Let us know what type of professional you are looking for",
@@ -47,9 +50,25 @@
           "description_header": "Describe the job",
           "description_placeholder": "e.g. We are looking for an experienced full-stack blockhain engineer with at least 3 years...",
           "char_min_description": "At least {{count}} characters",
-          "char_min_description_error": "Make sure description is at least {{count}} characters long",
-          "continue_button_text": "Continue",
-          "cancel_button_text": "Cancel"
+          "char_min_description_error": "Make sure description is at least {{count}} characters long"
+        },
+        "job_details": {
+          "header": "Job Details",
+          "sub_header": "Define the job category, compensation, and location",
+          "category_header": "Pick a job keyword category",
+          "category_sub_header": "Keywords help categorize your job post (pick at least 3)",
+          "category_error": "Make sure to pick at least 3 keywords",
+          "keyword_button_text": "Select Keywords",
+          "compensation_header": "Explain compensation (optional)",
+          "compensation_sub_header": "Jobs with compensation info get more applications",
+          "token_default": "Token / Currency",
+          "equity_header": "Do you offer equity? (optional)",
+          "equity_default": "Equity Range",
+          "location_header": "Location (optional)",
+          "location_sub_header": "Defaults to remote if empty",
+          "location_placeholder": "e.g California, US",
+          "min": "Min",
+          "max": "Max"
         }
       }
     }
