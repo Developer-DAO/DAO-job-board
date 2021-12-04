@@ -10,9 +10,6 @@ import {
   Flex,
   IconButton,
   Image,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Text,
   useColorModeValue,
   useDisclosure,
@@ -22,11 +19,9 @@ import NextLink from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {
-  faClipboardList,
-  faUsers,
-  faSearch,
-} from '@fortawesome/free-solid-svg-icons';
+import Navbar from './Navbar';
+
+import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export default function Dashboard() {
   const sidebar = useDisclosure();
@@ -152,7 +147,10 @@ export default function Dashboard() {
 
   return (
     <Box as="section" minH="100vh" w="100%" pos="fixed">
-      <SidebarContent display={{ sm: 'none', md: 'unset' }} />
+      <SidebarContent
+        display={{ lg: 'unset', md: 'none', sm: 'none' }}
+        transition="0.5s ease"
+      />
       <Drawer
         isOpen={sidebar.isOpen}
         onClose={sidebar.onClose}
@@ -164,42 +162,7 @@ export default function Dashboard() {
         </DrawerContent>
       </Drawer>
 
-      <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
-        <Flex
-          as="header"
-          align="center"
-          justify="space-between"
-          w="full"
-          px="4"
-          bg="white"
-          borderBottomWidth="1px"
-          borderColor={useColorModeValue('inherit', 'gray.700')}
-          h="14"
-        >
-          <IconButton
-            aria-label="Menu"
-            display={{ base: 'inline-flex', md: 'none' }}
-            onClick={sidebar.onOpen}
-            size="sm"
-          />
-          <InputGroup w="96" display={{ base: 'none', md: 'flex' }}>
-            <InputLeftElement color="gray.500">
-              <FontAwesomeIcon icon={faSearch} />
-            </InputLeftElement>
-            <Input placeholder="Search for jobs..." />
-          </InputGroup>
-
-          <Flex align="center">
-            <Avatar
-              ml="4"
-              size="sm"
-              name="anubra266"
-              src="https://avatars.githubusercontent.com/u/30869823?v=4"
-              cursor="pointer"
-            />
-          </Flex>
-        </Flex>
-      </Box>
+      <Navbar sidebar={sidebar} />
     </Box>
   );
 }
