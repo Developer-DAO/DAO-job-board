@@ -23,5 +23,5 @@ export default function NavTitle() {
     }
   };
 
-  return <Text>{TitleContent}</Text>;
+  return <Text>{TitleContent()}</Text>;
 }
