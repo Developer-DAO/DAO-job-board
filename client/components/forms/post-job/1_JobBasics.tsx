@@ -68,7 +68,11 @@ export default function JobBasics({
 
   return (
     <>
-      <Container textAlign="center" mt="2.5%" mb="2.5%">
+      <Container
+        textAlign="center"
+        mt={{ '2xl': '5%', lg: '5%', sm: '10%' }}
+        mb="2.5%"
+      >
         <Heading color="black">
           {t('components.forms.post_job.job_basics.header')}
         </Heading>
@@ -125,7 +129,7 @@ export default function JobBasics({
           onChange={(e) => onChange(e)}
         >
           <option value="" disabled hidden>
-            {t('components.forms.post_job.job_basics.title_placeholder')}
+            {t('components.forms.post_job.job_basics.position_default')}
           </option>
           <option value="Co-Founder">Co-Founder</option>
           <option value="Engineering">Engineering</option>
