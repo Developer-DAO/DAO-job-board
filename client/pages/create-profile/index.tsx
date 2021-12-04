@@ -185,7 +185,6 @@ export default function CreateProfile() {
         boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
         bg={{ lg: '#ffffff', sm: 'none' }}
         p="2%"
-        mt="2.5%"
       >
         <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
           <Stack direction="column" textAlign="center" flex={2} spacing={5}>

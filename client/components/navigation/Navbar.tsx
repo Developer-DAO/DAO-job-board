@@ -51,7 +51,7 @@ function Navbar({ sidebar }: any) {
           <Flex align="center">
             <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
             <Text
-              w={200}
+              w={100}
               overflow="hidden"
               wordWrap="none"
               textOverflow="ellipsis"

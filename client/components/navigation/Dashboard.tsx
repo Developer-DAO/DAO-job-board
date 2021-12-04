@@ -48,16 +48,26 @@ export default function Dashboard() {
         h="14"
         m="auto"
       >
-        <Text m="auto" color="gray.500" fontFamily="Calibri" display="flex">
-          <Image
-            src="./DevDAO.png"
-            w="7"
-            h="7"
-            borderRadius="180px"
-            marginX="1"
-          />
-          Job Board
-        </Text>
+        <NextLink href="/" passHref>
+          <Link
+            _hover={{
+              textDecoration: 'none',
+            }}
+            m="auto"
+            color="gray.500"
+            fontFamily="Calibri"
+            display="flex"
+          >
+            <Image
+              src="./DevDAO.png"
+              w="7"
+              h="7"
+              borderRadius="180px"
+              marginX="1"
+            />
+            Job Board
+          </Link>
+        </NextLink>
       </Flex>
 
       <Stack
@@ -143,7 +153,7 @@ export default function Dashboard() {
   );
 
   return (
-    <Box as="section" minH="100vh" w="100%" pos="fixed">
+    <Box as="section" w="100%" pos="fixed">
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none' }}
         transition="0.5s ease"
