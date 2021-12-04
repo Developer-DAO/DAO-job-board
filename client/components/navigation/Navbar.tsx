@@ -1,5 +1,7 @@
 import NextLink from 'next/link';
 
+import NavTitle from './NavTitle';
+
 import {
   Box,
   Avatar,
@@ -39,8 +41,10 @@ function Navbar({ sidebar }: any) {
           icon={<HamburgerIcon />}
         />
 
-        <Text m="auto" w="96" display={{ lg: 'block', sm: 'none' }}>
-          <Heading size="md">Developers</Heading>
+        <Text m="none" w="96">
+          <Heading size="md" textAlign={{ lg: 'left', md: 'center' }}>
+            <NavTitle />
+          </Heading>
         </Text>
 
         {account ? (

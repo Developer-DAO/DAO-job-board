@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Stack,
   Box,
   Link,
@@ -8,10 +7,8 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
-  IconButton,
   Image,
   Text,
-  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
 
