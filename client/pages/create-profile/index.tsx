@@ -32,7 +32,7 @@ import {
   ButtonGreen,
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
-import AddAvatar from './add-avatar';
+import AddAvatar from '../../components/create-profile/AddAvatar';
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
 
