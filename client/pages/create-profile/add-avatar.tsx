@@ -57,6 +57,10 @@ const AddAvatar = ({ src }: addAvatarProps) => {
         const cid = await web3Storage.put([tempFile], {
           maxRetries: 3,
         });
+        /*
+         * TODO:
+         * - Add the cid to the database
+         */
         setFile(`${IPFS_ENDPOINT}/${cid}/${tempFile.name}`);
         toggleHover();
         onClose();

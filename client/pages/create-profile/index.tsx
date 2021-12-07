@@ -194,14 +194,7 @@ export default function CreateProfile() {
 
             <Box m="auto">
               <Text size="md">PFP</Text>
-              <Image
-                w="8rem"
-                h="8rem"
-                margin="auto"
-                borderRadius="180px"
-                src="/DevDAO.png"
-                alt="developer"
-              />
+              <AddAvatar src="/DevDAO.png" />
             </Box>
 
             <Stack direction="column" textAlign="left" spacing={2}>
