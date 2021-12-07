@@ -19,7 +19,7 @@ import {
   ButtonGreen,
 } from '../../styles/ui-components/Chakra-Button';
 
-type addAvatarProps = {
+type AddAvatarProps = {
   src: string;
 };
 
@@ -33,7 +33,7 @@ const circularStyles = {
 
 const IPFS_ENDPOINT = 'https://ipfs.io/ipfs';
 
-const AddAvatar = ({ src }: addAvatarProps) => {
+const AddAvatar = ({ src }: AddAvatarProps) => {
   const [hoverImage, setHoverImage] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [file, setFile] = useState<string>();
