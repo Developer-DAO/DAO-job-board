@@ -1,4 +1,7 @@
-import { Image, Heading, Container, Text, Link } from '@chakra-ui/react';
+import { Image, Heading, Box } from '@chakra-ui/react';
+
+import { useTranslation } from 'next-i18next';
+import NextLink from 'next/link';
 
 import {
   ButtonRed,
@@ -7,9 +10,11 @@ import {
 } from '../styles/ui-components/Chakra-Button';
 
 export default function Landing() {
+  const { t } = useTranslation('common');
+
   return (
-    <Container>
-      <Container w="auto" h="auto" m="auto" mt="2.5%">
+    <Box>
+      <Box w="auto" h="auto" m="auto" mt="2.5%">
         <Image
           borderRadius="180px"
           w="200"
@@ -18,35 +23,27 @@ export default function Landing() {
           alt="icon"
           m="auto"
         />
-      </Container>
+      </Box>
 
-      <Container textAlign="center">
+      <Box textAlign="center">
         <Heading m="10px" fontSize="28px">
-          Looking for Web3 talent?
+          {t('landing.looking_for_talent')}
         </Heading>
-        <Link href="/developers">
-          <ButtonGreen>Search Devs</ButtonGreen>
-        </Link>
+        <NextLink href="/developers">
+          <ButtonGreen as="a">{t('landing.search_devs')}</ButtonGreen>
+        </NextLink>
 
-        <Link href="/post-job">
-          <ButtonBlue>Post a Job</ButtonBlue>
-        </Link>
-
-        <Link href="/post-gig">
-          <ButtonRed>Post a Gig</ButtonRed>
-        </Link>
+        <NextLink href="/post-job">
+          <ButtonBlue as="a">{t('landing.post_job')}</ButtonBlue>
+        </NextLink>
 
         <Heading m="10px" fontSize="28px">
-          Looking for Web3 work?
+          {t('landing.looking_for_work')}
         </Heading>
-        <Link href="/jobs">
-          <ButtonGreen>Search Gigs</ButtonGreen>
-        </Link>
-
-        <Link href="/gigs">
-          <ButtonRed>Search Gigs</ButtonRed>
-        </Link>
-      </Container>
-    </Container>
+        <NextLink href="/jobs">
+          <ButtonRed as="a">{t('landing.search_jobs')}</ButtonRed>
+        </NextLink>
+      </Box>
+    </Box>
   );
 }

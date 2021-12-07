@@ -1,0 +1,154 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "carlomigueldy",
+      "name": "Carlo Miguel Dy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45052332?v=4",
+      "profile": "https://linktr.ee/carlomigueldy",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
+    },
+    {
+      "login": "angeljgomezc",
+      "name": "Angel Gomez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53134194?v=4",
+      "profile": "http://www.angelgomez.tech",
+      "contributions": [
+        "code",
+        "maintenance",
+        "bug"
+      ]
+    },
+    {
+      "login": "Dhaiwat10",
+      "name": "Dhaiwat Pandya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39617427?v=4",
+      "profile": "http://dhaiwat.com",
+      "contributions": [
+        "code",
+        "maintenance",
+        "ideas"
+      ]
+    },
+    {
+      "login": "with-heart",
+      "name": "with-heart",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1954752?v=4",
+      "profile": "https://with-heart.me/",
+      "contributions": [
+        "maintenance",
+        "mentoring"
+      ]
+    },
+    {
+      "login": "frankTurtle",
+      "name": "B Nobel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5667044?v=4",
+      "profile": "https://web3jobz.com",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "Nazeeh21",
+      "name": "Nazeeh Vahora",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56908732?v=4",
+      "profile": "https://nazeeh.dev/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kasthor",
+      "name": "Giancarlo Palavicini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/221603?v=4",
+      "profile": "http://kasthor.com",
+      "contributions": [
+        "code",
+        "translation"
+      ]
+    },
+    {
+      "login": "swetshaw",
+      "name": "Sweta Shaw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26214362?v=4",
+      "profile": "https://github.com/swetshaw",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "PBillingsby",
+      "name": "Phil B",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45179070?v=4",
+      "profile": "https://www.linkedin.com/in/phil-billingsby/",
+      "contributions": [
+        "ideas",
+        "code",
+        "translation"
+      ]
+    },
+    {
+      "login": "JoviDeCroock",
+      "name": "Jovi De Croock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17125876?v=4",
+      "profile": "https://www.jovidecroock.com/",
+      "contributions": [
+        "code",
+        "infra"
+      ]
+    },
+    {
+      "login": "miralsuthar",
+      "name": "Miral Suthar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57826091?v=4",
+      "profile": "https://github.com/miralsuthar",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "G3root",
+      "name": "Nafees Nazik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/84864519?v=4",
+      "profile": "https://github.com/G3root",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "UnwrittenTech",
+      "name": "Zubar Miah",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5767901?v=4",
+      "profile": "https://github.com/UnwrittenTech",
+      "contributions": [
+        "ideas",
+        "test"
+      ]
+    },
+    {
+      "login": "jamesnicholls04",
+      "name": "jazza.eth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68249898?v=4",
+      "profile": "https://github.com/jamesnicholls04",
+      "contributions": [
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "DAO-job-board",
+  "projectOwner": "Developer-DAO",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

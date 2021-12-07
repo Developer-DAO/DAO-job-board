@@ -5,14 +5,28 @@
     "dev": "yarn workspace client dev",
     "build": "yarn workspace client build",
     "start": "yarn workspace client start",
-    "lint": "yarn workspace client lint",
-    "type-check": "yarn workspace client type-check",
-    "prepare": "husky install"
+    "lint": "yarn workspace client lint && yarn workspace hardhat-project lint",
+    "type-check": "yarn workspace client type-check && yarn workspace hardhat-project type-check",
+    "prepare": "husky install",
+    "chain": "yarn workspace hardhat-project chain",
+    "test": "yarn workspace hardhat-project test",
+    "deploy": "yarn workspace hardhat-project deploy",
+    "deploy:local": "yarn workspace hardhat-project deploy:local",
+    "deploy:rinkeby": "yarn workspace hardhat-project deploy:rinkeby",
+    "deploy:mainnet": "yarn workspace hardhat-project deploy:mainnet",
+    "compile": "yarn workspace hardhat-project compile",
+    "prettier": "yarn workspace hardhat-project prettier",
+    "accounts": "yarn workspace hardhat-project accounts",
+    "clean": "yarn workspace hardhat-project clean",
+    "coverage": "yarn workspace hardhat-project coverage",
+    "eslint": "yarn workspace hardhat-project eslint",
+    "solhint": "yarn workspace hardhat-project solhint"
   },
   "workspaces": {
     "packages": [
       "./client",
-      "./database"
+      "./database",
+      "packages/*"
     ]
   },
   "devDependencies": {
@@ -29,5 +43,8 @@
     "*.{ts,tsx,md,json}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "ts-node": "^10.4.0"
   }
 }

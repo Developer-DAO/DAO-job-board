@@ -1,3 +1,5 @@
+import NextLink from 'next/link';
+
 //CSS and UI
 import {
   Box,
@@ -8,15 +10,19 @@ import {
   Link,
   Image,
   SimpleGrid,
+  HStack,
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-
-import { ButtonBlue } from '../../styles/ui-components/Chakra-Button';
+import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
+import React from 'react';
+import { useTranslation } from 'next-i18next';
 
 export default function DeveloperItem() {
+  const { t } = useTranslation('common');
+
   return (
-    <Container
+    <Box
       bg="#ffffff"
       w="100%"
       margin="auto"
@@ -26,31 +32,33 @@ export default function DeveloperItem() {
       p="2%"
       borderRadius="12px"
     >
-      <Link
-        href="/developers/developer1"
-        _hover={{ textDecoration: 'none' }}
-        _focus={{ textDecoration: 'none', border: 'none' }}
-      >
-        <Heading size="md" mb="5px">
-          Developer #1
-        </Heading>
-        <Container m="auto" w="fit-content">
-          <Image
-            w="6rem"
-            h="6rem"
-            mb="2.5px"
-            borderRadius="full"
-            border="1px solid black"
-            src="/DevDAO.png"
-            alt="developer"
-          />
-        </Container>
-        <Text as="i" mb="5px">
-          Available
-        </Text>
-      </Link>
+      <NextLink href={'/developers/developer1'} passHref>
+        <Link
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ textDecoration: 'none' }}
+        >
+          <Box m="auto" w="fit-content">
+            <Heading size="md" mb="5px">
+              Developer #1
+            </Heading>
+            <Image
+              m="auto"
+              w="6rem"
+              h="6rem"
+              mb="2.5px"
+              borderRadius="full"
+              border="1px solid black"
+              src="/DevDAO.png"
+              alt="developer"
+            />
+            <Text as="i" mb="5px">
+              Available
+            </Text>
+          </Box>
+        </Link>
+      </NextLink>
 
-      <SimpleGrid m="auto" mt="5px" columns={3} spacing={1} w="100%">
+      <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
         <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
           <TagLabel m="auto">Web3</TagLabel>
         </Tag>
@@ -60,11 +68,16 @@ export default function DeveloperItem() {
         <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
           <TagLabel m="auto">Rust</TagLabel>
         </Tag>
-      </SimpleGrid>
+        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
+          <TagLabel m="auto">ThreeJS</TagLabel>
+        </Tag>
+      </HStack>
 
-      <Container mt="2.5%" mb="2.5%">
-        <ButtonBlue>See Profile</ButtonBlue>
-      </Container>
-    </Container>
+      <NextLink href={'/developers/developer1'} passHref>
+        <ButtonGreen>
+          {t('components.developers.developer_item.button_text')}
+        </ButtonGreen>
+      </NextLink>
+    </Box>
   );
 }
