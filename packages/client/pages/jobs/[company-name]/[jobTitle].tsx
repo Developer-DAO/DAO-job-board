@@ -27,7 +27,6 @@ export default function JobDetails() {
     <Stack
       maxW={{ sm: '100%', lg: '70%' }}
       mx="auto"
-      mt={8}
       px={3}
       as="main"
       align={{ sm: 'center', lg: 'flex-start' }}

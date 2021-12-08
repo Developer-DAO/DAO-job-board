@@ -33,6 +33,7 @@ import {
   ButtonOrange,
 } from '../../styles/ui-components/Chakra-Button';
 import AddAvatar from '../../components/create-profile/AddAvatar';
+
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
 
@@ -186,7 +187,8 @@ export default function CreateProfile() {
         boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
         bg={{ lg: '#ffffff', sm: 'none' }}
         p="2%"
-        mt="2.5%"
+        pos="relative"
+        top="50"
       >
         <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
           <Stack direction="column" textAlign="center" flex={2} spacing={5}>

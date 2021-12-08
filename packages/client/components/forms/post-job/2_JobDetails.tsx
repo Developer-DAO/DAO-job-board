@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
-
 import { Keyword } from '@/types';
 
 //Keywords Components
@@ -61,6 +60,7 @@ export default function GigDetails({
   //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
     if (jobKeywords != null && jobKeywords.length > 0) {
+
       goToSummary();
     } else {
       setWrongData(true);
@@ -109,12 +109,14 @@ export default function GigDetails({
         </Heading>
         <Text color="black" as="i">
           {t('components.forms.post_job.job_details.sub_header')}
+
         </Text>
       </Container>
 
       <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.category_header')}
+
         </Heading>
 
         {!wrongData ? (
@@ -124,6 +126,7 @@ export default function GigDetails({
         ) : (
           <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
             {t('components.forms.post_job.job_details.category_error')}
+
           </Text>
         )}
 
@@ -131,6 +134,7 @@ export default function GigDetails({
           <ButtonBlack onClick={openKeywordModal}>
             {t('components.forms.post_job.job_details.keyword_button_text')}
           </ButtonBlack>
+
         </Container>
 
         <KeywordsSection
@@ -143,6 +147,7 @@ export default function GigDetails({
         </Heading>
         <Text fontSize="xs" textAlign="left" mb="2.5%">
           {t('components.forms.post_job.job_details.compensation_sub_header')}
+
         </Text>
         <Select
           position="static"
@@ -156,6 +161,7 @@ export default function GigDetails({
         >
           <option value="" disabled hidden>
             {t('components.forms.post_job.job_details.token_default')}
+
           </option>
           <optgroup label="Crypto">
             <option value="ETH">ETH</option>
@@ -180,6 +186,7 @@ export default function GigDetails({
           _placeholder={{ color: 'black' }}
           w="50%"
           placeholder={t('components.forms.post_job.job_details.min')}
+
           name="jobmin"
           value={jobmin}
           onChange={(e) => onChange(e)}
@@ -194,6 +201,7 @@ export default function GigDetails({
           _placeholder={{ color: 'black' }}
           w="50%"
           placeholder={t('components.forms.post_job.job_details.max')}
+
           name="jobmax"
           value={jobmax}
           onChange={(e) => onChange(e)}
@@ -202,6 +210,7 @@ export default function GigDetails({
 
         <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.equity_header')}
+
         </Heading>
 
         <Select
@@ -216,6 +225,7 @@ export default function GigDetails({
         >
           <option value="" disabled selected hidden>
             {t('components.forms.post_job.job_details.equity_default')}
+
           </option>
           <option value="0.01-1%">0.01-1%</option>
           <option value="1%-2%">1%-2%</option>
@@ -242,6 +252,7 @@ export default function GigDetails({
           placeholder={t(
             'components.forms.post_job.job_details.location_placeholder'
           )}
+
         />
       </Stack>
 
@@ -252,6 +263,7 @@ export default function GigDetails({
         <ButtonOrange onClick={goToBasics}>
           {t('components.forms.post_job.back_button_text')}
         </ButtonOrange>
+
       </ButtonGroup>
     </>
   );
