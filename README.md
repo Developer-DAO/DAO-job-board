@@ -1,9 +1,7 @@
 # DAO-job-board
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -77,6 +75,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/G3root"><img src="https://avatars.githubusercontent.com/u/84864519?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nafees Nazik</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=G3root" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/UnwrittenTech"><img src="https://avatars.githubusercontent.com/u/5767901?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zubar Miah</b></sub></a><br /><a href="#ideas-UnwrittenTech" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=UnwrittenTech" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/jamesnicholls04"><img src="https://avatars.githubusercontent.com/u/68249898?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jazza.eth</b></sub></a><br /><a href="#design-jamesnicholls04" title="Design">🎨</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/diegoalzate"><img src="https://avatars.githubusercontent.com/u/22416585?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Diego Alzate</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=diegoalzate" title="Code">💻</a></td>
   </tr>
 </table>
 
