@@ -7,7 +7,6 @@ import { DAppProvider } from '@usedapp/core';
 import { AuthProvider } from '@/hooks/useAuth';
 import { appWithTranslation } from 'next-i18next';
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>

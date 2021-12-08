@@ -62,22 +62,27 @@ In order to create a pull request for DAO Job Board, follow the GitHub instructi
    For a thorough complete guide, read more from the [official docs](https://docs.doppler.com/docs/enclave-installation).
 
 5. Verify if Doppler CLI has been installed
+
    ```bash
    doppler --version
    ```
 
 6. Authenticate to Doppler.
+
    ```bash
    doppler login
    ```
+
    It will ask you to open a URL and gives you a auth code, so make sure to copy that and paste it into Doppler, and from there select "Developer DAO" workspace when it asks you to select one.
 
 7. Setting up Doppler. (Select "Development")
+
    ```bash
    doppler setup
    ```
 
 8. Start the development server with
+
    ```bash
    npm run dev # or `yarn dev`
    ```
