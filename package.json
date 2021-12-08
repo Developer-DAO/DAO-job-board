@@ -24,7 +24,6 @@
   },
   "workspaces": {
     "packages": [
-      "./client",
       "./database",
       "packages/*"
     ]
