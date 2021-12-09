@@ -6,6 +6,7 @@
     "build": "yarn workspace client build",
     "start": "yarn workspace client start",
     "lint": "yarn workspace client lint && yarn workspace hardhat-project lint",
+    "storybook": "yarn workspace client storybook",
     "type-check": "yarn workspace client type-check && yarn workspace hardhat-project type-check",
     "prepare": "husky install",
     "chain": "yarn workspace hardhat-project chain",
