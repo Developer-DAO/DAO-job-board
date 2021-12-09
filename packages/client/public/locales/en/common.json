@@ -69,7 +69,43 @@
           "location_placeholder": "e.g California, US",
           "min": "Min",
           "max": "Max"
+        },
+        "job_summary": {
+          "header": "Job Summary",
+          "header_sub_text": "Check that everything is correct (click edit if not)",
+          "job_basics": "Job Basics",
+          "edit_button_text": "Edit",
+          "job_name": "Job Name:",
+          "job_description": "Job Description:",
+          "job_position": "Job Position:",
+          "job_type": "Job Type:",
+          "job_details": "Job Details",
+          "keywords": "Keywords:",
+          "job_compensation": "Job Compensation:",
+          "job_equity": "Equity Offer:",
+          "job_location": "Job Location:",
+          "contact_header": "How should people contact you or your organization?",
+          "contact_sub_text": "Write your website job post link or an email",
+          "contact_placeholder": "e.g. www.company.com/job or company@email.com",
+          "add_email_or_site": "Add an email or website link",
+          "post_job": "Post Job",
+          "back_button_text": "Back"
         }
+      }
+    },
+    "jobs": {
+      "job_filter": {
+        "placeholder": "Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)"
+      }
+    },
+    "navigation": {
+      "navbar": {
+        "alt_home": "Home",
+        "job_board": "Job Board",
+        "jobs": "Jobs",
+        "devs": "Devs",
+        "about": "About",
+        "sign_up": "Sign Up"
       }
     }
   }
