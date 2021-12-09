@@ -2,11 +2,14 @@ import { PrimaryKey, WithTimestamp } from './common';
 
 export type User = PrimaryKey & {
   avatar_url?: string;
-  cover_photo_url?: string;
   nonce?: string;
-  email: string;
   username?: string;
-  preferences?: string;
+  name?: string;
+  description?: string;
+  title?: string;
+  status?: string;
+  location?: string;
+  website?: string;
   disabled_at?: Date;
 } & WithTimestamp;
 
@@ -17,5 +20,12 @@ export type UserKeyword = {
 
 export type UserForm = Pick<
   User,
-  'avatar_url' | 'cover_photo_url' | 'email' | 'username' | 'preferences'
+  | 'avatar_url'
+  | 'username'
+  | 'name'
+  | 'description'
+  | 'title'
+  | 'status'
+  | 'location'
+  | 'website'
 >;
