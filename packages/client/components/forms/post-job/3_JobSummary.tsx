@@ -21,6 +21,8 @@ import {
   ButtonGroup,
 } from '@chakra-ui/react';
 
+import { useTranslation } from 'next-i18next';
+
 type JobSummaryProps = {
   goToBasics: () => void;
   goToDetails: () => void;
@@ -49,6 +51,8 @@ export default function GigSummary({
   createJob,
   goToBasics,
 }: JobSummaryProps) {
+  const { t } = useTranslation('common');
+
   //Active state makes inputs red if data is not correct
   const [wrongData, setWrongData] = useState(false);
 
@@ -76,50 +80,72 @@ export default function GigSummary({
   return (
     <>
       <Container textAlign="center" mt="2.5%" mb="2.5%">
-        <Heading>Job Summary</Heading>
-        <Text>Check that everything is correct (click edit if not)</Text>
+        <Heading>{t('components.forms.post_job.job_summary.header')}</Heading>
+        <Text>
+          {t('components.forms.post_job.job_summary.header_sub_text')}
+        </Text>
       </Container>
 
       <Container m="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
-          Job Basics <ButtonGray onClick={goToBasics}>Edit</ButtonGray>
+          {t('components.forms.post_job.job_summary.job_basics')}{' '}
+          <ButtonGray onClick={goToBasics}>
+            {t('components.forms.post_job.job_summary.edit_button_text')}
+          </ButtonGray>
         </Heading>
       </Container>
 
       <Stack spacing={3} p={2} maxW="100%">
         {jobtitle && (
           <>
-            <Heading fontSize="sm">Job Name:</Heading> {jobtitle}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_name')}
+            </Heading>{' '}
+            {jobtitle}
           </>
         )}
 
         {jobdescription && (
           <>
-            <Heading fontSize="sm">Job Description:</Heading> {jobdescription}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_description')}
+            </Heading>{' '}
+            {jobdescription}
           </>
         )}
 
         {jobposition && (
           <>
-            <Heading fontSize="sm">Job Position:</Heading> {jobposition}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_position')}
+            </Heading>{' '}
+            {jobposition}
           </>
         )}
 
         {jobtype && (
           <>
-            <Heading fontSize="sm">Job Type:</Heading> {jobtype}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_type')}
+            </Heading>{' '}
+            {jobtype}
           </>
         )}
       </Stack>
 
       <Container margin="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
-          Job Details <ButtonGray onClick={goToDetails}>Edit</ButtonGray>
+          {t('components.forms.post_job.job_summary.job_details')}{' '}
+          <ButtonGray onClick={goToDetails}>
+            {t('components.forms.post_job.job_summary.edit_button_text')}
+          </ButtonGray>
         </Heading>
       </Container>
 
       <Stack spacing={5} p={2} maxW="100%">
-        <Heading fontSize="sm">Keywords:</Heading>
+        <Heading fontSize="sm">
+          {t('components.forms.post_job.job_summary.keywords')}
+        </Heading>
 
         <KeywordsSection
           keywordsData={jobKeywords}
@@ -128,35 +154,45 @@ export default function GigSummary({
 
         {jobcompensation && (
           <>
-            <Heading fontSize="sm">Job Compensation:</Heading> {jobmin}-{jobmax}{' '}
-            {jobcompensation}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_compensation')}
+            </Heading>{' '}
+            {jobmin}-{jobmax} {jobcompensation}
           </>
         )}
 
         {jobequity ? (
           <>
-            <Heading fontSize="sm">Equity Offer:</Heading> {jobequity}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_equity')}
+            </Heading>{' '}
+            {jobequity}
           </>
         ) : null}
 
         {joblocation ? (
           <>
-            <Heading fontSize="sm">Job Location:</Heading> {joblocation}
+            <Heading fontSize="sm">
+              {t('components.forms.post_job.job_summary.job_location')}
+            </Heading>{' '}
+            {joblocation}
           </>
         ) : null}
         <Box>
           <Heading fontSize="md">
-            How should people contact you or your organization?
+            {t('components.forms.post_job.job_summary.contact_header')}
           </Heading>
           <Text fontSize="xs" textAlign="left" mb="1%">
-            Write your website job post link or an email
+            {t('components.forms.post_job.job_summary.contact_sub_text')}
           </Text>
           <Input
             borderColor={`${!wrongData ? '#e2e8f0' : 'red'}`}
             bgColor="white"
             color="black"
             _hover={{ borderColor: '#97c0e6' }}
-            placeholder="e.g. www.company.com/job or company@email.com"
+            placeholder={t(
+              'components.forms.post_job.job_summary.contact_placeholder'
+            )}
             _placeholder={{ color: 'black' }}
             name="jobcontact"
             value={jobcontact}
@@ -164,16 +200,20 @@ export default function GigSummary({
           />
           {wrongData ? (
             <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
-              Add an email or website link
+              {t('components.forms.post_job.job_summary.add_email_or_site')}
             </Text>
           ) : null}
         </Box>
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonBlue onClick={(e) => sendJobData(e)}>Post Job</ButtonBlue>
+        <ButtonBlue onClick={(e) => sendJobData(e)}>
+          {t('components.forms.post_job.job_summary.post_job')}
+        </ButtonBlue>
 
-        <ButtonOrange onClick={goToDetails}>Back</ButtonOrange>
+        <ButtonOrange onClick={goToDetails}>
+          {t('components.forms.post_job.job_summary.back_button_text')}
+        </ButtonOrange>
       </ButtonGroup>
     </>
   );
