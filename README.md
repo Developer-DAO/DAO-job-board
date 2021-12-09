@@ -1,9 +1,7 @@
 # DAO Job Board
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -80,6 +78,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/diegoalzate"><img src="https://avatars.githubusercontent.com/u/22416585?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Diego Alzate</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=diegoalzate" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/christiananese"><img src="https://avatars.githubusercontent.com/u/6060101?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christian</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=christiananese" title="Code">💻</a></td>
   </tr>
 </table>
 
