@@ -2,10 +2,19 @@ import { Button, ButtonGroup } from '@chakra-ui/react';
 
 type ChakraButtonProps = {
   children?: React.ReactNode;
+  /**
+   * Optional click handler
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * Optional Element to use
+   */
   as?: React.ElementType;
 };
 
+/**
+ * Black Button UI component for user interaction
+ */
 export const ButtonBlack = ({ children, as, onClick }: ChakraButtonProps) => {
   return (
     <Button
