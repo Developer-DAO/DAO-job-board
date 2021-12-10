@@ -234,10 +234,16 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          title?: parameters['rowFilter.jobs.title'];
-          description?: parameters['rowFilter.jobs.description'];
-          position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
+          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
+          jobposition?: parameters['rowFilter.jobs.jobposition'];
+          jobtype: parameters['rowFilter.jobs.jobtype'];
+          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
+          jobmax: parameters['rowFilter.jobs.jobmax'];
+          jobmin: parameters['rowFilter.jobs.jobmin'];
+          jobequity: parameters['rowFilter.jobs.jobequity'];
+          joblocation: parameters['rowFilter.jobs.joblocation'];
+          jobcontact: parameters['rowFilter.jobs.jobcontact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -297,10 +303,16 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          title?: parameters['rowFilter.jobs.title'];
-          description?: parameters['rowFilter.jobs.description'];
-          position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
+          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
+          jobposition?: parameters['rowFilter.jobs.jobposition'];
+          jobtype: parameters['rowFilter.jobs.jobtype'];
+          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
+          jobmax: parameters['rowFilter.jobs.jobmax'];
+          jobmin: parameters['rowFilter.jobs.jobmin'];
+          jobequity: parameters['rowFilter.jobs.jobequity'];
+          joblocation: parameters['rowFilter.jobs.joblocation'];
+          jobcontact: parameters['rowFilter.jobs.jobcontact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -324,10 +336,16 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          title?: parameters['rowFilter.jobs.title'];
-          description?: parameters['rowFilter.jobs.description'];
-          position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
+          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
+          jobposition?: parameters['rowFilter.jobs.jobposition'];
+          jobtype: parameters['rowFilter.jobs.jobtype'];
+          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
+          jobmax: parameters['rowFilter.jobs.jobmax'];
+          jobmin: parameters['rowFilter.jobs.jobmin'];
+          jobequity: parameters['rowFilter.jobs.jobequity'];
+          joblocation: parameters['rowFilter.jobs.joblocation'];
+          jobcontact: parameters['rowFilter.jobs.jobcontact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -1066,10 +1084,16 @@ export interface definitions {
      * This is a Foreign Key to `organizations.id`.<fk table='organizations' column='id'/>
      */
     organization_id: string;
-    title: string;
-    description: string;
-    position?: string;
-    opportunity?: string;
+    jobtitle: string;
+    jobdescription: string;
+    jobposition?: string;
+    jobtype?: string;
+    jobcompensation?: string;
+    jobmax?: string;
+    jobmin?: string;
+    jobequity?: string;
+    joblocation?: string;
+    jobcontact?: string;
     featured_photo_url?: string;
     status?: string;
     created_at: string;
@@ -1242,10 +1266,16 @@ export interface parameters {
   'body.jobs': definitions['jobs'];
   'rowFilter.jobs.id': string;
   'rowFilter.jobs.organization_id': string;
-  'rowFilter.jobs.title': string;
-  'rowFilter.jobs.description': string;
-  'rowFilter.jobs.position': string;
-  'rowFilter.jobs.opportunity': string;
+  'rowFilter.jobs.jobtitle': string;
+  'rowFilter.jobs.jobdescription': string;
+  'rowFilter.jobs.jobposition': string;
+  'rowFilter.jobs.jobtype': string;
+  'rowFilter.jobs.jobcompensation': string;
+  'rowFilter.jobs.jobmax': string;
+  'rowFilter.jobs.jobmin': string;
+  'rowFilter.jobs.jobequity': string;
+  'rowFilter.jobs.joblocation': string;
+  'rowFilter.jobs.jobcontact': string;
   'rowFilter.jobs.featured_photo_url': string;
   'rowFilter.jobs.status': string;
   'rowFilter.jobs.created_at': string;

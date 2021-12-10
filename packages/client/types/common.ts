@@ -5,9 +5,6 @@ export type Table =
   | 'jobs'
   | 'job_keyword'
   | 'job_applications'
-  | 'gigs'
-  | 'gig_keyword'
-  | 'gig_applications'
   | 'keywords'
   | 'organization_members'
   | 'links';

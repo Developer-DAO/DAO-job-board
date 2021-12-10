@@ -157,7 +157,7 @@ export const useSupabase = <T>(table: Table) => {
    * The primary key of a record in the table
    * @param payload
    * An object request payload where it matches the
-   * given type e.g. `User`, `Job`, `Gig`
+   * given type e.g. `User`, `Job`
    *
    * @example
    * const userRepository = useSupabase<User>("users");
