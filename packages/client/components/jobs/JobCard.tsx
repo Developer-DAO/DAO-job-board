@@ -12,7 +12,7 @@ import {
   TagLabel,
 } from '@chakra-ui/react';
 
-export default function JobItem() {
+export default function JobCard() {
   return (
     <Box
       boxSizing="border-box"
