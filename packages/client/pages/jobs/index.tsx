@@ -1,5 +1,5 @@
 import JobFilter from '../../components/jobs/JobFilter';
-import JobItem from '../../components/jobs/JobItem';
+import JobCard from '../../components/jobs/JobCard';
 
 import { Heading, Container, Text } from '@chakra-ui/react';
 
@@ -16,7 +16,7 @@ export default function Index() {
       </Text>
       <JobFilter />
       <Container w="100%" maxW="100%">
-        <JobItem />
+        <JobCard />
       </Container>
     </Container>
   );
