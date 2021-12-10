@@ -201,10 +201,10 @@ export default function JobBasics({
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
         <ButtonGreen onClick={nextPage}>
-          {t('components.forms.post_job.job_basics.continue_button_text')}
+          {t('components.forms.post_job.continue_button_text')}
         </ButtonGreen>
         <ButtonOrange onClick={goBack}>
-          {t('components.forms.post_job.job_basics.cancel_button_text')}
+          {t('components.forms.post_job.cancel_button_text')}
         </ButtonOrange>
       </ButtonGroup>
     </>
