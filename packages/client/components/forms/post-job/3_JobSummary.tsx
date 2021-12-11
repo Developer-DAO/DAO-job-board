@@ -28,16 +28,16 @@ type JobSummaryProps = {
   goToDetails: () => void;
   onChange: (e: React.FormEvent) => void;
   formData: {
-    jobtitle: string;
-    jobdescription: string;
-    jobtype: string;
-    jobposition: string;
-    jobcompensation: string;
-    jobmin: string;
-    jobmax: string;
-    jobequity: string;
-    joblocation: string;
-    jobcontact: string;
+    title: string;
+    description: string;
+    type: string;
+    position: string;
+    compensation: string;
+    min: string;
+    max: string;
+    equity: string;
+    location: string;
+    contact: string;
   };
   createJob: (e: React.FormEvent) => void;
   jobKeywords: Keyword[];
@@ -57,20 +57,20 @@ export default function GigSummary({
   const [wrongData, setWrongData] = useState(false);
 
   const {
-    jobtitle,
-    jobdescription,
-    jobtype,
-    jobposition,
-    jobcompensation,
-    jobmin,
-    jobmax,
-    jobequity,
-    joblocation,
-    jobcontact,
+    title,
+    description,
+    type,
+    position,
+    compensation,
+    min,
+    max,
+    equity,
+    location,
+    contact,
   } = formData;
 
   const sendJobData = (e: React.FormEvent) => {
-    if (jobcontact) {
+    if (contact) {
       createJob(e);
     } else {
       setWrongData(true);
@@ -96,39 +96,39 @@ export default function GigSummary({
       </Container>
 
       <Stack spacing={3} p={2} maxW="100%">
-        {jobtitle && (
+        {title && (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_name')}
             </Heading>{' '}
-            {jobtitle}
+            {title}
           </>
         )}
 
-        {jobdescription && (
+        {description && (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_description')}
             </Heading>{' '}
-            {jobdescription}
+            {description}
           </>
         )}
 
-        {jobposition && (
+        {position && (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_position')}
             </Heading>{' '}
-            {jobposition}
+            {position}
           </>
         )}
 
-        {jobtype && (
+        {type && (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_type')}
             </Heading>{' '}
-            {jobtype}
+            {type}
           </>
         )}
       </Stack>
@@ -152,30 +152,30 @@ export default function GigSummary({
           templateColumns="repeat(3, 3fr)"
         />
 
-        {jobcompensation && (
+        {compensation && (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_compensation')}
             </Heading>{' '}
-            {jobmin}-{jobmax} {jobcompensation}
+            {min}-{max} {compensation}
           </>
         )}
 
-        {jobequity ? (
+        {equity ? (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_equity')}
             </Heading>{' '}
-            {jobequity}
+            {equity}
           </>
         ) : null}
 
-        {joblocation ? (
+        {location ? (
           <>
             <Heading fontSize="sm">
               {t('components.forms.post_job.job_summary.job_location')}
             </Heading>{' '}
-            {joblocation}
+            {location}
           </>
         ) : null}
         <Box>
@@ -194,8 +194,8 @@ export default function GigSummary({
               'components.forms.post_job.job_summary.contact_placeholder'
             )}
             _placeholder={{ color: 'black' }}
-            name="jobcontact"
-            value={jobcontact}
+            name="contact"
+            value={contact}
             onChange={(e) => onChange(e)}
           />
           {wrongData ? (

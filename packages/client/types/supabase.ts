@@ -12,6 +12,345 @@ export interface paths {
       };
     };
   };
+  '/gig_applications': {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gig_applications.id'];
+          gig_id?: parameters['rowFilter.gig_applications.gig_id'];
+          pitch?: parameters['rowFilter.gig_applications.pitch'];
+          content?: parameters['rowFilter.gig_applications.content'];
+          status?: parameters['rowFilter.gig_applications.status'];
+          created_at?: parameters['rowFilter.gig_applications.created_at'];
+          updated_at?: parameters['rowFilter.gig_applications.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_applications.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gig_applications.created_by'];
+          /** Filtering Columns */
+          select?: parameters['select'];
+          /** Ordering */
+          order?: parameters['order'];
+          /** Limiting and Pagination */
+          offset?: parameters['offset'];
+          /** Limiting and Pagination */
+          limit?: parameters['limit'];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters['range'];
+          /** Limiting and Pagination */
+          'Range-Unit'?: parameters['rangeUnit'];
+          /** Preference */
+          Prefer?: parameters['preferCount'];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions['gig_applications'][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** gig_applications */
+          gig_applications?: definitions['gig_applications'];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters['select'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gig_applications.id'];
+          gig_id?: parameters['rowFilter.gig_applications.gig_id'];
+          pitch?: parameters['rowFilter.gig_applications.pitch'];
+          content?: parameters['rowFilter.gig_applications.content'];
+          status?: parameters['rowFilter.gig_applications.status'];
+          created_at?: parameters['rowFilter.gig_applications.created_at'];
+          updated_at?: parameters['rowFilter.gig_applications.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_applications.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gig_applications.created_by'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gig_applications.id'];
+          gig_id?: parameters['rowFilter.gig_applications.gig_id'];
+          pitch?: parameters['rowFilter.gig_applications.pitch'];
+          content?: parameters['rowFilter.gig_applications.content'];
+          status?: parameters['rowFilter.gig_applications.status'];
+          created_at?: parameters['rowFilter.gig_applications.created_at'];
+          updated_at?: parameters['rowFilter.gig_applications.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_applications.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gig_applications.created_by'];
+        };
+        body: {
+          /** gig_applications */
+          gig_applications?: definitions['gig_applications'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
+  '/gig_keyword': {
+    get: {
+      parameters: {
+        query: {
+          gig_id?: parameters['rowFilter.gig_keyword.gig_id'];
+          keyword_id?: parameters['rowFilter.gig_keyword.keyword_id'];
+          created_at?: parameters['rowFilter.gig_keyword.created_at'];
+          updated_at?: parameters['rowFilter.gig_keyword.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_keyword.deleted_at'];
+          created_by?: parameters['rowFilter.gig_keyword.created_by'];
+          /** Filtering Columns */
+          select?: parameters['select'];
+          /** Ordering */
+          order?: parameters['order'];
+          /** Limiting and Pagination */
+          offset?: parameters['offset'];
+          /** Limiting and Pagination */
+          limit?: parameters['limit'];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters['range'];
+          /** Limiting and Pagination */
+          'Range-Unit'?: parameters['rangeUnit'];
+          /** Preference */
+          Prefer?: parameters['preferCount'];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions['gig_keyword'][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** gig_keyword */
+          gig_keyword?: definitions['gig_keyword'];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters['select'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          gig_id?: parameters['rowFilter.gig_keyword.gig_id'];
+          keyword_id?: parameters['rowFilter.gig_keyword.keyword_id'];
+          created_at?: parameters['rowFilter.gig_keyword.created_at'];
+          updated_at?: parameters['rowFilter.gig_keyword.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_keyword.deleted_at'];
+          created_by?: parameters['rowFilter.gig_keyword.created_by'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          gig_id?: parameters['rowFilter.gig_keyword.gig_id'];
+          keyword_id?: parameters['rowFilter.gig_keyword.keyword_id'];
+          created_at?: parameters['rowFilter.gig_keyword.created_at'];
+          updated_at?: parameters['rowFilter.gig_keyword.updated_at'];
+          deleted_at?: parameters['rowFilter.gig_keyword.deleted_at'];
+          created_by?: parameters['rowFilter.gig_keyword.created_by'];
+        };
+        body: {
+          /** gig_keyword */
+          gig_keyword?: definitions['gig_keyword'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
+  '/gigs': {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gigs.id'];
+          organization_id?: parameters['rowFilter.gigs.organization_id'];
+          title?: parameters['rowFilter.gigs.title'];
+          description?: parameters['rowFilter.gigs.description'];
+          position?: parameters['rowFilter.gigs.position'];
+          featured_photo_url?: parameters['rowFilter.gigs.featured_photo_url'];
+          experience_level?: parameters['rowFilter.gigs.experience_level'];
+          status?: parameters['rowFilter.gigs.status'];
+          created_at?: parameters['rowFilter.gigs.created_at'];
+          updated_at?: parameters['rowFilter.gigs.updated_at'];
+          deleted_at?: parameters['rowFilter.gigs.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gigs.created_by'];
+          /** Filtering Columns */
+          select?: parameters['select'];
+          /** Ordering */
+          order?: parameters['order'];
+          /** Limiting and Pagination */
+          offset?: parameters['offset'];
+          /** Limiting and Pagination */
+          limit?: parameters['limit'];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters['range'];
+          /** Limiting and Pagination */
+          'Range-Unit'?: parameters['rangeUnit'];
+          /** Preference */
+          Prefer?: parameters['preferCount'];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions['gigs'][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** gigs */
+          gigs?: definitions['gigs'];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters['select'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gigs.id'];
+          organization_id?: parameters['rowFilter.gigs.organization_id'];
+          title?: parameters['rowFilter.gigs.title'];
+          description?: parameters['rowFilter.gigs.description'];
+          position?: parameters['rowFilter.gigs.position'];
+          featured_photo_url?: parameters['rowFilter.gigs.featured_photo_url'];
+          experience_level?: parameters['rowFilter.gigs.experience_level'];
+          status?: parameters['rowFilter.gigs.status'];
+          created_at?: parameters['rowFilter.gigs.created_at'];
+          updated_at?: parameters['rowFilter.gigs.updated_at'];
+          deleted_at?: parameters['rowFilter.gigs.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gigs.created_by'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.gigs.id'];
+          organization_id?: parameters['rowFilter.gigs.organization_id'];
+          title?: parameters['rowFilter.gigs.title'];
+          description?: parameters['rowFilter.gigs.description'];
+          position?: parameters['rowFilter.gigs.position'];
+          featured_photo_url?: parameters['rowFilter.gigs.featured_photo_url'];
+          experience_level?: parameters['rowFilter.gigs.experience_level'];
+          status?: parameters['rowFilter.gigs.status'];
+          created_at?: parameters['rowFilter.gigs.created_at'];
+          updated_at?: parameters['rowFilter.gigs.updated_at'];
+          deleted_at?: parameters['rowFilter.gigs.deleted_at'];
+          /** References to a wallet address from users table */
+          created_by?: parameters['rowFilter.gigs.created_by'];
+        };
+        body: {
+          /** gigs */
+          gigs?: definitions['gigs'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
   '/job_applications': {
     get: {
       parameters: {
@@ -234,16 +573,10 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
-          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
-          jobposition?: parameters['rowFilter.jobs.jobposition'];
-          jobtype: parameters['rowFilter.jobs.jobtype'];
-          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
-          jobmax: parameters['rowFilter.jobs.jobmax'];
-          jobmin: parameters['rowFilter.jobs.jobmin'];
-          jobequity: parameters['rowFilter.jobs.jobequity'];
-          joblocation: parameters['rowFilter.jobs.joblocation'];
-          jobcontact: parameters['rowFilter.jobs.jobcontact'];
+          title?: parameters['rowFilter.jobs.title'];
+          description?: parameters['rowFilter.jobs.description'];
+          position?: parameters['rowFilter.jobs.position'];
+          opportunity?: parameters['rowFilter.jobs.opportunity'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -303,16 +636,10 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
-          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
-          jobposition?: parameters['rowFilter.jobs.jobposition'];
-          jobtype: parameters['rowFilter.jobs.jobtype'];
-          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
-          jobmax: parameters['rowFilter.jobs.jobmax'];
-          jobmin: parameters['rowFilter.jobs.jobmin'];
-          jobequity: parameters['rowFilter.jobs.jobequity'];
-          joblocation: parameters['rowFilter.jobs.joblocation'];
-          jobcontact: parameters['rowFilter.jobs.jobcontact'];
+          title?: parameters['rowFilter.jobs.title'];
+          description?: parameters['rowFilter.jobs.description'];
+          position?: parameters['rowFilter.jobs.position'];
+          opportunity?: parameters['rowFilter.jobs.opportunity'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -336,16 +663,10 @@ export interface paths {
         query: {
           id?: parameters['rowFilter.jobs.id'];
           organization_id?: parameters['rowFilter.jobs.organization_id'];
-          jobtitle?: parameters['rowFilter.jobs.jobtitle'];
-          jobdescription?: parameters['rowFilter.jobs.jobdescription'];
-          jobposition?: parameters['rowFilter.jobs.jobposition'];
-          jobtype: parameters['rowFilter.jobs.jobtype'];
-          jobcompensation: parameters['rowFilter.jobs.jobcompensation'];
-          jobmax: parameters['rowFilter.jobs.jobmax'];
-          jobmin: parameters['rowFilter.jobs.jobmin'];
-          jobequity: parameters['rowFilter.jobs.jobequity'];
-          joblocation: parameters['rowFilter.jobs.joblocation'];
-          jobcontact: parameters['rowFilter.jobs.jobcontact'];
+          title?: parameters['rowFilter.jobs.title'];
+          description?: parameters['rowFilter.jobs.description'];
+          position?: parameters['rowFilter.jobs.position'];
+          opportunity?: parameters['rowFilter.jobs.opportunity'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -1026,6 +1347,81 @@ export interface paths {
 }
 
 export interface definitions {
+  gig_applications: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `gigs.id`.<fk table='gigs' column='id'/>
+     */
+    gig_id: string;
+    pitch?: string;
+    content?: string;
+    status?: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at?: string;
+    /**
+     * References to a wallet address from users table
+     *
+     * Note:
+     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
+     */
+    created_by: string;
+  };
+  gig_keyword: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     * This is a Foreign Key to `gigs.id`.<fk table='gigs' column='id'/>
+     */
+    gig_id: string;
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     * This is a Foreign Key to `keywords.id`.<fk table='keywords' column='id'/>
+     */
+    keyword_id: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at?: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
+     */
+    created_by: string;
+  };
+  gigs: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `organizations.id`.<fk table='organizations' column='id'/>
+     */
+    organization_id: string;
+    title: string;
+    description: string;
+    position?: string;
+    featured_photo_url?: string;
+    experience_level?: string;
+    status?: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at?: string;
+    /**
+     * References to a wallet address from users table
+     *
+     * Note:
+     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
+     */
+    created_by: string;
+  };
   job_applications: {
     /**
      * Note:
@@ -1084,16 +1480,10 @@ export interface definitions {
      * This is a Foreign Key to `organizations.id`.<fk table='organizations' column='id'/>
      */
     organization_id: string;
-    jobtitle: string;
-    jobdescription: string;
-    jobposition?: string;
-    jobtype?: string;
-    jobcompensation?: string;
-    jobmax?: string;
-    jobmin?: string;
-    jobequity?: string;
-    joblocation?: string;
-    jobcontact?: string;
+    title: string;
+    description: string;
+    position?: string;
+    opportunity?: string;
     featured_photo_url?: string;
     status?: string;
     created_at: string;
@@ -1242,6 +1632,41 @@ export interface parameters {
   offset: string;
   /** Limiting and Pagination */
   limit: string;
+  /** gig_applications */
+  'body.gig_applications': definitions['gig_applications'];
+  'rowFilter.gig_applications.id': string;
+  'rowFilter.gig_applications.gig_id': string;
+  'rowFilter.gig_applications.pitch': string;
+  'rowFilter.gig_applications.content': string;
+  'rowFilter.gig_applications.status': string;
+  'rowFilter.gig_applications.created_at': string;
+  'rowFilter.gig_applications.updated_at': string;
+  'rowFilter.gig_applications.deleted_at': string;
+  /** References to a wallet address from users table */
+  'rowFilter.gig_applications.created_by': string;
+  /** gig_keyword */
+  'body.gig_keyword': definitions['gig_keyword'];
+  'rowFilter.gig_keyword.gig_id': string;
+  'rowFilter.gig_keyword.keyword_id': string;
+  'rowFilter.gig_keyword.created_at': string;
+  'rowFilter.gig_keyword.updated_at': string;
+  'rowFilter.gig_keyword.deleted_at': string;
+  'rowFilter.gig_keyword.created_by': string;
+  /** gigs */
+  'body.gigs': definitions['gigs'];
+  'rowFilter.gigs.id': string;
+  'rowFilter.gigs.organization_id': string;
+  'rowFilter.gigs.title': string;
+  'rowFilter.gigs.description': string;
+  'rowFilter.gigs.position': string;
+  'rowFilter.gigs.featured_photo_url': string;
+  'rowFilter.gigs.experience_level': string;
+  'rowFilter.gigs.status': string;
+  'rowFilter.gigs.created_at': string;
+  'rowFilter.gigs.updated_at': string;
+  'rowFilter.gigs.deleted_at': string;
+  /** References to a wallet address from users table */
+  'rowFilter.gigs.created_by': string;
   /** job_applications */
   'body.job_applications': definitions['job_applications'];
   'rowFilter.job_applications.id': string;
@@ -1266,16 +1691,10 @@ export interface parameters {
   'body.jobs': definitions['jobs'];
   'rowFilter.jobs.id': string;
   'rowFilter.jobs.organization_id': string;
-  'rowFilter.jobs.jobtitle': string;
-  'rowFilter.jobs.jobdescription': string;
-  'rowFilter.jobs.jobposition': string;
-  'rowFilter.jobs.jobtype': string;
-  'rowFilter.jobs.jobcompensation': string;
-  'rowFilter.jobs.jobmax': string;
-  'rowFilter.jobs.jobmin': string;
-  'rowFilter.jobs.jobequity': string;
-  'rowFilter.jobs.joblocation': string;
-  'rowFilter.jobs.jobcontact': string;
+  'rowFilter.jobs.title': string;
+  'rowFilter.jobs.description': string;
+  'rowFilter.jobs.position': string;
+  'rowFilter.jobs.opportunity': string;
   'rowFilter.jobs.featured_photo_url': string;
   'rowFilter.jobs.status': string;
   'rowFilter.jobs.created_at': string;
