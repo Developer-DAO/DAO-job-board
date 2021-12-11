@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "doppler run -c development -- next dev",
-    "generate-types": "doppler run -c development -- openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_PUBLIC_KEY --output ./types/supabase.ts",
+    "generate-types": "doppler run -c development --command='node ./typegen.js'",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
