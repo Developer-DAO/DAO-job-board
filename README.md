@@ -35,7 +35,7 @@ This project is possible thanks to all these open source languages, libraries, a
 
 ## How to Contribute
 
-1. Make sure you have access to the `#job-board-project` channel in DevDAO Discord server. 
+1. Make sure you have access to the `#job-board-project` channel in **DevDAO Discord** server.
 
 2. Read the [CONTRIBUTING GUIDELINES](/CONTRIBUTING.md). TLDR: Check the [ISSUES](https://github.com/Developer-DAO/DAO-job-board/issues) for a TO-DO list of problems to fix and things to add to the website. Read every issue to understand what's needed and whether it's something you can help with.
 
