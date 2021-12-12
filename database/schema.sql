@@ -1,6 +1,3 @@
-DROP TABLE IF EXISTS public.gig_keyword;
-DROP TABLE IF EXISTS public.gig_applications;
-DROP TABLE IF EXISTS public.gigs;
 DROP TABLE IF EXISTS public.job_keyword;
 DROP TABLE IF EXISTS public.job_applications;
 DROP TABLE IF EXISTS public.jobs;
@@ -109,7 +106,13 @@ CREATE TABLE public.jobs (
   title VARCHAR NOT NULL CHECK (title <> ''),
   description TEXT NOT NULL CHECK (description <> ''),
   position VARCHAR CHECK (position <> ''),
-  opportunity VARCHAR CHECK (opportunity <> ''),
+  type VARCHAR CHECK (type <> ''),
+  compensation VARCHAR CHECK (compensation <> ''),
+  max VARCHAR CHECK (max <> ''),
+  min VARCHAR CHECK (min <> ''),
+  equity VARCHAR CHECK (equity <> ''),
+  location VARCHAR CHECK (location <> ''),
+  contact VARCHAR CHECK (contact <> ''),
   featured_photo_url VARCHAR CHECK (featured_photo_url <> ''),
   status VARCHAR CHECK (status <> ''),
   created_at TIMESTAMP NOT NULL DEFAULT now(),
@@ -143,52 +146,3 @@ CREATE TABLE public.job_applications (
   created_by VARCHAR NOT NULL REFERENCES public.users (id)
 );
 COMMENT ON COLUMN public.job_applications.created_by IS 'References to a wallet address from users table';
-
-
--- table: gigs
-CREATE TABLE public.gigs (
-  id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
-  organization_id UUID NOT NULL REFERENCES public.organizations (id),
-  title VARCHAR NOT NULL CHECK (title <> ''),
-  description TEXT NOT NULL CHECK (description <> ''),
-  position VARCHAR CHECK (position <> ''),
-  featured_photo_url VARCHAR CHECK (featured_photo_url <> ''),
-  experience_level VARCHAR CHECK (experience_level <> ''),
-  status VARCHAR CHECK (status <> ''),
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now(),
-  deleted_at TIMESTAMP,
-  created_by VARCHAR NOT NULL REFERENCES public.users (id)
-);
-COMMENT ON COLUMN public.gigs.created_by IS 'References to a wallet address from users table';
-
--- table: gig_keyword
-CREATE TABLE public.gig_keyword (
-  gig_id UUID NOT NULL REFERENCES public.gigs (id),
-  keyword_id UUID NOT NULL REFERENCES public.keywords (id),
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now(),
-  deleted_at TIMESTAMP,
-  created_by VARCHAR NOT NULL REFERENCES public.users (id),
-  PRIMARY KEY (gig_id, keyword_id)
-);
-
--- table: gig_applications
-CREATE TABLE public.gig_applications (
-  id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
-  gig_id UUID NOT NULL REFERENCES public.gigs (id),
-  pitch VARCHAR CHECK (pitch <> ''),
-  content TEXT CHECK (content <> ''),
-  status VARCHAR CHECK (status <> ''),
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now(),
-  deleted_at TIMESTAMP,
-  created_by VARCHAR NOT NULL REFERENCES public.users (id)
-);
-COMMENT ON COLUMN public.gig_applications.created_by IS 'References to a wallet address from users table';
-
-
-
-
-
-

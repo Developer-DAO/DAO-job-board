@@ -12,16 +12,16 @@ import JobSummary from '@/components/forms/post-job/3_JobSummary';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
-    jobtitle: '',
-    jobdescription: '',
-    jobtype: '',
-    jobposition: '',
-    jobcompensation: '',
-    jobmax: '',
-    jobmin: '',
-    jobequity: '',
-    joblocation: '',
-    jobcontact: '',
+    title: '',
+    description: '',
+    type: '',
+    position: '',
+    compensation: '',
+    max: '',
+    min: '',
+    equity: '',
+    location: '',
+    contact: '',
   });
 
   //Job Keywords

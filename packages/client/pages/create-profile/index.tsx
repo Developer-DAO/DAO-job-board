@@ -256,7 +256,6 @@ export default function CreateProfile() {
                 <option value="Looking for Contracts">
                   Looking for Contracts
                 </option>
-                <option value="Looking for Gigs">Looking for Gigs</option>
                 <option value="Not Available">Not Available</option>
               </Select>
 

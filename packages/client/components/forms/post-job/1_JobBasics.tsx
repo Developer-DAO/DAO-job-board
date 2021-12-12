@@ -24,10 +24,10 @@ type JobBasicProps = {
   goBack: () => void;
   onChange: (e: React.FormEvent) => void;
   formData: {
-    jobtitle: string;
-    jobdescription: string;
-    jobposition: string;
-    jobtype: string;
+    title: string;
+    description: string;
+    position: string;
+    type: string;
   };
 };
 
@@ -43,24 +43,21 @@ export default function JobBasics({
   const [wrongTitle, setWrongTitle] = useState(false);
   const [wrongDescription, setWrongDescription] = useState(false);
 
-  const { jobtitle, jobdescription, jobposition, jobtype } = formData;
+  const { title, description, position, type } = formData;
 
   const nextPage = () => {
-    if (jobtitle.length >= 7 && jobdescription.length >= 100) {
+    if (title.length >= 7 && description.length >= 100) {
       goToDetails();
-    } else if (!jobtitle && !jobdescription) {
+    } else if (!title && !description) {
       setWrongDescription(true);
       setWrongTitle(true);
     } else if (
-      (jobtitle.length >= 10 && jobdescription.length < 100) ||
-      !jobdescription
+      (title.length >= 10 && description.length < 100) ||
+      !description
     ) {
       setWrongTitle(false);
       setWrongDescription(true);
-    } else if (
-      (jobdescription.length >= 100 && jobtitle.length < 10) ||
-      !jobtitle
-    ) {
+    } else if ((description.length >= 100 && title.length < 10) || !title) {
       setWrongDescription(false);
       setWrongTitle(true);
     }
@@ -95,8 +92,8 @@ export default function JobBasics({
           placeholder={t(
             'components.forms.post_job.job_basics.title_placeholder'
           )}
-          name="jobtitle"
-          value={jobtitle}
+          name="title"
+          value={title}
           onChange={(e) => onChange(e)}
         />
 
@@ -124,8 +121,8 @@ export default function JobBasics({
           bg="white"
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
-          name="jobposition"
-          value={jobposition}
+          name="position"
+          value={position}
           onChange={(e) => onChange(e)}
         >
           <option value="" disabled hidden>
@@ -151,8 +148,8 @@ export default function JobBasics({
         <Select
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
-          name="jobtype"
-          value={jobtype}
+          name="type"
+          value={type}
           onChange={(e) => onChange(e)}
           bg="white"
         >
@@ -178,8 +175,8 @@ export default function JobBasics({
           placeholder={t(
             'components.forms.post_job.job_basics.description_placeholder'
           )}
-          name="jobdescription"
-          value={jobdescription}
+          name="description"
+          value={description}
           onChange={(e) => onChange(e)}
         />
 

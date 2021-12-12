@@ -33,11 +33,11 @@ type JobDetailProps = {
   jobKeywords: Keyword[];
   setJobKeywords: (jobKeywords: Keyword[]) => void;
   formData: {
-    jobcompensation: string;
-    jobmin: string;
-    jobmax: string;
-    jobequity: string;
-    joblocation: string;
+    compensation: string;
+    min: string;
+    max: string;
+    equity: string;
+    location: string;
   };
 };
 
@@ -55,12 +55,11 @@ export default function GigDetails({
   const [wrongData, setWrongData] = useState(false);
 
   //Breaks down the formData state
-  const { jobcompensation, jobmin, jobmax, jobequity, joblocation } = formData;
+  const { compensation, min, max, equity, location } = formData;
 
   //Check if user has chosen keywords, otherwise send errors
   const nextPage = () => {
     if (jobKeywords != null && jobKeywords.length > 0) {
-
       goToSummary();
     } else {
       setWrongData(true);
@@ -109,14 +108,12 @@ export default function GigDetails({
         </Heading>
         <Text color="black" as="i">
           {t('components.forms.post_job.job_details.sub_header')}
-
         </Text>
       </Container>
 
       <Stack p={2} spacing={2} maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.category_header')}
-
         </Heading>
 
         {!wrongData ? (
@@ -126,7 +123,6 @@ export default function GigDetails({
         ) : (
           <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
             {t('components.forms.post_job.job_details.category_error')}
-
           </Text>
         )}
 
@@ -134,7 +130,6 @@ export default function GigDetails({
           <ButtonBlack onClick={openKeywordModal}>
             {t('components.forms.post_job.job_details.keyword_button_text')}
           </ButtonBlack>
-
         </Container>
 
         <KeywordsSection
@@ -147,7 +142,6 @@ export default function GigDetails({
         </Heading>
         <Text fontSize="xs" textAlign="left" mb="2.5%">
           {t('components.forms.post_job.job_details.compensation_sub_header')}
-
         </Text>
         <Select
           position="static"
@@ -155,13 +149,12 @@ export default function GigDetails({
           bgColor="white"
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
-          name="jobcompensation"
-          value={jobcompensation}
+          name="compensation"
+          value={compensation}
           onChange={(e) => onChange(e)}
         >
           <option value="" disabled hidden>
             {t('components.forms.post_job.job_details.token_default')}
-
           </option>
           <optgroup label="Crypto">
             <option value="ETH">ETH</option>
@@ -186,9 +179,8 @@ export default function GigDetails({
           _placeholder={{ color: 'black' }}
           w="50%"
           placeholder={t('components.forms.post_job.job_details.min')}
-
-          name="jobmin"
-          value={jobmin}
+          name="min"
+          value={min}
           onChange={(e) => onChange(e)}
           type="number"
         />
@@ -201,16 +193,14 @@ export default function GigDetails({
           _placeholder={{ color: 'black' }}
           w="50%"
           placeholder={t('components.forms.post_job.job_details.max')}
-
-          name="jobmax"
-          value={jobmax}
+          name="max"
+          value={max}
           onChange={(e) => onChange(e)}
           type="number"
         />
 
         <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.equity_header')}
-
         </Heading>
 
         <Select
@@ -220,12 +210,11 @@ export default function GigDetails({
           borderColor="#e2e8f0"
           _hover={{ borderColor: '#97c0e6' }}
           onChange={(e) => onChange(e)}
-          value={jobequity}
-          name="jobequity"
+          value={equity}
+          name="equity"
         >
           <option value="" disabled selected hidden>
             {t('components.forms.post_job.job_details.equity_default')}
-
           </option>
           <option value="0.01-1%">0.01-1%</option>
           <option value="1%-2%">1%-2%</option>
@@ -247,12 +236,11 @@ export default function GigDetails({
           _placeholder={{ color: 'black' }}
           type="string"
           onChange={(e) => onChange(e)}
-          value={joblocation}
-          name="joblocation"
+          value={location}
+          name="location"
           placeholder={t(
             'components.forms.post_job.job_details.location_placeholder'
           )}
-
         />
       </Stack>
 
@@ -263,7 +251,6 @@ export default function GigDetails({
         <ButtonOrange onClick={goToBasics}>
           {t('components.forms.post_job.back_button_text')}
         </ButtonOrange>
-
       </ButtonGroup>
     </>
   );

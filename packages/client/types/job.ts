@@ -10,8 +10,14 @@ export type Job = PrimaryKey & {
   company_id: string;
   title: string;
   description: string;
-  position?: string;
-  opportunity?: string;
+  position: string;
+  type: string;
+  compensation: string;
+  max: string;
+  min: string;
+  equity: string;
+  location: string;
+  contact: string;
   featured_photo_url?: string;
   status?: PostingStatus;
 } & WithTimestamp &
@@ -19,11 +25,17 @@ export type Job = PrimaryKey & {
 
 export type JobForm = Pick<
   Job,
-  | 'company_id'
-  | 'description'
   | 'title'
+  | 'description'
   | 'position'
-  | 'opportunity'
+  | 'type'
+  | 'compensation'
+  | 'max'
+  | 'min'
+  | 'equity'
+  | 'location'
+  | 'contact'
+  | 'company_id'
   | 'featured_photo_url'
   | 'status'
   | 'created_by'
