@@ -41,7 +41,7 @@ This project is possible thanks to all these open source languages, libraries, a
 
 3. Ask other contributors to see if no one has taken the issue yet. If you're interested in tackling such a feature and it's still available, we will assign you to the task. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
 
-4. Ask for Doppler access in the `#job-board-project` repo. This will give you the chance to start your local development server and start hacking. How to set up your local development environment [here](/CONTRIBUTING.md#installation).
+4. Ask for Doppler access in the `#job-board-project` channel in Discord. This will give you the chance to start your local development server and start hacking. How to set up your local development environment [here](/CONTRIBUTING.md#installation).
 
 5. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
 
