@@ -13,7 +13,7 @@ export default function Landing() {
   const { t } = useTranslation('common');
 
   return (
-    <Box pos="relative" top="50">
+    <Box pos="relative" top="50" w="75%" m="0 auto">
       <Box w="auto" h="auto" m="auto">
         <Image
           borderRadius="180px"

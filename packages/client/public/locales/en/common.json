@@ -107,6 +107,17 @@
         "about": "About",
         "sign_up": "Sign Up"
       }
+    },
+    "earn_sidebar": {
+      "header": "Earning",
+      "available_jobs": "Available Jobs",
+      "my_jobs": "My Jobs",
+      "saved_jobs": "Saved Jobs"
+    },
+    "hire_sidebar": {
+      "developers_for_hire": "Developers For Hire",
+      "my_projects": "My Projects",
+      "hiring": "Hiring"
     }
   }
 }

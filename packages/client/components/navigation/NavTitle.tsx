@@ -12,15 +12,13 @@ export default function NavTitle() {
   });
 
   const TitleContent = () => {
-    if (router.pathname === '/developers') {
-      return 'Developers';
-    } else if (router.pathname === '/jobs') {
-      return 'Job List';
-    } else if (router.pathname === '/post-job') {
-      return 'Post a Job';
-    } else if (router.pathname === '/create-profile') {
-      return 'Create a Profile';
-    }
+    const dynamicTitles: any = {
+      '/developers': 'Developers For Hire',
+      '/jobs': 'Job List',
+      '/post-job': 'Post a Job',
+      '/create-profile': 'Create a Profile',
+    };
+    return dynamicTitles[router.pathname];
   };
 
   return <Text>{TitleContent()}</Text>;

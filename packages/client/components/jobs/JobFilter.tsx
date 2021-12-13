@@ -11,7 +11,7 @@ function JobFilter() {
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
-          placeholder={t('components.jobs.jobs_filter.placeholder')}
+          placeholder={t('components.jobs.job_filter.placeholder')}
         />
       </Container>
     </Box>

@@ -14,7 +14,6 @@ import {
 
 import { useEthers } from '@usedapp/core';
 
-
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
