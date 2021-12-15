@@ -4,9 +4,12 @@ import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 
 import {
-  ButtonRed,
-  ButtonGreen,
-  ButtonBlue,
+  ButtonWarning,
+  ButtonSuccess,
+  ButtonPrimary,
+  ButtonDanger,
+  ButtonInfo,
+  ButtonNeutral,
 } from '../styles/ui-components/Chakra-Button';
 
 export default function Landing() {
@@ -30,18 +33,30 @@ export default function Landing() {
           {t('landing.looking_for_talent')}
         </Heading>
         <NextLink href="/developers">
-          <ButtonGreen as="a">{t('landing.search_devs')}</ButtonGreen>
+          <ButtonSuccess as="a">{t('landing.search_devs')}</ButtonSuccess>
         </NextLink>
 
         <NextLink href="/post-job">
-          <ButtonBlue as="a">{t('landing.post_job')}</ButtonBlue>
+          <ButtonPrimary as="a">{t('landing.post_job')}</ButtonPrimary>
+        </NextLink>
+
+        <NextLink href="/post-job">
+          <ButtonInfo as="a">{t('landing.post_job')}</ButtonInfo>
+        </NextLink>
+
+        <NextLink href="/post-job">
+          <ButtonDanger as="a">{t('landing.post_job')}</ButtonDanger>
+        </NextLink>
+
+        <NextLink href="/post-job">
+          <ButtonNeutral as="a">{t('landing.post_job')}</ButtonNeutral>
         </NextLink>
 
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_work')}
         </Heading>
         <NextLink href="/jobs">
-          <ButtonRed as="a">{t('landing.search_jobs')}</ButtonRed>
+          <ButtonWarning as="a">{t('landing.search_jobs')}</ButtonWarning>
         </NextLink>
       </Box>
     </Box>
