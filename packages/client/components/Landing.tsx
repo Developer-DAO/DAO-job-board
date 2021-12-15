@@ -7,10 +7,9 @@ import {
   ButtonWarning,
   ButtonSuccess,
   ButtonPrimary,
-  ButtonDanger,
-  ButtonInfo,
-  ButtonNeutral,
 } from '../styles/ui-components/Chakra-Button';
+
+import ButtonsNew from './ButtonsNew';
 
 export default function Landing() {
   const { t } = useTranslation('common');
@@ -40,18 +39,6 @@ export default function Landing() {
           <ButtonPrimary as="a">{t('landing.post_job')}</ButtonPrimary>
         </NextLink>
 
-        <NextLink href="/post-job">
-          <ButtonInfo as="a">{t('landing.post_job')}</ButtonInfo>
-        </NextLink>
-
-        <NextLink href="/post-job">
-          <ButtonDanger as="a">{t('landing.post_job')}</ButtonDanger>
-        </NextLink>
-
-        <NextLink href="/post-job">
-          <ButtonNeutral as="a">{t('landing.post_job')}</ButtonNeutral>
-        </NextLink>
-
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_work')}
         </Heading>
@@ -59,6 +46,8 @@ export default function Landing() {
           <ButtonWarning as="a">{t('landing.search_jobs')}</ButtonWarning>
         </NextLink>
       </Box>
+
+      <ButtonsNew />
     </Box>
   );
 }
