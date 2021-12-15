@@ -21,8 +21,8 @@ import {
 } from '@chakra-ui/react';
 
 import {
-  ButtonBlue,
-  ButtonOrange,
+  ButtonPrimary,
+  ButtonWarning,
 } from '../../styles/ui-components/Chakra-Button';
 
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
@@ -199,8 +199,8 @@ export default function KeywordSelect({
           padding="1px"
           w="100%"
         >
-          <ButtonBlue onClick={onSubmit}>Save Keywords</ButtonBlue>
-          <ButtonOrange onClick={closeKeywordModal}>Cancel</ButtonOrange>
+          <ButtonPrimary onClick={onSubmit}>Save Keywords</ButtonPrimary>
+          <ButtonWarning onClick={closeKeywordModal}>Cancel</ButtonWarning>
         </ButtonGroup>
       </Box>
     </>

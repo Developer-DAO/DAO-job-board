@@ -1,6 +1,3 @@
-//Router
-import { useRouter } from 'next/router';
-
 import {
   chakra,
   Box,
@@ -16,8 +13,6 @@ import {
 } from '@chakra-ui/react';
 
 export default function DeveloperPage() {
-  const router = useRouter();
-
   return (
     <Box
       display="flex"

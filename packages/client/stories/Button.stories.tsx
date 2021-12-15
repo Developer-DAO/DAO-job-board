@@ -5,12 +5,15 @@ import {
   ButtonPrimary,
   ButtonSuccess,
   ButtonInfo,
+  ButtonWarning,
+  ButtonDanger,
+  ButtonNeutral,
 } from '../styles/ui-components/Chakra-Button';
 
 const elementTypes = { Button, Link };
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Buttons',
   component: Button,
   argTypes: {
     as: {
@@ -87,5 +90,65 @@ export const Info: ComponentStory<typeof ButtonInfo> = (args) => {
     <ButtonInfo onClick={handleOnChange} {...args}>
       {value}
     </ButtonInfo>
+  );
+};
+
+export const Danger: ComponentStory<typeof ButtonDanger> = (args) => {
+  const [value, setValue] = useState('Secondary');
+  const [isPrimary, setIsPrimary] = useState(false);
+
+  // Sets a click handler to change the label's value
+  const handleOnChange = () => {
+    if (!isPrimary) {
+      setValue('Primary');
+    } else {
+      setValue('Secondary');
+    }
+    setIsPrimary(!isPrimary);
+  };
+  return (
+    <ButtonDanger onClick={handleOnChange} {...args}>
+      {value}
+    </ButtonDanger>
+  );
+};
+
+export const Warning: ComponentStory<typeof ButtonWarning> = (args) => {
+  const [value, setValue] = useState('Secondary');
+  const [isPrimary, setIsPrimary] = useState(false);
+
+  // Sets a click handler to change the label's value
+  const handleOnChange = () => {
+    if (!isPrimary) {
+      setValue('Primary');
+    } else {
+      setValue('Secondary');
+    }
+    setIsPrimary(!isPrimary);
+  };
+  return (
+    <ButtonWarning onClick={handleOnChange} {...args}>
+      {value}
+    </ButtonWarning>
+  );
+};
+
+export const Neutral: ComponentStory<typeof ButtonNeutral> = (args) => {
+  const [value, setValue] = useState('Secondary');
+  const [isPrimary, setIsPrimary] = useState(false);
+
+  // Sets a click handler to change the label's value
+  const handleOnChange = () => {
+    if (!isPrimary) {
+      setValue('Primary');
+    } else {
+      setValue('Secondary');
+    }
+    setIsPrimary(!isPrimary);
+  };
+  return (
+    <ButtonNeutral onClick={handleOnChange} {...args}>
+      {value}
+    </ButtonNeutral>
   );
 };

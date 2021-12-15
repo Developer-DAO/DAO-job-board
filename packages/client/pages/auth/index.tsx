@@ -1,5 +1,8 @@
-import { Container, Box, Stack, Heading, Flex, Center } from '@chakra-ui/react';
-import { ButtonGreen, ButtonGray } from '@/styles/ui-components/Chakra-Button';
+import { Box, Stack, Heading, Flex, Center } from '@chakra-ui/react';
+import {
+  ButtonSuccess,
+  ButtonNeutral,
+} from '@/styles/ui-components/Chakra-Button';
 import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
 import { useEffect } from 'react';
@@ -27,7 +30,7 @@ function ConnectButton() {
   const handleOnConnectToWallet = () => {
     activateBrowserWallet();
   };
-  const Button = isConnected() ? ButtonGreen : ButtonGray;
+  const Button = isConnected() ? ButtonSuccess : ButtonNeutral;
 
   useEffect(() => {
     if (account) {

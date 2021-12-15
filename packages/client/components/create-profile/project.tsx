@@ -1,5 +1,5 @@
 import { Input } from '@chakra-ui/input';
-import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/layout';
+import { Grid, GridItem, Text } from '@chakra-ui/layout';
 import { Textarea } from '@chakra-ui/textarea';
 import React from 'react';
 import { useTranslation } from 'next-i18next';

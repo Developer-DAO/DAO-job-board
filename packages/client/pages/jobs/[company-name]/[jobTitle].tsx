@@ -13,7 +13,7 @@ import {
   UnorderedList,
   ListItem,
 } from '@chakra-ui/react';
-import { ButtonBlue } from '@/styles/ui-components/Chakra-Button';
+import { ButtonPrimary } from '@/styles/ui-components/Chakra-Button';
 
 const CategoryTag = chakra(Tag, {
   baseStyle: {
@@ -125,7 +125,7 @@ export default function JobDetails() {
             display={{ lg: 'flex', sm: 'none' }}
             flexDirection="column"
           >
-            <ButtonBlue>Apply For This Job</ButtonBlue>
+            <ButtonPrimary>Apply For This Job</ButtonPrimary>
           </ButtonGroup>
         </Stack>
 
@@ -151,7 +151,7 @@ export default function JobDetails() {
         align="center"
       >
         <ButtonGroup w="70%" display="flex" flexDirection="column" m="auto">
-          <ButtonBlue>Apply For This Job</ButtonBlue>
+          <ButtonPrimary>Apply For This Job</ButtonPrimary>
         </ButtonGroup>
       </Stack>
     </Stack>

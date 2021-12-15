@@ -1,5 +1,4 @@
 import {
-  Button,
   Image,
   Center,
   useDisclosure,
@@ -15,8 +14,8 @@ import {
 import React, { useState } from 'react';
 import { makeStorageClient } from '../../common/web3Storage';
 import {
-  ButtonGray2,
-  ButtonGreen,
+  ButtonPrimary,
+  ButtonSuccess,
 } from '../../styles/ui-components/Chakra-Button';
 
 type AddAvatarProps = {
@@ -80,7 +79,7 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
         opacity={0.5}
         onMouseLeave={toggleHover}
       >
-        <ButtonGray2 onClick={onOpen}>edit</ButtonGray2>
+        <ButtonPrimary onClick={onOpen}>edit</ButtonPrimary>
       </Center>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -91,8 +90,8 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
             <Input type="file" onChange={handleImageChange}></Input>
           </ModalBody>
           <ModalFooter>
-            <ButtonGray2 onClick={onClose}>Close</ButtonGray2>
-            <ButtonGreen onClick={submitProfilePicture}>Submit</ButtonGreen>
+            <ButtonPrimary onClick={onClose}>Close</ButtonPrimary>
+            <ButtonSuccess onClick={submitProfilePicture}>Submit</ButtonSuccess>
           </ModalFooter>
         </ModalContent>
       </Modal>

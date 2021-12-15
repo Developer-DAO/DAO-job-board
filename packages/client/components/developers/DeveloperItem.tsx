@@ -4,17 +4,14 @@ import NextLink from 'next/link';
 import {
   Box,
   Heading,
-  Container,
-  Flex,
   Text,
   Link,
   Image,
-  SimpleGrid,
   HStack,
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
+import { ButtonSuccess } from '@/styles/ui-components/Chakra-Button';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
@@ -74,9 +71,9 @@ export default function DeveloperItem() {
       </HStack>
 
       <NextLink href={'/developers/developer1'} passHref>
-        <ButtonGreen>
+        <ButtonSuccess>
           {t('components.developers.developer_item.button_text')}
-        </ButtonGreen>
+        </ButtonSuccess>
       </NextLink>
     </Box>
   );

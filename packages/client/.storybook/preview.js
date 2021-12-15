@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
+
 export const decorators = [
   (Story) => (
     <ChakraProvider>
@@ -11,5 +12,5 @@ export const decorators = [
 
 export const parameters = {
   controls: { expanded: true },
-  viewMode: 'docs',
+  viewMode: 'docs'
 };

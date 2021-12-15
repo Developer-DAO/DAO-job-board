@@ -19,7 +19,6 @@ import {
   InputLeftAddon,
   Text,
   Textarea,
-  Image,
   Select,
   Modal,
   ModalOverlay,
@@ -28,11 +27,11 @@ import {
 } from '@chakra-ui/react';
 
 import {
-  ButtonBlack,
-  ButtonGreen,
-  ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
-import AddAvatar from '../../components/create-profile/AddAvatar';
+  ButtonPrimary,
+  ButtonSuccess,
+  ButtonWarning,
+} from '@/styles/ui-components/Chakra-Button';
+import AddAvatar from '@/components/create-profile/AddAvatar';
 
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
@@ -264,9 +263,9 @@ export default function CreateProfile() {
                 Keywords help categorize your profile in skills and sectors
               </Text>
               <ButtonGroup>
-                <ButtonBlack onClick={openKeywordModal}>
+                <ButtonPrimary onClick={openKeywordModal}>
                   Choose Keywords
-                </ButtonBlack>
+                </ButtonPrimary>
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
@@ -336,7 +335,9 @@ export default function CreateProfile() {
                 <Text size="sm">Social Links</Text>
 
                 <ButtonGroup w="50%">
-                  <ButtonBlack onClick={openLinksModal}>Add Links</ButtonBlack>
+                  <ButtonPrimary onClick={openLinksModal}>
+                    Add Links
+                  </ButtonPrimary>
                 </ButtonGroup>
 
                 <LinksSection profileLinks={profileLinks} />
@@ -381,7 +382,7 @@ export default function CreateProfile() {
         </VStack>
 
         <Box mt={4}>
-          <ButtonBlack
+          <ButtonPrimary
             onClick={() => {
               setFormData({
                 ...formData,
@@ -397,7 +398,7 @@ export default function CreateProfile() {
             }}
           >
             Add Project
-          </ButtonBlack>
+          </ButtonPrimary>
         </Box>
 
         <ButtonGroup
@@ -408,8 +409,8 @@ export default function CreateProfile() {
           padding="1px"
           w="100%"
         >
-          <ButtonGreen onClick={onSubmit}>Save Profile</ButtonGreen>
-          <ButtonOrange>Dismiss Changes</ButtonOrange>
+          <ButtonSuccess onClick={onSubmit}>Save Profile</ButtonSuccess>
+          <ButtonWarning>Dismiss Changes</ButtonWarning>
         </ButtonGroup>
       </Box>
     </>
