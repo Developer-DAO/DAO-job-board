@@ -110,7 +110,7 @@
       }
     },
     "jobs": {
-      "job_filter": {
+      "jobs_filter": {
         "placeholder": "Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)"
       }
     },
