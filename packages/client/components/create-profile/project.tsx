@@ -24,29 +24,33 @@ const Project: React.FC<ProjectProps> = ({
   return (
     <Grid width="90%" templateColumns="repeat(2, 1fr)" gap={4}>
       <GridItem w="100%">
-        <Text mt={2}>{t('components.create_profile.title')}</Text>
+        <Text mt={2}>{t('components.create_profile.project.title')}</Text>
         <Input
           value={title}
           onChange={(e) => changeHandler(index, 'title', e.target.value)}
-          placeholder={t('components.create_profile.title_placeholder')}
+          placeholder={t('components.create_profile.project.title_placeholder')}
           size="md"
         />
       </GridItem>
       <GridItem>
-        <Text mt={2}>{t('components.create_profile.github_url')}</Text>
+        <Text mt={2}>{t('components.create_profile.project.github_url')}</Text>
         <Input
           value={githubUrl}
           onChange={(e) => changeHandler(index, 'githubUrl', e.target.value)}
-          placeholder={t('components.create_profile.enter_github_placeholder')}
+          placeholder={t(
+            'components.create_profile.project.enter_github_placeholder'
+          )}
           size="md"
         />
       </GridItem>
       <GridItem colSpan={2}>
-        <Text mt={2}>{t('components.create_profile.description')}</Text>
+        <Text mt={2}>{t('components.create_profile.project.description')}</Text>
         <Textarea
           value={description}
           onChange={(e) => changeHandler(index, 'description', e.target.value)}
-          placeholder={t('components.create_profile.description_placeholder')}
+          placeholder={t(
+            'components.create_profile.project.description_placeholder'
+          )}
           size="md"
         />
       </GridItem>

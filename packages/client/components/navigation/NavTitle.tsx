@@ -18,5 +18,5 @@ export default function NavTitle() {
     '/post-job': t('components.navigation.nav_title.post_job'),
     '/create-profile': t('components.navigation.nav_title.create_profile'),
   };
-  return <Text>{dynamicTitles[router.pathname] || ''}</Text>;
+  return <Text>{dynamicTitles[router.pathname]}</Text>;
 }

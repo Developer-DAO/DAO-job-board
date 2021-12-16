@@ -16,12 +16,20 @@
   },
   "components": {
     "create_profile": {
-      "title": "Title",
-      "title_placeholder": "Enter Title",
-      "github_url": "GitHub URL",
-      "enter_github_placeholder": "Enter GitHub URL",
-      "description": "Description",
-      "description_placeholder": "Enter Description"
+      "project": {
+        "title": "Title",
+        "title_placeholder": "Enter Title",
+        "github_url": "GitHub URL",
+        "enter_github_placeholder": "Enter GitHub URL",
+        "description": "Description",
+        "description_placeholder": "Enter Description"
+      },
+      "add_avatar": {
+        "edit": "edit",
+        "set_profile_pic": "Set new Profile pic",
+        "close_button_text": "Close",
+        "submit_button_text": "Submit"
+      }
     },
     "developers": {
       "developer_item": {
@@ -124,7 +132,7 @@
       "min_chars": "Make it easy for people to know it is you (min 3 characters)",
       "username_placeholder": "Write your favorite username",
       "professional_title": "Professional Title",
-      "profession_type": "What kind of professional are you? {'(min 3 characters)'}",
+      "profession_type": "What kind of professional are you? (min 3 characters)",
       "profession_placeholder": "Write a profile title e.g. (Developer, Designer, Marketer)",
       "status": "Status",
       "status_sub_text": "Let people know your status at the moment",
