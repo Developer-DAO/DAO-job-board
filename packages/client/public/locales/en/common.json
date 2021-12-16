@@ -15,6 +15,14 @@
     "search_gig": "Search Gig"
   },
   "components": {
+    "modals": {
+      "add_links": {
+        "input_placeholder": "Your {{link}} username",
+        "header": "Add Socials",
+        "save_button_text": "Save Links",
+        "cancel_button_text": "Cancel"
+      }
+    },
     "create_profile": {
       "project": {
         "title": "Title",
