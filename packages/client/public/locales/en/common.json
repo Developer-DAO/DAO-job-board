@@ -106,7 +106,54 @@
         "devs": "Devs",
         "about": "About",
         "sign_up": "Sign Up"
+      },
+      "nav_title": {
+        "jobs_list": "Job List",
+        "devs_for_hire": "Developers For Hire",
+        "post_job": "Post a Job",
+        "create_profile": "Create a Profile"
       }
+    }
+  },
+  "pages": {
+    "create_profile": {
+      "identity": "Identity",
+      "basic_details": "Basic Details",
+      "pfp": "PFP",
+      "username": "Username",
+      "min_chars": "Make it easy for people to know it is you (min 3 characters)",
+      "username_placeholder": "Write your favorite username",
+      "professional_title": "Professional Title",
+      "profession_type": "What kind of professional are you? {'(min 3 characters)'}",
+      "profession_placeholder": "Write a profile title e.g. (Developer, Designer, Marketer)",
+      "status": "Status",
+      "status_sub_text": "Let people know your status at the moment",
+      "select_status": "Select Status",
+      "full_time": "Available Full-Time",
+      "part_time": "Available Part Time",
+      "contract": "Looking For Contracts",
+      "na": "Not Available",
+      "profile_keywords": "Profile Keywords",
+      "keywords_sub_text": "Keywords help categorize your profile in skills and sectors",
+      "choose_keywords": "Choose Keywords",
+      "name": "Name",
+      "name_sub_text": "How would you like people to find you?",
+      "description": "Description",
+      "description_sub_text": "Let people know what is going on in your life",
+      "name_placeholder": "The name that will be displayed on your profile",
+      "self_description": "Here goes a brief description of yourself",
+      "location": "Location",
+      "location_sub_text": "Where are you located right now?",
+      "location_placeholder": "e.g. Madrid, Spain or Nomad",
+      "links_header": "Links and Socials",
+      "website": "Website",
+      "website_placeholder": "e.g. developer.com",
+      "social_links": "Social Links",
+      "social_button_text": "Add Links",
+      "projects": "Projects",
+      "projects_button_text": "Add Project",
+      "save_button_text": "Save Profile",
+      "dismiss_button_text": "Dismiss Changes"
     }
   }
 }
