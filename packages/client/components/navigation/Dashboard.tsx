@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import {
   Stack,
   Box,
@@ -21,6 +22,7 @@ import Navbar from './Navbar';
 import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export default function Dashboard() {
+  const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
   const SidebarContent = (props: any) => (
@@ -65,7 +67,7 @@ export default function Dashboard() {
               borderRadius="180px"
               marginX="1"
             />
-            Job Board
+            {t('components.navigation.dashboard.header')}
           </Link>
         </NextLink>
       </Flex>
@@ -88,7 +90,7 @@ export default function Dashboard() {
             p="3"
             pl="5"
           >
-            RECRUITER
+            {t('components.navigation.dashboard.hiring')}
           </Heading>
           <NextLink href={'/developers'} passHref>
             <Link
@@ -106,7 +108,8 @@ export default function Dashboard() {
               transition="0.2s"
             >
               <Text size="md">
-                <FontAwesomeIcon icon={faUsers} /> Devs
+                <FontAwesomeIcon icon={faUsers} />{' '}
+                {t('components.navigation.dashboard.devs')}
               </Text>
             </Link>
           </NextLink>
@@ -123,7 +126,7 @@ export default function Dashboard() {
             pl="5"
             mt={2}
           >
-            SEEKER
+            {t('components.navigation.dashboard.seeking')}
           </Heading>
           <NextLink href={'/jobs'} passHref>
             <Link
@@ -141,7 +144,8 @@ export default function Dashboard() {
               transition="0.2s"
             >
               <Text size="md">
-                <FontAwesomeIcon icon={faClipboardList} /> Jobs List
+                <FontAwesomeIcon icon={faClipboardList} />{' '}
+                {t('components.navigation.dashboard.jobs_list')}
               </Text>
             </Link>
           </NextLink>
