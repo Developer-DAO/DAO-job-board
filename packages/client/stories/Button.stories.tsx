@@ -34,121 +34,25 @@ export default {
  * Example Button story with React Hooks.
  */
 export const Primary: ComponentStory<typeof ButtonPrimary> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonPrimary onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonPrimary>
-  );
+  return <ButtonPrimary {...args}>Primary</ButtonPrimary>;
 };
 
 export const Success: ComponentStory<typeof ButtonSuccess> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonSuccess onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonSuccess>
-  );
+  return <ButtonSuccess {...args}>Success</ButtonSuccess>;
 };
 
 export const Info: ComponentStory<typeof ButtonInfo> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonInfo onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonInfo>
-  );
+  return <ButtonInfo {...args}>Info</ButtonInfo>;
 };
 
 export const Danger: ComponentStory<typeof ButtonDanger> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonDanger onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonDanger>
-  );
+  return <ButtonDanger {...args}>Danger</ButtonDanger>;
 };
 
 export const Warning: ComponentStory<typeof ButtonWarning> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonWarning onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonWarning>
-  );
+  return <ButtonWarning {...args}>Warning</ButtonWarning>;
 };
 
 export const Neutral: ComponentStory<typeof ButtonNeutral> = (args) => {
-  const [value, setValue] = useState('Secondary');
-  const [isPrimary, setIsPrimary] = useState(false);
-
-  // Sets a click handler to change the label's value
-  const handleOnChange = () => {
-    if (!isPrimary) {
-      setValue('Primary');
-    } else {
-      setValue('Secondary');
-    }
-    setIsPrimary(!isPrimary);
-  };
-  return (
-    <ButtonNeutral onClick={handleOnChange} {...args}>
-      {value}
-    </ButtonNeutral>
-  );
+  return <ButtonNeutral {...args}>Neutral</ButtonNeutral>;
 };
