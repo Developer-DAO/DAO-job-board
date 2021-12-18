@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 import {
   chakra,
@@ -54,6 +55,8 @@ export default function AddLinks({
   closeLinksModal,
   linksDataHandler,
 }: LinksProps) {
+  const { t } = useTranslation('common');
+
   //formData where links are stored (takes the profileLinks props from parent component)
   const [formData, setFormData] = useState<ProfileLinkPayload>(profileLinks);
 
@@ -100,7 +103,9 @@ export default function AddLinks({
           <InputLeftAddon>{linksIcons(link)}</InputLeftAddon>
           <Input
             bgColor="white"
-            placeholder={`your ${link} username`}
+            placeholder={t('components.modals.add_links.input_placeholder', {
+              link: link,
+            })}
             name={link}
             value={inputValues(link) as any}
             onChange={(e) => onChange(e)}
@@ -140,7 +145,7 @@ export default function AddLinks({
         bg="#ffffff"
         zIndex={1000}
       >
-        <Heading size="md">Add Socials</Heading>
+        <Heading size="md">{t('components.modals.add_links.header')}</Heading>
         <chakra.form>
           <VStack spacing={4}>
             {linkInputs}
@@ -152,8 +157,12 @@ export default function AddLinks({
               padding="1px"
               w="100%"
             >
-              <ButtonPrimary onClick={onSubmit}>Save Links</ButtonPrimary>
-              <ButtonWarning onClick={closeLinksModal}>Cancel</ButtonWarning>
+              <ButtonPrimary onClick={onSubmit}>
+                {t('components.modals.add_links.save_button_text')}
+              </ButtonPrimary>
+              <ButtonWarning onClick={closeLinksModal}>
+                {t('components.modals.add_links.cancel_button_text')}
+              </ButtonWarning>
             </ButtonGroup>
           </VStack>
         </chakra.form>
