@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next';
+
 import {
   Button,
   Image,
@@ -34,6 +36,8 @@ const circularStyles = {
 const IPFS_ENDPOINT = 'https://ipfs.io/ipfs';
 
 const AddAvatar = ({ src }: AddAvatarProps) => {
+  const { t } = useTranslation('common');
+
   const [hoverImage, setHoverImage] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [file, setFile] = useState<string>();
@@ -80,19 +84,27 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
         opacity={0.5}
         onMouseLeave={toggleHover}
       >
-        <ButtonGray2 onClick={onOpen}>edit</ButtonGray2>
+        <ButtonGray2 onClick={onOpen}>
+          {t('components.create_profile.add_avatar.edit')}
+        </ButtonGray2>
       </Center>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Set new Profile pic</ModalHeader>
+          <ModalHeader>
+            {t('components.create_profile.add_avatar.set_profile_pic')}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Input type="file" onChange={handleImageChange}></Input>
           </ModalBody>
           <ModalFooter>
-            <ButtonGray2 onClick={onClose}>Close</ButtonGray2>
-            <ButtonGreen onClick={submitProfilePicture}>Submit</ButtonGreen>
+            <ButtonGray2 onClick={onClose}>
+              {t('components.create_profile.add_avatar.close_button_text')}
+            </ButtonGray2>
+            <ButtonGreen onClick={submitProfilePicture}>
+              {t('components.create_profile.add_avatar.submit_button_text')}
+            </ButtonGreen>
           </ModalFooter>
         </ModalContent>
       </Modal>

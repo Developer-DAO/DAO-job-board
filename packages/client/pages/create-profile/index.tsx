@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 import { StackDivider } from '@chakra-ui/layout';
 
@@ -57,6 +58,8 @@ type formData = {
 };
 
 export default function CreateProfile() {
+  const { t } = useTranslation('common');
+
   const [formData, setFormData] = useState<formData>({
     status: '',
     name: '',
@@ -192,48 +195,46 @@ export default function CreateProfile() {
       >
         <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
           <Stack direction="column" textAlign="center" flex={2} spacing={5}>
-            <Heading size="md">Identity</Heading>
+            <Heading size="md">{t('pages.create_profile.identity')}</Heading>
 
             <Box m="auto">
-              <Text size="md">PFP</Text>
+              <Text size="md">{t('pages.create_profile.pfp')}</Text>
               <AddAvatar src="/DevDAO.png" />
             </Box>
 
             <Stack direction="column" textAlign="left" spacing={2}>
-              <Text>Username</Text>
-              <Text fontSize="xs">
-                Make it easy for people to know it is you {'(min 3 characters)'}
-              </Text>
+              <Text>{t('pages.create_profile.identity')}</Text>
+              <Text fontSize="xs">{t('pages.create_profile.min_chars')}</Text>
               <InputGroup position="static">
                 <InputLeftAddon>@</InputLeftAddon>
                 <Input
                   position="static"
                   bgColor="white"
                   w={{ '2xl': '85%', sm: '85%' }}
-                  placeholder="Write your favorite username"
+                  placeholder={t('pages.create_profile.username_placeholder')}
                   name="username"
                   value={username}
                   onChange={(e) => onChange(e)}
                 />
               </InputGroup>
 
-              <Text>Professional Title</Text>
+              <Text>{t('pages.create_profile.professional_title')}</Text>
               <Text fontSize="xs">
-                What kind of professional are you? {'(min 3 characters)'}
+                {t('pages.create_profile.profession_type')}
               </Text>
               <Input
                 position="static"
                 bgColor="white"
                 w={{ '2xl': '95%', sm: '92.5%' }}
-                placeholder="Write a profile title e.g. (Developer, Designer, Marketer)"
+                placeholder={t('pages.create_profile.profession_placeholder')}
                 name="title"
                 value={title}
                 onChange={(e) => onChange(e)}
               />
 
-              <Text>Status</Text>
+              <Text>{t('pages.create_profile.status')}</Text>
               <Text fontSize="xs">
-                Let people know your status at the moment
+                {t('pages.create_profile.status_sub_text')}
               </Text>
               <Select
                 position="initial"
@@ -247,25 +248,29 @@ export default function CreateProfile() {
                 onChange={(e) => onChange(e)}
               >
                 <option value="" disabled hidden>
-                  Select Status
+                  {t('pages.create_profile.select_status')}
                 </option>
                 <option value="Available Full-Time ">
-                  Available Full-Time
+                  {t('pages.create_profile.full_time')}
                 </option>
-                <option value="Available Part-Time">Available Part-Time</option>
+                <option value="Available Part-Time">
+                  {t('pages.create_profile.part_time')}
+                </option>
                 <option value="Looking for Contracts">
-                  Looking for Contracts
+                  {t('pages.create_profile.contract')}
                 </option>
-                <option value="Not Available">Not Available</option>
+                <option value="Not Available">
+                  {t('pages.create_profile.na')}
+                </option>
               </Select>
 
-              <Text>Profile Keywords</Text>
+              <Text>{t('pages.create_profile.profile_keywords')}</Text>
               <Text fontSize="xs">
-                Keywords help categorize your profile in skills and sectors
+                {t('pages.create_profile.keywords_sub_text')}
               </Text>
               <ButtonGroup>
                 <ButtonBlack onClick={openKeywordModal}>
-                  Choose Keywords
+                  {t('pages.create_profile.choose_keywords')}
                 </ButtonBlack>
               </ButtonGroup>
               <KeywordsSection
@@ -279,64 +284,68 @@ export default function CreateProfile() {
             <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
               <Stack spacing={2} mt="2.5%">
                 <Heading size="md" textAlign="center">
-                  Basic Details
+                  {t('pages.create_profile.choose_keywords')}
                 </Heading>
 
-                <Text>Name</Text>
+                <Text>{t('pages.create_profile.name')}</Text>
                 <Text fontSize="xs">
-                  How would you like people to find you?
+                  {t('pages.create_profile.name_sub_text')}
                 </Text>
                 <Input
                   position="static"
                   bgColor="white"
-                  placeholder="The name that will be displayed on your profile"
+                  placeholder={t('pages.create_profile.name_placeholder')}
                   name="name"
                   value={name}
                   onChange={(e) => onChange(e)}
                 />
 
-                <Text>Description</Text>
+                <Text>{t('pages.create_profile.description')}</Text>
                 <Text fontSize="xs">
-                  Let people know what is going on in your life
+                  {t('pages.create_profile.description_sub_text')}
                 </Text>
                 <Textarea
                   position="static"
                   bgColor="white"
-                  placeholder="Here goes a brief description of yourself"
+                  placeholder={t('pages.create_profile.self_description')}
                   name="description"
                   value={description}
                   onChange={(e) => onChange(e)}
                 />
 
-                <Text size="sm">Location</Text>
-                <Text fontSize="xs">Where are you located right now?</Text>
+                <Text size="sm">{t('pages.create_profile.location')}</Text>
+                <Text fontSize="xs">
+                  {t('pages.create_profile.location_sub_text')}
+                </Text>
                 <Input
                   position="static"
                   bgColor="white"
-                  placeholder="e.g. Madrid, Spain or Nomad"
+                  placeholder={t('pages.create_profile.location_placeholder')}
                   name="location"
                   value={location}
                   onChange={(e) => onChange(e)}
                 />
 
                 <Heading size="md" textAlign="center">
-                  Links and Socials
+                  {t('pages.create_profile.links_header')}
                 </Heading>
 
-                <Text size="sm">Website</Text>
+                <Text size="sm">{t('pages.create_profile.website')}</Text>
                 <Input
                   position="static"
                   bgColor="white"
-                  placeholder="e.g. developer.com"
+                  placeholder={t('pages.create_profile.website_placeholder')}
                   name="website"
                   value={website}
                   onChange={(e) => onChange(e)}
                 />
 
-                <Text size="sm">Social Links</Text>
+                <Text size="sm">{t('pages.create_profile.social_links')}</Text>
 
                 <ButtonGroup w="50%">
-                  <ButtonBlack onClick={openLinksModal}>Add Links</ButtonBlack>
+                  <ButtonBlack onClick={openLinksModal}>
+                    {t('pages.create_profile.social_button_text')}
+                  </ButtonBlack>
                 </ButtonGroup>
 
                 <LinksSection profileLinks={profileLinks} />
@@ -345,7 +354,7 @@ export default function CreateProfile() {
           </Stack>
         </Flex>
 
-        <Text size="sm">Projects</Text>
+        <Text size="sm">{t('pages.create_profile.projects')}</Text>
         <VStack
           divider={<StackDivider borderColor="gray.200" />}
           align="stretch"
@@ -396,7 +405,7 @@ export default function CreateProfile() {
               });
             }}
           >
-            Add Project
+            {t('pages.create_profile.projects_button_text')}
           </ButtonBlack>
         </Box>
 
@@ -408,8 +417,12 @@ export default function CreateProfile() {
           padding="1px"
           w="100%"
         >
-          <ButtonGreen onClick={onSubmit}>Save Profile</ButtonGreen>
-          <ButtonOrange>Dismiss Changes</ButtonOrange>
+          <ButtonGreen onClick={onSubmit}>
+            {t('pages.create_profile.save_button_text')}
+          </ButtonGreen>
+          <ButtonOrange>
+            {t('pages.create_profile.dismiss_button_text')}
+          </ButtonOrange>
         </ButtonGroup>
       </Box>
     </>

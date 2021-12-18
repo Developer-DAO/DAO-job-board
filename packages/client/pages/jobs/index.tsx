@@ -1,3 +1,5 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import JobFilter from '../../components/jobs/JobFilter';
 import JobCard from '../../components/jobs/JobCard';
 
@@ -21,3 +23,8 @@ export default function Index() {
     </Container>
   );
 }
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
