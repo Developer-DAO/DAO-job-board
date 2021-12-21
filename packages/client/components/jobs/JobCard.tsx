@@ -1,5 +1,6 @@
 import {
   Box,
+  Link,
   Flex,
   Heading,
   HStack,

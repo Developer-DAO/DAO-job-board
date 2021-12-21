@@ -6,9 +6,9 @@ import { Keyword } from '@/types';
 
 // UI & CSS
 import {
-  ButtonBlue,
-  ButtonGray,
-  ButtonOrange,
+  ButtonPrimary,
+  ButtonWarning,
+  ButtonNeutral,
 } from '@/styles/ui-components/Chakra-Button';
 
 import {
@@ -89,9 +89,9 @@ export default function GigSummary({
       <Container m="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
           {t('components.forms.post_job.job_summary.job_basics')}{' '}
-          <ButtonGray onClick={goToBasics}>
+          <ButtonNeutral onClick={goToBasics}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
-          </ButtonGray>
+          </ButtonNeutral>
         </Heading>
       </Container>
 
@@ -136,9 +136,9 @@ export default function GigSummary({
       <Container margin="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
           {t('components.forms.post_job.job_summary.job_details')}{' '}
-          <ButtonGray onClick={goToDetails}>
+          <ButtonNeutral onClick={goToDetails}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
-          </ButtonGray>
+          </ButtonNeutral>
         </Heading>
       </Container>
 
@@ -207,13 +207,13 @@ export default function GigSummary({
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonBlue onClick={(e) => sendJobData(e)}>
+        <ButtonPrimary onClick={(e) => sendJobData(e)}>
           {t('components.forms.post_job.job_summary.post_job')}
-        </ButtonBlue>
+        </ButtonPrimary>
 
-        <ButtonOrange onClick={goToDetails}>
+        <ButtonWarning onClick={goToDetails}>
           {t('components.forms.post_job.job_summary.back_button_text')}
-        </ButtonOrange>
+        </ButtonWarning>
       </ButtonGroup>
     </>
   );

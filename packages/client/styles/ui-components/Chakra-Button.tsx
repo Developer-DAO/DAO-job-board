@@ -1,26 +1,11 @@
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Button, ButtonProps } from '@chakra-ui/react';
 
-type ChakraButtonProps = {
-  children?: React.ReactNode;
-  /**
-   * Optional click handler
-   */
-  onClick?: (event: React.MouseEvent) => void;
-  /**
-   * Optional Element to use
-   */
-  as?: React.ElementType;
-};
-
-/**
- * Black Button UI component for user interaction
- */
-export const ButtonBlack = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonPrimary = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#000000"
-      _hover={{ cursor: 'pointer', bg: '#30363D' }}
+      colorScheme="primary"
+      _hover={{ cursor: 'pointer', bg: 'primary.700' }}
       textColor="white"
       m="5px"
       fontSize="14px"
@@ -32,53 +17,14 @@ export const ButtonBlack = ({ children, as, onClick }: ChakraButtonProps) => {
   );
 };
 
-export const ButtonGray = ({ children, as, onClick }: ChakraButtonProps) => {
-  return (
-    <Button
-      bgColor="#EDF2F7"
-      textColor="black"
-      _hover={{ cursor: 'pointer', bg: '#E2E9F0' }}
-      m="5px"
-      ms="0px"
-      w="auto"
-      fontSize="14px"
-      onClick={onClick}
-      as={as}
-    >
-      {children}
-    </Button>
-  );
-};
-
-export const ButtonGray2 = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonSuccess = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#E2E9F0"
-      textColor="black"
-      _hover={{ cursor: 'pointer', bg: '#EDF2F7' }}
-      m="5px"
-      ms="0px"
-      w="auto"
-      fontSize="14px"
-      onClick={onClick}
-      as={as}
-    >
-      {children}
-    </Button>
-  );
-};
-
-export const ButtonGreen = ({ children, as, onClick }: ChakraButtonProps) => {
-  return (
-    <Button
-      size="sm"
-      bgColor="#38A169"
+      colorScheme="success"
+      _hover={{ cursor: 'pointer', bg: 'success.700' }}
       textColor="white"
-      _hover={{ cursor: 'pointer', bg: '#2F855A' }}
       m="5px"
-      ms="0px"
-      w="auto"
       fontSize="14px"
       onClick={onClick}
       as={as}
@@ -88,16 +34,14 @@ export const ButtonGreen = ({ children, as, onClick }: ChakraButtonProps) => {
   );
 };
 
-export const ButtonRed = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonInfo = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#E2252B"
+      colorScheme="info"
+      _hover={{ cursor: 'pointer', bg: 'info.700' }}
       textColor="white"
-      _hover={{ cursor: 'pointer', bg: '#BB5348' }}
       m="5px"
-      ms="0px"
-      w="auto"
       fontSize="14px"
       onClick={onClick}
       as={as}
@@ -107,16 +51,14 @@ export const ButtonRed = ({ children, as, onClick }: ChakraButtonProps) => {
   );
 };
 
-export const ButtonOrange = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonWarning = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#DD6B20"
+      colorScheme="warning"
+      _hover={{ cursor: 'pointer', bg: 'warning.700' }}
       textColor="white"
-      _hover={{ cursor: 'pointer', bg: '#C05621' }}
       m="5px"
-      ms="0px !important"
-      w="auto"
       fontSize="14px"
       onClick={onClick}
       as={as}
@@ -126,16 +68,14 @@ export const ButtonOrange = ({ children, as, onClick }: ChakraButtonProps) => {
   );
 };
 
-export const ButtonBlue = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonDanger = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#3B82F6"
+      colorScheme="danger"
+      _hover={{ cursor: 'pointer', bg: 'danger.700' }}
       textColor="white"
-      _hover={{ cursor: 'pointer', bg: '#1D4ED8' }}
       m="5px"
-      ms="0px"
-      w="auto"
       fontSize="14px"
       onClick={onClick}
       as={as}
@@ -145,16 +85,14 @@ export const ButtonBlue = ({ children, as, onClick }: ChakraButtonProps) => {
   );
 };
 
-export const ButtonBlue2 = ({ children, as, onClick }: ChakraButtonProps) => {
+export const ButtonNeutral = ({ children, as, onClick }: ButtonProps) => {
   return (
     <Button
       size="sm"
-      bgColor="#3182CE"
+      colorScheme="neutral"
+      _hover={{ cursor: 'pointer', bg: 'neutral.700' }}
       textColor="white"
-      _hover={{ cursor: 'pointer', bg: '#2B6CB0' }}
       m="5px"
-      ms="0px"
-      w="auto"
       fontSize="14px"
       onClick={onClick}
       as={as}

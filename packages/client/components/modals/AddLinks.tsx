@@ -11,7 +11,10 @@ import {
   ButtonGroup,
 } from '@chakra-ui/react';
 
-import { ButtonBlue, ButtonOrange } from '@/styles/ui-components/Chakra-Button';
+import {
+  ButtonPrimary,
+  ButtonWarning,
+} from '@/styles/ui-components/Chakra-Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -154,12 +157,12 @@ export default function AddLinks({
               padding="1px"
               w="100%"
             >
-              <ButtonBlue onClick={onSubmit}>
+              <ButtonPrimary onClick={onSubmit}>
                 {t('components.modals.add_links.save_button_text')}
-              </ButtonBlue>
-              <ButtonOrange onClick={closeLinksModal}>
+              </ButtonPrimary>
+              <ButtonWarning onClick={closeLinksModal}>
                 {t('components.modals.add_links.cancel_button_text')}
-              </ButtonOrange>
+              </ButtonWarning>
             </ButtonGroup>
           </VStack>
         </chakra.form>

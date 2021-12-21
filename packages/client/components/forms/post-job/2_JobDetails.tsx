@@ -8,9 +8,9 @@ import KeywordSelect from '@/components/modals/SelectKeywords';
 import KeywordsSection from '../KeywordsSection';
 
 import {
-  ButtonGreen,
-  ButtonOrange,
-  ButtonBlack,
+  ButtonSuccess,
+  ButtonWarning,
+  ButtonNeutral,
 } from '@/styles/ui-components/Chakra-Button';
 
 import {
@@ -127,9 +127,9 @@ export default function GigDetails({
         )}
 
         <Container>
-          <ButtonBlack onClick={openKeywordModal}>
+          <ButtonNeutral onClick={openKeywordModal}>
             {t('components.forms.post_job.job_details.keyword_button_text')}
-          </ButtonBlack>
+          </ButtonNeutral>
         </Container>
 
         <KeywordsSection
@@ -245,12 +245,12 @@ export default function GigDetails({
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen onClick={nextPage}>
+        <ButtonSuccess onClick={nextPage}>
           {t('components.forms.post_job.continue_button_text')}
-        </ButtonGreen>
-        <ButtonOrange onClick={goToBasics}>
+        </ButtonSuccess>
+        <ButtonWarning onClick={goToBasics}>
           {t('components.forms.post_job.back_button_text')}
-        </ButtonOrange>
+        </ButtonWarning>
       </ButtonGroup>
     </>
   );
