@@ -20,7 +20,6 @@ import {
   InputLeftAddon,
   Text,
   Textarea,
-  Image,
   Select,
   Modal,
   ModalOverlay,
@@ -29,11 +28,11 @@ import {
 } from '@chakra-ui/react';
 
 import {
-  ButtonBlack,
-  ButtonGreen,
-  ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
-import AddAvatar from '../../components/create-profile/AddAvatar';
+  ButtonPrimary,
+  ButtonSuccess,
+  ButtonWarning,
+} from '@/styles/ui-components/Chakra-Button';
+import AddAvatar from '@/components/create-profile/AddAvatar';
 
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
@@ -269,9 +268,9 @@ export default function CreateProfile() {
                 {t('pages.create_profile.keywords_sub_text')}
               </Text>
               <ButtonGroup>
-                <ButtonBlack onClick={openKeywordModal}>
+                <ButtonPrimary onClick={openKeywordModal}>
                   {t('pages.create_profile.choose_keywords')}
-                </ButtonBlack>
+                </ButtonPrimary>
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
@@ -343,9 +342,9 @@ export default function CreateProfile() {
                 <Text size="sm">{t('pages.create_profile.social_links')}</Text>
 
                 <ButtonGroup w="50%">
-                  <ButtonBlack onClick={openLinksModal}>
+                  <ButtonPrimary onClick={openLinksModal}>
                     {t('pages.create_profile.social_button_text')}
-                  </ButtonBlack>
+                  </ButtonPrimary>
                 </ButtonGroup>
 
                 <LinksSection profileLinks={profileLinks} />
@@ -390,7 +389,7 @@ export default function CreateProfile() {
         </VStack>
 
         <Box mt={4}>
-          <ButtonBlack
+          <ButtonPrimary
             onClick={() => {
               setFormData({
                 ...formData,
@@ -406,7 +405,7 @@ export default function CreateProfile() {
             }}
           >
             {t('pages.create_profile.projects_button_text')}
-          </ButtonBlack>
+          </ButtonPrimary>
         </Box>
 
         <ButtonGroup
@@ -417,12 +416,12 @@ export default function CreateProfile() {
           padding="1px"
           w="100%"
         >
-          <ButtonGreen onClick={onSubmit}>
+          <ButtonSuccess onClick={onSubmit}>
             {t('pages.create_profile.save_button_text')}
-          </ButtonGreen>
-          <ButtonOrange>
+          </ButtonSuccess>
+          <ButtonWarning>
             {t('pages.create_profile.dismiss_button_text')}
-          </ButtonOrange>
+          </ButtonWarning>
         </ButtonGroup>
       </Box>
     </>

@@ -4,10 +4,12 @@ import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
 
 import {
-  ButtonRed,
-  ButtonGreen,
-  ButtonBlue,
+  ButtonWarning,
+  ButtonSuccess,
+  ButtonPrimary,
 } from '../styles/ui-components/Chakra-Button';
+
+import ButtonsNew from './ButtonsNew';
 
 export default function Landing() {
   const { t } = useTranslation('common');
@@ -30,20 +32,22 @@ export default function Landing() {
           {t('landing.looking_for_talent')}
         </Heading>
         <NextLink href="/developers">
-          <ButtonGreen as="a">{t('landing.search_devs')}</ButtonGreen>
+          <ButtonSuccess as="a">{t('landing.search_devs')}</ButtonSuccess>
         </NextLink>
 
         <NextLink href="/post-job">
-          <ButtonBlue as="a">{t('landing.post_job')}</ButtonBlue>
+          <ButtonPrimary as="a">{t('landing.post_job')}</ButtonPrimary>
         </NextLink>
 
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_work')}
         </Heading>
         <NextLink href="/jobs">
-          <ButtonRed as="a">{t('landing.search_jobs')}</ButtonRed>
+          <ButtonWarning as="a">{t('landing.search_jobs')}</ButtonWarning>
         </NextLink>
       </Box>
+
+      <ButtonsNew />
     </Box>
   );
 }

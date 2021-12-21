@@ -3,8 +3,8 @@ import { GetStaticProps } from 'next';
 
 // UI & CSS
 import {
-  ButtonGreen,
-  ButtonOrange,
+  ButtonSuccess,
+  ButtonWarning,
 } from '@/styles/ui-components/Chakra-Button';
 
 import {
@@ -197,12 +197,12 @@ export default function JobBasics({
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonGreen onClick={nextPage}>
+        <ButtonSuccess onClick={nextPage}>
           {t('components.forms.post_job.continue_button_text')}
-        </ButtonGreen>
-        <ButtonOrange onClick={goBack}>
+        </ButtonSuccess>
+        <ButtonWarning onClick={goBack}>
           {t('components.forms.post_job.cancel_button_text')}
-        </ButtonOrange>
+        </ButtonWarning>
       </ButtonGroup>
     </>
   );

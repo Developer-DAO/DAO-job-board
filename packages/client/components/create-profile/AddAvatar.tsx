@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
 import {
-  Button,
   Image,
   Center,
   useDisclosure,
@@ -17,8 +16,8 @@ import {
 import React, { useState } from 'react';
 import { makeStorageClient } from '../../common/web3Storage';
 import {
-  ButtonGray2,
-  ButtonGreen,
+  ButtonPrimary,
+  ButtonSuccess,
 } from '../../styles/ui-components/Chakra-Button';
 
 type AddAvatarProps = {
@@ -84,9 +83,10 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
         opacity={0.5}
         onMouseLeave={toggleHover}
       >
-        <ButtonGray2 onClick={onOpen}>
+
+        <ButtonPrimary onClick={onOpen}>
           {t('components.create_profile.add_avatar.edit')}
-        </ButtonGray2>
+        </ButtonPrimary>
       </Center>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -99,12 +99,12 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
             <Input type="file" onChange={handleImageChange}></Input>
           </ModalBody>
           <ModalFooter>
-            <ButtonGray2 onClick={onClose}>
+            <ButtonPrimary onClick={onClose}>
               {t('components.create_profile.add_avatar.close_button_text')}
-            </ButtonGray2>
-            <ButtonGreen onClick={submitProfilePicture}>
+            </ButtonPrimary>
+            <ButtonSuccess onClick={submitProfilePicture}>
               {t('components.create_profile.add_avatar.submit_button_text')}
-            </ButtonGreen>
+            </ButtonSuccess>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -14,10 +14,9 @@ import {
 
 import { useEthers } from '@usedapp/core';
 
-
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
+import { ButtonNeutral } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar({ sidebar }: any) {
   const { account } = useEthers();
@@ -63,7 +62,7 @@ function Navbar({ sidebar }: any) {
         ) : (
           <NextLink href={'/auth'} passHref>
             <Link display={{ sm: 'none', md: 'flex' }}>
-              <ButtonBlack as="a">Sign Up</ButtonBlack>
+              <ButtonNeutral as="a">Sign Up</ButtonNeutral>
             </Link>
           </NextLink>
         )}
