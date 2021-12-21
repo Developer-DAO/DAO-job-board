@@ -7,6 +7,10 @@ import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
 import { useAuth } from '@/hooks/useAuth';
 
 export default function Index() {
@@ -21,6 +25,7 @@ function formatAccount(account: String, length = 10) {
 
 // TODO: Move to components
 function ConnectButton() {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const { setUser } = useAuth();
 
@@ -57,12 +62,14 @@ function ConnectButton() {
       performAuth();
     }
   }, [account, deactivate, setUser, router]);
-
+  const connectButtonText = account ? 'connected' : 'login';
   return (
     <Button onClick={handleOnConnectToWallet}>
       <Flex gridGap={2}>
         <Image width={15} height={15} src="/metamask.png" alt="icon" />
-        {account ? `Connected: ${formatAccount(account)}` : `Login with Wallet`}
+        {t(`pages.auth.index.${connectButtonText}`, {
+          account: formatAccount(account || ''),
+        })}
       </Flex>
     </Button>
   );
@@ -81,3 +88,9 @@ function SignUp() {
     </Box>
   );
 }
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});

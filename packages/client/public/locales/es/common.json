@@ -1,0 +1,29 @@
+{
+  "common": {
+    "title": "Bolsa de trabajo"
+  },
+  "login": {
+    "sign_up": "Inscribirse"
+  },
+  "components": {
+    "navigation": {
+      "dashboard": {
+        "header": "Bolsa de trabajo",
+        "hiring": "RECLUTADOR",
+        "seeking": "BUSCADOR",
+        "jobs_list": " Lista de trabajos",
+        "devs": " Desarrolladores"
+      },
+      "navbar": {
+        "sign_up": "Inscribirse"
+      }
+    }
+  },
+  "landing": {
+    "looking_for_talent": "¿Busca talento Web3?",
+    "looking_for_work": "¿Busca trabajo en Web3?",
+    "post_job": "Trabajo posterior",
+    "search_devs": "Desarrolladores de búsqueda",
+    "search_jobs": "Buscar empleos"
+  }
+}
