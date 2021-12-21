@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
 
 import { keywordsSamples } from '@/constants/keywords-sample';
 import { Keyword } from '@/types';
@@ -38,6 +39,8 @@ export default function KeywordSelect({
   closeKeywordModal,
   keywordsData,
 }: KeywordProps) {
+  const { t } = useTranslation('common');
+
   let keywords = keywordsSamples;
 
   const [searchKeywords, setSearchKeywords] = useState('');
@@ -57,7 +60,7 @@ export default function KeywordSelect({
     const isInArray = selectedKeywords.find(
       (element: Keyword) => element.name === keyword
     );
-    if (isInArray || selectedKeywords.length > 10) {
+    if (isInArray || selectedKeywords.length >= 10) {
       return;
     }
     //Merges the selected keywords with the state
@@ -78,6 +81,23 @@ export default function KeywordSelect({
       return updatedKeywords;
     });
   };
+
+  const filterKeywords = (keywords: Array<Keyword>) => {
+    return keywords.filter((keyword) => {
+      if (searchKeywords === '') {
+        return keyword;
+      } else if (
+        keyword.name.toLowerCase().includes(searchKeywords.toLowerCase())
+      ) {
+        return keyword;
+      }
+      {
+        return false;
+      }
+    });
+  };
+
+  const filteredKeywords = filterKeywords(keywords);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,7 +139,9 @@ export default function KeywordSelect({
           white-space="pre-wrap"
         >
           <Stack m="auto" textAlign="center" spacing={2}>
-            <Heading size="md">Search Keywords</Heading>
+            <Heading size="md">
+              {t('components.modals.select_keywords.header')}
+            </Heading>
             <InputGroup>
               <InputLeftAddon>
                 <SearchIcon color="gray.500" />
@@ -129,49 +151,36 @@ export default function KeywordSelect({
                 onInput={(e) =>
                   setSearchKeywords((e.target as HTMLTextAreaElement).value)
                 }
-                placeholder="Write skills or positions"
+                placeholder={t('components.modals.select_keywords.placeholder')}
                 w="100%"
                 textAlign="center"
               />
             </InputGroup>
           </Stack>
           <SimpleGrid spacing={1} templateColumns="repeat(2, 3fr)" h="52px">
-            {keywords
-              .filter((keyword) => {
-                if (searchKeywords === '') {
-                  return keyword;
-                } else if (
-                  keyword.name
-                    .toLowerCase()
-                    .includes(searchKeywords.toLowerCase())
-                ) {
-                  return keyword;
-                }
-                {
-                  return false;
-                }
-              })
-              .map((keyword, index) => (
-                <Tag
-                  cursor="pointer"
-                  colorScheme="blue"
-                  w="100%"
-                  key={index}
-                  onClick={() => selectKeyword(keyword.name)}
-                >
-                  <TagLabel m="auto">{keyword.name}</TagLabel>
-                  <TagRightIcon as={AddIcon} />
-                </Tag>
-              ))}
+            {filteredKeywords.map((keyword, index) => (
+              <Tag
+                cursor="pointer"
+                colorScheme="blue"
+                w="100%"
+                key={index}
+                onClick={() => selectKeyword(keyword.name)}
+              >
+                <TagLabel m="auto">{keyword.name}</TagLabel>
+                <TagRightIcon as={AddIcon} />
+              </Tag>
+            ))}
           </SimpleGrid>
         </Stack>
 
         <Stack spacing={2} mt="2.5%">
           <Container>
             <Heading size="sm">
-              {selectedKeywords && selectedKeywords.length} Selected Keywords{' '}
+              {t('components.modals.select_keywords.keyword_count', {
+                count: selectedKeywords && selectedKeywords.length,
+              })}
               <Text as="em" fontWeight="light">
-                (Max 10)
+                {t('components.modals.select_keywords.max')}
               </Text>
             </Heading>
           </Container>
@@ -199,8 +208,12 @@ export default function KeywordSelect({
           padding="1px"
           w="100%"
         >
-          <ButtonBlue onClick={onSubmit}>Save Keywords</ButtonBlue>
-          <ButtonOrange onClick={closeKeywordModal}>Cancel</ButtonOrange>
+          <ButtonBlue onClick={onSubmit}>
+            {t('components.modals.select_keywords.save_button_text')}
+          </ButtonBlue>
+          <ButtonOrange onClick={closeKeywordModal}>
+            {t('components.modals.select_keywords.cancel_button_text')}
+          </ButtonOrange>
         </ButtonGroup>
       </Box>
     </>

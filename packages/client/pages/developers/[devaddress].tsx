@@ -1,6 +1,8 @@
 //Router
 import { useRouter } from 'next/router';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import {
   chakra,
   Box,
@@ -112,4 +114,22 @@ export default function DeveloperPage() {
       </Flex>
     </Box>
   );
+}
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
+
+export async function getStaticPaths() {
+  // This function is here to render LHS navigation bar i18n.
+  // Currently hard-coded until db is connected.
+  /**
+   * @todo Replace hard-coded paths with API call to developers/[devaddress]
+   */
+  return {
+    paths: ['/developers/1', '/developers/2', '/developers/3'],
+    fallback: false,
+  };
 }

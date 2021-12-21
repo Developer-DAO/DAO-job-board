@@ -21,6 +21,14 @@
         "header": "Add Socials",
         "save_button_text": "Save Links",
         "cancel_button_text": "Cancel"
+      },
+      "select_keywords": {
+        "header": "Search Keywords",
+        "placeholder": "Write skills or positions",
+        "keyword_count": "{{count}} Selecteds Keywords",
+        "max": "(Max 10)",
+        "save_button_text": "Save Keywords",
+        "cancel_button_text": "Cancel"
       }
     },
     "create_profile": {
@@ -115,6 +123,13 @@
       }
     },
     "navigation": {
+      "dashboard": {
+        "header": "Job Board",
+        "hiring": "RECRUITER",
+        "seeking": "SEEKER",
+        "jobs_list": " Jobs List",
+        "devs": " Devs"
+      },
       "navbar": {
         "alt_home": "Home",
         "job_board": "Job Board",
@@ -132,6 +147,12 @@
     }
   },
   "pages": {
+    "auth": {
+      "index": {
+        "connected": "Connected: {{account}}",
+        "login": "Login with Wallet"
+      }
+    },
     "create_profile": {
       "identity": "Identity",
       "basic_details": "Basic Details",

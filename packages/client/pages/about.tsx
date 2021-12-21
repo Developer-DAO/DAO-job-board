@@ -1,4 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const About = () => (
   <Box
@@ -15,3 +16,9 @@ const About = () => (
 );
 
 export default About;
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
