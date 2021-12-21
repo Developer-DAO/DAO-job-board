@@ -79,7 +79,8 @@ export default function JobCard({
               key={`technology-tag-${index}`}
               w="fit-content"
               size="md"
-              m="12px"
+              mx="12px"
+              mb="12px"
               ml="0px"
               px="16px"
               py="8px"
