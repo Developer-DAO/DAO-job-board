@@ -32,6 +32,7 @@
     "nextjs": "0.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "tabler-icons-react": "^1.37.0",
     "uuid": "^8.3.2",
     "web3.storage": "^3.3.4"
   },

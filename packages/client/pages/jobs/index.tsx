@@ -3,7 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import JobFilter from '../../components/jobs/JobFilter';
 import JobCard from '../../components/jobs/JobCard';
 
-import { Heading, Container, Text } from '@chakra-ui/react';
+import { Job } from "../../types/job";
+import { Container, Flex, Heading, Text } from '@chakra-ui/react';
 
 export default function Index() {
   return (
@@ -17,9 +18,16 @@ export default function Index() {
         Curated Web3 and blockchain jobs at companies or startups.
       </Text>
       <JobFilter />
-      <Container w="100%" maxW="100%">
-        <JobCard />
-      </Container>
+      <Flex
+        maxW="100%"
+        mt="2.5%"
+        w="100%"
+        wrap="wrap"
+      >
+        <JobCard {...{} as Job} />
+        <JobCard {...{} as Job} />
+        <JobCard {...{} as Job} />
+      </Flex>
     </Container>
   );
 }
