@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS public.organizations;
 DROP TABLE IF EXISTS public.user_keyword;
 DROP TABLE IF EXISTS public.keywords;
 DROP TABLE IF EXISTS public.links;
+DROP TABLE IF EXISTS public.projects;
+DROP TABLE IF EXISTS public.user_project;
 DROP TABLE IF EXISTS public.users;
 
 
@@ -40,6 +42,28 @@ CREATE TABLE public.users (
 );
 COMMENT ON COLUMN public.users.id IS 'References to a wallet address';
 -- ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
+
+-- table: projects
+
+CREATE TABLE public.projects (
+  id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
+  title VARCHAR NOT NULL,
+  description VARCHAR NOT NULL,
+  github_url VARCHAR,
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now(),
+  deleted_at TIMESTAMP
+);
+
+-- table: user_project
+CREATE TABLE public.user_project (
+  user_id VARCHAR NOT NULL REFERENCES public.users (id),
+  project_id UUID REFERENCES public.projects (id),
+  created_at TIMESTAMP NOT NULL DEFAULT now(),
+  updated_at TIMESTAMP NOT NULL DEFAULT now(),
+  deleted_at TIMESTAMP,
+  PRIMARY KEY (user_id, project_id)
+);
 
 -- table: user_keyword
 CREATE TABLE public.user_keyword (
@@ -102,7 +126,7 @@ CREATE TABLE public.organization_members (
 -- table: jobs
 CREATE TABLE public.jobs (
   id UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
-  organization_id UUID NOT NULL REFERENCES public.organizations (id),
+  organization_id UUID REFERENCES public.organizations (id),
   title VARCHAR NOT NULL CHECK (title <> ''),
   description TEXT NOT NULL CHECK (description <> ''),
   position VARCHAR CHECK (position <> ''),
