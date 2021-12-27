@@ -13,6 +13,7 @@ export default function NavTitle() {
     console.log(router.pathname);
   });
   const dynamicTitles: any = {
+    '/': 'Dashboard',
     '/developers': t('components.navigation.nav_title.devs_for_hire'),
     '/jobs': t('components.navigation.nav_title.jobs_list'),
     '/post-job': t('components.navigation.nav_title.post_job'),
