@@ -7,7 +7,12 @@ export default function DeveloperList() {
   const { t } = useTranslation('common');
 
   return (
-    <Box maxW={{ lg: '70%', md: '100%' }} textAlign="center" m="auto">
+    <Box
+      position="relative"
+      maxW={{ lg: '70%', md: '100%' }}
+      textAlign="center"
+      m="auto"
+    >
       <Heading>{t('components.developers.developer_list.dev_list')}</Heading>
       <Grid
         templateColumns={{

@@ -18,8 +18,9 @@ export const theme = extendTheme({
   config,
   breakpoints,
   fonts: {
-    heading: 'Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-    body: 'Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
+    heading:
+      'InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
+    body: 'InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
     code: '"Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace',
   },
   styles: {

@@ -45,6 +45,7 @@
     ]
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.1",
     "ts-node": "^10.4.0"
   }
 }

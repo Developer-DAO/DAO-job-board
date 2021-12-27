@@ -9,8 +9,6 @@ import {
   ButtonPrimary,
 } from '../styles/ui-components/Chakra-Button';
 
-import ButtonsNew from './ButtonsNew';
-
 export default function Landing() {
   const { t } = useTranslation('common');
 
@@ -46,8 +44,6 @@ export default function Landing() {
           <ButtonWarning as="a">{t('landing.search_jobs')}</ButtonWarning>
         </NextLink>
       </Box>
-
-      <ButtonsNew />
     </Box>
   );
 }

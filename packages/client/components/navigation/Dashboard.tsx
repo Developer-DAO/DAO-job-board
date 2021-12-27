@@ -159,7 +159,7 @@ export default function Dashboard() {
   return (
     <Box as="section" w="100%" pos="fixed" zIndex="100000000">
       <SidebarContent
-        display={{ lg: 'unset', md: 'none', sm: 'none' }}
+        display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"
       />
       <Drawer
@@ -167,8 +167,24 @@ export default function Dashboard() {
         onClose={sidebar.onClose}
         placement="left"
       >
-        <DrawerOverlay />
-        <DrawerContent>
+        <DrawerOverlay
+          display={{
+            '2xl': 'none',
+            lg: 'none',
+            md: 'unset',
+            sm: 'unset',
+            base: 'unset',
+          }}
+        />
+        <DrawerContent
+          display={{
+            '2xl': 'none',
+            lg: 'none',
+            md: 'unset',
+            sm: 'unset',
+            base: 'unset',
+          }}
+        >
           <SidebarContent w="full" borderRight="none" />
         </DrawerContent>
       </Drawer>
