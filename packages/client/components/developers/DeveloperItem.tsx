@@ -56,16 +56,55 @@ export default function DeveloperItem() {
       </NextLink>
 
       <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
+        <Tag
+          w="fit-content"
+          size="md"
+          backgroundColor="transparent"
+          border="1px"
+          borderColor="neutral.200"
+          borderRadius="8px"
+          color="neutral.400"
+          minWidth="max-content"
+        >
           <TagLabel m="auto">Web3</TagLabel>
         </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
+        <Tag
+          w="fit-content"
+          size="md"
+          backgroundColor="transparent"
+          border="1px"
+          borderColor="neutral.200"
+          borderRadius="8px"
+          color="neutral.400"
+          minWidth="max-content"
+        >
+          {' '}
           <TagLabel m="auto">Solidity</TagLabel>
         </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
+        <Tag
+          w="fit-content"
+          size="md"
+          backgroundColor="transparent"
+          border="1px"
+          borderColor="neutral.200"
+          borderRadius="8px"
+          color="neutral.400"
+          minWidth="max-content"
+        >
+          {' '}
           <TagLabel m="auto">Rust</TagLabel>
         </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
+        <Tag
+          w="fit-content"
+          size="md"
+          backgroundColor="transparent"
+          border="1px"
+          borderColor="neutral.200"
+          borderRadius="8px"
+          color="neutral.400"
+          minWidth="max-content"
+        >
+          {' '}
           <TagLabel m="auto">ThreeJS</TagLabel>
         </Tag>
       </HStack>

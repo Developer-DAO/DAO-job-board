@@ -10,7 +10,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { AuthProvider } from '@/hooks/useAuth';
 import { appWithTranslation } from 'next-i18next';
 
-import '@fontsource/inter/400.css';
+import '@fontsource/inter/variable-full.css';
+import '@fontsource/source-code-pro/400.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

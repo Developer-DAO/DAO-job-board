@@ -22,7 +22,8 @@ export const ButtonSuccess = ({ children, as, onClick }: ButtonProps) => {
     <Button
       size="sm"
       colorScheme="success"
-      _hover={{ cursor: 'pointer', bg: 'success.700' }}
+      bgColor="success.600"
+      _hover={{ cursor: 'pointer', bg: 'success.800' }}
       textColor="white"
       m="5px"
       fontSize="14px"
