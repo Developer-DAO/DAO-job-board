@@ -35,7 +35,7 @@ export default function Dashboard() {
       h="full"
       overflowX="hidden"
       overflowY="auto"
-      bg="white"
+      bg="utility.light80"
       borderColor="gray.200"
       borderRightWidth="1px"
       w="60"

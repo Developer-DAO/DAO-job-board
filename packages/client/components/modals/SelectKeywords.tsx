@@ -24,7 +24,7 @@ import {
 import {
   ButtonPrimary,
   ButtonWarning,
-} from '../../styles/ui-components/Chakra-Button';
+} from '@/styles/ui-components/Chakra-Button';
 
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
@@ -144,7 +144,7 @@ export default function KeywordSelect({
             </Heading>
             <InputGroup>
               <InputLeftAddon>
-                <SearchIcon color="gray.500" />
+                <SearchIcon color="neutral.200" />
               </InputLeftAddon>
               <Input
                 value={searchKeywords}

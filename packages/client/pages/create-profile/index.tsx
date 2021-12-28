@@ -186,20 +186,21 @@ export default function CreateProfile() {
         m="auto"
         width={{ '2xl': '70%', md: '90%', sm: '100%' }}
         boxSizing="border-box"
-        boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
-        bg={{ lg: '#ffffff', sm: 'none' }}
-        p="2%"
+        bg="none"
+        pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
+        pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
+        pr={{ sm: '3%', base: '3%' }}
         pos="relative"
         top="50"
       >
-        <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
+        <Flex flexDirection="column">
           <Stack direction="column" textAlign="center" flex={2} spacing={5}>
             <Heading size="md">{t('pages.create_profile.identity')}</Heading>
 
-            <Box m="auto">
+            <Stack m="auto" alignItems="center" spacing={2}>
               <Text size="md">{t('pages.create_profile.pfp')}</Text>
               <AddAvatar src="/DevDAO.png" />
-            </Box>
+            </Stack>
 
             <Stack direction="column" textAlign="left" spacing={2}>
               <Text>{t('pages.create_profile.identity')}</Text>
@@ -209,7 +210,6 @@ export default function CreateProfile() {
                 <Input
                   position="static"
                   bgColor="white"
-                  w={{ '2xl': '85%', sm: '85%' }}
                   placeholder={t('pages.create_profile.username_placeholder')}
                   name="username"
                   value={username}
@@ -224,7 +224,6 @@ export default function CreateProfile() {
               <Input
                 position="static"
                 bgColor="white"
-                w={{ '2xl': '95%', sm: '92.5%' }}
                 placeholder={t('pages.create_profile.profession_placeholder')}
                 name="title"
                 value={title}
@@ -236,12 +235,10 @@ export default function CreateProfile() {
                 {t('pages.create_profile.status_sub_text')}
               </Text>
               <Select
-                position="initial"
-                w={{ '2xl': '95%', sm: '92.5%' }}
                 bgColor="white"
                 bg="white"
-                borderColor="#e2e8f0"
-                _hover={{ borderColor: '#97c0e6' }}
+                borderColor="neutral.200"
+                _hover={{ borderColor: 'neutral.200' }}
                 name="status"
                 value={status}
                 onChange={(e) => onChange(e)}
@@ -283,7 +280,7 @@ export default function CreateProfile() {
             <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
               <Stack spacing={2} mt="2.5%">
                 <Heading size="md" textAlign="center">
-                  {t('pages.create_profile.choose_keywords')}
+                  {t('pages.create_profile.basic_details')}
                 </Heading>
 
                 <Text>{t('pages.create_profile.name')}</Text>
@@ -324,7 +321,9 @@ export default function CreateProfile() {
                   value={location}
                   onChange={(e) => onChange(e)}
                 />
+              </Stack>
 
+              <Stack spacing={2} mt="2.5%">
                 <Heading size="md" textAlign="center">
                   {t('pages.create_profile.links_header')}
                 </Heading>

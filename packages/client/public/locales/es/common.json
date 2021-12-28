@@ -1,29 +1,29 @@
 {
   "common": {
-    "title": "Bolsa de trabajo"
+    "title": "Empleos Web3"
   },
   "login": {
-    "sign_up": "Inscribirse"
+    "sign_up": "Registrarse"
   },
   "components": {
     "navigation": {
       "dashboard": {
-        "header": "Bolsa de trabajo",
-        "hiring": "RECLUTADOR",
-        "seeking": "BUSCADOR",
-        "jobs_list": " Lista de trabajos",
-        "devs": " Desarrolladores"
+        "header": "Empleos Web3",
+        "hiring": "RECLUTANDO",
+        "seeking": "BUSCANDO",
+        "jobs_list": "Lista de Empleos",
+        "devs": "Devs"
       },
       "navbar": {
-        "sign_up": "Inscribirse"
+        "sign_up": "Registrarse"
       }
     }
   },
   "landing": {
     "looking_for_talent": "¿Busca talento Web3?",
     "looking_for_work": "¿Busca trabajo en Web3?",
-    "post_job": "Trabajo posterior",
-    "search_devs": "Desarrolladores de búsqueda",
+    "post_job": "Publica un Empleo",
+    "search_devs": "Encuentra Devs",
     "search_jobs": "Buscar empleos"
   }
 }

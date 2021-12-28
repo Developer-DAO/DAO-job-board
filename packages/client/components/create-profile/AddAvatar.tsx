@@ -28,7 +28,6 @@ const circularStyles = {
   w: '8rem',
   h: '8rem',
   margin: 'auto',
-  mt: '5%',
   borderRadius: '180px',
 };
 
@@ -83,7 +82,6 @@ const AddAvatar = ({ src }: AddAvatarProps) => {
         opacity={0.5}
         onMouseLeave={toggleHover}
       >
-
         <ButtonPrimary onClick={onOpen}>
           {t('components.create_profile.add_avatar.edit')}
         </ButtonPrimary>

@@ -1,8 +1,17 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import DeveloperList from '@/components/developers/DeveloperList';
 
+import { Box } from '@chakra-ui/react';
+
 export default function Index() {
-  return <DeveloperList />;
+  return (
+    <Box
+      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
+    >
+      <DeveloperList />
+    </Box>
+  );
 }
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({

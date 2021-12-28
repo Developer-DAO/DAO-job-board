@@ -27,7 +27,7 @@ export const theme = extendTheme({
     global: {
       body: {
         initialColorMode: 'light',
-        bg: 'gray.50',
+        bg: 'utility.light80',
         color: 'black',
       },
     },

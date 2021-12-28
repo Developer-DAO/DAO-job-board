@@ -28,7 +28,7 @@ function Navbar({ sidebar }: any) {
         align="center"
         justify="space-between"
         px="4"
-        bg="white"
+        bg="utility.light80"
         borderBottomWidth="1px"
         borderColor="gray.200"
         h="14"
@@ -51,9 +51,9 @@ function Navbar({ sidebar }: any) {
           <Flex align="center">
             <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
             <Text
-              w={100}
+              w="7.5rem"
+              whiteSpace="nowrap"
               overflow="hidden"
-              wordWrap="none"
               textOverflow="ellipsis"
             >
               {account}

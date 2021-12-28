@@ -79,7 +79,7 @@ export default function GigSummary({
 
   return (
     <>
-      <Container textAlign="center" mt="2.5%" mb="2.5%">
+      <Container textAlign="center" mb="2.5%">
         <Heading>{t('components.forms.post_job.job_summary.header')}</Heading>
         <Text>
           {t('components.forms.post_job.job_summary.header_sub_text')}

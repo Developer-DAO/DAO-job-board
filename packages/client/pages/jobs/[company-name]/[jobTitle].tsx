@@ -28,6 +28,8 @@ export default function JobDetails() {
       maxW={{ sm: '100%', lg: '70%' }}
       mx="auto"
       px={3}
+      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       as="main"
       align={{ sm: 'center', lg: 'flex-start' }}
       justify="center"
