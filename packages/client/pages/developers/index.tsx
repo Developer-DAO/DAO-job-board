@@ -6,7 +6,7 @@ import { Box } from '@chakra-ui/react';
 export default function Index() {
   return (
     <Box
-      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pt={{ '2xl': '5%', lg: '7%', sm: '17%', base: '15%' }}
       pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
     >
       <DeveloperList />

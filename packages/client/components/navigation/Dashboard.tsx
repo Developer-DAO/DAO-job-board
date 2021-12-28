@@ -94,6 +94,7 @@ export default function Dashboard() {
           </Heading>
           <NextLink href={'/developers'} passHref>
             <Link
+              onClick={sidebar.onClose}
               color="gray.400"
               p="2"
               pl="5"
@@ -130,6 +131,7 @@ export default function Dashboard() {
           </Heading>
           <NextLink href={'/jobs'} passHref>
             <Link
+              onClick={sidebar.onClose}
               p="2"
               pl="5"
               color="gray.400"

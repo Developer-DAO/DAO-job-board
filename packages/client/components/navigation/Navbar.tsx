@@ -36,7 +36,7 @@ function Navbar({ sidebar }: any) {
         <IconButton
           aria-label="Menu"
           display={{ lg: 'none', md: 'inline-flex' }}
-          onClick={sidebar.onOpen}
+          onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
           size="sm"
           icon={<HamburgerIcon />}
         />
