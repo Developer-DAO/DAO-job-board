@@ -10,20 +10,23 @@ import {
   Select,
   Flex,
   IconButton,
+  Avatar,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { ButtonNeutral } from '../../styles/ui-components/Chakra-Button';
-import { Settings } from 'tabler-icons-react';
+import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
   const { account } = useEthers();
   const router = useRouter();
   const { t } = useTranslation('common');
 
+  const [isOpen, setIsOpen] = useState(false);
   const handlePurposeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const route = e.target.value == '/earn' ? 'jobs' : 'developers';
     setUserPurpose(e.target.value);
@@ -57,7 +60,9 @@ function Navbar({ sidebar, setUserPurpose }: any) {
 
         {account ? (
           /**
-           * @todo Add icon to select options. Add onClick for profile settings and settings
+           * @todo Add icon to select options.
+           * @todo Update/remove route redirect from option onchange event as agreed upon
+           * @todo Add onClick for profile settings and settings
            */
           <HStack
             align="center"
@@ -72,6 +77,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               w="75"
               onChange={(e) => handlePurposeChange(e)}
             >
+              <option value="">- placeholder -</option>
               <option value="/earn">
                 {t('components.navigation.navbar.seeking')}
               </option>
@@ -79,14 +85,22 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 {t('components.navigation.navbar.hiring')}
               </option>
             </Select>
-            <Text
-              w="7.5rem"
-              whiteSpace="nowrap"
-              overflow="hidden"
-              textOverflow="ellipsis"
-            >
-              {account.slice(0, 4)}...{account.slice(account.length - 4)}
-            </Text>
+            <HStack>
+              <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
+              <Text
+                w="7.5rem"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {account.slice(0, 4)}...{account.slice(account.length - 4)}
+              </Text>
+              {isOpen ? (
+                <ChevronUp onClick={() => setIsOpen(!isOpen)} />
+              ) : (
+                <ChevronDown onClick={() => setIsOpen(!isOpen)} />
+              )}
+            </HStack>
             <Box>
               <Settings size={24} />
             </Box>

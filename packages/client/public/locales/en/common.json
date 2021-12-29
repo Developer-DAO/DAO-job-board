@@ -146,7 +146,8 @@
         "jobs_list": "Job List",
         "devs_for_hire": "Developers For Hire",
         "post_job": "Post a Job",
-        "create_profile": "Create a Profile"
+        "create_profile": "Create a Profile",
+        "dashboard": "Dashboard"
       }
     }
   },
