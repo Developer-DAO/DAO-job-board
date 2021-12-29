@@ -3,8 +3,8 @@ import { GetStaticProps } from 'next';
 
 // UI & CSS
 import {
-  ButtonSuccess,
-  ButtonWarning,
+  ButtonPrimary,
+  ButtonDanger,
 } from '@/styles/ui-components/Chakra-Button';
 
 import {
@@ -65,11 +65,7 @@ export default function JobBasics({
 
   return (
     <>
-      <Container
-        textAlign="center"
-        mt={{ '2xl': '5%', lg: '5%', sm: '10%' }}
-        mb="2.5%"
-      >
+      <Container textAlign="center" mb="2.5%">
         <Heading color="black">
           {t('components.forms.post_job.job_basics.header')}
         </Heading>
@@ -197,12 +193,12 @@ export default function JobBasics({
       </Stack>
 
       <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonSuccess onClick={nextPage}>
+        <ButtonPrimary onClick={nextPage}>
           {t('components.forms.post_job.continue_button_text')}
-        </ButtonSuccess>
-        <ButtonWarning onClick={goBack}>
+        </ButtonPrimary>
+        <ButtonDanger onClick={goBack}>
           {t('components.forms.post_job.cancel_button_text')}
-        </ButtonWarning>
+        </ButtonDanger>
       </ButtonGroup>
     </>
   );
