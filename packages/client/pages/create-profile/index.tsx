@@ -12,6 +12,7 @@ import { Keyword } from '@/types';
 import {
   Box,
   ButtonGroup,
+  Button,
   Heading,
   Flex,
   Stack,
@@ -27,11 +28,6 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import {
-  ButtonPrimary,
-  ButtonSuccess,
-  ButtonWarning,
-} from '@/styles/ui-components/Chakra-Button';
 import AddAvatar from '@/components/create-profile/AddAvatar';
 
 import Project from '@/components/create-profile/project';
@@ -265,9 +261,14 @@ export default function CreateProfile() {
                 {t('pages.create_profile.keywords_sub_text')}
               </Text>
               <ButtonGroup>
-                <ButtonPrimary onClick={openKeywordModal}>
+                <Button
+                  bg="primary.700"
+                  color="white"
+                  _hover={{ bg: 'primary.500' }}
+                  onClick={openKeywordModal}
+                >
                   {t('pages.create_profile.choose_keywords')}
-                </ButtonPrimary>
+                </Button>
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
@@ -341,9 +342,14 @@ export default function CreateProfile() {
                 <Text size="sm">{t('pages.create_profile.social_links')}</Text>
 
                 <ButtonGroup w="50%">
-                  <ButtonPrimary onClick={openLinksModal}>
+                  <Button
+                    bg="primary.700"
+                    color="white"
+                    _hover={{ bg: 'primary.500' }}
+                    onClick={openLinksModal}
+                  >
                     {t('pages.create_profile.social_button_text')}
-                  </ButtonPrimary>
+                  </Button>
                 </ButtonGroup>
 
                 <LinksSection profileLinks={profileLinks} />
@@ -387,8 +393,11 @@ export default function CreateProfile() {
           })}
         </VStack>
 
-        <Box mt={4}>
-          <ButtonPrimary
+        <Box my={4}>
+          <Button
+            bg="primary.700"
+            color="white"
+            _hover={{ bg: 'primary.500' }}
             onClick={() => {
               setFormData({
                 ...formData,
@@ -404,24 +413,22 @@ export default function CreateProfile() {
             }}
           >
             {t('pages.create_profile.projects_button_text')}
-          </ButtonPrimary>
+          </Button>
         </Box>
 
-        <ButtonGroup
-          display="flex"
-          flexDirection="column"
-          m="5px"
-          mt="2.5%"
-          padding="1px"
-          w="100%"
-        >
-          <ButtonSuccess onClick={onSubmit}>
+        <Stack>
+          <Button
+            bg="neutral.700"
+            color="white"
+            _hover={{ bg: 'neutral.500' }}
+            onClick={onSubmit}
+          >
             {t('pages.create_profile.save_button_text')}
-          </ButtonSuccess>
-          <ButtonWarning>
+          </Button>
+          <Button bg="danger.700" _hover={{ bg: 'danger.500' }} color="white">
             {t('pages.create_profile.dismiss_button_text')}
-          </ButtonWarning>
-        </ButtonGroup>
+          </Button>
+        </Stack>
       </Box>
     </>
   );

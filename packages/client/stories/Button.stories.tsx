@@ -1,14 +1,6 @@
 import { Link, Button } from '@chakra-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
-import {
-  ButtonPrimary,
-  ButtonSuccess,
-  ButtonInfo,
-  ButtonWarning,
-  ButtonDanger,
-  ButtonNeutral,
-} from '../styles/ui-components/Chakra-Button';
+import React from 'react';
 
 const elementTypes = { Button, Link };
 
@@ -33,26 +25,75 @@ export default {
 /*
  * Example Button story with React Hooks.
  */
-export const Primary: ComponentStory<typeof ButtonPrimary> = (args) => {
-  return <ButtonPrimary {...args}>Primary</ButtonPrimary>;
+export const Primary: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button
+      bg="primary.700"
+      color="white"
+      _hover={{ bg: 'primary.500' }}
+      {...args}
+    >
+      Primary
+    </Button>
+  );
 };
 
-export const Success: ComponentStory<typeof ButtonSuccess> = (args) => {
-  return <ButtonSuccess {...args}>Success</ButtonSuccess>;
+export const Success: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button
+      bg="success.700"
+      color="white"
+      _hover={{ bg: 'success.500' }}
+      {...args}
+    >
+      Success
+    </Button>
+  );
 };
 
-export const Info: ComponentStory<typeof ButtonInfo> = (args) => {
-  return <ButtonInfo {...args}>Info</ButtonInfo>;
+export const Info: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button bg="info.700" color="white" _hover={{ bg: 'info.500' }} {...args}>
+      Info
+    </Button>
+  );
 };
 
-export const Danger: ComponentStory<typeof ButtonDanger> = (args) => {
-  return <ButtonDanger {...args}>Danger</ButtonDanger>;
+export const Danger: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button
+      bg="danger.700"
+      color="white"
+      _hover={{ bg: 'danger.500' }}
+      {...args}
+    >
+      Danger
+    </Button>
+  );
 };
 
-export const Warning: ComponentStory<typeof ButtonWarning> = (args) => {
-  return <ButtonWarning {...args}>Warning</ButtonWarning>;
+export const Warning: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button
+      bg="warning.700"
+      color="white"
+      _hover={{ bg: 'warning.500' }}
+      {...args}
+    >
+      Warning
+    </Button>
+  );
 };
 
-export const Neutral: ComponentStory<typeof ButtonNeutral> = (args) => {
-  return <ButtonNeutral {...args}>Neutral</ButtonNeutral>;
+export const Neutral: ComponentStory<typeof Button> = (args) => {
+  return (
+    <Button
+      bg="neutral.700"
+      color="white"
+      _hover={{ bg: 'neutral.500' }}
+      {...args}
+    >
+      Neutral
+    </Button>
+  );
 };

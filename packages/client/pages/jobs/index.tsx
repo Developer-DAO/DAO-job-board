@@ -16,9 +16,6 @@ export default function Index() {
       pl={{ lg: '15%', md: '2%', sm: 'none', base: 'none' }}
       textAlign="center"
     >
-      <Text as="i">
-        Curated Web3 and blockchain jobs at companies or startups.
-      </Text>
       <Grid
         templateColumns={{
           '2xl': 'repeat(3, 2fr)',
