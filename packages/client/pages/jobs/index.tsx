@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import JobCard from '@/components/jobs/JobCard';
 
 import { Job } from '@/types/job';
-import { Box, Grid, Text } from '@chakra-ui/react';
+import { Box, Grid } from '@chakra-ui/react';
 
 export default function Index() {
   return (

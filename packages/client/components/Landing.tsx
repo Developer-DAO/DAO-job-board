@@ -1,4 +1,4 @@
-import { Image, Heading, Box, Button } from '@chakra-ui/react';
+import { Image, HStack, Heading, Box, Button } from '@chakra-ui/react';
 
 import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
@@ -19,23 +19,49 @@ export default function Landing() {
         />
       </Box>
 
-      <Box textAlign="center">
+      <Box w="fit-content" m="auto" textAlign="center">
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_talent')}
         </Heading>
-        <NextLink href="/developers">
-          <Button as="a">{t('landing.search_devs')}</Button>
-        </NextLink>
 
-        <NextLink href="/post-job">
-          <Button as="a">{t('landing.post_job')}</Button>
-        </NextLink>
+        <HStack justifyContent="center" gap={2} m="auto" textAlign="center">
+          <NextLink href="/developers">
+            <Button
+              cursor="pointer"
+              color="white"
+              bg="neutral.700"
+              _hover={{ bg: 'neutral.500' }}
+              as="a"
+            >
+              {t('landing.search_devs')}
+            </Button>
+          </NextLink>
+          <NextLink href="/post-job">
+            <Button
+              cursor="pointer"
+              color="white"
+              bg="neutral.700"
+              _hover={{ bg: 'neutral.500' }}
+              as="a"
+            >
+              {t('landing.post_job')}
+            </Button>
+          </NextLink>
+        </HStack>
 
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_work')}
         </Heading>
         <NextLink href="/jobs">
-          <Button as="a">{t('landing.search_jobs')}</Button>
+          <Button
+            cursor="pointer"
+            color="white"
+            bg="neutral.700"
+            _hover={{ bg: 'neutral.500' }}
+            as="a"
+          >
+            {t('landing.search_jobs')}
+          </Button>
         </NextLink>
       </Box>
     </Box>
