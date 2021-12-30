@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 //CSS and UI
 import {
   Box,
+  Button,
   Heading,
   Text,
   Link,
@@ -11,7 +12,6 @@ import {
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-import { ButtonSuccess } from '@/styles/ui-components/Chakra-Button';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
@@ -110,9 +110,7 @@ export default function DeveloperItem() {
       </HStack>
 
       <NextLink href={'/developers/developer1'} passHref>
-        <ButtonSuccess>
-          {t('components.developers.developer_item.button_text')}
-        </ButtonSuccess>
+        <Button>{t('components.developers.developer_item.button_text')}</Button>
       </NextLink>
     </Box>
   );

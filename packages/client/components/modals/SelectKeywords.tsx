@@ -19,12 +19,8 @@ import {
   TagCloseButton,
   TagRightIcon,
   ButtonGroup,
+  Button,
 } from '@chakra-ui/react';
-
-import {
-  ButtonPrimary,
-  ButtonWarning,
-} from '@/styles/ui-components/Chakra-Button';
 
 import { AddIcon, SearchIcon } from '@chakra-ui/icons';
 
@@ -208,12 +204,12 @@ export default function KeywordSelect({
           padding="1px"
           w="100%"
         >
-          <ButtonPrimary onClick={onSubmit}>
+          <Button onClick={onSubmit}>
             {t('components.modals.select_keywords.save_button_text')}
-          </ButtonPrimary>
-          <ButtonWarning onClick={closeKeywordModal}>
+          </Button>
+          <Button onClick={closeKeywordModal}>
             {t('components.modals.select_keywords.cancel_button_text')}
-          </ButtonWarning>
+          </Button>
         </ButtonGroup>
       </Box>
     </>

@@ -10,13 +10,12 @@ import {
   Heading,
   Flex,
   IconButton,
+  Button,
 } from '@chakra-ui/react';
 
 import { useEthers } from '@usedapp/core';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
-
-import { ButtonNeutral } from '../../styles/ui-components/Chakra-Button';
 
 function Navbar({ sidebar }: any) {
   const { account } = useEthers();
@@ -62,7 +61,14 @@ function Navbar({ sidebar }: any) {
         ) : (
           <NextLink href={'/auth'} passHref>
             <Link display={{ sm: 'none', md: 'flex' }}>
-              <ButtonNeutral as="a">Sign Up</ButtonNeutral>
+              <Button
+                color="white"
+                bg="neutral.700"
+                _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
+                as="a"
+              >
+                Sign Up
+              </Button>
             </Link>
           </NextLink>
         )}

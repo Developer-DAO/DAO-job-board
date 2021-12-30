@@ -1,13 +1,7 @@
-import { Image, Heading, Box } from '@chakra-ui/react';
+import { Image, Heading, Box, Button } from '@chakra-ui/react';
 
 import { useTranslation } from 'next-i18next';
 import NextLink from 'next/link';
-
-import {
-  ButtonWarning,
-  ButtonSuccess,
-  ButtonPrimary,
-} from '../styles/ui-components/Chakra-Button';
 
 export default function Landing() {
   const { t } = useTranslation('common');
@@ -30,18 +24,18 @@ export default function Landing() {
           {t('landing.looking_for_talent')}
         </Heading>
         <NextLink href="/developers">
-          <ButtonSuccess as="a">{t('landing.search_devs')}</ButtonSuccess>
+          <Button as="a">{t('landing.search_devs')}</Button>
         </NextLink>
 
         <NextLink href="/post-job">
-          <ButtonPrimary as="a">{t('landing.post_job')}</ButtonPrimary>
+          <Button as="a">{t('landing.post_job')}</Button>
         </NextLink>
 
         <Heading m="10px" fontSize="28px">
           {t('landing.looking_for_work')}
         </Heading>
         <NextLink href="/jobs">
-          <ButtonWarning as="a">{t('landing.search_jobs')}</ButtonWarning>
+          <Button as="a">{t('landing.search_jobs')}</Button>
         </NextLink>
       </Box>
     </Box>
