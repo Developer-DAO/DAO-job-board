@@ -11,6 +11,7 @@ import {
   Flex,
   IconButton,
   Avatar,
+  Button,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -18,10 +19,11 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { ButtonNeutral } from '../../styles/ui-components/Chakra-Button';
+
 import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
+
   const { account } = useEthers();
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -108,7 +110,14 @@ function Navbar({ sidebar, setUserPurpose }: any) {
         ) : (
           <NextLink href={'/auth'} passHref>
             <Link display={{ sm: 'none', md: 'flex' }}>
-              <ButtonNeutral as="a">Sign Up</ButtonNeutral>
+              <Button
+                color="white"
+                bg="neutral.700"
+                _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
+                as="a"
+              >
+                Sign Up
+              </Button>
             </Link>
           </NextLink>
         )}

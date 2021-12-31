@@ -9,12 +9,8 @@ import {
   InputGroup,
   InputLeftAddon,
   ButtonGroup,
+  Button,
 } from '@chakra-ui/react';
-
-import {
-  ButtonPrimary,
-  ButtonWarning,
-} from '@/styles/ui-components/Chakra-Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -157,12 +153,12 @@ export default function AddLinks({
               padding="1px"
               w="100%"
             >
-              <ButtonPrimary onClick={onSubmit}>
+              <Button onClick={onSubmit}>
                 {t('components.modals.add_links.save_button_text')}
-              </ButtonPrimary>
-              <ButtonWarning onClick={closeLinksModal}>
+              </Button>
+              <Button onClick={closeLinksModal}>
                 {t('components.modals.add_links.cancel_button_text')}
-              </ButtonWarning>
+              </Button>
             </ButtonGroup>
           </VStack>
         </chakra.form>

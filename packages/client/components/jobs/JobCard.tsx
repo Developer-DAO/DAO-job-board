@@ -34,7 +34,12 @@ export default function JobCard({
         marginTop: '8px',
         boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
       }}
-      height={{ lg: 'fit-content', md: 'fit-content', sm: 'max-content' }}
+      height={{
+        lg: 'fit-content',
+        md: 'fit-content',
+        sm: 'max-content',
+        base: 'max-content',
+      }}
       w="100%"
       m="20px"
       textAlign="left"
@@ -110,10 +115,10 @@ const JobHeader = () => {
     organization_description = 'NFT Marketplace',
     logo_url = '/DevDAO.png';
 
-  const [isFavorited, setIsFavorited] = useState(true);
+  const [isFavorited, setIsFavorited] = useState(false);
 
   return (
-    <Box p="40px" borderBottom="1px" borderColor="#F1F0F5">
+    <Box p="40px" borderBottom="1px" borderColor="neutral.200">
       <Flex align="center" justify="space-between">
         <HStack>
           <Link
@@ -140,6 +145,7 @@ const JobHeader = () => {
             </Flex>
           </Link>
         </HStack>
+
         <svg width="0" height="0">
           <linearGradient
             id="utility-gradient"
@@ -152,6 +158,7 @@ const JobHeader = () => {
             <stop stopColor="#4E00EC" offset="100%" />
           </linearGradient>
         </svg>
+
         {isFavorited ? (
           <Heart
             style={{

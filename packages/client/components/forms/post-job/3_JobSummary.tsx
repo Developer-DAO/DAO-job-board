@@ -4,13 +4,6 @@ import { useState } from 'react';
 import KeywordsSection from '../KeywordsSection';
 import { Keyword } from '@/types';
 
-// UI & CSS
-import {
-  ButtonPrimary,
-  ButtonWarning,
-  ButtonNeutral,
-} from '@/styles/ui-components/Chakra-Button';
-
 import {
   Box,
   Heading,
@@ -18,7 +11,7 @@ import {
   Input,
   Container,
   Text,
-  ButtonGroup,
+  Button,
 } from '@chakra-ui/react';
 
 import { useTranslation } from 'next-i18next';
@@ -89,9 +82,9 @@ export default function GigSummary({
       <Container m="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
           {t('components.forms.post_job.job_summary.job_basics')}{' '}
-          <ButtonNeutral onClick={goToBasics}>
+          <Button onClick={goToBasics}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
-          </ButtonNeutral>
+          </Button>
         </Heading>
       </Container>
 
@@ -136,9 +129,9 @@ export default function GigSummary({
       <Container margin="auto" textAlign="center" maxW="100%">
         <Heading fontSize="lg">
           {t('components.forms.post_job.job_summary.job_details')}{' '}
-          <ButtonNeutral onClick={goToDetails}>
+          <Button onClick={goToDetails}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
-          </ButtonNeutral>
+          </Button>
         </Heading>
       </Container>
 
@@ -206,15 +199,22 @@ export default function GigSummary({
         </Box>
       </Stack>
 
-      <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonPrimary onClick={(e) => sendJobData(e)}>
-          {t('components.forms.post_job.job_summary.post_job')}
-        </ButtonPrimary>
-
-        <ButtonWarning onClick={goToDetails}>
-          {t('components.forms.post_job.job_summary.back_button_text')}
-        </ButtonWarning>
-      </ButtonGroup>
+      <Button
+        bg="primary.500"
+        _hover={{ bg: 'primary.700' }}
+        color="white"
+        onClick={(e) => sendJobData(e)}
+      >
+        {t('components.forms.post_job.job_summary.post_job')}
+      </Button>
+      <Button
+        bg="danger.600"
+        _hover={{ bg: 'danger.800' }}
+        color="white"
+        onClick={goToBasics}
+      >
+        {t('components.forms.post_job.job_summary.back_button_text')}
+      </Button>
     </>
   );
 }

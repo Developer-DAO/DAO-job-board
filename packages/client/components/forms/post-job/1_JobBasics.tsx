@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 
-// UI & CSS
-import {
-  ButtonPrimary,
-  ButtonDanger,
-} from '@/styles/ui-components/Chakra-Button';
-
 import {
   Heading,
+  Button,
   Input,
   Textarea,
   Select,
   Container,
   Text,
-  ButtonGroup,
   Stack,
 } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
@@ -192,14 +186,24 @@ export default function JobBasics({
         )}
       </Stack>
 
-      <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonPrimary onClick={nextPage}>
+      <Stack>
+        <Button
+          bg="neutral.900"
+          _hover={{ bg: 'neutral.500' }}
+          color="white"
+          onClick={nextPage}
+        >
           {t('components.forms.post_job.continue_button_text')}
-        </ButtonPrimary>
-        <ButtonDanger onClick={goBack}>
+        </Button>
+        <Button
+          bg="danger.600"
+          _hover={{ bg: 'danger.800' }}
+          color="white"
+          onClick={goBack}
+        >
           {t('components.forms.post_job.cancel_button_text')}
-        </ButtonDanger>
-      </ButtonGroup>
+        </Button>
+      </Stack>
     </>
   );
 }

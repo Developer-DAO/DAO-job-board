@@ -8,18 +8,12 @@ import KeywordSelect from '@/components/modals/SelectKeywords';
 import KeywordsSection from '../KeywordsSection';
 
 import {
-  ButtonSuccess,
-  ButtonWarning,
-  ButtonNeutral,
-} from '@/styles/ui-components/Chakra-Button';
-
-import {
   Heading,
   Container,
   Input,
   Select,
   Text,
-  ButtonGroup,
+  Button,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -127,9 +121,14 @@ export default function GigDetails({
         )}
 
         <Container>
-          <ButtonNeutral onClick={openKeywordModal}>
+          <Button
+            bg="neutral.500"
+            _hover={{ bg: 'neutral.700' }}
+            color="white"
+            onClick={openKeywordModal}
+          >
             {t('components.forms.post_job.job_details.keyword_button_text')}
-          </ButtonNeutral>
+          </Button>
         </Container>
 
         <KeywordsSection
@@ -244,14 +243,24 @@ export default function GigDetails({
         />
       </Stack>
 
-      <ButtonGroup display="flex" flexDirection="column" m="5px" padding="1px">
-        <ButtonSuccess onClick={nextPage}>
+      <Stack>
+        <Button
+          bg="neutral.900"
+          _hover={{ bg: 'neutral.500' }}
+          color="white"
+          onClick={nextPage}
+        >
           {t('components.forms.post_job.continue_button_text')}
-        </ButtonSuccess>
-        <ButtonWarning onClick={goToBasics}>
-          {t('components.forms.post_job.back_button_text')}
-        </ButtonWarning>
-      </ButtonGroup>
+        </Button>
+        <Button
+          bg="danger.600"
+          _hover={{ bg: 'danger.800' }}
+          color="white"
+          onClick={goToBasics}
+        >
+          {t('components.forms.post_job.cancel_button_text')}
+        </Button>
+      </Stack>
     </>
   );
 }
