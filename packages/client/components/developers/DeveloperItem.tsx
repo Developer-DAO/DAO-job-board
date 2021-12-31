@@ -3,7 +3,6 @@ import NextLink from 'next/link';
 //CSS and UI
 import {
   Box,
-  Button,
   Heading,
   Text,
   Link,
@@ -13,11 +12,8 @@ import {
   TagLabel,
 } from '@chakra-ui/react';
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 
 export default function DeveloperItem() {
-  const { t } = useTranslation('common');
-
   const userdata = {
     skills: ['Solidity', 'EthersJS', 'React', 'Rust'],
     name: 'Developer',
