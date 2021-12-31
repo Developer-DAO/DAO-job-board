@@ -24,7 +24,6 @@ export default function DeveloperItem() {
   const DeveloperHeader = () => {
     return (
       <Box
-        key={Math.floor(Math.random() * 1000)} // will use the actual profile id
         p="1rem"
         borderBottom="1px"
         borderColor="neutral.200"
@@ -81,8 +80,9 @@ export default function DeveloperItem() {
       <DeveloperHeader />
 
       <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
-        {userdata.skills.map((skill) => (
+        {userdata.skills.map((skill, index) => (
           <Tag
+            key={index}
             w="fit-content"
             size="md"
             backgroundColor="transparent"
