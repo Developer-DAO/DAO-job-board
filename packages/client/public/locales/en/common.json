@@ -124,7 +124,7 @@
     },
     "navigation": {
       "dashboard": {
-        "header": "Job Board",
+        "header": "jobsBoard",
         "hiring": "RECRUITER",
         "seeking": "SEEKER",
         "jobs_list": " Jobs List",
@@ -136,13 +136,18 @@
         "jobs": "Jobs",
         "devs": "Devs",
         "about": "About",
-        "sign_up": "Sign Up"
+        "sign_up": "Sign Up",
+        "seeking": "I am looking for jobs",
+        "hiring": "I am recruiting",
+        "hire": "/hire",
+        "earn": "/earn"
       },
       "nav_title": {
         "jobs_list": "Job List",
         "devs_for_hire": "Developers For Hire",
         "post_job": "Post a Job",
-        "create_profile": "Create a Profile"
+        "create_profile": "Create a Profile",
+        "dashboard": "Dashboard"
       }
     }
   },
