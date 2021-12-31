@@ -12,8 +12,8 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-
 import NextLink from 'next/link';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -25,6 +25,10 @@ export default function Dashboard() {
   const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
+  /**
+   * @todo Add default userPurpose based on default user onboarding choice
+   */
+  const [userPurpose, setUserPurpose] = useState('');
   const SidebarContent = (props: any) => (
     <Box
       as="nav"
@@ -68,6 +72,7 @@ export default function Dashboard() {
               marginX="1"
             />
             {t('components.navigation.dashboard.header')}
+            <Text color="primary.500">{userPurpose}</Text>
           </Link>
         </NextLink>
       </Flex>
@@ -191,7 +196,7 @@ export default function Dashboard() {
         </DrawerContent>
       </Drawer>
 
-      <Navbar sidebar={sidebar} />
+      <Navbar sidebar={sidebar} setUserPurpose={setUserPurpose} />
     </Box>
   );
 }
