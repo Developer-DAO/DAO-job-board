@@ -24,6 +24,7 @@ export default function DeveloperItem() {
   const DeveloperHeader = () => {
     return (
       <Box
+        key={Math.floor(Math.random() * 1000)} // will use the actual profile id
         p="1rem"
         borderBottom="1px"
         borderColor="neutral.200"
