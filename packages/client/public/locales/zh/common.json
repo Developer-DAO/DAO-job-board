@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "Job Board"
+    "title": "工作看板"
   },
   "login": {
     "sign_up": "註冊"
@@ -10,8 +10,8 @@
     "looking_for_work": "正在尋找 Web3 的工作嗎？",
     "search_devs": "尋找開發者",
     "search_jobs": "尋找工作",
-    "post_job": "張貼工作職缺",
-    "post_gig": "張貼外包案職缺",
+    "post_job": "張貼工作職位",
+    "post_gig": "張貼外包案職位",
     "search_gig": "尋找接案工作機會"
   },
   "components": {
@@ -35,77 +35,77 @@
       "post_job": {
         "continue_button_text": "繼續",
         "cancel_button_text": "取消",
-        "back_button_text": "上一頁",
+        "back_button_text": "上一步",
         "job_basics": {
-          "header": "職缺基本資料",
+          "header": "工作職位基本資訊",
           "sub_header": "讓我們知道你正在尋找哪方面的專業人才",
-          "title_header": "請為你的職缺輸入相符的標題",
+          "title_header": "請為你的職位輸入相符的標題",
           "title_placeholder": "如： Full-Stack Blockchain Engineer",
           "char_min_title": "至少 {{count}} 個字",
           "char_min_title_error": "請確定標題至少有 {{count}} 個字",
           "position_header": "選擇一個工作職位",
           "position_default": "選擇工作職位",
-          "type_header": "您的職缺是哪種工作類型？",
+          "type_header": "您的職位是哪種工作類型？",
           "select_default": "選擇一個工作類型",
-          "description_header": "職缺描述",
+          "description_header": "職位描述",
           "description_placeholder": "如： 我們正在尋找有至少三年經驗的全端區塊鏈工程師...",
           "char_min_description": "至少 {{count}} 個字",
           "char_min_description_error": "請確認描述至少有 {{count}} 個字"
         },
         "job_details": {
-          "header": "Job Details",
-          "sub_header": "Define the job category, compensation, and location",
-          "category_header": "Pick a job keyword category",
-          "category_sub_header": "Keywords help categorize your job post (pick at least 3)",
-          "category_error": "Make sure to pick at least 3 keywords",
-          "keyword_button_text": "Select Keywords",
-          "compensation_header": "Explain compensation (optional)",
-          "compensation_sub_header": "Jobs with compensation info get more applications",
-          "token_default": "Token / Currency",
-          "equity_header": "Do you offer equity? (optional)",
-          "equity_default": "Equity Range",
-          "location_header": "Location (optional)",
-          "location_sub_header": "Defaults to remote if empty",
-          "location_placeholder": "e.g California, US",
+          "header": "工作職位細節",
+          "sub_header": "定義工作類別、薪資和地點",
+          "category_header": "選擇工作關鍵字類別",
+          "category_sub_header": "可以幫助分類你職位的關鍵字 (至少選擇三個)",
+          "category_error": "請確認至少有選擇三個關鍵字",
+          "keyword_button_text": "選擇關鍵字",
+          "compensation_header": "薪酬說明 (選填)",
+          "compensation_sub_header": "有薪資資訊的工作職位容易獲得更多的申請",
+          "token_default": "代幣 / 貨幣",
+          "equity_header": "您提供股權嗎? (選填)",
+          "equity_default": "權益範圍",
+          "location_header": "地點 (選填)",
+          "location_sub_header": "預設為遠端工作",
+          "location_placeholder": "如： 美國加勒佛尼亞州",
           "min": "Min",
           "max": "Max"
         },
         "job_summary": {
-          "header": "Job Summary",
-          "header_sub_text": "Check that everything is correct (click edit if not)",
-          "job_basics": "Job Basics",
-          "edit_button_text": "Edit",
-          "job_name": "Job Name:",
-          "job_description": "Job Description:",
-          "job_position": "Job Position:",
-          "job_type": "Job Type:",
-          "job_details": "Job Details",
-          "keywords": "Keywords:",
-          "job_compensation": "Job Compensation:",
-          "job_equity": "Equity Offer:",
-          "job_location": "Job Location:",
-          "contact_header": "How should people contact you or your organization?",
-          "contact_sub_text": "Write your website job post link or an email",
-          "contact_placeholder": "e.g. www.company.com/job or company@email.com",
-          "add_email_or_site": "Add an email or website link",
-          "post_job": "Post Job",
-          "back_button_text": "Back"
+          "header": "工作職位摘要",
+          "header_sub_text": "確認所有資訊皆正確無誤 (點擊編輯按鈕修改)",
+          "job_basics": "工作基本資訊",
+          "edit_button_text": "編輯",
+          "job_name": "工作職位名稱",
+          "job_description": "工作描述:",
+          "job_position": "工作職位:",
+          "job_type": "工作類型:",
+          "job_details": "工作細節",
+          "keywords": "關鍵字:",
+          "job_compensation": "工作薪酬:",
+          "job_equity": "提供股權:",
+          "job_location": "工作地點:",
+          "contact_header": "要如何聯絡的到您或是您的組織?",
+          "contact_sub_text": "寫下您網站的工作職位連結或是 email",
+          "contact_placeholder": "如: www.company.com/job or company@email.com",
+          "add_email_or_site": "加上電子郵件或網站連結",
+          "post_job": "發佈工作職位",
+          "back_button_text": "上一步"
         }
       }
     },
     "jobs": {
       "job_filter": {
-        "placeholder": "Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)"
+        "placeholder": "搜尋一個關鍵字 (如: Solidity, Front-End, Full-Stack ...... 等)"
       }
     },
     "navigation": {
       "navbar": {
-        "alt_home": "Home",
-        "job_board": "Job Board",
-        "jobs": "Jobs",
-        "devs": "Devs",
-        "about": "About",
-        "sign_up": "Sign Up"
+        "alt_home": "首頁",
+        "job_board": "工作看板",
+        "jobs": "工作列表",
+        "devs": "開發者列表",
+        "about": "關於",
+        "sign_up": "註冊"
       }
     }
   }
