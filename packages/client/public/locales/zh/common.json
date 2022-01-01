@@ -1,0 +1,112 @@
+{
+  "common": {
+    "title": "Job Board"
+  },
+  "login": {
+    "sign_up": "註冊"
+  },
+  "landing": {
+    "looking_for_talent": "正在尋找 Web3 的人才嗎？",
+    "looking_for_work": "正在尋找 Web3 的工作嗎？",
+    "search_devs": "尋找開發者",
+    "search_jobs": "尋找工作",
+    "post_job": "張貼工作職缺",
+    "post_gig": "張貼外包案職缺",
+    "search_gig": "尋找接案工作機會"
+  },
+  "components": {
+    "create_profile": {
+      "title": "標題",
+      "title_placeholder": "輸入標題",
+      "github_url": "Github 連結",
+      "enter_github_placeholder": "輸入個人 Github 連結",
+      "description": "描述",
+      "description_placeholder": "輸入描述"
+    },
+    "developers": {
+      "developer_item": {
+        "button_text": "觀看詳細資料"
+      },
+      "developer_list": {
+        "dev_list": "開發者列表"
+      }
+    },
+    "forms": {
+      "post_job": {
+        "continue_button_text": "繼續",
+        "cancel_button_text": "取消",
+        "back_button_text": "上一頁",
+        "job_basics": {
+          "header": "職缺基本資料",
+          "sub_header": "讓我們知道你正在尋找哪方面的專業人才",
+          "title_header": "請為你的職缺輸入相符的標題",
+          "title_placeholder": "如： Full-Stack Blockchain Engineer",
+          "char_min_title": "至少 {{count}} 個字",
+          "char_min_title_error": "請確定標題至少有 {{count}} 個字",
+          "position_header": "選擇一個工作職位",
+          "position_default": "選擇工作職位",
+          "type_header": "您的職缺是哪種工作類型？",
+          "select_default": "選擇一個工作類型",
+          "description_header": "職缺描述",
+          "description_placeholder": "如： 我們正在尋找有至少三年經驗的全端區塊鏈工程師...",
+          "char_min_description": "至少 {{count}} 個字",
+          "char_min_description_error": "請確認描述至少有 {{count}} 個字"
+        },
+        "job_details": {
+          "header": "Job Details",
+          "sub_header": "Define the job category, compensation, and location",
+          "category_header": "Pick a job keyword category",
+          "category_sub_header": "Keywords help categorize your job post (pick at least 3)",
+          "category_error": "Make sure to pick at least 3 keywords",
+          "keyword_button_text": "Select Keywords",
+          "compensation_header": "Explain compensation (optional)",
+          "compensation_sub_header": "Jobs with compensation info get more applications",
+          "token_default": "Token / Currency",
+          "equity_header": "Do you offer equity? (optional)",
+          "equity_default": "Equity Range",
+          "location_header": "Location (optional)",
+          "location_sub_header": "Defaults to remote if empty",
+          "location_placeholder": "e.g California, US",
+          "min": "Min",
+          "max": "Max"
+        },
+        "job_summary": {
+          "header": "Job Summary",
+          "header_sub_text": "Check that everything is correct (click edit if not)",
+          "job_basics": "Job Basics",
+          "edit_button_text": "Edit",
+          "job_name": "Job Name:",
+          "job_description": "Job Description:",
+          "job_position": "Job Position:",
+          "job_type": "Job Type:",
+          "job_details": "Job Details",
+          "keywords": "Keywords:",
+          "job_compensation": "Job Compensation:",
+          "job_equity": "Equity Offer:",
+          "job_location": "Job Location:",
+          "contact_header": "How should people contact you or your organization?",
+          "contact_sub_text": "Write your website job post link or an email",
+          "contact_placeholder": "e.g. www.company.com/job or company@email.com",
+          "add_email_or_site": "Add an email or website link",
+          "post_job": "Post Job",
+          "back_button_text": "Back"
+        }
+      }
+    },
+    "jobs": {
+      "job_filter": {
+        "placeholder": "Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)"
+      }
+    },
+    "navigation": {
+      "navbar": {
+        "alt_home": "Home",
+        "job_board": "Job Board",
+        "jobs": "Jobs",
+        "devs": "Devs",
+        "about": "About",
+        "sign_up": "Sign Up"
+      }
+    }
+  }
+}
