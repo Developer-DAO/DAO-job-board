@@ -1,10 +1,10 @@
 import NextLink from 'next/link';
 import NavTitle from './NavTitle';
+import ConnectButton from './ConnectButton';
 
 import {
   Box,
   Text,
-  Link,
   HStack,
   Heading,
   Select,
@@ -23,7 +23,6 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
-
   const { account } = useEthers();
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -108,18 +107,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             </Box>
           </HStack>
         ) : (
-          <NextLink href={'/auth'} passHref>
-            <Link display={{ sm: 'none', md: 'flex' }}>
-              <Button
-                color="white"
-                bg="neutral.700"
-                _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
-                as="a"
-              >
-                Sign Up
-              </Button>
-            </Link>
-          </NextLink>
+          <ConnectButton />
         )}
       </Flex>
     </Box>
