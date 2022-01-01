@@ -31,7 +31,7 @@ export default function JobCard({
       boxSizing="border-box"
       transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
       _hover={{
-        marginTop: '8px',
+        marginTop: '16px',
         boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
       }}
       height={{

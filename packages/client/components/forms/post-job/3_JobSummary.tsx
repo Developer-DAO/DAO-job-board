@@ -197,24 +197,26 @@ export default function GigSummary({
             </Text>
           ) : null}
         </Box>
-      </Stack>
 
-      <Button
-        bg="primary.500"
-        _hover={{ bg: 'primary.700' }}
-        color="white"
-        onClick={(e) => sendJobData(e)}
-      >
-        {t('components.forms.post_job.job_summary.post_job')}
-      </Button>
-      <Button
-        bg="danger.600"
-        _hover={{ bg: 'danger.800' }}
-        color="white"
-        onClick={goToBasics}
-      >
-        {t('components.forms.post_job.job_summary.back_button_text')}
-      </Button>
+        <Stack>
+          <Button
+            bg="primary.500"
+            _hover={{ bg: 'primary.700' }}
+            color="white"
+            onClick={(e) => sendJobData(e)}
+          >
+            {t('components.forms.post_job.job_summary.post_job')}
+          </Button>
+          <Button
+            bg="danger.600"
+            _hover={{ bg: 'danger.800' }}
+            color="white"
+            onClick={goToDetails}
+          >
+            {t('components.forms.post_job.job_summary.back_button_text')}
+          </Button>
+        </Stack>
+      </Stack>
     </>
   );
 }
