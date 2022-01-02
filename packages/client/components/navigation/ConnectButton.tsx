@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 
 import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
@@ -53,10 +53,12 @@ function ConnectButton() {
   }, [account, deactivate, setUser, router]);
 
   return (
-    <Button onClick={handleOnConnectToWallet}>
+    <Button onClick={handleOnConnectToWallet} minWidth="max-content">
       <Flex gridGap={2}>
         <Image width={15} height={15} src="/metamask.png" alt="icon" />
-        {t('components.navigation.connect_button.connect')}
+        <Text fontSize="sm">
+          {t('components.navigation.connect_button.connect')}
+        </Text>
       </Flex>
     </Button>
   );
