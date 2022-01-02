@@ -818,6 +818,7 @@ export interface paths {
           created_at?: parameters['rowFilter.projects.created_at'];
           updated_at?: parameters['rowFilter.projects.updated_at'];
           deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
           /** Filtering Columns */
           select?: parameters['select'];
           /** Ordering */
@@ -875,6 +876,7 @@ export interface paths {
           created_at?: parameters['rowFilter.projects.created_at'];
           updated_at?: parameters['rowFilter.projects.updated_at'];
           deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
         };
         header: {
           /** Preference */
@@ -896,6 +898,7 @@ export interface paths {
           created_at?: parameters['rowFilter.projects.created_at'];
           updated_at?: parameters['rowFilter.projects.updated_at'];
           deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
         };
         body: {
           /** projects */
@@ -999,108 +1002,6 @@ export interface paths {
         body: {
           /** user_keyword */
           user_keyword?: definitions['user_keyword'];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters['preferReturn'];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-  };
-  '/user_project': {
-    get: {
-      parameters: {
-        query: {
-          user_id?: parameters['rowFilter.user_project.user_id'];
-          project_id?: parameters['rowFilter.user_project.project_id'];
-          created_at?: parameters['rowFilter.user_project.created_at'];
-          updated_at?: parameters['rowFilter.user_project.updated_at'];
-          deleted_at?: parameters['rowFilter.user_project.deleted_at'];
-          created_by?: parameters['rowFilter.user_project.created_by'];
-          /** Filtering Columns */
-          select?: parameters['select'];
-          /** Ordering */
-          order?: parameters['order'];
-          /** Limiting and Pagination */
-          offset?: parameters['offset'];
-          /** Limiting and Pagination */
-          limit?: parameters['limit'];
-        };
-        header: {
-          /** Limiting and Pagination */
-          Range?: parameters['range'];
-          /** Limiting and Pagination */
-          'Range-Unit'?: parameters['rangeUnit'];
-          /** Preference */
-          Prefer?: parameters['preferCount'];
-        };
-      };
-      responses: {
-        /** OK */
-        200: {
-          schema: definitions['user_project'][];
-        };
-        /** Partial Content */
-        206: unknown;
-      };
-    };
-    post: {
-      parameters: {
-        body: {
-          /** user_project */
-          user_project?: definitions['user_project'];
-        };
-        query: {
-          /** Filtering Columns */
-          select?: parameters['select'];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters['preferReturn'];
-        };
-      };
-      responses: {
-        /** Created */
-        201: unknown;
-      };
-    };
-    delete: {
-      parameters: {
-        query: {
-          user_id?: parameters['rowFilter.user_project.user_id'];
-          project_id?: parameters['rowFilter.user_project.project_id'];
-          created_at?: parameters['rowFilter.user_project.created_at'];
-          updated_at?: parameters['rowFilter.user_project.updated_at'];
-          deleted_at?: parameters['rowFilter.user_project.deleted_at'];
-          created_by?: parameters['rowFilter.user_project.created_by'];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters['preferReturn'];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-    patch: {
-      parameters: {
-        query: {
-          user_id?: parameters['rowFilter.user_project.user_id'];
-          project_id?: parameters['rowFilter.user_project.project_id'];
-          created_at?: parameters['rowFilter.user_project.created_at'];
-          updated_at?: parameters['rowFilter.user_project.updated_at'];
-          deleted_at?: parameters['rowFilter.user_project.deleted_at'];
-          created_by?: parameters['rowFilter.user_project.created_by'];
-        };
-        body: {
-          /** user_project */
-          user_project?: definitions['user_project'];
         };
         header: {
           /** Preference */
@@ -1415,6 +1316,11 @@ export interface definitions {
     created_at: string;
     updated_at: string;
     deleted_at?: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
+     */
+    created_by: string;
   };
   user_keyword: {
     /**
@@ -1432,28 +1338,6 @@ export interface definitions {
     created_at: string;
     updated_at: string;
     deleted_at?: string;
-  };
-  user_project: {
-    /**
-     * Note:
-     * This is a Primary Key.<pk/>
-     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
-     */
-    user_id: string;
-    /**
-     * Note:
-     * This is a Primary Key.<pk/>
-     * This is a Foreign Key to `projects.id`.<fk table='projects' column='id'/>
-     */
-    project_id: string;
-    created_at: string;
-    updated_at: string;
-    deleted_at?: string;
-    /**
-     * Note:
-     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
-     */
-    created_by: string;
   };
   users: {
     /**
@@ -1592,6 +1476,7 @@ export interface parameters {
   'rowFilter.projects.created_at': string;
   'rowFilter.projects.updated_at': string;
   'rowFilter.projects.deleted_at': string;
+  'rowFilter.projects.created_by': string;
   /** user_keyword */
   'body.user_keyword': definitions['user_keyword'];
   'rowFilter.user_keyword.user_id': string;
@@ -1599,14 +1484,6 @@ export interface parameters {
   'rowFilter.user_keyword.created_at': string;
   'rowFilter.user_keyword.updated_at': string;
   'rowFilter.user_keyword.deleted_at': string;
-  /** user_project */
-  'body.user_project': definitions['user_project'];
-  'rowFilter.user_project.user_id': string;
-  'rowFilter.user_project.project_id': string;
-  'rowFilter.user_project.created_at': string;
-  'rowFilter.user_project.updated_at': string;
-  'rowFilter.user_project.deleted_at': string;
-  'rowFilter.user_project.created_by': string;
   /** users */
   'body.users': definitions['users'];
   /** References to a wallet address */

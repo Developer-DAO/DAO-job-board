@@ -7,7 +7,6 @@ DROP TABLE IF EXISTS public.user_keyword;
 DROP TABLE IF EXISTS public.keywords;
 DROP TABLE IF EXISTS public.links;
 DROP TABLE IF EXISTS public.projects;
-DROP TABLE IF EXISTS public.user_project;
 DROP TABLE IF EXISTS public.users;
 
 
@@ -53,16 +52,7 @@ CREATE TABLE public.projects (
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
   deleted_at TIMESTAMP
-);
-
--- table: user_project
-CREATE TABLE public.user_project (
-  user_id VARCHAR NOT NULL REFERENCES public.users (id),
-  project_id UUID REFERENCES public.projects (id),
-  created_at TIMESTAMP NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP NOT NULL DEFAULT now(),
-  deleted_at TIMESTAMP,
-  PRIMARY KEY (user_id, project_id)
+  created_by VARCHAR NOT NULL REFERENCES public.users (id)
 );
 
 -- table: user_keyword
