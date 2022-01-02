@@ -23,7 +23,6 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
-
   const { account } = useEthers();
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -40,7 +39,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
         as="header"
         align="center"
         justify="space-between"
-        px="4"
+        px="2"
         bg="utility.light80"
         borderBottomWidth="1px"
         borderColor="gray.200"
@@ -71,7 +70,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             color="neutral.400"
             borderX="1px"
             borderColor="neutral.200"
-            px={3}
+            h="full"
+            borderRight="none"
           >
             <Select
               size="sm"
@@ -87,7 +87,14 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 {t('components.navigation.navbar.hiring')}
               </option>
             </Select>
-            <HStack>
+            <HStack
+              align="center"
+              color="neutral.400"
+              borderX="1px"
+              borderColor="neutral.200"
+              h="full"
+              px={3}
+            >
               <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
               <Text
                 w="7.5rem"
@@ -103,7 +110,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 <ChevronDown onClick={() => setIsOpen(!isOpen)} />
               )}
             </HStack>
-            <Box>
+            <Box px={3}>
               <Settings size={24} />
             </Box>
           </HStack>
