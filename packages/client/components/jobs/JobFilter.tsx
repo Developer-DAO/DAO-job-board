@@ -62,7 +62,7 @@ function JobFilter() {
   const locationFilter = ['Remote', 'Not-Remote'];
 
   return (
-    <Box borderColor="gray.200" borderLeftWidth="1px" width="auto">
+    <Box borderColor="gray.200" borderLeftWidth="1px">
       <VStack divider={<StackDivider borderColor="gray.200" />}>
         <Container my="25px" p="10px">
           <Heading
