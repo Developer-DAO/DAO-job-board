@@ -39,7 +39,7 @@
         "job_basics": {
           "header": "工作職位基本資訊",
           "sub_header": "讓我們知道你正在尋找哪方面的專業人才",
-          "title_header": "請為你的職位輸入相符的標題",
+          "title_header": "請為你的職位輸入一個明確的標題",
           "title_placeholder": "如： Full-Stack Blockchain Engineer",
           "char_min_title": "至少 {{count}} 個字",
           "char_min_title_error": "請確定標題至少有 {{count}} 個字",
@@ -66,7 +66,7 @@
           "equity_default": "權益範圍",
           "location_header": "地點 (選填)",
           "location_sub_header": "預設為遠端工作",
-          "location_placeholder": "如： 美國加勒佛尼亞州",
+          "location_placeholder": "如： 美國加利福尼亞州",
           "min": "Min",
           "max": "Max"
         },
