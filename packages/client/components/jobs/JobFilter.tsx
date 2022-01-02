@@ -9,6 +9,7 @@ import {
   useControllableState,
   Heading,
   VStack,
+  StackDivider,
 } from '@chakra-ui/react';
 
 import {
@@ -22,7 +23,7 @@ type filterLabelProps = {
 };
 
 function FilterLabel(props: filterLabelProps) {
-  const [selected, setSelected] = useControllableState({ defaultValue: true });
+  const [selected, setSelected] = useControllableState({ defaultValue: false });
 
   const clickLabel = () => setSelected(!selected);
   return (
@@ -60,118 +61,91 @@ function JobFilter() {
   const locationFilter = ['Remote', 'Not-Remote'];
 
   return (
-    <Box borderColor="gray.200" borderLeftWidth="1px" alignContent="start">
-      <VStack align="start">
-        <Heading
-          color="gray.300"
-          letterSpacing="2px"
-          font="Inter"
-          justify="left"
-          fontSize="xs"
-          p="3"
-          pl="5"
-          mt={2}
-          textTransform="uppercase"
-        >
-          {t('components.jobs.jobs_filter.headers.position')}
-        </Heading>
-        <Container
-          my="5px"
-          p="10px"
-          borderBottomColor="gray.200"
-          borderBottomWidth="1px"
-        >
+    <Box borderColor="gray.200" borderLeftWidth="1px" width="auto">
+      <VStack divider={<StackDivider borderColor="gray.200" />}>
+        <Container my="25px" p="10px">
+          <Heading
+            color="gray.300"
+            letterSpacing="2px"
+            font="Inter"
+            justify="left"
+            fontSize="xs"
+            p="3"
+            textTransform="uppercase"
+          >
+            {t('components.jobs.jobs_filter.headers.position')}
+          </Heading>
           {positionFilter &&
             positionFilter.map((position) => (
               <FilterLabel text={position}></FilterLabel>
             ))}
         </Container>
-        <Heading
-          color="gray.300"
-          letterSpacing="2px"
-          font="Inter"
-          justify="left"
-          fontSize="xs"
-          p="3"
-          pl="5"
-          mt={2}
-          textTransform="uppercase"
-        >
-          {t('components.jobs.jobs_filter.headers.location')}
-        </Heading>
-        <Container
-          my="5px"
-          p="10px"
-          borderBottomColor="gray.200"
-          borderBottomWidth="1px"
-        >
+        <Container my="5px" p="10px">
+          <Heading
+            color="gray.300"
+            letterSpacing="2px"
+            font="Inter"
+            justify="left"
+            fontSize="xs"
+            p="3"
+            textTransform="uppercase"
+          >
+            {t('components.jobs.jobs_filter.headers.location')}
+          </Heading>
           {locationFilter &&
             locationFilter.map((location) => (
               <FilterLabel text={location}></FilterLabel>
             ))}
         </Container>
-        <Heading
-          color="gray.300"
-          letterSpacing="2px"
-          font="Inter"
-          justify="left"
-          fontSize="xs"
-          p="3"
-          pl="5"
-          mt={2}
-          textTransform="uppercase"
-        >
-          {t('components.jobs.jobs_filter.headers.min_pay')}
-        </Heading>
-        <Container
-          my="5px"
-          p="10px"
-          borderBottomColor="gray.200"
-          borderBottomWidth="1px"
-        >
+        <Container my="5px" p="10px">
+          <Heading
+            color="gray.300"
+            letterSpacing="2px"
+            font="Inter"
+            justify="left"
+            fontSize="xs"
+            p="3"
+            textTransform="uppercase"
+          >
+            {t('components.jobs.jobs_filter.headers.min_pay')}
+          </Heading>
           <Input
-            borderColor="black.600"
+            borderColor="gray.200"
             borderWidth="2px"
             mx="3"
             maxWidth="25%"
-            // _hover={{ borderColor: '#2F2D3B' }}
+            _hover={{ borderColor: '#2F2D3B' }}
             placeholder={t('components.jobs.jobs_filter.placeholder')}
           />
         </Container>
-        <Heading
-          color="gray.300"
-          letterSpacing="2px"
-          font="Inter"
-          justify="left"
-          fontSize="xs"
-          p="3"
-          pl="5"
-          mt={2}
-          textTransform="uppercase"
-        >
-          {t('components.jobs.jobs_filter.headers.matches')} -
-        </Heading>
         <Container
           my="5px"
           p="10px"
           borderBottomColor="gray.200"
           borderBottomWidth="1px"
-        ></Container>
-        <Container my="5px" p="10px" textAlign="center">
-          <Button
-            onClick={() => {}}
-            rounded="10"
-            mx="10"
-            // m="10"
-            border="solid"
-            borderWidth="1"
+        >
+          <Heading
+            color="gray.300"
+            letterSpacing="2px"
+            font="Inter"
+            justify="left"
+            fontSize="xs"
+            p="3"
+            pl="5"
+            mt={2}
+            textTransform="uppercase"
           >
-            <Text fontStyle="Inter" fontSize="md">
-              {t('components.jobs.jobs_filter.headers.reset_filter')}
-            </Text>
-          </Button>
+            {t('components.jobs.jobs_filter.headers.matches')} -
+          </Heading>
         </Container>
       </VStack>
+      <Container my="5px" p="10px" textAlign="center">
+        <Button onClick={() => {}} rounded="10" border="solid" borderWidth="1">
+          <Text fontStyle="Inter" fontSize="md">
+            {t('components.jobs.jobs_filter.headers.reset_filter')}
+          </Text>
+        </Button>
+      </Container>
     </Box>
   );
 }
