@@ -34,16 +34,17 @@ function FilterLabel(props: filterLabelProps) {
       border="solid"
       borderWidth="1"
       color={selected ? 'black.600' : 'gray.300'}
+      rightIcon={
+        <FontAwesomeIcon
+          icon={selected ? faTimes : faPlus}
+          size="sm"
+          fixedWidth
+        ></FontAwesomeIcon>
+      }
     >
       <Text fontStyle="Inter" fontSize="md">
         {props.text}
       </Text>
-      <Box ml="8px" minWidth="12px">
-        <FontAwesomeIcon
-          icon={selected ? faTimes : faPlus}
-          size="sm"
-        ></FontAwesomeIcon>
-      </Box>
     </Button>
   );
 }
@@ -139,13 +140,19 @@ function JobFilter() {
           </Heading>
         </Container>
       </VStack>
-      <Container my="5px" p="10px" textAlign="center">
-        <Button onClick={() => {}} rounded="10" border="solid" borderWidth="1">
+      <Box my="5px" p="10px" textAlign="center">
+        <Button
+          onClick={() => {}}
+          rounded="10"
+          border="solid"
+          borderWidth="1"
+          width="80%"
+        >
           <Text fontStyle="Inter" fontSize="md">
             {t('components.jobs.jobs_filter.headers.reset_filter')}
           </Text>
         </Button>
-      </Container>
+      </Box>
     </Box>
   );
 }
