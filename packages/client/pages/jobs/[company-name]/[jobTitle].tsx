@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import {
   ButtonGroup,
+  Button,
   chakra,
   Container,
   Heading,
@@ -13,7 +14,6 @@ import {
   UnorderedList,
   ListItem,
 } from '@chakra-ui/react';
-import { ButtonBlue } from '@/styles/ui-components/Chakra-Button';
 
 const CategoryTag = chakra(Tag, {
   baseStyle: {
@@ -28,6 +28,8 @@ export default function JobDetails() {
       maxW={{ sm: '100%', lg: '70%' }}
       mx="auto"
       px={3}
+      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       as="main"
       align={{ sm: 'center', lg: 'flex-start' }}
       justify="center"
@@ -125,7 +127,13 @@ export default function JobDetails() {
             display={{ lg: 'flex', sm: 'none' }}
             flexDirection="column"
           >
-            <ButtonBlue>Apply For This Job</ButtonBlue>
+            <Button
+              color="white"
+              bg="neutral.700"
+              _hover={{ bg: 'neutral.500' }}
+            >
+              Apply For This Job
+            </Button>
           </ButtonGroup>
         </Stack>
 
@@ -151,7 +159,9 @@ export default function JobDetails() {
         align="center"
       >
         <ButtonGroup w="70%" display="flex" flexDirection="column" m="auto">
-          <ButtonBlue>Apply For This Job</ButtonBlue>
+          <Button color="white" bg="neutral.700" _hover={{ bg: 'neutral.500' }}>
+            Apply For This Job
+          </Button>
         </ButtonGroup>
       </Stack>
     </Stack>

@@ -75,6 +75,8 @@ export default function CreateProject() {
       bg={'none'}
       width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
       margin="auto"
+      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       boxSizing="border-box"
       p="0.5%"
       borderRadius="18px"

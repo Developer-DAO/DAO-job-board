@@ -4,80 +4,98 @@ import NextLink from 'next/link';
 import {
   Box,
   Heading,
-  Container,
-  Flex,
   Text,
   Link,
   Image,
-  SimpleGrid,
   HStack,
   Tag,
   TagLabel,
 } from '@chakra-ui/react';
-import { ButtonBlue, ButtonGreen } from '@/styles/ui-components/Chakra-Button';
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 
 export default function DeveloperItem() {
-  const { t } = useTranslation('common');
+  const userdata = {
+    skills: ['Solidity', 'EthersJS', 'React', 'Rust'],
+    name: 'Developer',
+    status: 'Available',
+    avatar: '/DevDAO.png',
+  };
+
+  const DeveloperHeader = () => {
+    return (
+      <Box
+        p="1rem"
+        borderBottom="1px"
+        borderColor="neutral.200"
+        textAlign="center"
+      >
+        <NextLink href={'/developers/developer1'} passHref>
+          <Link
+            _hover={{ textDecoration: 'none' }}
+            _focus={{ textDecoration: 'none' }}
+          >
+            <Box m="auto" w="fit-content">
+              <Heading size="md" mb="5px">
+                {userdata.name}
+              </Heading>
+              <Image
+                m="auto"
+                w="6rem"
+                h="6rem"
+                mb="2.5px"
+                borderRadius="full"
+                border="1px solid black"
+                src={userdata.avatar}
+                alt="developer"
+              />
+              <Text as="i" mb="5px">
+                {userdata.status}
+              </Text>
+            </Box>
+          </Link>
+        </NextLink>
+      </Box>
+    );
+  };
 
   return (
     <Box
-      bg="#ffffff"
-      w="100%"
-      margin="auto"
-      textAlign="center"
+      border="1px"
+      borderColor="neutral.200"
+      borderRadius="6px"
       boxSizing="border-box"
-      boxShadow="0px 0px 2px 4px #e2e8f0"
-      p="2%"
-      borderRadius="12px"
+      transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
+      _hover={{
+        marginTop: '8px',
+        boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
+      }}
+      height={{ lg: 'fit-content', md: 'fit-content', sm: 'max-content' }}
+      w="100%"
+      m="20px"
+      textAlign="left"
+      bg="white"
+      minW="300px"
+      maxW="320px"
     >
-      <NextLink href={'/developers/developer1'} passHref>
-        <Link
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ textDecoration: 'none' }}
-        >
-          <Box m="auto" w="fit-content">
-            <Heading size="md" mb="5px">
-              Developer #1
-            </Heading>
-            <Image
-              m="auto"
-              w="6rem"
-              h="6rem"
-              mb="2.5px"
-              borderRadius="full"
-              border="1px solid black"
-              src="/DevDAO.png"
-              alt="developer"
-            />
-            <Text as="i" mb="5px">
-              Available
-            </Text>
-          </Box>
-        </Link>
-      </NextLink>
+      <DeveloperHeader />
 
       <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-          <TagLabel m="auto">Web3</TagLabel>
-        </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-          <TagLabel m="auto">Solidity</TagLabel>
-        </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-          <TagLabel m="auto">Rust</TagLabel>
-        </Tag>
-        <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-          <TagLabel m="auto">ThreeJS</TagLabel>
-        </Tag>
+        {userdata.skills.map((skill, index) => (
+          <Tag
+            key={index}
+            w="fit-content"
+            size="md"
+            backgroundColor="transparent"
+            border="1px"
+            borderColor="neutral.200"
+            borderRadius="8px"
+            color="neutral.400"
+            minWidth="max-content"
+          >
+            <TagLabel m="auto">{skill}</TagLabel>
+          </Tag>
+        ))}
       </HStack>
-
-      <NextLink href={'/developers/developer1'} passHref>
-        <ButtonGreen>
-          {t('components.developers.developer_item.button_text')}
-        </ButtonGreen>
-      </NextLink>
     </Box>
   );
 }

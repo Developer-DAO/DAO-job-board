@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import {
   Stack,
   Box,
@@ -11,8 +12,8 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-
 import NextLink from 'next/link';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -21,8 +22,13 @@ import Navbar from './Navbar';
 import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export default function Dashboard() {
+  const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
+  /**
+   * @todo Add default userPurpose based on default user onboarding choice
+   */
+  const [userPurpose, setUserPurpose] = useState('');
   const SidebarContent = (props: any) => (
     <Box
       as="nav"
@@ -33,7 +39,7 @@ export default function Dashboard() {
       h="full"
       overflowX="hidden"
       overflowY="auto"
-      bg="white"
+      bg="utility.light80"
       borderColor="gray.200"
       borderRightWidth="1px"
       w="60"
@@ -65,7 +71,8 @@ export default function Dashboard() {
               borderRadius="180px"
               marginX="1"
             />
-            Job Board
+            {t('components.navigation.dashboard.header')}
+            <Text color="primary.500">{userPurpose}</Text>
           </Link>
         </NextLink>
       </Flex>
@@ -88,10 +95,11 @@ export default function Dashboard() {
             p="3"
             pl="5"
           >
-            RECRUITER
+            {t('components.navigation.dashboard.hiring')}
           </Heading>
           <NextLink href={'/developers'} passHref>
             <Link
+              onClick={sidebar.onClose}
               color="gray.400"
               p="2"
               pl="5"
@@ -106,7 +114,8 @@ export default function Dashboard() {
               transition="0.2s"
             >
               <Text size="md">
-                <FontAwesomeIcon icon={faUsers} /> Devs
+                <FontAwesomeIcon icon={faUsers} />{' '}
+                {t('components.navigation.dashboard.devs')}
               </Text>
             </Link>
           </NextLink>
@@ -123,10 +132,11 @@ export default function Dashboard() {
             pl="5"
             mt={2}
           >
-            SEEKER
+            {t('components.navigation.dashboard.seeking')}
           </Heading>
           <NextLink href={'/jobs'} passHref>
             <Link
+              onClick={sidebar.onClose}
               p="2"
               pl="5"
               color="gray.400"
@@ -141,7 +151,8 @@ export default function Dashboard() {
               transition="0.2s"
             >
               <Text size="md">
-                <FontAwesomeIcon icon={faClipboardList} /> Jobs List
+                <FontAwesomeIcon icon={faClipboardList} />{' '}
+                {t('components.navigation.dashboard.jobs_list')}
               </Text>
             </Link>
           </NextLink>
@@ -155,7 +166,7 @@ export default function Dashboard() {
   return (
     <Box as="section" w="100%" pos="fixed" zIndex="100000000">
       <SidebarContent
-        display={{ lg: 'unset', md: 'none', sm: 'none' }}
+        display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"
       />
       <Drawer
@@ -163,13 +174,29 @@ export default function Dashboard() {
         onClose={sidebar.onClose}
         placement="left"
       >
-        <DrawerOverlay />
-        <DrawerContent>
+        <DrawerOverlay
+          display={{
+            '2xl': 'none',
+            lg: 'none',
+            md: 'unset',
+            sm: 'unset',
+            base: 'unset',
+          }}
+        />
+        <DrawerContent
+          display={{
+            '2xl': 'none',
+            lg: 'none',
+            md: 'unset',
+            sm: 'unset',
+            base: 'unset',
+          }}
+        >
           <SidebarContent w="full" borderRight="none" />
         </DrawerContent>
       </Drawer>
 
-      <Navbar sidebar={sidebar} />
+      <Navbar sidebar={sidebar} setUserPurpose={setUserPurpose} />
     </Box>
   );
 }

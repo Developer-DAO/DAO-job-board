@@ -12,6 +12,7 @@ import { Keyword } from '@/types';
 import {
   Box,
   ButtonGroup,
+  Button,
   Heading,
   Flex,
   Stack,
@@ -20,7 +21,6 @@ import {
   InputLeftAddon,
   Text,
   Textarea,
-  Image,
   Select,
   Modal,
   ModalOverlay,
@@ -28,12 +28,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import {
-  ButtonBlack,
-  ButtonGreen,
-  ButtonOrange,
-} from '../../styles/ui-components/Chakra-Button';
-import AddAvatar from '../../components/create-profile/AddAvatar';
+import AddAvatar from '@/components/create-profile/AddAvatar';
 
 import Project from '@/components/create-profile/project';
 import { DeleteIcon } from '@chakra-ui/icons';
@@ -187,20 +182,21 @@ export default function CreateProfile() {
         m="auto"
         width={{ '2xl': '70%', md: '90%', sm: '100%' }}
         boxSizing="border-box"
-        boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
-        bg={{ lg: '#ffffff', sm: 'none' }}
-        p="2%"
+        bg="none"
+        pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
+        pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
+        pr={{ sm: '3%', base: '3%' }}
         pos="relative"
         top="50"
       >
-        <Flex flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}>
+        <Flex flexDirection="column">
           <Stack direction="column" textAlign="center" flex={2} spacing={5}>
             <Heading size="md">{t('pages.create_profile.identity')}</Heading>
 
-            <Box m="auto">
+            <Stack m="auto" alignItems="center" spacing={2}>
               <Text size="md">{t('pages.create_profile.pfp')}</Text>
               <AddAvatar src="/DevDAO.png" />
-            </Box>
+            </Stack>
 
             <Stack direction="column" textAlign="left" spacing={2}>
               <Text>{t('pages.create_profile.identity')}</Text>
@@ -210,7 +206,6 @@ export default function CreateProfile() {
                 <Input
                   position="static"
                   bgColor="white"
-                  w={{ '2xl': '85%', sm: '85%' }}
                   placeholder={t('pages.create_profile.username_placeholder')}
                   name="username"
                   value={username}
@@ -225,7 +220,6 @@ export default function CreateProfile() {
               <Input
                 position="static"
                 bgColor="white"
-                w={{ '2xl': '95%', sm: '92.5%' }}
                 placeholder={t('pages.create_profile.profession_placeholder')}
                 name="title"
                 value={title}
@@ -237,12 +231,10 @@ export default function CreateProfile() {
                 {t('pages.create_profile.status_sub_text')}
               </Text>
               <Select
-                position="initial"
-                w={{ '2xl': '95%', sm: '92.5%' }}
                 bgColor="white"
                 bg="white"
-                borderColor="#e2e8f0"
-                _hover={{ borderColor: '#97c0e6' }}
+                borderColor="neutral.200"
+                _hover={{ borderColor: 'neutral.200' }}
                 name="status"
                 value={status}
                 onChange={(e) => onChange(e)}
@@ -269,9 +261,14 @@ export default function CreateProfile() {
                 {t('pages.create_profile.keywords_sub_text')}
               </Text>
               <ButtonGroup>
-                <ButtonBlack onClick={openKeywordModal}>
+                <Button
+                  bg="primary.700"
+                  color="white"
+                  _hover={{ bg: 'primary.500' }}
+                  onClick={openKeywordModal}
+                >
                   {t('pages.create_profile.choose_keywords')}
-                </ButtonBlack>
+                </Button>
               </ButtonGroup>
               <KeywordsSection
                 templateColumns="repeat(3, 3fr)"
@@ -284,7 +281,7 @@ export default function CreateProfile() {
             <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
               <Stack spacing={2} mt="2.5%">
                 <Heading size="md" textAlign="center">
-                  {t('pages.create_profile.choose_keywords')}
+                  {t('pages.create_profile.basic_details')}
                 </Heading>
 
                 <Text>{t('pages.create_profile.name')}</Text>
@@ -325,7 +322,9 @@ export default function CreateProfile() {
                   value={location}
                   onChange={(e) => onChange(e)}
                 />
+              </Stack>
 
+              <Stack spacing={2} mt="2.5%">
                 <Heading size="md" textAlign="center">
                   {t('pages.create_profile.links_header')}
                 </Heading>
@@ -343,9 +342,14 @@ export default function CreateProfile() {
                 <Text size="sm">{t('pages.create_profile.social_links')}</Text>
 
                 <ButtonGroup w="50%">
-                  <ButtonBlack onClick={openLinksModal}>
+                  <Button
+                    bg="primary.700"
+                    color="white"
+                    _hover={{ bg: 'primary.500' }}
+                    onClick={openLinksModal}
+                  >
                     {t('pages.create_profile.social_button_text')}
-                  </ButtonBlack>
+                  </Button>
                 </ButtonGroup>
 
                 <LinksSection profileLinks={profileLinks} />
@@ -389,8 +393,11 @@ export default function CreateProfile() {
           })}
         </VStack>
 
-        <Box mt={4}>
-          <ButtonBlack
+        <Box my={4}>
+          <Button
+            bg="primary.700"
+            color="white"
+            _hover={{ bg: 'primary.500' }}
             onClick={() => {
               setFormData({
                 ...formData,
@@ -406,24 +413,22 @@ export default function CreateProfile() {
             }}
           >
             {t('pages.create_profile.projects_button_text')}
-          </ButtonBlack>
+          </Button>
         </Box>
 
-        <ButtonGroup
-          display="flex"
-          flexDirection="column"
-          m="5px"
-          mt="2.5%"
-          padding="1px"
-          w="100%"
-        >
-          <ButtonGreen onClick={onSubmit}>
+        <Stack>
+          <Button
+            bg="neutral.700"
+            color="white"
+            _hover={{ bg: 'neutral.500' }}
+            onClick={onSubmit}
+          >
             {t('pages.create_profile.save_button_text')}
-          </ButtonGreen>
-          <ButtonOrange>
+          </Button>
+          <Button bg="danger.700" _hover={{ bg: 'danger.500' }} color="white">
             {t('pages.create_profile.dismiss_button_text')}
-          </ButtonOrange>
-        </ButtonGroup>
+          </Button>
+        </Stack>
       </Box>
     </>
   );

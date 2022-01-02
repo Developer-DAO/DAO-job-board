@@ -13,10 +13,15 @@ export default function NavTitle() {
     console.log(router.pathname);
   });
   const dynamicTitles: any = {
+    '/': t('components.navigation.nav_title.dashboard'),
     '/developers': t('components.navigation.nav_title.devs_for_hire'),
     '/jobs': t('components.navigation.nav_title.jobs_list'),
     '/post-job': t('components.navigation.nav_title.post_job'),
     '/create-profile': t('components.navigation.nav_title.create_profile'),
   };
-  return <Text>{dynamicTitles[router.pathname]}</Text>;
+  return (
+    <Text pl="1%" fontSize={{ lg: 'lg', sm: 'sm' }}>
+      {dynamicTitles[router.pathname]}
+    </Text>
+  );
 }

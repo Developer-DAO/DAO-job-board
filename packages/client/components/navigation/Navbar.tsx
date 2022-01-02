@@ -1,27 +1,39 @@
 import NextLink from 'next/link';
-
 import NavTitle from './NavTitle';
 
 import {
   Box,
-  Avatar,
   Text,
   Link,
+  HStack,
   Heading,
+  Select,
   Flex,
   IconButton,
+  Avatar,
+  Button,
 } from '@chakra-ui/react';
-
 import { useEthers } from '@usedapp/core';
-
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-import { ButtonBlack } from '../../styles/ui-components/Chakra-Button';
+import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
-function Navbar({ sidebar }: any) {
+function Navbar({ sidebar, setUserPurpose }: any) {
+
   const { account } = useEthers();
+  const router = useRouter();
+  const { t } = useTranslation('common');
 
+  const [isOpen, setIsOpen] = useState(false);
+  const handlePurposeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const route = e.target.value == '/earn' ? 'jobs' : 'developers';
+    setUserPurpose(e.target.value);
+    router.push(route);
+  };
   return (
     <Box ml={{ lg: '60', md: '0' }}>
       <Flex
@@ -29,7 +41,7 @@ function Navbar({ sidebar }: any) {
         align="center"
         justify="space-between"
         px="4"
-        bg="white"
+        bg="utility.light80"
         borderBottomWidth="1px"
         borderColor="gray.200"
         h="14"
@@ -37,7 +49,7 @@ function Navbar({ sidebar }: any) {
         <IconButton
           aria-label="Menu"
           display={{ lg: 'none', md: 'inline-flex' }}
-          onClick={sidebar.onOpen}
+          onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
           size="sm"
           icon={<HamburgerIcon />}
         />
@@ -49,21 +61,63 @@ function Navbar({ sidebar }: any) {
         </Text>
 
         {account ? (
-          <Flex align="center">
-            <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
-            <Text
-              w={100}
-              overflow="hidden"
-              wordWrap="none"
-              textOverflow="ellipsis"
+          /**
+           * @todo Add icon to select options.
+           * @todo Update/remove route redirect from option onchange event as agreed upon
+           * @todo Add onClick for profile settings and settings
+           */
+          <HStack
+            align="center"
+            color="neutral.400"
+            borderX="1px"
+            borderColor="neutral.200"
+            px={3}
+          >
+            <Select
+              size="sm"
+              border="none"
+              w="75"
+              onChange={(e) => handlePurposeChange(e)}
             >
-              {account}
-            </Text>
-          </Flex>
+              <option value="">- placeholder -</option>
+              <option value="/earn">
+                {t('components.navigation.navbar.seeking')}
+              </option>
+              <option value="/hire">
+                {t('components.navigation.navbar.hiring')}
+              </option>
+            </Select>
+            <HStack>
+              <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
+              <Text
+                w="7.5rem"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {account.slice(0, 4)}...{account.slice(account.length - 4)}
+              </Text>
+              {isOpen ? (
+                <ChevronUp onClick={() => setIsOpen(!isOpen)} />
+              ) : (
+                <ChevronDown onClick={() => setIsOpen(!isOpen)} />
+              )}
+            </HStack>
+            <Box>
+              <Settings size={24} />
+            </Box>
+          </HStack>
         ) : (
           <NextLink href={'/auth'} passHref>
             <Link display={{ sm: 'none', md: 'flex' }}>
-              <ButtonBlack as="a">Sign Up</ButtonBlack>
+              <Button
+                color="white"
+                bg="neutral.700"
+                _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
+                as="a"
+              >
+                Sign Up
+              </Button>
             </Link>
           </NextLink>
         )}

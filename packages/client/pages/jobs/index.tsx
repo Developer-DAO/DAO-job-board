@@ -1,26 +1,17 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import JobFilter from '../../components/jobs/JobFilter';
-import JobCard from '../../components/jobs/JobCard';
+import JobList from '@/components/jobs/JobList';
 
-import { Heading, Container, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 export default function Index() {
   return (
-    <Container
-      maxW={{ lg: '70%', md: '90%', sm: '100%' }}
-      m="auto"
-      textAlign="center"
+    <Box
+      pt={{ '2xl': '5%', lg: '7%', sm: '17%', base: '15%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
     >
-      <Heading>Jobs</Heading>
-      <Text as="i">
-        Curated Web3 and blockchain jobs at companies or startups.
-      </Text>
-      <JobFilter />
-      <Container w="100%" maxW="100%">
-        <JobCard />
-      </Container>
-    </Container>
+      <JobList />
+    </Box>
   );
 }
 export const getStaticProps = async ({ locale }: { locale: string }) => ({

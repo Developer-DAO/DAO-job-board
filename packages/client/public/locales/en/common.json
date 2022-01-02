@@ -21,6 +21,14 @@
         "header": "Add Socials",
         "save_button_text": "Save Links",
         "cancel_button_text": "Cancel"
+      },
+      "select_keywords": {
+        "header": "Search Keywords",
+        "placeholder": "Write skills or positions",
+        "keyword_count": "{{count}} Selecteds Keywords",
+        "max": "(Max 10)",
+        "save_button_text": "Save Keywords",
+        "cancel_button_text": "Cancel"
       }
     },
     "create_profile": {
@@ -115,23 +123,41 @@
       }
     },
     "navigation": {
+      "dashboard": {
+        "header": "jobsBoard",
+        "hiring": "RECRUITER",
+        "seeking": "SEEKER",
+        "jobs_list": " Jobs List",
+        "devs": " Devs"
+      },
       "navbar": {
         "alt_home": "Home",
         "job_board": "Job Board",
         "jobs": "Jobs",
         "devs": "Devs",
         "about": "About",
-        "sign_up": "Sign Up"
+        "sign_up": "Sign Up",
+        "seeking": "I am looking for jobs",
+        "hiring": "I am recruiting",
+        "hire": "/hire",
+        "earn": "/earn"
       },
       "nav_title": {
         "jobs_list": "Job List",
         "devs_for_hire": "Developers For Hire",
         "post_job": "Post a Job",
-        "create_profile": "Create a Profile"
+        "create_profile": "Create a Profile",
+        "dashboard": "Dashboard"
       }
     }
   },
   "pages": {
+    "auth": {
+      "index": {
+        "connected": "Connected: {{account}}",
+        "login": "Login with Wallet"
+      }
+    },
     "create_profile": {
       "identity": "Identity",
       "basic_details": "Basic Details",
