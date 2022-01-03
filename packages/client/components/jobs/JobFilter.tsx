@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Plus, X } from 'tabler-icons-react';
 import { useTranslation } from 'next-i18next';
 import {
   Box,
@@ -11,12 +11,6 @@ import {
   VStack,
   StackDivider,
 } from '@chakra-ui/react';
-
-import {
-  faPlus,
-  faTimes,
-  faDollarSign,
-} from '@fortawesome/free-solid-svg-icons';
 
 type filterLabelProps = {
   text: string;
@@ -34,13 +28,7 @@ function FilterLabel(props: filterLabelProps) {
       border="solid"
       borderWidth="1"
       color={selected ? 'black.600' : 'gray.300'}
-      rightIcon={
-        <FontAwesomeIcon
-          icon={selected ? faTimes : faPlus}
-          size="sm"
-          fixedWidth
-        ></FontAwesomeIcon>
-      }
+      rightIcon={selected ? <X /> : <Plus />}
     >
       <Text fontStyle="Inter" fontSize="md">
         {props.text}
@@ -77,8 +65,8 @@ function JobFilter() {
             {t('components.jobs.jobs_filter.headers.position')}
           </Heading>
           {positionFilter &&
-            positionFilter.map((position) => (
-              <FilterLabel text={position}></FilterLabel>
+            positionFilter.map((position, index) => (
+              <FilterLabel key={index} text={position}></FilterLabel>
             ))}
         </Container>
         <Container my="5px" p="10px">
@@ -94,8 +82,8 @@ function JobFilter() {
             {t('components.jobs.jobs_filter.headers.location')}
           </Heading>
           {locationFilter &&
-            locationFilter.map((location) => (
-              <FilterLabel text={location}></FilterLabel>
+            locationFilter.map((location, index) => (
+              <FilterLabel key={index} text={location}></FilterLabel>
             ))}
         </Container>
         <Container my="5px" p="10px">
