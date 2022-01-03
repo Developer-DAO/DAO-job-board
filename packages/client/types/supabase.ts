@@ -237,7 +237,13 @@ export interface paths {
           title?: parameters['rowFilter.jobs.title'];
           description?: parameters['rowFilter.jobs.description'];
           position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          type?: parameters['rowFilter.jobs.type'];
+          compensation?: parameters['rowFilter.jobs.compensation'];
+          max?: parameters['rowFilter.jobs.max'];
+          min?: parameters['rowFilter.jobs.min'];
+          equity?: parameters['rowFilter.jobs.equity'];
+          location?: parameters['rowFilter.jobs.location'];
+          contact?: parameters['rowFilter.jobs.contact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -300,7 +306,13 @@ export interface paths {
           title?: parameters['rowFilter.jobs.title'];
           description?: parameters['rowFilter.jobs.description'];
           position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          type?: parameters['rowFilter.jobs.type'];
+          compensation?: parameters['rowFilter.jobs.compensation'];
+          max?: parameters['rowFilter.jobs.max'];
+          min?: parameters['rowFilter.jobs.min'];
+          equity?: parameters['rowFilter.jobs.equity'];
+          location?: parameters['rowFilter.jobs.location'];
+          contact?: parameters['rowFilter.jobs.contact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -327,7 +339,13 @@ export interface paths {
           title?: parameters['rowFilter.jobs.title'];
           description?: parameters['rowFilter.jobs.description'];
           position?: parameters['rowFilter.jobs.position'];
-          opportunity?: parameters['rowFilter.jobs.opportunity'];
+          type?: parameters['rowFilter.jobs.type'];
+          compensation?: parameters['rowFilter.jobs.compensation'];
+          max?: parameters['rowFilter.jobs.max'];
+          min?: parameters['rowFilter.jobs.min'];
+          equity?: parameters['rowFilter.jobs.equity'];
+          location?: parameters['rowFilter.jobs.location'];
+          contact?: parameters['rowFilter.jobs.contact'];
           featured_photo_url?: parameters['rowFilter.jobs.featured_photo_url'];
           status?: parameters['rowFilter.jobs.status'];
           created_at?: parameters['rowFilter.jobs.created_at'];
@@ -789,6 +807,114 @@ export interface paths {
       };
     };
   };
+  '/projects': {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.projects.id'];
+          title?: parameters['rowFilter.projects.title'];
+          description?: parameters['rowFilter.projects.description'];
+          github_url?: parameters['rowFilter.projects.github_url'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
+          /** Filtering Columns */
+          select?: parameters['select'];
+          /** Ordering */
+          order?: parameters['order'];
+          /** Limiting and Pagination */
+          offset?: parameters['offset'];
+          /** Limiting and Pagination */
+          limit?: parameters['limit'];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters['range'];
+          /** Limiting and Pagination */
+          'Range-Unit'?: parameters['rangeUnit'];
+          /** Preference */
+          Prefer?: parameters['preferCount'];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions['projects'][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** projects */
+          projects?: definitions['projects'];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters['select'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.projects.id'];
+          title?: parameters['rowFilter.projects.title'];
+          description?: parameters['rowFilter.projects.description'];
+          github_url?: parameters['rowFilter.projects.github_url'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters['rowFilter.projects.id'];
+          title?: parameters['rowFilter.projects.title'];
+          description?: parameters['rowFilter.projects.description'];
+          github_url?: parameters['rowFilter.projects.github_url'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          deleted_at?: parameters['rowFilter.projects.deleted_at'];
+          created_by?: parameters['rowFilter.projects.created_by'];
+        };
+        body: {
+          /** projects */
+          projects?: definitions['projects'];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters['preferReturn'];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
   '/user_keyword': {
     get: {
       parameters: {
@@ -896,13 +1022,17 @@ export interface paths {
           id?: parameters['rowFilter.users.id'];
           nonce?: parameters['rowFilter.users.nonce'];
           avatar_url?: parameters['rowFilter.users.avatar_url'];
+          email?: parameters['rowFilter.users.email'];
           username?: parameters['rowFilter.users.username'];
-          preferences?: parameters['rowFilter.users.preferences'];
+          name?: parameters['rowFilter.users.name'];
+          description?: parameters['rowFilter.users.description'];
+          title?: parameters['rowFilter.users.title'];
+          status?: parameters['rowFilter.users.status'];
+          location?: parameters['rowFilter.users.location'];
           disabled_at?: parameters['rowFilter.users.disabled_at'];
           created_at?: parameters['rowFilter.users.created_at'];
           updated_at?: parameters['rowFilter.users.updated_at'];
           deleted_at?: parameters['rowFilter.users.deleted_at'];
-          name?: parameters['rowFilter.users.name'];
           /** Filtering Columns */
           select?: parameters['select'];
           /** Ordering */
@@ -957,13 +1087,17 @@ export interface paths {
           id?: parameters['rowFilter.users.id'];
           nonce?: parameters['rowFilter.users.nonce'];
           avatar_url?: parameters['rowFilter.users.avatar_url'];
+          email?: parameters['rowFilter.users.email'];
           username?: parameters['rowFilter.users.username'];
-          preferences?: parameters['rowFilter.users.preferences'];
+          name?: parameters['rowFilter.users.name'];
+          description?: parameters['rowFilter.users.description'];
+          title?: parameters['rowFilter.users.title'];
+          status?: parameters['rowFilter.users.status'];
+          location?: parameters['rowFilter.users.location'];
           disabled_at?: parameters['rowFilter.users.disabled_at'];
           created_at?: parameters['rowFilter.users.created_at'];
           updated_at?: parameters['rowFilter.users.updated_at'];
           deleted_at?: parameters['rowFilter.users.deleted_at'];
-          name?: parameters['rowFilter.users.name'];
         };
         header: {
           /** Preference */
@@ -982,13 +1116,17 @@ export interface paths {
           id?: parameters['rowFilter.users.id'];
           nonce?: parameters['rowFilter.users.nonce'];
           avatar_url?: parameters['rowFilter.users.avatar_url'];
+          email?: parameters['rowFilter.users.email'];
           username?: parameters['rowFilter.users.username'];
-          preferences?: parameters['rowFilter.users.preferences'];
+          name?: parameters['rowFilter.users.name'];
+          description?: parameters['rowFilter.users.description'];
+          title?: parameters['rowFilter.users.title'];
+          status?: parameters['rowFilter.users.status'];
+          location?: parameters['rowFilter.users.location'];
           disabled_at?: parameters['rowFilter.users.disabled_at'];
           created_at?: parameters['rowFilter.users.created_at'];
           updated_at?: parameters['rowFilter.users.updated_at'];
           deleted_at?: parameters['rowFilter.users.deleted_at'];
-          name?: parameters['rowFilter.users.name'];
         };
         body: {
           /** users */
@@ -1065,11 +1203,17 @@ export interface definitions {
      * Note:
      * This is a Foreign Key to `organizations.id`.<fk table='organizations' column='id'/>
      */
-    organization_id: string;
+    organization_id?: string;
     title: string;
     description: string;
     position?: string;
-    opportunity?: string;
+    type?: string;
+    compensation?: string;
+    max?: string;
+    min?: string;
+    equity?: string;
+    location?: string;
+    contact?: string;
     featured_photo_url?: string;
     status?: string;
     created_at: string;
@@ -1160,6 +1304,24 @@ export interface definitions {
      */
     created_by: string;
   };
+  projects: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: string;
+    title: string;
+    description: string;
+    github_url?: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at?: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `users.id`.<fk table='users' column='id'/>
+     */
+    created_by: string;
+  };
   user_keyword: {
     /**
      * Note:
@@ -1187,13 +1349,17 @@ export interface definitions {
     id: string;
     nonce?: string;
     avatar_url?: string;
+    email?: string;
     username?: string;
-    preferences?: string;
+    name?: string;
+    description?: string;
+    title?: string;
+    status?: string;
+    location?: string;
     disabled_at?: string;
     created_at: string;
     updated_at: string;
     deleted_at?: string;
-    name?: string;
   };
 }
 
@@ -1245,7 +1411,13 @@ export interface parameters {
   'rowFilter.jobs.title': string;
   'rowFilter.jobs.description': string;
   'rowFilter.jobs.position': string;
-  'rowFilter.jobs.opportunity': string;
+  'rowFilter.jobs.type': string;
+  'rowFilter.jobs.compensation': string;
+  'rowFilter.jobs.max': string;
+  'rowFilter.jobs.min': string;
+  'rowFilter.jobs.equity': string;
+  'rowFilter.jobs.location': string;
+  'rowFilter.jobs.contact': string;
   'rowFilter.jobs.featured_photo_url': string;
   'rowFilter.jobs.status': string;
   'rowFilter.jobs.created_at': string;
@@ -1295,6 +1467,16 @@ export interface parameters {
   'rowFilter.organizations.deleted_at': string;
   /** References to a wallet address from users table */
   'rowFilter.organizations.created_by': string;
+  /** projects */
+  'body.projects': definitions['projects'];
+  'rowFilter.projects.id': string;
+  'rowFilter.projects.title': string;
+  'rowFilter.projects.description': string;
+  'rowFilter.projects.github_url': string;
+  'rowFilter.projects.created_at': string;
+  'rowFilter.projects.updated_at': string;
+  'rowFilter.projects.deleted_at': string;
+  'rowFilter.projects.created_by': string;
   /** user_keyword */
   'body.user_keyword': definitions['user_keyword'];
   'rowFilter.user_keyword.user_id': string;
@@ -1308,13 +1490,17 @@ export interface parameters {
   'rowFilter.users.id': string;
   'rowFilter.users.nonce': string;
   'rowFilter.users.avatar_url': string;
+  'rowFilter.users.email': string;
   'rowFilter.users.username': string;
-  'rowFilter.users.preferences': string;
+  'rowFilter.users.name': string;
+  'rowFilter.users.description': string;
+  'rowFilter.users.title': string;
+  'rowFilter.users.status': string;
+  'rowFilter.users.location': string;
   'rowFilter.users.disabled_at': string;
   'rowFilter.users.created_at': string;
   'rowFilter.users.updated_at': string;
   'rowFilter.users.deleted_at': string;
-  'rowFilter.users.name': string;
 }
 
 export interface operations {}

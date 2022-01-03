@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 
 interface ProjectProps {
   index: number;
-  githubUrl: string;
+  github_url: string;
   title: string;
   description: string;
   changeHandler: (index: number, field: string, value: string) => void;
@@ -14,7 +14,7 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = ({
   index,
-  githubUrl,
+  github_url,
   title,
   description,
   changeHandler,
@@ -35,8 +35,8 @@ const Project: React.FC<ProjectProps> = ({
       <GridItem>
         <Text mt={2}>{t('components.create_profile.project.github_url')}</Text>
         <Input
-          value={githubUrl}
-          onChange={(e) => changeHandler(index, 'githubUrl', e.target.value)}
+          value={github_url}
+          onChange={(e) => changeHandler(index, 'github_url', e.target.value)}
           placeholder={t(
             'components.create_profile.project.enter_github_placeholder'
           )}

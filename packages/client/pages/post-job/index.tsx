@@ -9,6 +9,7 @@ import { Keyword } from '@/types';
 import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
+import { supabase } from '../../common/supabase';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ export default function CreateProject() {
     });
 
   //Sends data to database (sent to JobSummary as props)
-  const createJob = (e: React.FormEvent) => {
+  const createJob = async (e: React.FormEvent) => {
     e.preventDefault();
   };
 
