@@ -35,7 +35,6 @@ export default function Dashboard() {
       pos="fixed"
       top="0"
       left="0"
-      zIndex="100000000"
       h="full"
       overflowX="hidden"
       overflowY="auto"
@@ -48,7 +47,7 @@ export default function Dashboard() {
       <Flex
         align="center"
         borderBottom="1px solid"
-        borderColor="gray.200"
+        borderColor="neutral.200"
         borderWidth="100%"
         p="2%"
         h="14"
@@ -60,7 +59,7 @@ export default function Dashboard() {
               textDecoration: 'none',
             }}
             m="auto"
-            color="gray.500"
+            color="neutral.500"
             fontFamily="Calibri"
             display="flex"
           >
@@ -81,13 +80,13 @@ export default function Dashboard() {
         direction="column"
         as="nav"
         fontSize="sm"
-        color="gray.600"
+        color="neutral.600"
         aria-label="Main Navigation"
-        spacing={2}
+        spacing="xs"
       >
         <Stack mt="5%">
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
@@ -100,7 +99,7 @@ export default function Dashboard() {
           <NextLink href={'/developers'} passHref>
             <Link
               onClick={sidebar.onClose}
-              color="gray.400"
+              color="neutral.300"
               p="2"
               pl="5"
               w="100%"
@@ -123,7 +122,7 @@ export default function Dashboard() {
 
         <Stack borderTop="1px solid" borderColor="gray.200" borderWidth="100%">
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
@@ -139,7 +138,7 @@ export default function Dashboard() {
               onClick={sidebar.onClose}
               p="2"
               pl="5"
-              color="gray.400"
+              color="neutral.300"
               w="100%"
               borderRadius="0px"
               _hover={{
@@ -164,7 +163,7 @@ export default function Dashboard() {
   );
 
   return (
-    <Box as="section" w="100%" pos="fixed" zIndex="100000000">
+    <Box as="section" w="100%" pos="fixed" zIndex={9998}>
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"

@@ -8,7 +8,7 @@ import {
   VStack,
   InputGroup,
   InputLeftAddon,
-  ButtonGroup,
+  Stack,
   Button,
 } from '@chakra-ui/react';
 
@@ -127,7 +127,7 @@ export default function AddLinks({
   return (
     <>
       <VStack
-        spacing={2}
+        spacing="xs"
         position="fixed"
         borderRadius="18px"
         p={5}
@@ -139,27 +139,31 @@ export default function AddLinks({
         h="fit-content"
         textAlign="center"
         bg="#ffffff"
-        zIndex={1000}
+        zIndex={9999}
       >
         <Heading size="md">{t('components.modals.add_links.header')}</Heading>
         <chakra.form>
-          <VStack spacing={4}>
+          <VStack spacing="medium">
             {linkInputs}
 
-            <ButtonGroup
-              display="flex"
-              flexDirection="column"
-              m="5px"
-              padding="1px"
-              w="100%"
-            >
-              <Button onClick={onSubmit}>
+            <Stack w="100%">
+              <Button
+                color="white"
+                bg="primary.500"
+                _hover={{ bg: 'primary.900' }}
+                onClick={onSubmit}
+              >
                 {t('components.modals.add_links.save_button_text')}
               </Button>
-              <Button onClick={closeLinksModal}>
+              <Button
+                color="white"
+                bg="danger.500"
+                _hover={{ bg: 'danger.900' }}
+                onClick={closeLinksModal}
+              >
                 {t('components.modals.add_links.cancel_button_text')}
               </Button>
-            </ButtonGroup>
+            </Stack>
           </VStack>
         </chakra.form>
       </VStack>

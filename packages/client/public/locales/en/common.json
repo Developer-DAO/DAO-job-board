@@ -130,6 +130,9 @@
       }
     },
     "navigation": {
+      "connect_button": {
+        "connect": "Connect Wallet"
+      },
       "dashboard": {
         "header": "jobsBoard",
         "hiring": "RECRUITER",
@@ -159,12 +162,6 @@
     }
   },
   "pages": {
-    "auth": {
-      "index": {
-        "connected": "Connected: {{account}}",
-        "login": "Login with Wallet"
-      }
-    },
     "create_profile": {
       "identity": "Identity",
       "basic_details": "Basic Details",

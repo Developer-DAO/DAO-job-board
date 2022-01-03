@@ -66,7 +66,7 @@ export default function DeveloperItem() {
       boxSizing="border-box"
       transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
       _hover={{
-        marginTop: '8px',
+        marginTop: '16px',
         boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
       }}
       height={{ lg: 'fit-content', md: 'fit-content', sm: 'max-content' }}
@@ -79,7 +79,14 @@ export default function DeveloperItem() {
     >
       <DeveloperHeader />
 
-      <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
+      <HStack
+        m="auto"
+        mt="5%"
+        mb="5%"
+        columns={5}
+        spacing="micro"
+        w="fit-content"
+      >
         {userdata.skills.map((skill, index) => (
           <Tag
             key={index}

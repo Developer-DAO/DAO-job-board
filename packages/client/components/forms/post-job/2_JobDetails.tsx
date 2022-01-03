@@ -10,6 +10,7 @@ import KeywordsSection from '../KeywordsSection';
 import {
   Heading,
   Container,
+  Box,
   Input,
   Select,
   Text,
@@ -105,7 +106,7 @@ export default function GigDetails({
         </Text>
       </Container>
 
-      <Stack p={2} spacing={2} maxW="100%">
+      <Stack p={2} spacing="small" maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.category_header')}
         </Heading>
@@ -120,16 +121,20 @@ export default function GigDetails({
           </Text>
         )}
 
-        <Container>
+        <Box>
           <Button
-            bg="neutral.500"
-            _hover={{ bg: 'neutral.700' }}
-            color="white"
+            bg="white"
+            color="black"
+            border="1px solid"
+            borderColor="neutral.600"
+            borderRadius="10px"
+            _hover={{ bg: 'neutral.700', color: 'white' }}
+            transition="0.3s"
             onClick={openKeywordModal}
           >
             {t('components.forms.post_job.job_details.keyword_button_text')}
           </Button>
-        </Container>
+        </Box>
 
         <KeywordsSection
           keywordsData={jobKeywords}
@@ -143,7 +148,6 @@ export default function GigDetails({
           {t('components.forms.post_job.job_details.compensation_sub_header')}
         </Text>
         <Select
-          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -185,7 +189,6 @@ export default function GigDetails({
         />
 
         <Input
-          position="static"
           borderColor="#e2e8f0"
           bgColor="white"
           _hover={{ borderColor: '#97c0e6' }}
@@ -203,7 +206,6 @@ export default function GigDetails({
         </Heading>
 
         <Select
-          position="static"
           bg="white"
           bgColor="white"
           borderColor="#e2e8f0"
@@ -241,25 +243,25 @@ export default function GigDetails({
             'components.forms.post_job.job_details.location_placeholder'
           )}
         />
-      </Stack>
 
-      <Stack>
-        <Button
-          bg="neutral.900"
-          _hover={{ bg: 'neutral.500' }}
-          color="white"
-          onClick={nextPage}
-        >
-          {t('components.forms.post_job.continue_button_text')}
-        </Button>
-        <Button
-          bg="danger.600"
-          _hover={{ bg: 'danger.800' }}
-          color="white"
-          onClick={goToBasics}
-        >
-          {t('components.forms.post_job.cancel_button_text')}
-        </Button>
+        <Stack>
+          <Button
+            bg="neutral.900"
+            _hover={{ bg: 'neutral.500' }}
+            color="white"
+            onClick={nextPage}
+          >
+            {t('components.forms.post_job.continue_button_text')}
+          </Button>
+          <Button
+            bg="danger.600"
+            _hover={{ bg: 'danger.800' }}
+            color="white"
+            onClick={goToBasics}
+          >
+            {t('components.forms.post_job.back_button_text')}
+          </Button>
+        </Stack>
       </Stack>
     </>
   );

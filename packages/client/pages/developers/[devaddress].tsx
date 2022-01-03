@@ -1,6 +1,3 @@
-//Router
-import { useRouter } from 'next/router';
-
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import {
@@ -18,17 +15,17 @@ import {
 } from '@chakra-ui/react';
 
 export default function DeveloperPage() {
+  const profileskills = ['Web3', 'Solidity', 'Rust', 'React', 'Full-Stack'];
+
   return (
     <Box
-      display="flex"
-      bg={{ lg: '#ffffff', sm: 'none' }}
-      flexDirection={{ lg: 'row', md: 'row', sm: 'column' }}
-      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
+      bg="none"
+      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
       margin="auto"
+      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       boxSizing="border-box"
-      boxShadow={{ lg: '0px 0px 2px 4px #e2e8f0', sm: 'none' }}
       p="0.5%"
-      mt="2.5%"
     >
       <Flex
         bg="none"
@@ -82,7 +79,7 @@ export default function DeveloperPage() {
           display="inline-box"
         >
           <Text textAlign={{ lg: 'left', md: 'left', sm: 'center' }}>
-            Here goes a brief description of the user{' '}
+            Here goes a brief user description
           </Text>
         </Container>
 
@@ -91,23 +88,22 @@ export default function DeveloperPage() {
           templateColumns="repeat(5, 2fr)"
           autoRows="fit-content"
           gap="0.5rem"
-          spacing={1}
+          spacing="micro"
         >
-          <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-            <TagLabel m="auto">Web3</TagLabel>
-          </Tag>
-          <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-            <TagLabel m="auto">Solidity</TagLabel>
-          </Tag>
-          <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-            <TagLabel m="auto">Rust</TagLabel>
-          </Tag>
-          <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-            <TagLabel m="auto">React</TagLabel>
-          </Tag>
-          <Tag size="md" borderRadius="8px" bgColor="#E2E9F0" color="black">
-            <TagLabel m="auto">Full-Stack</TagLabel>
-          </Tag>
+          {profileskills.map((skill, index) => (
+            <Tag
+              key={index}
+              size="md"
+              py="2.5%"
+              backgroundColor="transparent"
+              border="1px"
+              borderColor="neutral.200"
+              borderRadius="8px"
+              color="neutral.400"
+            >
+              <TagLabel m="auto">{skill}</TagLabel>
+            </Tag>
+          ))}
         </SimpleGrid>
       </Flex>
     </Box>
@@ -127,7 +123,7 @@ export async function getStaticPaths() {
    * @todo Replace hard-coded paths with API call to developers/[devaddress]
    */
   return {
-    paths: ['/developers/1', '/developers/2', '/developers/3'],
+    paths: ['/developers/developer1'],
     fallback: false,
   };
 }

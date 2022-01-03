@@ -13,7 +13,7 @@ export default function KeywordsSection({
   return (
     <>
       {keywordsData && (
-        <SimpleGrid spacing={2} templateColumns={templateColumns}>
+        <SimpleGrid spacing="xs" templateColumns={templateColumns}>
           {keywordsData &&
             keywordsData.map((keyword, index) => (
               <Tag

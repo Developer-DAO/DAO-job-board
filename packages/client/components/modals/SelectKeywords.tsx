@@ -134,7 +134,7 @@ export default function KeywordSelect({
           word-break="break-all"
           white-space="pre-wrap"
         >
-          <Stack m="auto" textAlign="center" spacing={2}>
+          <Stack m="auto" textAlign="center" spacing="xs">
             <Heading size="md">
               {t('components.modals.select_keywords.header')}
             </Heading>
@@ -153,7 +153,7 @@ export default function KeywordSelect({
               />
             </InputGroup>
           </Stack>
-          <SimpleGrid spacing={1} templateColumns="repeat(2, 3fr)" h="52px">
+          <SimpleGrid spacing="micro" templateColumns="repeat(2, 3fr)" h="52px">
             {filteredKeywords.map((keyword, index) => (
               <Tag
                 cursor="pointer"
@@ -169,7 +169,7 @@ export default function KeywordSelect({
           </SimpleGrid>
         </Stack>
 
-        <Stack spacing={2} mt="2.5%">
+        <Stack spacing="xs" mt="2.5%">
           <Container>
             <Heading size="sm">
               {t('components.modals.select_keywords.keyword_count', {
@@ -180,7 +180,7 @@ export default function KeywordSelect({
               </Text>
             </Heading>
           </Container>
-          <SimpleGrid spacing={1} templateColumns="repeat(2, 5fr)">
+          <SimpleGrid spacing="micro" templateColumns="repeat(2, 5fr)">
             {keywordsActive &&
               selectedKeywords.length >= 0 &&
               selectedKeywords.map((keyword: Keyword, index: number) => (
