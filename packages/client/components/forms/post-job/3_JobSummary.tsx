@@ -88,7 +88,7 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={3} p={2} maxW="100%">
+      <Stack spacing="small" p={2} maxW="100%">
         {title && (
           <>
             <Heading fontSize="sm">
@@ -135,7 +135,7 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={5} p={2} maxW="100%">
+      <Stack spacing="large" p={2} maxW="100%">
         <Heading fontSize="sm">
           {t('components.forms.post_job.job_summary.keywords')}
         </Heading>

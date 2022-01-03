@@ -1,3 +1,5 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import React, { ReactNode } from 'react';
 import {
   ButtonGroup,
@@ -42,8 +44,8 @@ export default function JobDetails() {
         maxW="90%"
         ml={{ '2xl': '0', sm: 'auto' }}
       >
-        <Stack spacing={12}>
-          <Stack spacing={4}>
+        <Stack spacing="jumbo">
+          <Stack spacing="medium">
             <Heading fontSize="md" fontWeight="normal">
               Job Details
             </Heading>
@@ -110,7 +112,7 @@ export default function JobDetails() {
         as="aside"
         p={7}
         w={{ sm: '70%', md: '70%', lg: '365px' }}
-        spacing={6}
+        spacing="xl"
         borderColor="gray.800"
         borderWidth={2}
         rounded="md"
@@ -118,8 +120,8 @@ export default function JobDetails() {
           <StackDivider borderColor="gray.400" borderWidth={2} rounded="md" />
         }
       >
-        <Stack textAlign="center" spacing={3}>
-          <Stack spacing={1}>
+        <Stack textAlign="center" spacing="small">
+          <Stack spacing="micro">
             <Heading as="h1">GitCoin</Heading>
             <Link fontSize="sm">Visit Website</Link>
           </Stack>
@@ -137,7 +139,7 @@ export default function JobDetails() {
           </ButtonGroup>
         </Stack>
 
-        <Stack spacing={4}>
+        <Stack spacing="medium">
           <Detail title="Job Type">Full-Time</Detail>
           <Detail title="Location">California</Detail>
           <Detail title="Position">Marketing</Detail>
@@ -176,7 +178,7 @@ const Detail = ({
   children: ReactNode;
 }) => {
   return (
-    <Stack spacing={1}>
+    <Stack spacing="micro">
       <Heading fontSize="md" fontWeight="light" color="gray.800">
         {title}
       </Heading>
@@ -186,3 +188,21 @@ const Detail = ({
     </Stack>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
+
+export async function getStaticPaths() {
+  // This function is here to render LHS navigation bar i18n.
+  // Currently hard-coded until db is connected.
+  /**
+   * @todo Replace hard-coded paths with API call to [companyName]/[jobTitle]
+   */
+  return {
+    paths: ['/jobs/username/marketing-manager'],
+    fallback: false,
+  };
+}

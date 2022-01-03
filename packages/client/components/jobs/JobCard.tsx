@@ -136,7 +136,7 @@ const JobHeader = () => {
                 alt={`${name ?? 'organization'} logo`}
                 mr="15px"
               />
-              <VStack spacing="5px" alignItems="start">
+              <VStack spacing="micro" alignItems="start">
                 <Heading size="sm">{name}</Heading>
                 <Text color="neutral.400" fontSize="xs" mb="32px">
                   {organization_description}

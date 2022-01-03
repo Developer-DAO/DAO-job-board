@@ -79,7 +79,14 @@ export default function DeveloperItem() {
     >
       <DeveloperHeader />
 
-      <HStack m="auto" mt="5%" mb="5%" columns={5} spacing={1} w="fit-content">
+      <HStack
+        m="auto"
+        mt="5%"
+        mb="5%"
+        columns={5}
+        spacing="micro"
+        w="fit-content"
+      >
         {userdata.skills.map((skill, index) => (
           <Tag
             key={index}

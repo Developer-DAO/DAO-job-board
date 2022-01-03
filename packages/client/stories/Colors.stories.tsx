@@ -51,7 +51,7 @@ const ColorBox = ({ color, scale }: { color: string; scale: number }) => {
   const bg = theme.colors[color][scale];
 
   return (
-    <VStack w="150px" spacing={1}>
+    <VStack w="150px" spacing="micro">
       <Box w="150px" h="50px" bg={bg} borderRadius={10} />
       <HStack w="full" justifyContent="space-between">
         <Text>{scale}</Text>
@@ -63,10 +63,10 @@ const ColorBox = ({ color, scale }: { color: string; scale: number }) => {
 
 export const Colors = () => {
   return (
-    <Stack spacing={6}>
+    <Stack spacing="xl">
       {colors.map((color) => (
-        <Stack key={color.name} spacing={5}>
-          <Stack spacing={3}>
+        <Stack key={color.name} spacing="large">
+          <Stack spacing="small">
             <Heading size="md">{capitalize(color.name)}</Heading>
             <Text size="sm">{color.description}</Text>
           </Stack>
@@ -74,8 +74,8 @@ export const Colors = () => {
             columns={3}
             templateColumns="150px 150px 150px"
             gap={5}
-            spacingX={4}
-            spacingY={2}
+            spacingX="medium"
+            spacingY="xs"
           >
             {scales.map((scale) => (
               <ColorBox key={scale} color={color.name} scale={scale} />

@@ -127,7 +127,7 @@ export default function AddLinks({
   return (
     <>
       <VStack
-        spacing={2}
+        spacing="xs"
         position="fixed"
         borderRadius="18px"
         p={5}
@@ -143,7 +143,7 @@ export default function AddLinks({
       >
         <Heading size="md">{t('components.modals.add_links.header')}</Heading>
         <chakra.form>
-          <VStack spacing={4}>
+          <VStack spacing="medium">
             {linkInputs}
 
             <Stack w="100%">

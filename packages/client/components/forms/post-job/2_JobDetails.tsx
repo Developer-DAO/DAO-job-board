@@ -106,7 +106,7 @@ export default function GigDetails({
         </Text>
       </Container>
 
-      <Stack p={2} spacing={3} maxW="100%">
+      <Stack p={2} spacing="small" maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_details.category_header')}
         </Heading>

@@ -82,7 +82,7 @@ export default function Dashboard() {
         fontSize="sm"
         color="neutral.600"
         aria-label="Main Navigation"
-        spacing={2}
+        spacing="xs"
       >
         <Stack mt="5%">
           <Heading

@@ -88,7 +88,7 @@ export default function DeveloperPage() {
           templateColumns="repeat(5, 2fr)"
           autoRows="fit-content"
           gap="0.5rem"
-          spacing={1}
+          spacing="micro"
         >
           {profileskills.map((skill, index) => (
             <Tag
