@@ -116,7 +116,7 @@ export default function LinksSection(props: LinksSectionProps) {
   );
 
   return (
-    <HStack mt="15px" gap="0.5rem" spacing={1}>
+    <HStack mt="15px" gap="0.5rem" spacing="micro">
       {links.map((link) => link && <ProfileLink key={link.href} {...link} />)}
     </HStack>
   );

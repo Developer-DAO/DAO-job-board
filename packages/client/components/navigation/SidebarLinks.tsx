@@ -30,7 +30,7 @@ export default function SidebarLinks() {
         </Heading>
         <NextLink href={'/developers'} passHref>
           <Link
-            color="gray.400"
+            color="neutral.400"
             p="2"
             pl="5"
             w="100%"
@@ -38,7 +38,7 @@ export default function SidebarLinks() {
             _hover={{
               textDecoration: 'none',
               color: 'black',
-              borderLeft: '5px solid #4E00EC',
+              borderLeft: '5px solid primary.500',
             }}
             _focus={{ textDecoration: 'none', border: 'none' }}
             transition="0.2s"
@@ -51,9 +51,9 @@ export default function SidebarLinks() {
         </NextLink>
       </Stack>
 
-      <Stack borderTop="1px solid" borderColor="gray.200" borderWidth="100%">
+      <Stack borderTop="1px solid" borderColor="neutral.500" borderWidth="100%">
         <Heading
-          color="gray.300"
+          color="neutral.400"
           letterSpacing="2px"
           font="Inter"
           justify="left"
@@ -68,13 +68,13 @@ export default function SidebarLinks() {
           <Link
             p="2"
             pl="5"
-            color="gray.400"
+            color="neutral.500"
             w="100%"
             borderRadius="0px"
             _hover={{
               textDecoration: 'none',
               color: 'black',
-              borderLeft: '5px solid #4E00EC',
+              borderLeft: '5px solid primary.500',
             }}
             _focus={{ textDecoration: 'none', border: 'none' }}
             transition="0.2s"

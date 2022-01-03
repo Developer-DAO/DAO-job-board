@@ -190,15 +190,15 @@ export default function CreateProfile() {
         top="50"
       >
         <Flex flexDirection="column">
-          <Stack direction="column" textAlign="center" flex={2} spacing={5}>
+          <Stack direction="column" textAlign="center" flex={2} spacing="large">
             <Heading size="md">{t('pages.create_profile.identity')}</Heading>
 
-            <Stack m="auto" alignItems="center" spacing={2}>
+            <Stack m="auto" alignItems="center" spacing="xs">
               <Text size="md">{t('pages.create_profile.pfp')}</Text>
               <AddAvatar src="/DevDAO.png" />
             </Stack>
 
-            <Stack direction="column" textAlign="left" spacing={2}>
+            <Stack direction="column" textAlign="left" spacing="xs">
               <Text>{t('pages.create_profile.identity')}</Text>
               <Text fontSize="xs">{t('pages.create_profile.min_chars')}</Text>
               <InputGroup position="static">
@@ -279,7 +279,7 @@ export default function CreateProfile() {
 
           <Stack direction="column" width="100%" flex={2}>
             <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
-              <Stack spacing={2} mt="2.5%">
+              <Stack spacing="xs" mt="2.5%">
                 <Heading size="md" textAlign="center">
                   {t('pages.create_profile.basic_details')}
                 </Heading>
@@ -324,7 +324,7 @@ export default function CreateProfile() {
                 />
               </Stack>
 
-              <Stack spacing={2} mt="2.5%">
+              <Stack spacing="xs" mt="2.5%">
                 <Heading size="md" textAlign="center">
                   {t('pages.create_profile.links_header')}
                 </Heading>
@@ -362,7 +362,7 @@ export default function CreateProfile() {
         <VStack
           divider={<StackDivider borderColor="gray.200" />}
           align="stretch"
-          spacing={4}
+          spacing="medium"
         >
           {formData.projects.map((project, index) => {
             return (

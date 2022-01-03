@@ -31,7 +31,7 @@ export default function JobCard({
       boxSizing="border-box"
       transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
       _hover={{
-        marginTop: '8px',
+        marginTop: '16px',
         boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
       }}
       height={{
@@ -136,7 +136,7 @@ const JobHeader = () => {
                 alt={`${name ?? 'organization'} logo`}
                 mr="15px"
               />
-              <VStack spacing="5px" alignItems="start">
+              <VStack spacing="micro" alignItems="start">
                 <Heading size="sm">{name}</Heading>
                 <Text color="neutral.400" fontSize="xs" mb="32px">
                   {organization_description}

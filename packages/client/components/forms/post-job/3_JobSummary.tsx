@@ -88,7 +88,7 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={3} p={2} maxW="100%">
+      <Stack spacing="small" p={2} maxW="100%">
         {title && (
           <>
             <Heading fontSize="sm">
@@ -135,7 +135,7 @@ export default function GigSummary({
         </Heading>
       </Container>
 
-      <Stack spacing={5} p={2} maxW="100%">
+      <Stack spacing="large" p={2} maxW="100%">
         <Heading fontSize="sm">
           {t('components.forms.post_job.job_summary.keywords')}
         </Heading>
@@ -197,24 +197,26 @@ export default function GigSummary({
             </Text>
           ) : null}
         </Box>
-      </Stack>
 
-      <Button
-        bg="primary.500"
-        _hover={{ bg: 'primary.700' }}
-        color="white"
-        onClick={(e) => sendJobData(e)}
-      >
-        {t('components.forms.post_job.job_summary.post_job')}
-      </Button>
-      <Button
-        bg="danger.600"
-        _hover={{ bg: 'danger.800' }}
-        color="white"
-        onClick={goToBasics}
-      >
-        {t('components.forms.post_job.job_summary.back_button_text')}
-      </Button>
+        <Stack>
+          <Button
+            bg="primary.500"
+            _hover={{ bg: 'primary.700' }}
+            color="white"
+            onClick={(e) => sendJobData(e)}
+          >
+            {t('components.forms.post_job.job_summary.post_job')}
+          </Button>
+          <Button
+            bg="danger.600"
+            _hover={{ bg: 'danger.800' }}
+            color="white"
+            onClick={goToDetails}
+          >
+            {t('components.forms.post_job.job_summary.back_button_text')}
+          </Button>
+        </Stack>
+      </Stack>
     </>
   );
 }

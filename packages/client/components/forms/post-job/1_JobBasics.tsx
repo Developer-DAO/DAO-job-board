@@ -68,7 +68,7 @@ export default function JobBasics({
         </Text>
       </Container>
 
-      <Stack p={2} spacing={2} maxW="100%">
+      <Stack p={2} spacing="xs" maxW="100%">
         <Heading mb="5px" color="black" fontSize="md" textAlign="left">
           {t('components.forms.post_job.job_basics.title_header')}
         </Heading>
