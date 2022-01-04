@@ -64,7 +64,7 @@ export default function KeywordSelect({
     //Merges the selected keywords with the state
     setSelectedKeywords((prevKeywords: Keyword[]) => {
       const updatedKeywords = [...prevKeywords];
-      updatedKeywords.unshift({ name: keyword, id: v4() });
+      updatedKeywords.unshift({ name: keyword });
       return updatedKeywords;
     });
     setKeywordsActive(true);
@@ -102,7 +102,7 @@ export default function KeywordSelect({
     keywordsDataHandler(selectedKeywords);
     const { data, error } = await supabase
       .from('keywords')
-      .upsert(selectedKeywords);
+      .upsert(selectedKeywords, { onConflict: 'name' });
     closeKeywordModal();
   };
 
