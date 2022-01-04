@@ -8,7 +8,6 @@ import {
   Grid,
   useTheme,
 } from '@chakra-ui/react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { capitalize } from 'lodash';
 
 export default {
