@@ -4,54 +4,6 @@ export default {
   title: 'Design System/Typography',
 };
 
-const texts = [
-  {
-    name: 'body1',
-    description: 'Neutral 900 - Semibold - 1.75rem',
-    properties: {
-      color: 'neutral.900',
-      fontSize: 'body1',
-      fontWeight: 'semibold',
-    },
-  },
-  {
-    name: 'body2',
-    description: 'Neutral 900 - Semibold - 1.5rem',
-    properties: {
-      color: 'neutral.900',
-      fontSize: 'body2',
-      fontWeight: 'semibold',
-    },
-  },
-  {
-    name: 'body3',
-    description: 'Neutral 700 - Semibold - 1.25rem',
-    properties: {
-      color: 'neutral.700',
-      fontSize: 'body3',
-      fontWeight: 'semibold',
-    },
-  },
-  {
-    name: 'caption',
-    description: 'Neutral 400 - Semibold - 0.875rem',
-    properties: {
-      color: 'neutral.400',
-      fontSize: 'caption',
-      fontWeight: 'semibold',
-    },
-  },
-  {
-    name: 'micro',
-    description: 'Neutral 400 - Semibold - 0.75rem',
-    properties: {
-      color: 'neutral.400',
-      fontSize: 'micro',
-      fontWeight: 'semibold',
-    },
-  },
-];
-
 const headings = [
   {
     name: 'huge',
@@ -123,12 +75,12 @@ const headings = [
   },
   {
     name: 'subheader',
-    description: 'Neutral 400 - Semibold - 1.75rem - 20% Letter Spacing',
+    description: 'Neutral 400 - Semibold - 1.75rem - 4px Letter Spacing',
     properties: {
       color: 'neutral.400',
       fontSize: 'subheader',
       fontWeight: 'light',
-      letterSpacing: '10px',
+      letterSpacing: '4px',
     },
   },
 ];
@@ -149,6 +101,54 @@ export const Headings = () => {
     </Stack>
   );
 };
+
+const texts = [
+  {
+    name: 'body1',
+    description: 'Neutral 900 - Semibold - 1.75rem',
+    properties: {
+      color: 'neutral.900',
+      fontSize: 'body1',
+      fontWeight: 'semibold',
+    },
+  },
+  {
+    name: 'body2',
+    description: 'Neutral 900 - Semibold - 1.5rem',
+    properties: {
+      color: 'neutral.900',
+      fontSize: 'body2',
+      fontWeight: 'semibold',
+    },
+  },
+  {
+    name: 'body3',
+    description: 'Neutral 700 - Semibold - 1.25rem',
+    properties: {
+      color: 'neutral.700',
+      fontSize: 'body3',
+      fontWeight: 'semibold',
+    },
+  },
+  {
+    name: 'caption',
+    description: 'Neutral 400 - Semibold - 0.875rem',
+    properties: {
+      color: 'neutral.400',
+      fontSize: 'caption',
+      fontWeight: 'semibold',
+    },
+  },
+  {
+    name: 'micro',
+    description: 'Neutral 400 - Semibold - 0.75rem',
+    properties: {
+      color: 'neutral.400',
+      fontSize: 'micro',
+      fontWeight: 'semibold',
+    },
+  },
+];
 
 export const Body = () => {
   return (
