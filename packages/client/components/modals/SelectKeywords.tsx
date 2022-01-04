@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
+import { supabase } from '@/common/supabase';
+import { v4 } from 'uuid';
 
 import { keywordsSamples } from '@/constants/keywords-sample';
 import { Keyword } from '@/types';
@@ -62,7 +64,7 @@ export default function KeywordSelect({
     //Merges the selected keywords with the state
     setSelectedKeywords((prevKeywords: Keyword[]) => {
       const updatedKeywords = [...prevKeywords];
-      updatedKeywords.unshift({ name: keyword, id: Math.random().toString() });
+      updatedKeywords.unshift({ name: keyword, id: v4() });
       return updatedKeywords;
     });
     setKeywordsActive(true);
@@ -95,9 +97,12 @@ export default function KeywordSelect({
 
   const filteredKeywords = filterKeywords(keywords);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     keywordsDataHandler(selectedKeywords);
+    const { data, error } = await supabase
+      .from('keywords')
+      .upsert(selectedKeywords);
     closeKeywordModal();
   };
 
