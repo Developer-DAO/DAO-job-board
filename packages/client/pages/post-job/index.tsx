@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import { Box } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
@@ -9,7 +8,7 @@ import { Keyword } from '@/types';
 import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
-import { supabase } from '../../common/supabase';
+import { supabase } from '@/common/supabase';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -23,6 +22,7 @@ export default function CreateProject() {
     equity: '',
     location: '',
     contact: '',
+    created_by: '',
   });
 
   //Job Keywords
@@ -68,7 +68,10 @@ export default function CreateProject() {
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = async (e: React.FormEvent) => {
+    let user = await supabase.from('users').select('id, name');
     e.preventDefault();
+    formData.created_by = user['data']![0].id;
+    const { data, error } = await supabase.from('jobs').upsert(formData);
   };
 
   return (
