@@ -27,7 +27,7 @@ function FilterLabel(props: filterLabelProps) {
       m="8px"
       border="solid"
       borderWidth="1"
-      color={selected ? 'black.600' : 'gray.300'}
+      color={selected ? 'neutral.600' : 'neutral.300'}
       rightIcon={selected ? <X /> : <Plus />}
     >
       <Text fontStyle="Inter" fontSize="md">
@@ -50,11 +50,11 @@ function JobFilter() {
   const locationFilter = ['Remote', 'Not-Remote'];
 
   return (
-    <Box borderColor="gray.200" borderLeftWidth="1px">
-      <VStack divider={<StackDivider borderColor="gray.200" />}>
+    <Box borderColor="neutral.200" borderLeftWidth="1px">
+      <VStack divider={<StackDivider borderColor="neutral.200" />}>
         <Container my="25px" p="10px">
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
@@ -71,7 +71,7 @@ function JobFilter() {
         </Container>
         <Container my="5px" p="10px">
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
@@ -88,7 +88,7 @@ function JobFilter() {
         </Container>
         <Container my="5px" p="10px">
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
@@ -99,7 +99,7 @@ function JobFilter() {
             {t('components.jobs.jobs_filter.headers.min_pay')}
           </Heading>
           <Input
-            borderColor="gray.200"
+            borderColor="neutral.200"
             borderWidth="2px"
             mx="3"
             maxWidth="25%"
@@ -110,11 +110,11 @@ function JobFilter() {
         <Container
           my="5px"
           p="10px"
-          borderBottomColor="gray.200"
+          borderBottomColor="neutral.200"
           borderBottomWidth="1px"
         >
           <Heading
-            color="gray.300"
+            color="neutral.300"
             letterSpacing="2px"
             font="Inter"
             justify="left"
