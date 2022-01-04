@@ -11,46 +11,12 @@ import { useAuth } from '../../hooks/useAuth';
 
 function ConnectButton() {
   const { t } = useTranslation('common');
-  const router = useRouter();
-  const { setUser } = useAuth();
 
-  const { activateBrowserWallet, account, deactivate } = useEthers();
+  const { activateBrowserWallet } = useEthers();
 
-  const isConnected = () => !!account;
   const handleOnConnectToWallet = () => {
     activateBrowserWallet();
   };
-  const LogButton = isConnected() ? (
-    <Button bg="success" />
-  ) : (
-    <Button bg="neutral" />
-  );
-
-  useEffect(() => {
-    if (account) {
-      const performAuth = async () => {
-        const response = await fetch('/api/auth', {
-          method: 'POST',
-          body: JSON.stringify({ walletAddress: account }),
-        });
-
-        if (response.status !== 200) {
-          deactivate();
-        }
-
-        const result = await response.json();
-        if (result.isNew) {
-          setUser(result);
-          router.push('/create-profile');
-        } else if (result.id) {
-          setUser(result);
-          router.push('/');
-        }
-      };
-
-      performAuth();
-    }
-  }, [account, deactivate, setUser, router]);
 
   return (
     <Button onClick={handleOnConnectToWallet} minWidth="max-content">

@@ -21,6 +21,7 @@ export const AuthProvider = (props: { children: JSX.Element }) => {
 
   React.useEffect(() => {
     // When we mount and have an account we fetch it
+    console.log('fasdfasdfasdf', account);
     if (account) {
       const getAccount = async () => {
         const response = await fetch('/api/auth', {
