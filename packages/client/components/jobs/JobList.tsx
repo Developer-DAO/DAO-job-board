@@ -19,7 +19,7 @@ export default function JobList() {
           sm: 'repeat(1, 1fr)',
           base: 'repeat(1, 1fr)',
         }}
-        gap="1"
+        gap="2"
         mx="auto"
         maxW="100vw"
       >

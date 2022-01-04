@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
 //The number in the file names tell you which step in the form they are
 import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
+import JobPreview from '@/components/jobs/JobPreview';
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -76,10 +77,11 @@ export default function CreateProject() {
       width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
       margin="auto"
       pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
+      pl={{ '2xl': '5%', lg: '7%', sm: 'none', base: 'none' }}
       boxSizing="border-box"
       p="0.5%"
     >
+      <Flex align="center" justify="space-between">
       <form>
         {basicsPage ? (
           <JobBasics
@@ -112,6 +114,9 @@ export default function CreateProject() {
           />
         ) : null}
       </form>
+
+      <JobPreview formData={formData} />
+      </Flex>
     </Box>
   );
 }
