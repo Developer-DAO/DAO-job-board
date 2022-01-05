@@ -17,7 +17,7 @@ import { Job } from '../../types/job';
 import { Heart } from 'tabler-icons-react';
 import { useState } from 'react';
 
-import JobPostModal from '@/components/modals/jobs/JobPost';
+import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component

@@ -1,4 +1,4 @@
-import { HStack, Stack } from '@chakra-ui/react';
+import { Heading, Text, HStack, Stack } from '@chakra-ui/react';
 
 type CompanyInfo = {
   name: string;
@@ -33,14 +33,18 @@ export default function JobPostModal({
       w={{ '2xl': '50%', sm: '80%' }}
       h="fit-content"
       textAlign="center"
-      bg="#ffffff"
+      bg="neutral.100"
       zIndex={1000}
     >
-      <JobModalHeader />
+      <JobModalHeader position={position} />
     </Stack>
   );
 }
 
-const JobModalHeader = () => {
-  return <HStack>asd</HStack>;
+const JobModalHeader = ({ position }: any) => {
+  return (
+    <HStack>
+      <Heading fontSize="header1">{position}</Heading>
+    </HStack>
+  );
 };
