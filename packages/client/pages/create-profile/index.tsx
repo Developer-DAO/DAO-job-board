@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import { supabase } from '../../common/supabase';
 
 import { StackDivider } from '@chakra-ui/layout';
 
