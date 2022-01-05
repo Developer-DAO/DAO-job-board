@@ -1,7 +1,7 @@
 # DAO Job Board
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -83,6 +83,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://nickkramer.me"><img src="https://avatars.githubusercontent.com/u/118162?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nick Kramer</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=krames12" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/moojing"><img src="https://avatars.githubusercontent.com/u/11360957?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mu-Jing-Tsai</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=moojing" title="Code">💻</a> <a href="#translation-moojing" title="Translation">🌍</a></td>
     <td align="center"><a href="https://yukai.dev/"><img src="https://avatars.githubusercontent.com/u/4230968?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yukai Huang</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/pulls?q=is%3Apr+reviewed-by%3AYukaii" title="Reviewed Pull Requests">👀</a> <a href="#translation-Yukaii" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/HKerStanley"><img src="https://avatars.githubusercontent.com/u/23305118?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stanley Chiu</b></sub></a><br /><a href="https://github.com/Developer-DAO/DAO-job-board/commits?author=HKerStanley" title="Code">💻</a></td>
   </tr>
 </table>
 
