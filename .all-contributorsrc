@@ -180,6 +180,16 @@
         "code",
         "translation"
       ]
+    },
+    {
+      "login": "Yukaii",
+      "name": "Yukai Huang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4230968?v=4",
+      "profile": "https://yukai.dev/",
+      "contributions": [
+        "review",
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
