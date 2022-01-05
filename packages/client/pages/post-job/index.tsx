@@ -74,8 +74,6 @@ export default function CreateProject() {
     const { data, error } = await supabase.from('jobs').upsert({
       ...formData,
       created_by: user['data']![0].id,
-      linkable_type: 'users',
-      linkable_id: user['data']![0].id,
     });
   };
 
