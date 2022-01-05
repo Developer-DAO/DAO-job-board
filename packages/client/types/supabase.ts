@@ -378,6 +378,8 @@ export interface paths {
           created_at?: parameters['rowFilter.keywords.created_at'];
           updated_at?: parameters['rowFilter.keywords.updated_at'];
           deleted_at?: parameters['rowFilter.keywords.deleted_at'];
+          linkable_id?: parameters['rowFilter.keywords.linkable_id'];
+          linkable_type?: parameters['rowFilter.keywords.linkable_type'];
           /** Filtering Columns */
           select?: parameters['select'];
           /** Ordering */
@@ -433,6 +435,8 @@ export interface paths {
           created_at?: parameters['rowFilter.keywords.created_at'];
           updated_at?: parameters['rowFilter.keywords.updated_at'];
           deleted_at?: parameters['rowFilter.keywords.deleted_at'];
+          linkable_id?: parameters['rowFilter.keywords.linkable_id'];
+          linkable_type?: parameters['rowFilter.keywords.linkable_type'];
         };
         header: {
           /** Preference */
@@ -452,6 +456,8 @@ export interface paths {
           created_at?: parameters['rowFilter.keywords.created_at'];
           updated_at?: parameters['rowFilter.keywords.updated_at'];
           deleted_at?: parameters['rowFilter.keywords.deleted_at'];
+          linkable_id?: parameters['rowFilter.keywords.linkable_id'];
+          linkable_type?: parameters['rowFilter.keywords.linkable_type'];
         };
         body: {
           /** keywords */
@@ -1237,6 +1243,8 @@ export interface definitions {
     created_at: string;
     updated_at: string;
     deleted_at?: string;
+    linkable_id?: string;
+    linkable_type?: string;
   };
   links: {
     /**
@@ -1432,6 +1440,8 @@ export interface parameters {
   'rowFilter.keywords.created_at': string;
   'rowFilter.keywords.updated_at': string;
   'rowFilter.keywords.deleted_at': string;
+  'rowFilter.keywords.linkable_id': string;
+  'rowFilter.keywords.linkable_type': string;
   /** links */
   'body.links': definitions['links'];
   'rowFilter.links.id': string;

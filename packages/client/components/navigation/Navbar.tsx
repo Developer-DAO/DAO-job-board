@@ -1,5 +1,6 @@
 import NavTitle from './NavTitle';
 import ConnectButton from './ConnectButton';
+import { supabase } from '@/common/supabase';
 
 import {
   Box,
@@ -44,6 +45,9 @@ function Navbar({ sidebar, setUserPurpose }: any) {
 
         if (result.id) {
           setUser(result);
+          const { data, error } = await supabase
+            .from('users')
+            .upsert(result, { onConflict: 'id' });
         }
       };
       performAuth();

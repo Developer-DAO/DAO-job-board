@@ -68,10 +68,15 @@ export default function CreateProject() {
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = async (e: React.FormEvent) => {
-    let user = await supabase.from('users').select('id, name');
+    let user = await supabase.from('users').select('id');
     e.preventDefault();
-    formData.created_by = user['data']![0].id;
-    const { data, error } = await supabase.from('jobs').upsert(formData);
+
+    const { data, error } = await supabase.from('jobs').upsert({
+      ...formData,
+      created_by: user['data']![0].id,
+      linkable_type: 'users',
+      linkable_id: user['data']![0].id,
+    });
   };
 
   return (

@@ -2,12 +2,7 @@ import { Button, Flex, Text } from '@chakra-ui/react';
 
 import Image from 'next/image';
 import { useEthers } from '@usedapp/core';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
 import { useTranslation } from 'next-i18next';
-
-import { useAuth } from '../../hooks/useAuth';
 
 function ConnectButton() {
   const { t } = useTranslation('common');
