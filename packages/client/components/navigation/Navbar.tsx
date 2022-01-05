@@ -3,6 +3,7 @@ import NavTitle from './NavTitle';
 
 import {
   Box,
+  Grid,
   Text,
   Link,
   HStack,
@@ -12,6 +13,7 @@ import {
   IconButton,
   Avatar,
   Button,
+  GridItem,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -35,16 +37,16 @@ function Navbar({ sidebar, setUserPurpose }: any) {
   };
   return (
     <Box ml={{ lg: '60', md: '0' }}>
-      <Flex
+      <Grid 
+        templateColumns='repeat(5, 1fr)' 
+        gap={6}
         as="header"
-        align="center"
-        justify="space-between"
-        px="2"
         bg="utility.light80"
         borderBottomWidth="1px"
         borderColor="gray.200"
         h="14"
       >
+        <GridItem w="100%" h="14" alignItems="center" colSpan={3} d="flex" pl={4}>
         <IconButton
           aria-label="Menu"
           display={{ lg: 'none', md: 'inline-flex' }}
@@ -59,6 +61,10 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           </Heading>
         </Text>
 
+        </GridItem>
+
+        <GridItem w="100%" h="14" justifyContent="flex-end" alignItems="center" colSpan={2} d="flex">
+
         {account ? (
           /**
            * @todo Add icon to select options.
@@ -70,6 +76,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             color="neutral.400"
             borderX="1px"
             borderColor="neutral.200"
+            w="100%"
+            justifyItems="stretch"
             h="full"
             borderRight="none"
           >
@@ -78,6 +86,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               border="none"
               w="75"
               onChange={(e) => handlePurposeChange(e)}
+              flex="1"
             >
               <option value="">- placeholder -</option>
               <option value="/earn">
@@ -128,7 +137,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             </Link>
           </NextLink>
         )}
-      </Flex>
+      </GridItem>
+      </Grid>
     </Box>
   );
 }

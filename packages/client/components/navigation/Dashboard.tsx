@@ -163,7 +163,7 @@ export default function Dashboard() {
   );
 
   return (
-    <Box as="section" w="100%" pos="fixed" zIndex={9998}>
+    <Box as="section" w="100%" pos="fixed" top="0" zIndex={9998}>
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"

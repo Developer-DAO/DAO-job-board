@@ -11,7 +11,7 @@ import { Job } from '@/types/job';
 export default function JobPreview({ formData } : any ) {
 
   return (
-    <Box ml={{ lg: '60', md: '0' }}>
+    <Box>
         <HStack>
             <Circle size="24px" bg="primary.100">
                 <Circle size="10px" bg="primary.500"></Circle>
