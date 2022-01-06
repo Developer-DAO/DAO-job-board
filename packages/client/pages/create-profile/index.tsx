@@ -40,6 +40,7 @@ type Projects = {
   title: string;
   github_url: string;
   description: string;
+  created_by: string;
 };
 
 type formData = {
@@ -374,6 +375,7 @@ export default function CreateProfile() {
                   title={project.title}
                   github_url={project.github_url}
                   description={project.description}
+                  created_by={project.created_by}
                 />
                 <DeleteIcon
                   mt={4}
@@ -408,6 +410,7 @@ export default function CreateProfile() {
                     github_url: '',
                     title: '',
                     description: '',
+                    created_by: '',
                   },
                 ],
               });

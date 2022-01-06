@@ -1,6 +1,6 @@
-import NextLink from 'next/link';
 import NavTitle from './NavTitle';
 import ConnectButton from './ConnectButton';
+import { supabase } from '@/common/supabase';
 
 import {
   Box,
@@ -16,15 +16,42 @@ import {
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '@/hooks/useAuth';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
-  const { account } = useEthers();
   const router = useRouter();
+  const { setUser } = useAuth();
+
+  const { account, deactivate } = useEthers();
+
+  useEffect(() => {
+    if (account) {
+      const performAuth = async () => {
+        const response = await fetch('/api/auth', {
+          method: 'POST',
+          body: JSON.stringify({ walletAddress: account }),
+        });
+
+        if (response.status !== 200) {
+          deactivate();
+        }
+
+        const result = await response.json();
+        if (result.id) {
+          setUser(result);
+          const { data, error } = await supabase
+            .from('users')
+            .upsert(result, { onConflict: 'id' });
+        }
+      };
+      performAuth();
+    }
+  }, [account, deactivate, setUser, router]);
   const { t } = useTranslation('common');
 
   const [isOpen, setIsOpen] = useState(false);
@@ -111,7 +138,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               )}
             </HStack>
             <Box px={3}>
-              <Settings size={24} />
+              <Settings size={24} onClick={deactivate} />
             </Box>
           </HStack>
         ) : (
