@@ -125,10 +125,10 @@
     "navigation": {
       "dashboard": {
         "header": "jobsBoard",
-        "hiring": "RECRUITER",
-        "seeking": "SEEKER",
+        "hiring": "HIRE",
+        "seeking": "EARN",
         "jobs_list": " Jobs List",
-        "devs": " Devs"
+        "devs": " Developers For Hire"
       },
       "navbar": {
         "alt_home": "Home",

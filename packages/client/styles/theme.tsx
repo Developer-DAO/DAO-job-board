@@ -1,4 +1,4 @@
-import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, space, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 const breakpoints = createBreakpoints({
@@ -141,4 +141,16 @@ export const theme = extendTheme({
     80: '20rem',
     96: '24rem',
   },
+  components: {
+    Button: {
+      variants: {
+        morePadding: {
+          paddingLeft: 9,
+          paddingRight: 9,
+          paddingTop: 7,
+          paddingBottom: 7  
+        }
+      }
+    }
+  }
 });
