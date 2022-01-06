@@ -12,11 +12,11 @@ import {
   StackDivider,
 } from '@chakra-ui/react';
 
-type filterLabelProps = {
+type FilterLabelProps = {
   text: string;
 };
 
-function FilterLabel(props: filterLabelProps) {
+function FilterLabel(props: FilterLabelProps) {
   const [selected, setSelected] = useControllableState({ defaultValue: false });
 
   const clickLabel = () => setSelected(!selected);
