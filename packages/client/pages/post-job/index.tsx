@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useEthers } from '@usedapp/core';
+
 import { Box } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
@@ -32,7 +34,7 @@ export default function CreateProject() {
   const [basicsPage, setBasicsPage] = useState(true);
   const [detailsPage, setDetailsPage] = useState(false);
   const [summaryPage, setSummaryPage] = useState(false);
-
+  const { account } = useEthers();
   //Change Page on Click - either to Continue or go Back to previous components
   const goToBasics = () => {
     setBasicsPage(true);
@@ -68,12 +70,10 @@ export default function CreateProject() {
 
   //Sends data to database (sent to JobSummary as props)
   const createJob = async (e: React.FormEvent) => {
-    let user = await supabase.from('users').select('id');
     e.preventDefault();
-
     const { data, error } = await supabase.from('jobs').upsert({
       ...formData,
-      created_by: user['data']![0].id,
+      created_by: account,
     });
   };
 

@@ -17,7 +17,7 @@ import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '@/hooks/useAuth';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 
@@ -42,7 +42,6 @@ function Navbar({ sidebar, setUserPurpose }: any) {
         }
 
         const result = await response.json();
-
         if (result.id) {
           setUser(result);
           const { data, error } = await supabase
