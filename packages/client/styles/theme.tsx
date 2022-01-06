@@ -145,10 +145,10 @@ export const theme = extendTheme({
     Button: {
       variants: {
         morePadding: {
-          paddingLeft: 9,
-          paddingRight: 9,
-          paddingTop: 7,
-          paddingBottom: 7  
+          paddingLeft: 8,
+          paddingRight: 8,
+          paddingTop: 6,
+          paddingBottom: 6 
         }
       }
     }
