@@ -35,9 +35,9 @@ export default function JobList() {
         mx="auto"
         maxW="100vw"
       >
-        //Ternary expression is deactivated until we have a working database
-        connection / forms
-        {/* {jobs ? (jobs.map(job => {
+        {/*Ternary expression is deactivated until we have a working database connection / forms 
+
+          {jobs ? (jobs.map(job => {
           <JobCard {...job} />
         })) : <Spinner color="primary.400" />} */}
         <JobCard {...({} as Job)} />

@@ -11,7 +11,6 @@ import {
   Flex,
   IconButton,
   Avatar,
-  Button,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';

@@ -44,6 +44,7 @@ export const theme = extendTheme({
         initialColorMode: 'light',
         bg: 'utility.light80',
         color: 'black',
+        height: '100vh',
       },
     },
   },
