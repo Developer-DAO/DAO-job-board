@@ -51,7 +51,7 @@ CREATE TABLE public.projects (
   github_url VARCHAR,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now(),
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
   created_by VARCHAR NOT NULL REFERENCES public.users (id)
 );
 

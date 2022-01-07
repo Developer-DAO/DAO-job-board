@@ -1,9 +1,20 @@
 import JobCard from './JobCard';
-
 import { Job } from '@/types/job';
-import { Box, Grid } from '@chakra-ui/react';
+
+import { Box, Grid, Spinner } from '@chakra-ui/react';
+import { useState } from 'react';
+import { supabase } from '@/common/supabase';
 
 export default function JobList() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const fetchJobs = async () => {
+    const { data, error } = await supabase.from('jobs');
+    if (data) {
+      setJobs(data);
+    }
+  };
+  fetchJobs();
+
   return (
     <Box
       position="relative"
@@ -23,9 +34,9 @@ export default function JobList() {
         mx="auto"
         maxW="100vw"
       >
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
+        {/* {jobs ? (jobs.map(job => {
+          <JobCard {...job} />
+        })) : <Spinner color="primary.400" />} */}
       </Grid>
     </Box>
   );

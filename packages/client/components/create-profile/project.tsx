@@ -9,6 +9,7 @@ interface ProjectProps {
   github_url: string;
   title: string;
   description: string;
+  created_by: string;
   changeHandler: (index: number, field: string, value: string) => void;
 }
 
@@ -17,6 +18,7 @@ const Project: React.FC<ProjectProps> = ({
   github_url,
   title,
   description,
+  created_by,
   changeHandler,
 }) => {
   const { t } = useTranslation('common');

@@ -170,6 +170,44 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "moojing",
+      "name": "Mu-Jing-Tsai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11360957?v=4",
+      "profile": "https://github.com/moojing",
+      "contributions": [
+        "code",
+        "translation"
+      ]
+    },
+    {
+      "login": "Yukaii",
+      "name": "Yukai Huang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4230968?v=4",
+      "profile": "https://yukai.dev/",
+      "contributions": [
+        "review",
+        "translation"
+      ]
+    },
+    {
+      "login": "HKerStanley",
+      "name": "Stanley Chiu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23305118?v=4",
+      "profile": "https://github.com/HKerStanley",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "zhenyangg",
+      "name": "Z",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15624933?v=4",
+      "profile": "http://manapixels.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
