@@ -56,7 +56,7 @@ export default function JobCard({
               compensation={compensation}
               description={description}
               position={position}
-              companyInfo={companyInfo}
+              companyInfo={companyInfo as any}
             />
           </ModalContent>
         </Modal>

@@ -48,3 +48,7 @@ const JobModalHeader = ({ position }: any) => {
     </HStack>
   );
 };
+
+const JobModalContent = ({ description }: any) => {
+  return <Stack>{description}</Stack>;
+};

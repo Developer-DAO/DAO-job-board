@@ -13,7 +13,8 @@ export default function JobList() {
       setJobs(data);
     }
   };
-  fetchJobs();
+  //Function commented out to prevent issues while testing the front-end prototype
+  // fetchJobs();
 
   return (
     <Box
@@ -34,9 +35,14 @@ export default function JobList() {
         mx="auto"
         maxW="100vw"
       >
+        //Ternary expression is deactivated until we have a working database
+        connection / forms
         {/* {jobs ? (jobs.map(job => {
           <JobCard {...job} />
         })) : <Spinner color="primary.400" />} */}
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
       </Grid>
     </Box>
   );
