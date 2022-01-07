@@ -41,10 +41,11 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
+        pos: 'relative',
         initialColorMode: 'light',
         bg: 'utility.light80',
         color: 'black',
-        height: '100vh',
+        minHeight: '100vh',
       },
     },
   },

@@ -144,7 +144,18 @@ export default function CreateProfile() {
   };
 
   return (
-    <>
+    <Box
+      m="auto"
+      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
+      h="100%"
+      boxSizing="border-box"
+      bg="none"
+      pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
+      pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
+      pr={{ sm: '3%', base: '3%' }}
+      pos="relative"
+      top="50"
+    >
       {changeProfileLinks && (
         <Modal
           isOpen={changeProfileLinks}
@@ -179,17 +190,7 @@ export default function CreateProfile() {
         </Modal>
       )}
 
-      <Box
-        m="auto"
-        width={{ '2xl': '70%', md: '90%', sm: '100%' }}
-        boxSizing="border-box"
-        bg="none"
-        pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
-        pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
-        pr={{ sm: '3%', base: '3%' }}
-        pos="relative"
-        top="50"
-      >
+      <Box>
         <Flex flexDirection="column">
           <Stack direction="column" textAlign="center" flex={2} spacing="large">
             <Heading size="md">{t('pages.create_profile.identity')}</Heading>
@@ -433,7 +434,7 @@ export default function CreateProfile() {
           </Button>
         </Stack>
       </Box>
-    </>
+    </Box>
   );
 }
 

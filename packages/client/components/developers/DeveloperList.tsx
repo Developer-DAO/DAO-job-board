@@ -9,6 +9,7 @@ export default function DeveloperList() {
       maxW={{ lg: '70%', md: '100%' }}
       textAlign="center"
       m="auto"
+      h="100vh"
     >
       <Grid
         templateColumns={{

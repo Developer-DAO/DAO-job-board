@@ -22,6 +22,7 @@ export default function JobList() {
       maxW={{ lg: '70%', md: '100%' }}
       textAlign="center"
       m="auto"
+      h="100vh"
     >
       <Grid
         templateColumns={{
@@ -35,7 +36,7 @@ export default function JobList() {
         mx="auto"
         maxW="100vw"
       >
-        {/*Ternary expression is deactivated until we have a working database connection / forms 
+        {/*Ternary expression is deactivated until we have a working database connection / forms
 
           {jobs ? (jobs.map(job => {
           <JobCard {...job} />
