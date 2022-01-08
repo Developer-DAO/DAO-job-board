@@ -35,7 +35,6 @@ export default function JobPostModal({
     <Stack
       position="fixed"
       borderRadius="18px"
-      p={5}
       m="auto"
       top="50%"
       left="50%"
@@ -82,17 +81,66 @@ const JobModalHeader = ({ position, compensation, companyInfo }: any) => {
 
 const JobModalContent = ({ description }: any) => {
   return (
-    <Grid>
-      <Box textAlign="justify">
+    <Grid
+      gridTemplateColumns="repeat(2, 1fr)"
+      w="100%"
+      border="1px"
+      borderColor="neutral.200"
+    >
+      <Stack
+        textAlign="justify"
+        borderRight="1px"
+        borderColor="neutral.200"
+        h="full"
+        p="20px"
+      >
+        <Heading
+          fontSize="subheader"
+          color="neutral.400"
+          fontWeight="semibold"
+          letterSpacing="4px"
+        >
+          JOB DESCRIPTION
+        </Heading>
         <Text fontSize="body3">{description}</Text>
-      </Box>
+      </Stack>
+
+      <Grid gridTemplateRows="repeat(2, 1fr)">
+        <Box
+          textAlign="justify"
+          borderBottom="1px"
+          borderColor="neutral.200"
+          w="100%"
+          p="20px"
+        >
+          <Heading
+            fontSize="subheader"
+            color="neutral.400"
+            fontWeight="semibold"
+            letterSpacing="4px"
+          >
+            RESPONSIBILITIES
+          </Heading>
+        </Box>
+
+        <Box textAlign="justify" p="20px">
+          <Heading
+            fontSize="subheader"
+            color="neutral.400"
+            fontWeight="semibold"
+            letterSpacing="4px"
+          >
+            SKILLS
+          </Heading>
+        </Box>
+      </Grid>
     </Grid>
   );
 };
 
 const JobModalFooter = ({ closeJobModal }: any) => {
   return (
-    <Stack>
+    <Stack p="20px">
       <Button
         color="white"
         bgColor="neutral.900"
