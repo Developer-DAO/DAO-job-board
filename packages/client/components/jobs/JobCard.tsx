@@ -52,6 +52,7 @@ export default function JobCard({
           <ModalOverlay onClick={closeJobModal} />
           <ModalContent>
             <JobPostModal
+              technologyTags={technologyTags}
               closeJobModal={closeJobModal}
               compensation={compensation}
               description={description}
@@ -88,7 +89,7 @@ export default function JobCard({
       >
         <JobHeader companyInfo={companyInfo} />
         <Box ml="0.5%" maxW="100%" p="40px" onClick={openJobModal}>
-          <Heading style={{ fontSize: '24px' }} mb="1.5%" fontWeight="medium">
+          <Heading variant="header5" mb="1.5%">
             {position}
           </Heading>
           <HStack mb="15px">

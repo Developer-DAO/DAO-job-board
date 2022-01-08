@@ -8,6 +8,8 @@ import {
   Stack,
   Button,
   Grid,
+  TagLabel,
+  Tag,
 } from '@chakra-ui/react';
 
 import { definitions } from '@/types/supabase';
@@ -18,6 +20,7 @@ type Jobinfo = {
   description: string;
   position: string;
   companyInfo: definitions['organizations'];
+  technologyTags: Array<string>;
 };
 
 export default function JobPostModal({
@@ -26,6 +29,7 @@ export default function JobPostModal({
   description,
   position,
   companyInfo,
+  technologyTags,
 }: Jobinfo) {
   return (
     <Stack
@@ -46,7 +50,10 @@ export default function JobPostModal({
         compensation={compensation}
         companyInfo={companyInfo}
       />
-      <JobModalContent description={description} />
+      <JobModalContent
+        technologyTags={technologyTags}
+        description={description}
+      />
       <JobModalFooter closeJobModal={closeJobModal} />
     </Stack>
   );
@@ -64,7 +71,7 @@ const JobModalHeader = ({ position, compensation, companyInfo }: any) => {
       />
 
       <VStack alignItems="left">
-        <Heading fontSize="header5">
+        <Heading variant="header5">
           {position} - {companyInfo.name}
         </Heading>
         <Text fontSize="caption" color="neutral.400" fontWeight="semibold">
@@ -75,7 +82,7 @@ const JobModalHeader = ({ position, compensation, companyInfo }: any) => {
   );
 };
 
-const JobModalContent = ({ description }: any) => {
+const JobModalContent = ({ description, technologyTags }: any) => {
   return (
     <Grid
       gridTemplateColumns="repeat(2, 1fr)"
@@ -91,27 +98,37 @@ const JobModalContent = ({ description }: any) => {
       </Stack>
 
       <Grid gridTemplateRows="repeat(2, 1fr)" gap="1px">
-        <Box textAlign="justify" bgColor="utility.light80" w="100%" p="20px">
-          <Heading
-            fontSize="subheader"
-            color="neutral.400"
-            fontWeight="semibold"
-            letterSpacing="4px"
-          >
-            RESPONSIBILITIES
-          </Heading>
-        </Box>
+        <Stack
+          gap="5px"
+          textAlign="justify"
+          bgColor="utility.light80"
+          w="100%"
+          p="20px"
+        >
+          <Heading variant="subheader">RESPONSIBILITIES</Heading>
+        </Stack>
 
-        <Box textAlign="justify" p="20px" bgColor="utility.light80">
-          <Heading
-            fontSize="subheader"
-            color="neutral.400"
-            fontWeight="semibold"
-            letterSpacing="4px"
-          >
-            SKILLS
-          </Heading>
-        </Box>
+        <Stack gap="5px" textAlign="justify" p="20px" bgColor="utility.light80">
+          <Heading variant="subheader">SKILLS</Heading>
+          <Grid gap="10px" gridTemplateColumns="repeat(5, 1fr)">
+            {technologyTags?.map((tag: string, index: any) => (
+              <Tag
+                key={`technology-tag-${index}`}
+                w="fit-content"
+                size="md"
+                p="8px"
+                backgroundColor="transparent"
+                border="1px"
+                borderColor="neutral.200"
+                borderRadius="8px"
+                color="neutral.400"
+                minWidth="max-content"
+              >
+                <TagLabel m="auto">{tag}</TagLabel>
+              </Tag>
+            ))}
+          </Grid>
+        </Stack>
       </Grid>
     </Grid>
   );
@@ -120,19 +137,8 @@ const JobModalContent = ({ description }: any) => {
 const JobModalFooter = ({ closeJobModal }: any) => {
   return (
     <Stack p="20px">
-      <Button
-        color="white"
-        bgColor="neutral.900"
-        _hover={{ bgColor: 'neutral.500' }}
-      >
-        Apply for Job
-      </Button>
-      <Button
-        color="white"
-        bgColor="danger.500"
-        _hover={{ color: 'black', bgColor: 'danger.300' }}
-        onClick={closeJobModal}
-      >
+      <Button variant="neutral">Apply for Job</Button>
+      <Button variant="danger" onClick={closeJobModal}>
         Ignore
       </Button>
     </Stack>
