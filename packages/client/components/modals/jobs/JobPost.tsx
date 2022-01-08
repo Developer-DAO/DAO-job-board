@@ -85,7 +85,10 @@ const JobModalHeader = ({ position, compensation, companyInfo }: any) => {
 const JobModalContent = ({ description, technologyTags }: any) => {
   return (
     <Grid
-      gridTemplateColumns="repeat(2, 1fr)"
+      gridTemplateColumns={{
+        lg: 'repeat(2, 1fr)',
+        sm: 'repeat(1, minmax(150px, 1fr))',
+      }}
       w="100%"
       bgColor="neutral.200"
       borderY="1px solid"
@@ -137,7 +140,9 @@ const JobModalContent = ({ description, technologyTags }: any) => {
 const JobModalFooter = ({ closeJobModal }: any) => {
   return (
     <Stack p="20px">
-      <Button variant="neutral">Apply for Job</Button>
+      <Button as="a" variant="neutral" href="/jobs/gitcoin/marketing-manager">
+        Apply for Job
+      </Button>
       <Button variant="danger" onClick={closeJobModal}>
         Ignore
       </Button>
