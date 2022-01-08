@@ -97,13 +97,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## Sponsors
+## IMPORTANT LINKS
 
 <div>
-<a href="https://vercel.com?utm_source=developdao&utm_campaign=oss">
+<a href="https://vercel.com?utm_source=devdaojobboard&utm_campaign=oss">
 <img width="170px" src="https://user-images.githubusercontent.com/8930332/133003096-dbf81aa9-d165-49fd-b2dd-0108e32138a6.png" alt="Powered By Vercel" />
 </a>
 </div>
 <div>
-<p align="left">Vercel is sponsoring this project</p>
+<p align="left">This project is Powered by Vercel</p>
 </div>
