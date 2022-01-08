@@ -34,7 +34,7 @@ export default function JobPostModal({
       h="fit-content"
       textAlign="center"
       bg="neutral.100"
-      zIndex={1000}
+      zIndex="modal"
     >
       <JobModalHeader position={position} />
     </Stack>

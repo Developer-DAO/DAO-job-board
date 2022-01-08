@@ -124,7 +124,7 @@ export default function KeywordSelect({
         h="fit-content"
         textAlign="center"
         bg="#ffffff"
-        zIndex={1000}
+        zIndex="modal"
       >
         <Stack
           width="100%"

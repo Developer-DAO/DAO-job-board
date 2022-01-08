@@ -145,16 +145,13 @@ export default function CreateProfile() {
 
   return (
     <Box
+      pos="relative"
       m="auto"
-      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
       h="100%"
-      boxSizing="border-box"
-      bg="none"
+      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
       pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
       pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
       pr={{ sm: '3%', base: '3%' }}
-      pos="relative"
-      top="50"
     >
       {changeProfileLinks && (
         <Modal
