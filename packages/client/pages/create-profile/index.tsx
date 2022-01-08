@@ -147,9 +147,11 @@ export default function CreateProfile() {
     <Box
       pos="relative"
       m="auto"
+      minHeight="100vh"
       h="100%"
       width={{ '2xl': '70%', md: '90%', sm: '100%' }}
-      pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
+      pt={{ '2xl': '2%', lg: '10%', md: '15%', sm: '17%', base: '15%' }}
+      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '17%', base: '20%' }}
       pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
       pr={{ sm: '3%', base: '3%' }}
     >

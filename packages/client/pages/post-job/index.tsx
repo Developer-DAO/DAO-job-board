@@ -83,10 +83,11 @@ export default function CreateProject() {
       width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
       margin="auto"
       pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
+      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
       pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
       boxSizing="border-box"
       p="0.5%"
-      h="100vh"
+      h="100%"
     >
       <form>
         {basicsPage ? (

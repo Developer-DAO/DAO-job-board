@@ -9,7 +9,7 @@ export default function DeveloperList() {
       maxW={{ lg: '70%', md: '100%' }}
       textAlign="center"
       m="auto"
-      h="100vh"
+      h="100%"
     >
       <Grid
         templateColumns={{
@@ -24,6 +24,9 @@ export default function DeveloperList() {
         maxW="100%"
         px={5}
       >
+        <DeveloperItem />
+        <DeveloperItem />
+        <DeveloperItem />
         <DeveloperItem />
         <DeveloperItem />
         <DeveloperItem />
