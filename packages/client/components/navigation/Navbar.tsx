@@ -51,6 +51,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
       performAuth();
     }
   }, [account, deactivate, setUser, router]);
+
   const { t } = useTranslation('common');
 
   const [isOpen, setIsOpen] = useState(false);
