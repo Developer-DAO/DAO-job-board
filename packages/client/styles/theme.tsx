@@ -147,13 +147,18 @@ export const theme = extendTheme({
     Text: {
       variants: {
         micro: {
-          fontSize: '0.75rem',
+          fontSize: '0.5rem',
           color: 'neutral.400',
           fontWeight: 'semibold',
         },
         caption: {
-          fontSize: '0.85rem',
+          fontSize: '0.75rem',
           color: 'neutral.400',
+          fontWeight: 'semibold',
+        },
+        body4: {
+          fontSize: '1rem',
+          color: 'neutral.700',
           fontWeight: 'semibold',
         },
         body3: {
@@ -180,6 +185,11 @@ export const theme = extendTheme({
           fontWeight: 'semibold',
           fontSize: '1.5rem',
           letterSpacing: '4px',
+        },
+        header6: {
+          fontSize: '1.25rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
         },
         header5: {
           fontSize: '1.5rem',

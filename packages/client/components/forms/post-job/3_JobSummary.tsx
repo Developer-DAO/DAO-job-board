@@ -73,16 +73,18 @@ export default function GigSummary({
   return (
     <>
       <Container textAlign="center" mb="2.5%">
-        <Heading>{t('components.forms.post_job.job_summary.header')}</Heading>
-        <Text>
+        <Heading variant="header1">
+          {t('components.forms.post_job.job_summary.header')}
+        </Heading>
+        <Text variant="body4" fontWeight="light" as="i">
           {t('components.forms.post_job.job_summary.header_sub_text')}
         </Text>
       </Container>
 
       <Container m="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">
+        <Heading variant="header4">
           {t('components.forms.post_job.job_summary.job_basics')}{' '}
-          <Button onClick={goToBasics}>
+          <Button variant="info" onClick={goToBasics}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
           </Button>
         </Heading>
@@ -91,7 +93,7 @@ export default function GigSummary({
       <Stack spacing="small" p={2} maxW="100%">
         {title && (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_name')}
             </Heading>{' '}
             {title}
@@ -100,7 +102,7 @@ export default function GigSummary({
 
         {description && (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_description')}
             </Heading>{' '}
             {description}
@@ -109,7 +111,7 @@ export default function GigSummary({
 
         {position && (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_position')}
             </Heading>{' '}
             {position}
@@ -118,7 +120,7 @@ export default function GigSummary({
 
         {type && (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_type')}
             </Heading>{' '}
             {type}
@@ -127,16 +129,16 @@ export default function GigSummary({
       </Stack>
 
       <Container margin="auto" textAlign="center" maxW="100%">
-        <Heading fontSize="lg">
+        <Heading variant="header4">
           {t('components.forms.post_job.job_summary.job_details')}{' '}
-          <Button onClick={goToDetails}>
+          <Button variant="info" onClick={goToDetails}>
             {t('components.forms.post_job.job_summary.edit_button_text')}
           </Button>
         </Heading>
       </Container>
 
       <Stack spacing="large" p={2} maxW="100%">
-        <Heading fontSize="sm">
+        <Heading variant="header6">
           {t('components.forms.post_job.job_summary.keywords')}
         </Heading>
 
@@ -147,7 +149,7 @@ export default function GigSummary({
 
         {compensation && (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_compensation')}
             </Heading>{' '}
             {min}-{max} {compensation}
@@ -156,7 +158,7 @@ export default function GigSummary({
 
         {equity ? (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_equity')}
             </Heading>{' '}
             {equity}
@@ -165,17 +167,17 @@ export default function GigSummary({
 
         {location ? (
           <>
-            <Heading fontSize="sm">
+            <Heading variant="header6">
               {t('components.forms.post_job.job_summary.job_location')}
             </Heading>{' '}
             {location}
           </>
         ) : null}
         <Box>
-          <Heading fontSize="md">
+          <Heading variant="header6">
             {t('components.forms.post_job.job_summary.contact_header')}
           </Heading>
-          <Text fontSize="xs" textAlign="left" mb="1%">
+          <Text variant="caption" textAlign="left" mb="1%">
             {t('components.forms.post_job.job_summary.contact_sub_text')}
           </Text>
           <Input
@@ -199,20 +201,10 @@ export default function GigSummary({
         </Box>
 
         <Stack>
-          <Button
-            bg="primary.500"
-            _hover={{ bg: 'primary.700' }}
-            color="white"
-            onClick={(e) => sendJobData(e)}
-          >
+          <Button variant="primary" onClick={(e) => sendJobData(e)}>
             {t('components.forms.post_job.job_summary.post_job')}
           </Button>
-          <Button
-            bg="danger.600"
-            _hover={{ bg: 'danger.800' }}
-            color="white"
-            onClick={goToDetails}
-          >
+          <Button variant="danger" onClick={goToDetails}>
             {t('components.forms.post_job.job_summary.back_button_text')}
           </Button>
         </Stack>

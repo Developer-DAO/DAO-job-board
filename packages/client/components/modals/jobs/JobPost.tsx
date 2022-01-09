@@ -1,5 +1,4 @@
 import {
-  Box,
   Heading,
   Image,
   Text,
@@ -39,7 +38,7 @@ export default function JobPostModal({
       top="50%"
       left="50%"
       transform="translate(-50%, -50%);"
-      w={{ '2xl': '50%', sm: '80%' }}
+      w="80%"
       h="fit-content"
       textAlign="center"
       bg="utility.light80"
@@ -96,8 +95,10 @@ const JobModalContent = ({ description, technologyTags }: any) => {
       gap="1px"
     >
       <Stack textAlign="justify" bgColor="utility.light80" h="full" p="20px">
-        <Heading variant="subheader">JOB DESCRIPTION</Heading>
-        <Text fontSize="body3">{description}</Text>
+        <Heading variant="subheader" fontSize="12px">
+          JOB DESCRIPTION
+        </Heading>
+        <Text fontSize="body4">{description}</Text>
       </Stack>
 
       <Grid gridTemplateRows="repeat(2, 1fr)" gap="1px">
@@ -108,11 +109,15 @@ const JobModalContent = ({ description, technologyTags }: any) => {
           w="100%"
           p="20px"
         >
-          <Heading variant="subheader">RESPONSIBILITIES</Heading>
+          <Heading variant="subheader" fontSize="12px">
+            REQUIREMENTS
+          </Heading>
         </Stack>
 
         <Stack gap="5px" textAlign="justify" p="20px" bgColor="utility.light80">
-          <Heading variant="subheader">SKILLS</Heading>
+          <Heading variant="subheader" fontSize="12px">
+            SKILLS
+          </Heading>
           <Grid gap="10px" gridTemplateColumns="repeat(5, 1fr)">
             {technologyTags?.map((tag: string, index: any) => (
               <Tag
