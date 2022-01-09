@@ -28,7 +28,7 @@ export default function Dashboard() {
   /**
    * @todo Add default userPurpose based on default user onboarding choice
    */
-  const [userPurpose, setUserPurpose] = useState('');
+  const [userPurpose, setUserPurpose] = useState('/earn');
   const SidebarContent = (props: any) => (
     <Box
       as="nav"
@@ -84,78 +84,82 @@ export default function Dashboard() {
         aria-label="Main Navigation"
         spacing="xs"
       >
-        <Stack mt="5%">
-          <Heading
-            color="neutral.300"
-            letterSpacing="2px"
-            font="Inter"
-            justify="left"
-            fontSize="xs"
-            p="3"
-            pl="5"
-          >
-            {t('components.navigation.dashboard.hiring')}
-          </Heading>
-          <NextLink href={'/developers'} passHref>
-            <Link
-              onClick={sidebar.onClose}
+        {userPurpose === '/hire' ? (
+          <Stack mt="5%">
+            <Heading
               color="neutral.300"
-              p="2"
+              letterSpacing="2px"
+              font="Inter"
+              justify="left"
+              fontSize="xs"
+              p="3"
               pl="5"
-              w="100%"
-              borderRadius="0px"
-              _hover={{
-                textDecoration: 'none',
-                color: 'black',
-                borderLeft: '5px solid #4E00EC',
-              }}
-              _focus={{ textDecoration: 'none', border: 'none' }}
-              transition="0.2s"
             >
-              <Text size="md">
-                <FontAwesomeIcon icon={faUsers} />{' '}
-                {t('components.navigation.dashboard.devs')}
-              </Text>
-            </Link>
-          </NextLink>
-        </Stack>
+              {t('components.navigation.dashboard.hiring')}
+            </Heading>
+            <NextLink href={'/developers'} passHref>
+              <Link
+                onClick={sidebar.onClose}
+                color="neutral.300"
+                p="2"
+                pl="5"
+                w="100%"
+                borderRadius="0px"
+                _hover={{
+                  textDecoration: 'none',
+                  color: 'black',
+                  borderLeft: '5px solid #4E00EC',
+                }}
+                _focus={{ textDecoration: 'none', border: 'none' }}
+                transition="0.2s"
+              >
+                <Text size="md">
+                  <FontAwesomeIcon icon={faUsers} />{' '}
+                  {t('components.navigation.dashboard.devs')}
+                </Text>
+              </Link>
+            </NextLink>
+          </Stack>
+        ) : null}
 
-        <Stack borderTop="1px solid" borderColor="gray.200" borderWidth="100%">
-          <Heading
-            color="neutral.300"
-            letterSpacing="2px"
-            font="Inter"
-            justify="left"
-            fontSize="xs"
-            p="3"
-            pl="5"
-            mt={2}
-          >
-            {t('components.navigation.dashboard.seeking')}
-          </Heading>
-          <NextLink href={'/jobs'} passHref>
-            <Link
-              onClick={sidebar.onClose}
-              p="2"
-              pl="5"
+        {userPurpose === '/earn' ? (
+          <Stack>
+            <Heading
               color="neutral.300"
-              w="100%"
-              borderRadius="0px"
-              _hover={{
-                textDecoration: 'none',
-                color: 'black',
-                borderLeft: '5px solid #4E00EC',
-              }}
-              _focus={{ textDecoration: 'none', border: 'none' }}
-              transition="0.2s"
+              letterSpacing="2px"
+              font="Inter"
+              justify="left"
+              fontSize="xs"
+              p="3"
+              pl="5"
+              mt={2}
             >
-              <Text size="md">
-                <FontAwesomeIcon icon={faClipboardList} />{' '}
-                {t('components.navigation.dashboard.jobs_list')}
-              </Text>
-            </Link>
-          </NextLink>
-        </Stack>
+              {t('components.navigation.dashboard.seeking')}
+            </Heading>
+            <NextLink href={'/jobs'} passHref>
+              <Link
+                onClick={sidebar.onClose}
+                p="2"
+                pl="5"
+                color="neutral.300"
+                w="100%"
+                borderRadius="0px"
+                _hover={{
+                  textDecoration: 'none',
+                  color: 'black',
+                  borderLeft: '5px solid #4E00EC',
+                }}
+                _focus={{ textDecoration: 'none', border: 'none' }}
+                transition="0.2s"
+              >
+                <Text size="md">
+                  <FontAwesomeIcon icon={faClipboardList} />{' '}
+                  {t('components.navigation.dashboard.jobs_list')}
+                </Text>
+              </Link>
+            </NextLink>
+          </Stack>
+        ) : null}
 
         <Stack alignSelf="flex-end"></Stack>
       </Stack>

@@ -59,6 +59,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
     setUserPurpose(e.target.value);
     router.push(route);
   };
+
   return (
     <Box ml={{ lg: '60', md: '0' }}>
       <Flex
@@ -102,10 +103,11 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             <Select
               size="sm"
               border="none"
-              w="75"
+              w="full"
+              p="10px"
+              focusBorderColor="none"
               onChange={(e) => handlePurposeChange(e)}
             >
-              <option value="">- placeholder -</option>
               <option value="/earn">
                 {t('components.navigation.navbar.seeking')}
               </option>
