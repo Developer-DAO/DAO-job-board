@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
+import { supabase } from '../../common/supabase';
 
 import { StackDivider } from '@chakra-ui/layout';
 
@@ -37,8 +38,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type Projects = {
   title: string;
-  githubUrl: string;
+  github_url: string;
   description: string;
+  created_by: string;
 };
 
 type formData = {
@@ -371,8 +373,9 @@ export default function CreateProfile() {
                   index={index}
                   changeHandler={projectDataChangeHandler}
                   title={project.title}
-                  githubUrl={project.githubUrl}
+                  github_url={project.github_url}
                   description={project.description}
+                  created_by={project.created_by}
                 />
                 <DeleteIcon
                   mt={4}
@@ -404,9 +407,10 @@ export default function CreateProfile() {
                 projects: [
                   ...formData.projects,
                   {
-                    githubUrl: '',
+                    github_url: '',
                     title: '',
                     description: '',
+                    created_by: '',
                   },
                 ],
               });

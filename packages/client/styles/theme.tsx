@@ -23,6 +23,21 @@ export const theme = extendTheme({
     body: 'InterVariable, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
     code: '"Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace',
   },
+  fontSizes: {
+    micro: '0.75rem',
+    caption: '0.875rem',
+    body3: '1rem',
+    body2: '1.25rem',
+    body1: '1.5rem',
+    header5: '1.75rem',
+    header4: '2rem',
+    header3: '2.25rem',
+    header2: '2.5rem',
+    header1: '3rem',
+    big2: '4.5rem',
+    big1: '6rem',
+    huge: '9rem',
+  },
   styles: {
     global: {
       body: {

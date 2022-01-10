@@ -7,6 +7,7 @@ export type Table =
   | 'job_applications'
   | 'keywords'
   | 'organization_members'
+  | 'projects'
   | 'links';
 
 export type WithTimestamp = {

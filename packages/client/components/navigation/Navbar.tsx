@@ -1,11 +1,11 @@
-import NextLink from 'next/link';
 import NavTitle from './NavTitle';
+import ConnectButton from './ConnectButton';
+import { supabase } from '@/common/supabase';
 
 import {
   Box,
   Grid,
   Text,
-  Link,
   HStack,
   Heading,
   Select,
@@ -18,15 +18,42 @@ import {
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useAuth } from '@/hooks/useAuth';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 import { Settings, ChevronDown, ChevronUp } from 'tabler-icons-react';
 
 function Navbar({ sidebar, setUserPurpose }: any) {
-  const { account } = useEthers();
   const router = useRouter();
+  const { setUser } = useAuth();
+
+  const { account, deactivate } = useEthers();
+
+  useEffect(() => {
+    if (account) {
+      const performAuth = async () => {
+        const response = await fetch('/api/auth', {
+          method: 'POST',
+          body: JSON.stringify({ walletAddress: account }),
+        });
+
+        if (response.status !== 200) {
+          deactivate();
+        }
+
+        const result = await response.json();
+        if (result.id) {
+          setUser(result);
+          const { data, error } = await supabase
+            .from('users')
+            .upsert(result, { onConflict: 'id' });
+        }
+      };
+      performAuth();
+    }
+  }, [account, deactivate, setUser, router]);
   const { t } = useTranslation('common');
 
   const [isOpen, setIsOpen] = useState(false);
@@ -135,18 +162,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               </Box>
             </HStack>
           ) : (
-            <NextLink href={'/auth'} passHref>
-              <Link display={{ sm: 'none', md: 'flex' }}>
-                <Button
-                  color="white"
-                  bg="neutral.700"
-                  _hover={{ bg: 'neutral.500', textDecoration: 'none' }}
-                  as="a"
-                >
-                  Sign Up
-                </Button>
-              </Link>
-            </NextLink>
+            <ConnectButton />
           )}
         </GridItem>
       </Grid>

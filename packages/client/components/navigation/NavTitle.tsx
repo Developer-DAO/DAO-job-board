@@ -9,9 +9,6 @@ export default function NavTitle() {
   const { t } = useTranslation('common');
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(router.pathname);
-  });
   const dynamicTitles: any = {
     '/': t('components.navigation.nav_title.dashboard'),
     '/developers': t('components.navigation.nav_title.devs_for_hire'),
