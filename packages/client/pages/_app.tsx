@@ -1,6 +1,7 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 
 import MainComponent from '@/components/MainComponent';
+import Footer from '@/components/navigation/Footer';
 
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { theme } from '@/styles/theme';
@@ -25,8 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           {account && <div>Welcome {account}</div>}
 
           <MainComponent />
-
           <Component {...pageProps} />
+          <Footer />
         </ChakraProvider>
       </DAppProvider>
     </AuthProvider>

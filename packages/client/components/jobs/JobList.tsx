@@ -13,7 +13,8 @@ export default function JobList() {
       setJobs(data);
     }
   };
-  fetchJobs();
+  //Function commented out to prevent issues while testing the front-end prototype
+  // fetchJobs();
 
   return (
     <Box
@@ -21,12 +22,14 @@ export default function JobList() {
       maxW={{ lg: '70%', md: '100%' }}
       textAlign="center"
       m="auto"
+      h="100%"
+      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
     >
       <Grid
         templateColumns={{
-          '2xl': 'repeat(4, 2fr)',
-          lg: 'repeat(2, 2fr)',
-          md: 'repeat(2, 2fr)',
+          '2xl': 'repeat(3, 1fr)',
+          lg: 'repeat(2, 1fr)',
+          md: 'repeat(2, 1fr)',
           sm: 'repeat(1, 1fr)',
           base: 'repeat(1, 1fr)',
         }}
@@ -34,9 +37,17 @@ export default function JobList() {
         mx="auto"
         maxW="100vw"
       >
-        {/* {jobs ? (jobs.map(job => {
+        {/*Ternary expression is deactivated until we have a working database connection / forms
+
+          {jobs ? (jobs.map(job => {
           <JobCard {...job} />
         })) : <Spinner color="primary.400" />} */}
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
+        <JobCard {...({} as Job)} />
       </Grid>
     </Box>
   );

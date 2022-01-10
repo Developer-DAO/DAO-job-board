@@ -1,7 +1,9 @@
 # DAO Job Board
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _In Development 🏗️_
@@ -94,3 +96,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## IMPORTANT LINKS
+
+<div>
+<a href="https://vercel.com?utm_source=devdaojobboard&utm_campaign=oss">
+<img width="170px" src="https://user-images.githubusercontent.com/8930332/133003096-dbf81aa9-d165-49fd-b2dd-0108e32138a6.png" alt="Powered By Vercel" />
+</a>
+</div>
+<div>
+<p align="left">This project is Powered by Vercel</p>
+</div>

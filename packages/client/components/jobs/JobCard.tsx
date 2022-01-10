@@ -9,10 +9,15 @@ import {
   Tag,
   TagLabel,
   VStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
 } from '@chakra-ui/react';
 import { Job } from '../../types/job';
 import { Heart } from 'tabler-icons-react';
 import { useState } from 'react';
+
+import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
@@ -22,39 +27,69 @@ export default function JobCard({
 }: Job) {
   const technologyTags = ['Solidity', 'EthersJS', 'React', 'Rust'];
 
+  // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
+  const companyInfo = {
+    name: 'Company Name',
+    organization_description: 'NFT Marketplace',
+    logo_url: '/DevDAO.png',
+  };
+
+  //To Open and the Job Post Modal
+  const [jobModal, setJobModal] = useState(false);
+
+  const openJobModal = () => {
+    setJobModal(true);
+  };
+
+  const closeJobModal = () => {
+    setJobModal(false);
+  };
+
   return (
-    <Box
-      key={Math.floor(Math.random() * 1000)} // will use the actual job id
-      border="1px"
-      borderColor="neutral.200"
-      borderRadius="6px"
-      boxSizing="border-box"
-      transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
-      _hover={{
-        marginTop: '16px',
-        boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
-      }}
-      height={{
-        lg: 'fit-content',
-        md: 'fit-content',
-        sm: 'max-content',
-        base: 'max-content',
-      }}
-      w="100%"
-      m="20px"
-      textAlign="left"
-      bg="white"
-      minW="300px"
-      maxW="320px"
-    >
-      <JobHeader />
-      <Box ml="0.5%" maxW="100%" p="40px">
-        <Link
-          href="/jobs/username/marketing-manager"
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ textDecoration: 'none', border: 'none' }}
-        >
-          <Heading style={{ fontSize: '24px' }} mb="1.5%" fontWeight="medium">
+    <>
+      {jobModal && (
+        <Modal isOpen={jobModal} onClose={closeJobModal} motionPreset="none">
+          <ModalOverlay onClick={closeJobModal} />
+          <ModalContent>
+            <JobPostModal
+              technologyTags={technologyTags}
+              closeJobModal={closeJobModal}
+              compensation={compensation}
+              description={description}
+              position={position}
+              companyInfo={companyInfo as any}
+            />
+          </ModalContent>
+        </Modal>
+      )}
+
+      <Box
+        key={Math.floor(Math.random() * 1000)} // will use the actual job id
+        border="1px"
+        borderColor="neutral.200"
+        borderRadius="6px"
+        boxSizing="border-box"
+        transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
+        _hover={{
+          marginTop: '16px',
+          boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
+        }}
+        height={{
+          lg: 'fit-content',
+          md: 'fit-content',
+          sm: 'max-content',
+          base: 'max-content',
+        }}
+        w="100%"
+        m="20px"
+        textAlign="left"
+        bg="white"
+        minW="300px"
+        maxW="320px"
+      >
+        <JobHeader companyInfo={companyInfo} />
+        <Box ml="0.5%" maxW="100%" p="40px" onClick={openJobModal}>
+          <Heading variant="header5" mb="1.5%">
             {position}
           </Heading>
           <HStack mb="15px">
@@ -68,53 +103,48 @@ export default function JobCard({
           <Text color="neutral.400" mt="1.5%">
             {description}
           </Text>
-        </Link>
-      </Box>
+        </Box>
 
-      <Box
-        ml="0.5%"
-        pb="1%"
-        maxW="100%"
-        px="40px"
-        py="28px"
-        borderTop="1px"
-        borderColor="neutral.200"
-      >
-        <Flex wrap="wrap">
-          {technologyTags?.map((tag, index) => (
-            <Tag
-              key={`technology-tag-${index}`}
-              w="fit-content"
-              size="md"
-              mx="12px"
-              mb="12px"
-              ml="0px"
-              px="16px"
-              py="8px"
-              backgroundColor="transparent"
-              border="1px"
-              borderColor="neutral.200"
-              borderRadius="8px"
-              color="neutral.400"
-              minWidth="max-content"
-            >
-              <TagLabel m="auto">{tag}</TagLabel>
-            </Tag>
-          ))}
-        </Flex>
+        <Box
+          ml="0.5%"
+          pb="1%"
+          maxW="100%"
+          px="40px"
+          py="28px"
+          borderTop="1px"
+          borderColor="neutral.200"
+        >
+          <Flex wrap="wrap">
+            {technologyTags?.map((tag, index) => (
+              <Tag
+                key={`technology-tag-${index}`}
+                w="fit-content"
+                size="md"
+                mx="12px"
+                mb="12px"
+                ml="0px"
+                px="16px"
+                py="8px"
+                backgroundColor="transparent"
+                border="1px"
+                borderColor="neutral.200"
+                borderRadius="8px"
+                color="neutral.400"
+                minWidth="max-content"
+              >
+                <TagLabel m="auto">{tag}</TagLabel>
+              </Tag>
+            ))}
+          </Flex>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 
 // This header component exists so that the JobCard doesn't completely re-render
 // on changing the state of isFavorited
-const JobHeader = () => {
-  // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
-  const name = 'Company Name',
-    organization_description = 'NFT Marketplace',
-    logo_url = '/DevDAO.png';
-
+const JobHeader = ({ companyInfo }: any) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   return (
@@ -132,14 +162,14 @@ const JobHeader = () => {
                 h="45px"
                 borderRadius="6px"
                 border="1px solid black"
-                src={logo_url}
-                alt={`${name ?? 'organization'} logo`}
+                src={companyInfo.logo_url}
+                alt={`${companyInfo ?? 'organization'} logo`}
                 mr="15px"
               />
               <VStack spacing="micro" alignItems="start">
-                <Heading size="sm">{name}</Heading>
+                <Heading size="sm">{companyInfo.name}</Heading>
                 <Text color="neutral.400" fontSize="xs" mb="32px">
-                  {organization_description}
+                  {companyInfo.organization_description}
                 </Text>
               </VStack>
             </Flex>

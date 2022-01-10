@@ -98,25 +98,30 @@ export default function GigDetails({
 
       <Container textAlign="center" mt="2.5%" mb="2.5%">
         {' '}
-        <Heading color="black">
+        <Heading variant="header1" color="black">
           {t('components.forms.post_job.job_details.header')}
         </Heading>
-        <Text color="black" as="i">
+        <Text variant="body4" fontWeight="light" as="i">
           {t('components.forms.post_job.job_details.sub_header')}
         </Text>
       </Container>
 
       <Stack p={2} spacing="small" maxW="100%">
-        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_details.category_header')}
         </Heading>
 
         {!wrongData ? (
-          <Text fontSize="xs" textAlign="left">
+          <Text variant="caption" textAlign="left">
             {t('components.forms.post_job.job_details.category_sub_header')}
           </Text>
         ) : (
-          <Text fontSize="xs" textAlign="left" color="red" fontWeight="bold">
+          <Text
+            variant="caption"
+            textAlign="left"
+            color="red"
+            fontWeight="bold"
+          >
             {t('components.forms.post_job.job_details.category_error')}
           </Text>
         )}
@@ -141,10 +146,10 @@ export default function GigDetails({
           templateColumns={{ '2xl': 'repeat(5, 3fr)', sm: 'repeat(2, 3fr)' }}
         />
 
-        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+        <Heading mb="5px" color="black" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_details.compensation_header')}
         </Heading>
-        <Text fontSize="xs" textAlign="left" mb="2.5%">
+        <Text variant="caption" textAlign="left" mb="2.5%">
           {t('components.forms.post_job.job_details.compensation_sub_header')}
         </Text>
         <Select
@@ -201,7 +206,7 @@ export default function GigDetails({
           type="number"
         />
 
-        <Heading mb="1%" mt="1%" color="black" fontSize="md" textAlign="left">
+        <Heading mb="1%" mt="1%" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_details.equity_header')}
         </Heading>
 
@@ -223,10 +228,10 @@ export default function GigDetails({
           <option value="+5%">+5%</option>
         </Select>
 
-        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_details.location_header')}
         </Heading>
-        <Text fontSize="xs" textAlign="left" mb="1%">
+        <Text variant="caption" textAlign="left" mb="1%">
           {t('components.forms.post_job.job_details.location_sub_header')}
         </Text>
         <Input

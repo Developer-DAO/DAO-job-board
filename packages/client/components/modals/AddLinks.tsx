@@ -139,7 +139,7 @@ export default function AddLinks({
         h="fit-content"
         textAlign="center"
         bg="#ffffff"
-        zIndex={9999}
+        zIndex="modal"
       >
         <Heading size="md">{t('components.modals.add_links.header')}</Heading>
         <chakra.form>

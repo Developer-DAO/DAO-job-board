@@ -11,7 +11,6 @@ import {
   Flex,
   IconButton,
   Avatar,
-  Button,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -52,6 +51,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
       performAuth();
     }
   }, [account, deactivate, setUser, router]);
+
   const { t } = useTranslation('common');
 
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +60,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
     setUserPurpose(e.target.value);
     router.push(route);
   };
+
   return (
     <Box ml={{ lg: '60', md: '0' }}>
       <Flex
@@ -103,10 +104,11 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             <Select
               size="sm"
               border="none"
-              w="75"
+              w="full"
+              p="10px"
+              focusBorderColor="none"
               onChange={(e) => handlePurposeChange(e)}
             >
-              <option value="">- placeholder -</option>
               <option value="/earn">
                 {t('components.navigation.navbar.seeking')}
               </option>
