@@ -20,13 +20,12 @@ export default function Footer() {
         href="https://vercel.com/?utm_source=devdaojobboard&utm_campaign=oss"
         fontSize="sm"
       >
-        <Text>Powered by</Text>
         <Flex>
           <Image
-            src="/vercel-logo.png"
-            alt="Vercel"
+            src="/powered-by-vercel.svg"
+            alt="Powered By Vercel"
             width="100px"
-            height="22px"
+            height="50"
           />
         </Flex>
       </HStack>
