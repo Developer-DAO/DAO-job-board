@@ -84,7 +84,7 @@ export default function CreateProject() {
       bg={'none'}
       width="auto"
       margin="auto"
-      ml={{ lg: '72', md: '0' }}
+      ml={{ xl: '72', lg: '0' }}
       mt={{ lg: 14, sm: 6 }}
       boxSizing="border-box"
       height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}

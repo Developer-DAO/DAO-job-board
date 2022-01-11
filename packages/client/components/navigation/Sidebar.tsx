@@ -20,7 +20,7 @@ import { useState } from 'react';
 
 import Navbar from './Navbar';
 
-export default function Dashboard() {
+export default function Sidebar() {
   const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
@@ -157,22 +157,24 @@ export default function Dashboard() {
           </Stack>
         ) : null}
 
-        <Box p="4" textAlign="center">
-          <NextLink href={'/post-job'} passHref>
-            <Link>
-              <Button
-                color="white"
-                colorScheme="neutral"
-                variant="morePadding"
-                bg="neutral.700"
-                _hover={{ bg: 'neutral.500' }}
-                size="sm"
-              >
-                + Create new job
-              </Button>
-            </Link>
-          </NextLink>
-        </Box>
+        {userPurpose === '/hire' && (
+          <Box p="4" textAlign="center">
+            <NextLink href={'/post-job'} passHref>
+              <Link>
+                <Button
+                  color="white"
+                  colorScheme="neutral"
+                  variant="morePadding"
+                  bg="neutral.700"
+                  _hover={{ bg: 'neutral.500' }}
+                  size="sm"
+                >
+                  + Create new job
+                </Button>
+              </Link>
+            </NextLink>
+          </Box>
+        )}
       </Stack>
 
       <Divider my="5" />
@@ -195,7 +197,13 @@ export default function Dashboard() {
   return (
     <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
       <SidebarContent
-        display={{ lg: 'flex', md: 'none', sm: 'none', base: 'none' }}
+        display={{
+          xl: 'flex',
+          lg: 'none',
+          md: 'none',
+          sm: 'none',
+          base: 'none',
+        }}
         flexFlow="column nowrap"
         justifyContent="space-between"
         transition="0.5s ease"
@@ -208,7 +216,8 @@ export default function Dashboard() {
         <DrawerOverlay
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',
@@ -217,7 +226,8 @@ export default function Dashboard() {
         <DrawerContent
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',

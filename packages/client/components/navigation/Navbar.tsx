@@ -64,7 +64,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
   };
 
   return (
-    <Box ml={{ lg: '72', md: '0' }}>
+    <Box ml={{ xl: '72', lg: '0' }}>
       <Grid
         templateColumns="repeat(5, 1fr)"
         gap={6}
@@ -84,7 +84,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
         >
           <IconButton
             aria-label="Menu"
-            display={{ lg: 'none', md: 'inline-flex' }}
+            display={{ xl: 'none', lg: 'inline-flex' }}
             onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
             size="sm"
             mr={3}
@@ -92,7 +92,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           />
 
           <Text m="none" w="96">
-            <Heading size="md" textAlign={{ lg: 'left', md: 'center' }}>
+            <Heading size="md" textAlign={{ xl: 'left', lg: 'center' }}>
               <NavTitle />
             </Heading>
           </Text>

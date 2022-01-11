@@ -17,38 +17,30 @@ export default function JobList() {
   // fetchJobs();
 
   return (
-    <Box
-      position="relative"
-      maxW={{ lg: '70%', md: '100%' }}
-      textAlign="center"
-      m="auto"
-      h="100%"
-      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
+    <Grid
+      templateColumns={{
+        '2xl': 'repeat(4, 1fr)',
+        xl: 'repeat(3, 1fr)',
+        lg: 'repeat(2, 1fr)',
+        md: 'repeat(2, 1fr)',
+        sm: 'repeat(1, 1fr)',
+        base: 'repeat(1, 1fr)',
+      }}
+      gap={8}
+      mx="auto"
+      p={10}
     >
-      <Grid
-        templateColumns={{
-          '2xl': 'repeat(3, 1fr)',
-          lg: 'repeat(2, 1fr)',
-          md: 'repeat(2, 1fr)',
-          sm: 'repeat(1, 1fr)',
-          base: 'repeat(1, 1fr)',
-        }}
-        gap="2"
-        mx="auto"
-        maxW="100vw"
-      >
-        {/*Ternary expression is deactivated until we have a working database connection / forms
+      {/*Ternary expression is deactivated until we have a working database connection / forms
 
           {jobs ? (jobs.map(job => {
           <JobCard {...job} />
         })) : <Spinner color="primary.400" />} */}
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-      </Grid>
-    </Box>
+      <JobCard {...({} as Job)} />
+      <JobCard {...({} as Job)} />
+      <JobCard {...({} as Job)} />
+      <JobCard {...({} as Job)} />
+      <JobCard {...({} as Job)} />
+      <JobCard {...({} as Job)} />
+    </Grid>
   );
 }
