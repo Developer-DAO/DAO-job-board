@@ -144,6 +144,12 @@ export const theme = extendTheme({
     96: '24rem',
   },
   components: {
+    Divider: {
+      baseStyle: {
+        borderColor: 'neutral.200',
+        opacity: 1,
+      }
+    },
     Text: {
       variants: {
         micro: {
