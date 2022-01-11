@@ -4,7 +4,7 @@ import { supabase } from '@/common/supabase';
 
 import {
   Box,
-  Grid,
+  Flex,
   Text,
   HStack,
   Heading,
@@ -65,9 +65,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
 
   return (
     <Box ml={{ xl: '72', lg: '0' }}>
-      <Grid
-        templateColumns="repeat(5, 1fr)"
-        gap={6}
+      <Flex
+        justifyContent="space-between"
         as="header"
         bg="utility.light80"
         borderBottomWidth="1px"
@@ -106,7 +105,6 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           colSpan={2}
           d="flex"
         >
-          <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
           {account ? (
             /**
              * @todo Add icon to select options.
@@ -120,16 +118,19 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               justifyItems={{ 'sm': 'center', 'md': 'stretch' }}
               h="full"
               borderRight="none"
+              px={4}
             >
+              <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
               <Select
                 size="sm"
                 border="none"
                 w="75"
                 onChange={(e) => handlePurposeChange(e)}
                 flex="1"
+                pl={0}
                 d={{ 'sm': 'none', 'md': 'unset' }}
               >
-                <option value="">- placeholder -</option>
+                <option value="">I am here to...</option>
                 <option value="/earn">
                   {t('components.navigation.navbar.seeking')}
                 </option>
@@ -168,7 +169,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
             <ConnectButton />
           )}
         </GridItem>
-      </Grid>
+      </Flex>
     </Box>
   );
 }
