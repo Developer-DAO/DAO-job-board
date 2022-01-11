@@ -28,7 +28,7 @@ export default function JobPreview({ formData } : any ) {
                     Preview Job Listing
             </Text>
             </HStack>
-            <JobCard {...({} as Job)} company_id='' />
+            <JobCard {...({} as Job)} company_id="" />
         
     </Box>
   );

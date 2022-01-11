@@ -120,12 +120,7 @@ export default function Dashboard() {
           )  : null}
 
         {userPurpose === '/earn' ? (
-          <Stack
-            borderTop="1px solid"
-            borderColor="gray.200"
-            borderWidth="100%"
-            my="5"
-          >
+          <Stack my="5">
             <Heading
               color="neutral.300"
               letterSpacing="2px"
@@ -201,7 +196,7 @@ export default function Dashboard() {
   );
 
   return (
-    <Box as="section" w="100%" pos="fixed" zIndex="overlay">
+    <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"

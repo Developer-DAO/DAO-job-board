@@ -21,6 +21,7 @@ import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
+  company_id,
   position = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
@@ -29,7 +30,7 @@ export default function JobCard({
 
   // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
   const companyInfo = {
-    id: 2,
+    id: company_id,
     name: 'Company Name',
     organization_description: 'NFT Marketplace',
     logo_url: '/DevDAO.png',
@@ -62,8 +63,8 @@ export default function JobCard({
       <Text color="neutral.400" mt="1.5%">
         {description}
       </Text>
-      </>
-  )
+    </>
+  );
 
   return (
     <>
@@ -107,50 +108,52 @@ export default function JobCard({
         maxW="320px"
       >
         <JobHeader companyInfo={companyInfo} />
-        <Box ml="0.5%" maxW="100%" p="25px" onClick={openJobModal}>
-          {companyInfo.id ?
-          <Link
-            href="/jobs/username/marketing-manager"
-            _hover={{ textDecoration: 'none' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-          >
-            {jobDetails}
-          </Link>
-          : jobDetails}
+        <Box ml="0.5%" maxW="100%" p="25px" onClick={() => companyInfo.id && openJobModal}>
+          {companyInfo.id ? (
+            <Link
+              href="/jobs/username/marketing-manager"
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ textDecoration: 'none', border: 'none' }}
+            >
+              {jobDetails}
+            </Link>
+          ) : (
+            jobDetails
+          )}
         </Box>
 
         <Box
-        ml="0.5%"
-        maxW="100%"
-        px="25px"
-        pt="25px"
-        pb="13px"
-        borderTop="1px"
-        borderColor="neutral.200"
-      >
-        <Flex wrap="wrap">
-          {technologyTags?.map((tag, index) => (
-            <Tag
-              key={`technology-tag-${index}`}
-              w="fit-content"
-              size="md"
-              mx="12px"
-              mb="12px"
-              ml="0px"
-              px="16px"
-              py="8px"
-              backgroundColor="transparent"
-              border="1px"
-              borderColor="neutral.200"
-              borderRadius="8px"
-              color="neutral.400"
-              minWidth="max-content"
-            >
-              <TagLabel m="auto">{tag}</TagLabel>
-            </Tag>
-          ))}
-        </Flex>
-      </Box>
+          ml="0.5%"
+          maxW="100%"
+          px="25px"
+          pt="25px"
+          pb="13px"
+          borderTop="1px"
+          borderColor="neutral.200"
+        >
+          <Flex wrap="wrap">
+            {technologyTags?.map((tag, index) => (
+              <Tag
+                key={`technology-tag-${index}`}
+                w="fit-content"
+                size="md"
+                mx="12px"
+                mb="12px"
+                ml="0px"
+                px="16px"
+                py="8px"
+                backgroundColor="transparent"
+                border="1px"
+                borderColor="neutral.200"
+                borderRadius="8px"
+                color="neutral.400"
+                minWidth="max-content"
+              >
+                <TagLabel m="auto">{tag}</TagLabel>
+              </Tag>
+            ))}
+          </Flex>
+        </Box>
       </Box>
     </>
   );
@@ -168,29 +171,29 @@ const JobHeader = ({ companyInfo }: any) => {
 
   const content = (
     <Flex mt="1%" mb="2.5%">
-        <Image
-          w="45px"
-          h="45px"
-          borderRadius="6px"
-          border="1px solid black"
-          src={logo_url}
-          alt={`${name ?? 'organization'} logo`}
-          mr="15px"
-        />
-        <VStack spacing="micro" alignItems="start">
-          <Heading size="sm">{name}</Heading>
-          <Text color="neutral.400" fontSize="xs" mb="32px">
-            {organization_description}
-          </Text>
-        </VStack>
-      </Flex>
-  )
+      <Image
+        w="45px"
+        h="45px"
+        borderRadius="6px"
+        border="1px solid black"
+        src={logo_url}
+        alt={`${name ?? 'organization'} logo`}
+        mr="15px"
+      />
+      <VStack spacing="micro" alignItems="start">
+        <Heading size="sm">{name}</Heading>
+        <Text color="neutral.400" fontSize="xs" mb="32px">
+          {organization_description}
+        </Text>
+      </VStack>
+    </Flex>
+  );
 
   return (
     <Box p="25px" borderBottom="1px" borderColor="neutral.200">
       <Flex align="center" justify="space-between">
         <HStack>
-          {companyInfo.id ?
+          {companyInfo.id ? (
             <Link
               href="/recruiter-name"
               _hover={{ textDecoration: 'none' }}
@@ -198,30 +201,10 @@ const JobHeader = ({ companyInfo }: any) => {
             >
               {content}
             </Link>
-            : content };
-          <Link
-            href="/recruiter-name"
-            _hover={{ textDecoration: 'none' }}
-            _focus={{ textDecoration: 'none', border: 'none' }}
-          >
-            <Flex mt="1%" mb="2.5%">
-              <Image
-                w="45px"
-                h="45px"
-                borderRadius="6px"
-                border="1px solid black"
-                src={companyInfo.logo_url}
-                alt={`${companyInfo ?? 'organization'} logo`}
-                mr="15px"
-              />
-              <VStack spacing="micro" alignItems="start">
-                <Heading size="sm">{companyInfo.name}</Heading>
-                <Text color="neutral.400" fontSize="xs" mb="32px">
-                  {companyInfo.organization_description}
-                </Text>
-              </VStack>
-            </Flex>
-          </Link>
+          ) : (
+            content
+          )}
+          ;
         </HStack>
 
         <svg width="0" height="0">
