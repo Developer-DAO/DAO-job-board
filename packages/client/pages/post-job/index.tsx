@@ -85,12 +85,12 @@ export default function CreateProject() {
       width="auto"
       margin="auto"
       ml={{ lg: '72', md: '0' }}
-      mt={14}
+      mt={{ lg: 14, sm: 6 }}
       boxSizing="border-box"
-      height="calc(100vh - var(--chakra-space-14))"
+      height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}
     >
       <Grid
-        templateColumns="repeat(5, 1fr)"
+        templateColumns={{ lg: "repeat(5, 1fr)", sm: "repeat(1, 1fr)" }}
         gap={6}
         h="100%"
         as="header"
