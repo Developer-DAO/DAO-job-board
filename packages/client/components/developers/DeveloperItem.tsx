@@ -35,7 +35,7 @@ export default function DeveloperItem() {
             _focus={{ textDecoration: 'none' }}
           >
             <Box m="auto" w="fit-content">
-              <Heading size="md" mb="5px">
+              <Heading variant="header5" mb="5px">
                 {userdata.name}
               </Heading>
               <Image
@@ -48,7 +48,7 @@ export default function DeveloperItem() {
                 src={userdata.avatar}
                 alt="developer"
               />
-              <Text as="i" mb="5px">
+              <Text as="i" variant="body4" fontWeight="light" mb="5px">
                 {userdata.status}
               </Text>
             </Box>

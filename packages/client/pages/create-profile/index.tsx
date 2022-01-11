@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import { supabase } from '../../common/supabase';
 
 import { StackDivider } from '@chakra-ui/layout';
 
@@ -145,7 +144,17 @@ export default function CreateProfile() {
   };
 
   return (
-    <>
+    <Box
+      pos="relative"
+      m="auto"
+      minHeight="100vh"
+      h="100%"
+      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
+      pt={{ '2xl': '2%', lg: '10%', md: '15%', sm: '17%', base: '15%' }}
+      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '17%', base: '20%' }}
+      pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
+      pr={{ sm: '3%', base: '3%' }}
+    >
       {changeProfileLinks && (
         <Modal
           isOpen={changeProfileLinks}
@@ -180,17 +189,7 @@ export default function CreateProfile() {
         </Modal>
       )}
 
-      <Box
-        m="auto"
-        width={{ '2xl': '70%', md: '90%', sm: '100%' }}
-        boxSizing="border-box"
-        bg="none"
-        pt={{ '2xl': '2%', lg: '4%', sm: '6%' }}
-        pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
-        pr={{ sm: '3%', base: '3%' }}
-        pos="relative"
-        top="50"
-      >
+      <Box>
         <Flex flexDirection="column">
           <Stack direction="column" textAlign="center" flex={2} spacing="large">
             <Heading size="md">{t('pages.create_profile.identity')}</Heading>
@@ -434,7 +433,7 @@ export default function CreateProfile() {
           </Button>
         </Stack>
       </Box>
-    </>
+    </Box>
   );
 }
 

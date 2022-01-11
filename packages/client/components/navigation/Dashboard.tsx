@@ -27,7 +27,7 @@ export default function Dashboard() {
   /**
    * @todo Add default userPurpose based on default user onboarding choice
    */
-  const [userPurpose, setUserPurpose] = useState('');
+  const [userPurpose, setUserPurpose] = useState('/earn');
   const SidebarContent = (props: any) => (
     <Box
       as="nav"
@@ -79,13 +79,7 @@ export default function Dashboard() {
         justifyContent="space-between"
         height="100%"
       >
-        <Stack
-          as="nav"
-          fontSize="sm"
-          color="neutral.600"
-          aria-label="Main Navigation"
-          spacing="xs"
-        >
+        {userPurpose === '/hire' ? (
           <Stack my="5">
             <Heading
               color="neutral.300"
@@ -123,7 +117,9 @@ export default function Dashboard() {
               </Link>
             </NextLink>
           </Stack>
+          )  : null}
 
+        {userPurpose === '/earn' ? (
           <Stack
             borderTop="1px solid"
             borderColor="gray.200"
@@ -167,7 +163,7 @@ export default function Dashboard() {
               </Link>
             </NextLink>
           </Stack>
-        </Stack>
+        ) : null}
 
         <Box p="4" textAlign="center">
           <NextLink href={'/post-job'} passHref>
@@ -205,7 +201,7 @@ export default function Dashboard() {
   );
 
   return (
-    <Box as="section" w="100%" pos="fixed" top="0" zIndex={9998}>
+    <Box as="section" w="100%" pos="fixed" zIndex="overlay">
       <SidebarContent
         display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
         transition="0.5s ease"

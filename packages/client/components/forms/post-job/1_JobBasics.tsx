@@ -59,17 +59,17 @@ export default function JobBasics({
 
   return (
     <>
-      <Container textAlign="center" mb="2.5%">
-        <Heading color="black">
+      <Stack textAlign="center" mb="2.5%" spacing="xs">
+        <Heading variant="header1">
           {t('components.forms.post_job.job_basics.header')}
         </Heading>
-        <Text color="black" as="i">
+        <Text variant="body4" fontWeight="light" as="i">
           {t('components.forms.post_job.job_basics.sub_header')}
         </Text>
-      </Container>
+      </Stack>
 
       <Stack p={2} spacing="xs" maxW="100%">
-        <Heading mb="5px" color="black" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_basics.title_header')}
         </Heading>
         <Input
@@ -88,13 +88,18 @@ export default function JobBasics({
         />
 
         {!wrongTitle ? (
-          <Text fontSize="xs">
+          <Text variant="caption">
             {t('components.forms.post_job.job_basics.char_min_title', {
               count: 10,
             })}
           </Text>
         ) : (
-          <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
+          <Text
+            variant="caption"
+            color="red"
+            fontWeight="bold"
+            textAlign="left"
+          >
             {t('components.forms.post_job.job_basics.char_min_title_error', {
               count: 10,
             })}
@@ -103,7 +108,7 @@ export default function JobBasics({
 
         <br />
 
-        <Heading mb="5px" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_basics.position_header')}
         </Heading>
         <Select
@@ -132,7 +137,7 @@ export default function JobBasics({
 
         <br />
 
-        <Heading mb="5px" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_basics.type_header')}
         </Heading>
         <Select
@@ -154,7 +159,7 @@ export default function JobBasics({
 
         <br />
 
-        <Heading mb="5px" fontSize="md" textAlign="left">
+        <Heading mb="5px" variant="header6" textAlign="left">
           {t('components.forms.post_job.job_basics.description_header')}
         </Heading>
         <Textarea
@@ -171,13 +176,18 @@ export default function JobBasics({
         />
 
         {!wrongDescription ? (
-          <Text fontSize="xs">
+          <Text variant="caption">
             {t('components.forms.post_job.job_basics.char_min_description', {
               count: 100,
             })}
           </Text>
         ) : (
-          <Text fontSize="xs" color="red" fontWeight="bold" textAlign="left">
+          <Text
+            variant="caption"
+            color="red"
+            fontWeight="bold"
+            textAlign="left"
+          >
             {t(
               'components.forms.post_job.job_basics.char_min_description_error',
               { count: 100 }
@@ -187,20 +197,10 @@ export default function JobBasics({
       </Stack>
 
       <Stack>
-        <Button
-          bg="neutral.900"
-          _hover={{ bg: 'neutral.500' }}
-          color="white"
-          onClick={nextPage}
-        >
+        <Button variant="neutral" onClick={nextPage}>
           {t('components.forms.post_job.continue_button_text')}
         </Button>
-        <Button
-          bg="danger.600"
-          _hover={{ bg: 'danger.800' }}
-          color="white"
-          onClick={goBack}
-        >
+        <Button variant="danger" onClick={goBack}>
           {t('components.forms.post_job.cancel_button_text')}
         </Button>
       </Stack>

@@ -9,24 +9,47 @@ import {
   Tag,
   TagLabel,
   VStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
 } from '@chakra-ui/react';
 import { Job } from '../../types/job';
 import { Heart } from 'tabler-icons-react';
 import { useState } from 'react';
 
+import JobPostModal from '../modals/jobs/JobPost';
+
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
-  company_id = '2',
-  title = 'Frontend Magician',
+  position = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
 }: Job) {
   const technologyTags = ['Solidity', 'EthersJS', 'React', 'Rust'];
 
+  // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
+  const companyInfo = {
+    id: 2,
+    name: 'Company Name',
+    organization_description: 'NFT Marketplace',
+    logo_url: '/DevDAO.png',
+  };
+
+  //To Open and the Job Post Modal
+  const [jobModal, setJobModal] = useState(false);
+
+  const openJobModal = () => {
+    setJobModal(true);
+  };
+
+  const closeJobModal = () => {
+    setJobModal(false);
+  };
+
   const jobDetails = (
     <>
       <Heading style={{ fontSize: '24px' }} mb="1.5%" fontWeight="medium">
-        {title}
+        {position}
       </Heading>
       <HStack mb="15px">
         <Text fontSize="lg" color="primary.500" fontWeight="semibold">
@@ -43,43 +66,60 @@ export default function JobCard({
   )
 
   return (
-    <Box
-      key={Math.floor(Math.random() * 1000)} // will use the actual job id
-      border="1px"
-      borderColor="neutral.200"
-      borderRadius="6px"
-      boxSizing="border-box"
-      transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
-      _hover={{
-        marginTop: company_id !== '' ? '16px' : '0',
-        boxShadow: company_id !== '' ? '0px 16px 20px rgba(0, 0, 0, 0.1)' : '',
-      }}
-      height={{
-        lg: 'fit-content',
-        md: 'fit-content',
-        sm: 'max-content',
-        base: 'max-content',
-      }}
-      w="100%"
-      textAlign="left"
-      bg="white"
-      minW="300px"
-      maxW="320px"
-    >
-      <JobHeader company_id={company_id} />
-      <Box ml="0.5%" maxW="100%" p="25px">
-        {company_id !== '' ?
-        <Link
-          href="/jobs/username/marketing-manager"
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ textDecoration: 'none', border: 'none' }}
-        >
-          {jobDetails}
-        </Link>
-        : jobDetails}
-      </Box>
+    <>
+      {jobModal && (
+        <Modal isOpen={jobModal} onClose={closeJobModal} motionPreset="none">
+          <ModalOverlay onClick={closeJobModal} />
+          <ModalContent>
+            <JobPostModal
+              technologyTags={technologyTags}
+              closeJobModal={closeJobModal}
+              compensation={compensation}
+              description={description}
+              position={position}
+              companyInfo={companyInfo as any}
+            />
+          </ModalContent>
+        </Modal>
+      )}
 
       <Box
+        key={Math.floor(Math.random() * 1000)} // will use the actual job id
+        border="1px"
+        borderColor="neutral.200"
+        borderRadius="6px"
+        boxSizing="border-box"
+        transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
+        _hover={{
+          marginTop: companyInfo.id ? '16px' : '0',
+          boxShadow: companyInfo.id ? '0px 16px 20px rgba(0, 0, 0, 0.1)' : '',
+        }}
+        height={{
+          lg: 'fit-content',
+          md: 'fit-content',
+          sm: 'max-content',
+          base: 'max-content',
+        }}
+        w="100%"
+        textAlign="left"
+        bg="white"
+        minW="300px"
+        maxW="320px"
+      >
+        <JobHeader companyInfo={companyInfo} />
+        <Box ml="0.5%" maxW="100%" p="25px" onClick={openJobModal}>
+          {companyInfo.id ?
+          <Link
+            href="/jobs/username/marketing-manager"
+            _hover={{ textDecoration: 'none' }}
+            _focus={{ textDecoration: 'none', border: 'none' }}
+          >
+            {jobDetails}
+          </Link>
+          : jobDetails}
+        </Box>
+
+        <Box
         ml="0.5%"
         maxW="100%"
         px="25px"
@@ -111,19 +151,20 @@ export default function JobCard({
           ))}
         </Flex>
       </Box>
-    </Box>
+      </Box>
+    </>
   );
 }
 
 // This header component exists so that the JobCard doesn't completely re-render
 // on changing the state of isFavorited
-const JobHeader = ( { company_id } : { company_id : string }) => {
-  // Organization data is hardcoded as I am not currently aware of how this data will be pulled in.
+
+const JobHeader = ({ companyInfo }: any) => {
+  const [isFavorited, setIsFavorited] = useState(false);
+
   const name = 'Company Name',
     organization_description = 'NFT Marketplace',
     logo_url = '/DevDAO.png';
-
-  const [isFavorited, setIsFavorited] = useState(false);
 
   const content = (
     <Flex mt="1%" mb="2.5%">
@@ -149,7 +190,7 @@ const JobHeader = ( { company_id } : { company_id : string }) => {
     <Box p="25px" borderBottom="1px" borderColor="neutral.200">
       <Flex align="center" justify="space-between">
         <HStack>
-          {company_id !== '' ?
+          {companyInfo.id ?
             <Link
               href="/recruiter-name"
               _hover={{ textDecoration: 'none' }}
@@ -158,6 +199,29 @@ const JobHeader = ( { company_id } : { company_id : string }) => {
               {content}
             </Link>
             : content };
+          <Link
+            href="/recruiter-name"
+            _hover={{ textDecoration: 'none' }}
+            _focus={{ textDecoration: 'none', border: 'none' }}
+          >
+            <Flex mt="1%" mb="2.5%">
+              <Image
+                w="45px"
+                h="45px"
+                borderRadius="6px"
+                border="1px solid black"
+                src={companyInfo.logo_url}
+                alt={`${companyInfo ?? 'organization'} logo`}
+                mr="15px"
+              />
+              <VStack spacing="micro" alignItems="start">
+                <Heading size="sm">{companyInfo.name}</Heading>
+                <Text color="neutral.400" fontSize="xs" mb="32px">
+                  {companyInfo.organization_description}
+                </Text>
+              </VStack>
+            </Flex>
+          </Link>
         </HStack>
 
         <svg width="0" height="0">

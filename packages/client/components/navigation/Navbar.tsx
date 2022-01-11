@@ -54,6 +54,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
       performAuth();
     }
   }, [account, deactivate, setUser, router]);
+
   const { t } = useTranslation('common');
 
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +63,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
     setUserPurpose(e.target.value);
     router.push(route);
   };
+
   return (
     <Box ml={{ lg: '72', md: '0' }}>
       <Grid

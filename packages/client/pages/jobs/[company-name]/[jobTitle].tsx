@@ -46,12 +46,12 @@ export default function JobDetails() {
       >
         <Stack spacing="jumbo">
           <Stack spacing="medium">
-            <Heading fontSize="md" fontWeight="normal">
+            <Heading variant="header5" fontWeight="normal">
               Job Details
             </Heading>
 
             <Stack>
-              <Heading as="h1" fontSize="2xl">
+              <Heading as="h1" variant="header4">
                 Marketing Manager
               </Heading>
               <HStack>
@@ -63,7 +63,7 @@ export default function JobDetails() {
           </Stack>
 
           <Stack>
-            <Heading fontSize="lg">Job Overview</Heading>
+            <Heading variant="header5">Job Overview</Heading>
             <Text>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
               ullamcorper, augue at commodo interdum, mauris velit lobortis sem.
@@ -71,7 +71,7 @@ export default function JobDetails() {
           </Stack>
 
           <Stack>
-            <Heading fontSize="lg">Requirements</Heading>
+            <Heading variant="header5">Requirements</Heading>
             <UnorderedList>
               <ListItem>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -89,7 +89,7 @@ export default function JobDetails() {
           </Stack>
 
           <Stack>
-            <Heading fontSize="lg">Responsibilities</Heading>
+            <Heading variant="header5">Responsibilities</Heading>
             <UnorderedList>
               <ListItem>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
