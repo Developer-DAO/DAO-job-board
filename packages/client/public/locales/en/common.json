@@ -128,8 +128,8 @@
       },
       "dashboard": {
         "header": "jobsBoard",
-        "hiring": "HIRE",
-        "seeking": "EARN",
+        "hiring": "HIRING",
+        "seeking": "EARNING",
         "jobs_list": " Jobs List",
         "devs": " Developers For Hire"
       },
