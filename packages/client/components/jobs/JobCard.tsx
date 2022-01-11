@@ -21,7 +21,7 @@ import JobPostModal from '../modals/jobs/JobPost';
 
 export default function JobCard({
   // Setting defaults until we start passing some form of data into the component
-  company_id,
+  company_id = "1",
   position = 'Frontend Magician',
   compensation = '0.6 ETH',
   description = 'We already have the best design skills in web3. No chance you’ll be able to improve on what we’ve got but why not come along and learn something?',
@@ -90,9 +90,9 @@ export default function JobCard({
         borderColor="neutral.200"
         borderRadius="6px"
         boxSizing="border-box"
-        transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
+        transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-out"
         _hover={{
-          marginTop: companyInfo.id ? '16px' : '0',
+          transform: companyInfo.id ? 'translateY(6px)' : 'translateY(0)',
           boxShadow: companyInfo.id ? '0px 16px 20px rgba(0, 0, 0, 0.1)' : '',
         }}
         height={{
