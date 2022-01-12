@@ -3,14 +3,16 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useEthers } from '@usedapp/core';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { Keyword } from '@/types';
 
 //The number in the file names tell you which step in the form they are
 import JobBasics from '@/components/forms/post-job/1_JobBasics';
 import JobDetails from '@/components/forms/post-job/2_JobDetails';
 import JobSummary from '@/components/forms/post-job/3_JobSummary';
+import JobPreview from '@/components/jobs/JobPreview';
 import { supabase } from '@/common/supabase';
+
 
 export default function CreateProject() {
   const [formData, setFormData] = useState({
@@ -80,47 +82,67 @@ export default function CreateProject() {
   return (
     <Box
       bg={'none'}
-      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
+      width="auto"
       margin="auto"
-      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
-      pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '20%', base: '15%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
+      ml={{ xl: '72', lg: '0' }}
+      mt={{ lg: 14, sm: 6 }}
       boxSizing="border-box"
-      p="0.5%"
-      h="100%"
+      height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}
     >
-      <form>
-        {basicsPage ? (
-          <JobBasics
-            goToDetails={goToDetails}
-            goBack={goBack}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
+      <Grid
+        templateColumns={{ lg: "repeat(5, 1fr)", sm: "repeat(1, 1fr)" }}
+        gap={6}
+        h="100%"
+        as="header"
+        bg="utility.light80"
+        borderBottomWidth="1px"
+        borderColor="gray.200"
+      >
+        <GridItem colSpan={3} p={12}>
+          <form>
+            {basicsPage ? (
+              <JobBasics
+                goToDetails={goToDetails}
+                goBack={goBack}
+                formData={formData}
+                onChange={onChange}
+              />
+            ) : null}
 
-        {detailsPage ? (
-          <JobDetails
-            goToBasics={goToBasics}
-            goToSummary={goToSummary}
-            jobKeywords={jobKeywords as Keyword[]}
-            setJobKeywords={setJobKeywords}
-            formData={formData}
-            onChange={onChange}
-          />
-        ) : null}
+            {detailsPage ? (
+              <JobDetails
+                goToBasics={goToBasics}
+                goToSummary={goToSummary}
+                jobKeywords={jobKeywords as Keyword[]}
+                setJobKeywords={setJobKeywords}
+                formData={formData}
+                onChange={onChange}
+              />
+            ) : null}
 
-        {summaryPage ? (
-          <JobSummary
-            formData={formData}
-            jobKeywords={jobKeywords as any}
-            goToDetails={goToDetails}
-            goToBasics={goToBasics}
-            createJob={createJob}
-            onChange={onChange}
-          />
-        ) : null}
-      </form>
+            {summaryPage ? (
+              <JobSummary
+                formData={formData}
+                jobKeywords={jobKeywords as any}
+                goToDetails={goToDetails}
+                goToBasics={goToBasics}
+                createJob={createJob}
+                onChange={onChange}
+              />
+            ) : null}
+          </form>
+        </GridItem>
+        <GridItem
+          colSpan={2}
+          d="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderLeftWidth="1px"
+          borderColor="gray.200"
+        >
+          <JobPreview formData={formData} />
+        </GridItem>
+      </Grid>
     </Box>
   );
 }

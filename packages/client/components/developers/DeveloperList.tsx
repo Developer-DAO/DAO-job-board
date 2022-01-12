@@ -6,23 +6,22 @@ export default function DeveloperList() {
   return (
     <Box
       position="relative"
-      maxW={{ lg: '70%', md: '100%' }}
       textAlign="center"
       m="auto"
       h="100%"
     >
       <Grid
         templateColumns={{
-          '2xl': 'repeat(3, 2fr)',
+          '2xl': 'repeat(4, 2fr)',
+          xl: 'repeat(3, 2fr)',
           lg: 'repeat(2, 2fr)',
           md: 'repeat(2, 2fr)',
           sm: 'repeat(1, 1fr)',
           base: 'repeat(1, 1fr)',
         }}
-        gap={1}
+        gap={8}
         mx="auto"
-        maxW="100%"
-        px={5}
+        p={10}
       >
         <DeveloperItem />
         <DeveloperItem />

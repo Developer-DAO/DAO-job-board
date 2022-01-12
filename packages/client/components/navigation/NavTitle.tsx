@@ -15,7 +15,7 @@ export default function NavTitle() {
     '/create-profile': t('components.navigation.nav_title.create_profile'),
   };
   return (
-    <Text pl="1%" fontSize={{ lg: 'lg', sm: 'sm' }}>
+    <Text pl="1%" fontSize={{ lg: 'lg', sm: 'md' }}>
       {dynamicTitles[router.pathname]}
     </Text>
   );

@@ -4,13 +4,15 @@ import { supabase } from '@/common/supabase';
 
 import {
   Box,
+  Flex,
   Text,
   HStack,
   Heading,
   Select,
-  Flex,
   IconButton,
   Avatar,
+  GridItem,
+  Divider,
 } from '@chakra-ui/react';
 import { useEthers } from '@usedapp/core';
 import { useRouter } from 'next/router';
@@ -62,90 +64,106 @@ function Navbar({ sidebar, setUserPurpose }: any) {
   };
 
   return (
-    <Box ml={{ lg: '60', md: '0' }}>
+    <Box ml={{ xl: '72', lg: '0' }}>
       <Flex
+        justifyContent="space-between"
         as="header"
-        align="center"
-        justify="space-between"
-        px="2"
         bg="utility.light80"
         borderBottomWidth="1px"
         borderColor="gray.200"
         h="14"
       >
-        <IconButton
-          aria-label="Menu"
-          display={{ lg: 'none', md: 'inline-flex' }}
-          onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
-          size="sm"
-          icon={<HamburgerIcon />}
-        />
+        <GridItem
+          w="100%"
+          h="14"
+          alignItems="center"
+          colSpan={3}
+          d="flex"
+          pl={4}
+        >
+          <IconButton
+            aria-label="Menu"
+            display={{ xl: 'none', lg: 'inline-flex' }}
+            onClick={sidebar.isOpen ? sidebar.onClose : sidebar.onOpen}
+            size="sm"
+            mr={3}
+            icon={<HamburgerIcon />}
+          />
 
-        <Text m="none" w="96">
-          <Heading size="md" textAlign={{ lg: 'left', md: 'center' }}>
-            <NavTitle />
-          </Heading>
-        </Text>
+          <Text m="none" w="96">
+            <Heading size="md" textAlign={{ xl: 'left', lg: 'center' }}>
+              <NavTitle />
+            </Heading>
+          </Text>
+        </GridItem>
 
-        {account ? (
-          /**
-           * @todo Add icon to select options.
-           * @todo Update/remove route redirect from option onchange event as agreed upon
-           * @todo Add onClick for profile settings and settings
-           */
-          <HStack
-            align="center"
-            color="neutral.400"
-            borderX="1px"
-            borderColor="neutral.200"
-            h="full"
-            borderRight="none"
-          >
-            <Select
-              size="sm"
-              border="none"
-              w="full"
-              p="10px"
-              focusBorderColor="none"
-              onChange={(e) => handlePurposeChange(e)}
-            >
-              <option value="/earn">
-                {t('components.navigation.navbar.seeking')}
-              </option>
-              <option value="/hire">
-                {t('components.navigation.navbar.hiring')}
-              </option>
-            </Select>
+        <GridItem
+          w="100%"
+          h="14"
+          justifyContent="flex-end"
+          alignItems="center"
+          colSpan={2}
+          d="flex"
+        >
+          {account ? (
+            /**
+             * @todo Add icon to select options.
+             * @todo Update/remove route redirect from option onchange event as agreed upon
+             * @todo Add onClick for profile settings and settings
+             */
             <HStack
               align="center"
               color="neutral.400"
-              borderX="1px"
-              borderColor="neutral.200"
+              w="100%"
+              justifyItems={{ sm: 'center', md: 'stretch' }}
               h="full"
-              px={3}
+              borderRight="none"
+              px={4}
             >
-              <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
-              <Text
-                w="7.5rem"
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
+              <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
+              <Select
+                size="sm"
+                border="none"
+                w="75"
+                onChange={(e) => handlePurposeChange(e)}
+                flex="1"
+                pl={0}
+                focusBorderColor="none"
+                d={{ sm: 'none', md: 'unset' }}
               >
-                {account.slice(0, 4)}...{account.slice(account.length - 4)}
-              </Text>
-              {isOpen ? (
-                <ChevronUp onClick={() => setIsOpen(!isOpen)} />
-              ) : (
-                <ChevronDown onClick={() => setIsOpen(!isOpen)} />
-              )}
+                <option value="/earn">
+                  {t('components.navigation.navbar.seeking')}
+                </option>
+                <option value="/hire">
+                  {t('components.navigation.navbar.hiring')}
+                </option>
+              </Select>
+              <Divider orientation="vertical" />
+              <HStack align="center" color="neutral.400" h="full" px={3}>
+                <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
+                <Text
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                  d={{ sm: 'none', md: 'unset' }}
+                >
+                  {account.slice(0, 4)}...{account.slice(account.length - 4)}
+                </Text>
+                {isOpen ? (
+                  <ChevronUp onClick={() => setIsOpen(!isOpen)} />
+                ) : (
+                  <ChevronDown onClick={() => setIsOpen(!isOpen)} />
+                )}
+              </HStack>
+              <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
+              <Box px={3} d={{ sm: 'none', md: 'unset' }}>
+                <Settings size={24} />
+              </Box>
             </HStack>
-            <Box px={3}>
-              <Settings size={24} onClick={deactivate} />
-            </Box>
-          </HStack>
-        ) : (
-          <ConnectButton />
-        )}
+          ) : (
+            <ConnectButton />
+          )}
+        </GridItem>
       </Flex>
     </Box>
   );

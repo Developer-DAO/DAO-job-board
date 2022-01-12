@@ -1,27 +1,26 @@
 import { useTranslation } from 'next-i18next';
 import {
+  Avatar,
   Stack,
+  Button,
   Box,
+  Divider,
   Link,
   Heading,
   Drawer,
   DrawerContent,
   DrawerOverlay,
   Flex,
-  Image,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import { ClipboardList, Users } from 'tabler-icons-react';
 import NextLink from 'next/link';
 import { useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import Navbar from './Navbar';
 
-import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
-
-export default function Dashboard() {
+export default function Sidebar() {
   const { t } = useTranslation('common');
   const sidebar = useDisclosure();
 
@@ -41,59 +40,52 @@ export default function Dashboard() {
       bg="utility.light80"
       borderColor="gray.200"
       borderRightWidth="1px"
-      w="60"
+      w="72"
       {...props}
     >
       <Flex
-        align="center"
         borderBottom="1px solid"
         borderColor="neutral.200"
         borderWidth="100%"
-        p="2%"
         h="14"
-        m="auto"
+        px="6"
+        width="100%"
+        alignItems="center"
       >
         <NextLink href="/" passHref>
           <Link
             _hover={{
               textDecoration: 'none',
             }}
-            m="auto"
             color="neutral.500"
-            fontFamily="Calibri"
             display="flex"
           >
-            <Image
-              src="./DevDAO.png"
-              w="7"
-              h="7"
-              borderRadius="180px"
-              marginX="1"
-            />
-            {t('components.navigation.dashboard.header')}
-            <Text color="primary.500">{userPurpose}</Text>
+            <Flex alignItems="center">
+              <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
+              {t('components.navigation.dashboard.header')}
+              <Text color="primary.500">{userPurpose}</Text>
+            </Flex>
           </Link>
         </NextLink>
       </Flex>
 
       <Stack
         direction="column"
-        as="nav"
-        fontSize="sm"
-        color="neutral.600"
-        aria-label="Main Navigation"
-        spacing="xs"
+        flex="1"
+        d="flex"
+        justifyContent="space-between"
+        height="100%"
       >
         {userPurpose === '/hire' ? (
-          <Stack mt="5%">
+          <Stack my="5">
             <Heading
               color="neutral.300"
               letterSpacing="2px"
               font="Inter"
               justify="left"
               fontSize="xs"
-              p="3"
-              pl="5"
+              ml="8"
+              py="4"
             >
               {t('components.navigation.dashboard.hiring')}
             </Heading>
@@ -102,7 +94,7 @@ export default function Dashboard() {
                 onClick={sidebar.onClose}
                 color="neutral.300"
                 p="2"
-                pl="5"
+                pl="8"
                 w="100%"
                 borderRadius="0px"
                 _hover={{
@@ -113,17 +105,19 @@ export default function Dashboard() {
                 _focus={{ textDecoration: 'none', border: 'none' }}
                 transition="0.2s"
               >
-                <Text size="md">
-                  <FontAwesomeIcon icon={faUsers} />{' '}
-                  {t('components.navigation.dashboard.devs')}
-                </Text>
+                <Flex alignItems="center">
+                  <Users />
+                  <Text ml="3" size="sm">
+                    {t('components.navigation.dashboard.devs')}
+                  </Text>
+                </Flex>
               </Link>
             </NextLink>
           </Stack>
         ) : null}
 
         {userPurpose === '/earn' ? (
-          <Stack>
+          <Stack my="5">
             <Heading
               color="neutral.300"
               letterSpacing="2px"
@@ -131,7 +125,7 @@ export default function Dashboard() {
               justify="left"
               fontSize="xs"
               p="3"
-              pl="5"
+              pl="8"
               mt={2}
             >
               {t('components.navigation.dashboard.seeking')}
@@ -140,7 +134,7 @@ export default function Dashboard() {
               <Link
                 onClick={sidebar.onClose}
                 p="2"
-                pl="5"
+                pl="8"
                 color="neutral.300"
                 w="100%"
                 borderRadius="0px"
@@ -152,24 +146,66 @@ export default function Dashboard() {
                 _focus={{ textDecoration: 'none', border: 'none' }}
                 transition="0.2s"
               >
-                <Text size="md">
-                  <FontAwesomeIcon icon={faClipboardList} />{' '}
-                  {t('components.navigation.dashboard.jobs_list')}
-                </Text>
+                <Flex alignItems="center">
+                  <ClipboardList />
+                  <Text ml="3" size="sm">
+                    {t('components.navigation.dashboard.jobs_list')}
+                  </Text>
+                </Flex>
               </Link>
             </NextLink>
           </Stack>
         ) : null}
 
-        <Stack alignSelf="flex-end"></Stack>
+        {userPurpose === '/hire' && (
+          <Box p="4" textAlign="center">
+            <NextLink href={'/post-job'} passHref>
+              <Link>
+                <Button
+                  color="white"
+                  colorScheme="neutral"
+                  variant="morePadding"
+                  bg="neutral.700"
+                  _hover={{ bg: 'neutral.500' }}
+                  size="sm"
+                >
+                  + Create new job
+                </Button>
+              </Link>
+            </NextLink>
+          </Box>
+        )}
       </Stack>
+
+      <Divider my="5" />
+
+      <Box p="4" textAlign="center" mb="5">
+        <Link href="https://discord.gg/devdao" isExternal>
+          <Button
+            colorScheme="neutral"
+            variant="morePadding"
+            border="1px solid #000"
+            size="sm"
+          >
+            <Text mr="2">Contact us in Discord</Text>
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 
   return (
-    <Box as="section" w="100%" pos="fixed" zIndex="overlay">
+    <Box as="section" w="100%" pos="fixed" zIndex="overlay" top="0">
       <SidebarContent
-        display={{ lg: 'unset', md: 'none', sm: 'none', base: 'none' }}
+        display={{
+          xl: 'flex',
+          lg: 'none',
+          md: 'none',
+          sm: 'none',
+          base: 'none',
+        }}
+        flexFlow="column nowrap"
+        justifyContent="space-between"
         transition="0.5s ease"
       />
       <Drawer
@@ -180,7 +216,8 @@ export default function Dashboard() {
         <DrawerOverlay
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',
@@ -189,13 +226,21 @@ export default function Dashboard() {
         <DrawerContent
           display={{
             '2xl': 'none',
-            lg: 'none',
+            xl: 'unset',
+            lg: 'unset',
             md: 'unset',
             sm: 'unset',
             base: 'unset',
           }}
         >
-          <SidebarContent w="full" borderRight="none" />
+          {/* Mobile version */}
+          <SidebarContent
+            w="full"
+            borderRight="none"
+            d="flex"
+            flexFlow="column nowrap"
+            justifyContent="space-between"
+          />
         </DrawerContent>
       </Drawer>
 

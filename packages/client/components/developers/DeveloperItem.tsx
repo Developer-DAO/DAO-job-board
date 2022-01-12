@@ -64,14 +64,13 @@ export default function DeveloperItem() {
       borderColor="neutral.200"
       borderRadius="6px"
       boxSizing="border-box"
-      transition="margin 0.3s ease-in-out, box-shadow 0.3s ease-out"
+      transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-out"
       _hover={{
-        marginTop: '16px',
+        transform: 'translateY(6px)',
         boxShadow: '0px 16px 20px rgba(0, 0, 0, 0.1)',
       }}
       height={{ lg: 'fit-content', md: 'fit-content', sm: 'max-content' }}
       w="100%"
-      m="20px"
       textAlign="left"
       bg="white"
       minW="300px"
