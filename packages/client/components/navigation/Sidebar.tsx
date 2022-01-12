@@ -107,7 +107,7 @@ export default function Sidebar() {
               >
                 <Flex alignItems="center">
                   <Users />
-                  <Text ml="3" size="md">
+                  <Text ml="3" size="sm">
                     {t('components.navigation.dashboard.devs')}
                   </Text>
                 </Flex>
@@ -148,7 +148,7 @@ export default function Sidebar() {
               >
                 <Flex alignItems="center">
                   <ClipboardList />
-                  <Text ml="3" size="md">
+                  <Text ml="3" size="sm">
                     {t('components.navigation.dashboard.jobs_list')}
                   </Text>
                 </Flex>

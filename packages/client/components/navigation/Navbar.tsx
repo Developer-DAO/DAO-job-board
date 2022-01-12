@@ -115,12 +115,12 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               align="center"
               color="neutral.400"
               w="100%"
-              justifyItems={{ 'sm': 'center', 'md': 'stretch' }}
+              justifyItems={{ sm: 'center', md: 'stretch' }}
               h="full"
               borderRight="none"
               px={4}
             >
-              <Divider orientation='vertical' d={{ 'sm' : 'none', 'md': 'unset' }} />
+              <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
               <Select
                 size="sm"
                 border="none"
@@ -128,9 +128,9 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 onChange={(e) => handlePurposeChange(e)}
                 flex="1"
                 pl={0}
-                d={{ 'sm': 'none', 'md': 'unset' }}
+                focusBorderColor="none"
+                d={{ sm: 'none', md: 'unset' }}
               >
-                <option value="">I am here to...</option>
                 <option value="/earn">
                   {t('components.navigation.navbar.seeking')}
                 </option>
@@ -138,19 +138,14 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   {t('components.navigation.navbar.hiring')}
                 </option>
               </Select>
-              <Divider orientation='vertical' />
-              <HStack
-                align="center"
-                color="neutral.400"
-                h="full"
-                px={3}
-              >
+              <Divider orientation="vertical" />
+              <HStack align="center" color="neutral.400" h="full" px={3}>
                 <Avatar mx="2" size="sm" src="/DevDAO.png" cursor="pointer" />
                 <Text
                   whiteSpace="nowrap"
                   overflow="hidden"
                   textOverflow="ellipsis"
-                  d={{ 'sm': 'none', 'md': 'unset' }}
+                  d={{ sm: 'none', md: 'unset' }}
                 >
                   {account.slice(0, 4)}...{account.slice(account.length - 4)}
                 </Text>
@@ -160,8 +155,8 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   <ChevronDown onClick={() => setIsOpen(!isOpen)} />
                 )}
               </HStack>
-              <Divider orientation='vertical' d={{ 'sm': 'none', 'md': 'unset' }} />
-              <Box px={3} d={{ 'sm': 'none', 'md': 'unset' }}>
+              <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
+              <Box px={3} d={{ sm: 'none', md: 'unset' }}>
                 <Settings size={24} />
               </Box>
             </HStack>
