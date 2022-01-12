@@ -1,20 +1,22 @@
 import JobCard from './JobCard';
 import { Job } from '@/types/job';
 
-import { Box, Grid, Spinner } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Grid, Spinner } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/common/supabase';
 
 export default function JobList() {
+  const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState<Job[]>([]);
-  const fetchJobs = async () => {
-    const { data, error } = await supabase.from('jobs');
-    if (data) {
-      setJobs(data);
-    }
-  };
-  //Function commented out to prevent issues while testing the front-end prototype
-  // fetchJobs();
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+  async function fetchJobs() {
+    const { data, error } = await supabase.from('jobs').select();
+    setJobs(data || []);
+    setLoading(false);
+  }
 
   return (
     <Grid
@@ -30,17 +32,9 @@ export default function JobList() {
       mx="auto"
       p={10}
     >
-      {/*Ternary expression is deactivated until we have a working database connection / forms
-
-          {jobs ? (jobs.map(job => {
-          <JobCard {...job} />
-        })) : <Spinner color="primary.400" />} */}
-      <JobCard {...({} as Job)} />
-      <JobCard {...({} as Job)} />
-      <JobCard {...({} as Job)} />
-      <JobCard {...({} as Job)} />
-      <JobCard {...({} as Job)} />
-      <JobCard {...({} as Job)} />
+      {jobs.map((job) => {
+        return <JobCard key={job.id} {...job} />;
+      })}
     </Grid>
   );
 }
