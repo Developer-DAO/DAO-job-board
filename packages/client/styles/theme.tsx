@@ -1,4 +1,4 @@
-import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, space, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 const breakpoints = createBreakpoints({
@@ -26,9 +26,11 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
+        pos: 'relative',
         initialColorMode: 'light',
         bg: 'utility.light80',
         color: 'black',
+        minHeight: '100vh',
       },
     },
   },
@@ -140,5 +142,141 @@ export const theme = extendTheme({
     72: '18rem',
     80: '20rem',
     96: '24rem',
+  },
+  components: {
+    Divider: {
+      baseStyle: {
+        borderColor: 'neutral.200',
+        opacity: 1,
+      }
+    },
+    Text: {
+      variants: {
+        micro: {
+          fontSize: '0.5rem',
+          color: 'neutral.400',
+          fontWeight: 'semibold',
+        },
+        caption: {
+          fontSize: '0.75rem',
+          color: 'neutral.400',
+          fontWeight: 'semibold',
+        },
+        body4: {
+          fontSize: '1rem',
+          color: 'neutral.700',
+          fontWeight: 'semibold',
+        },
+        body3: {
+          fontSize: '1.25rem',
+          color: 'neutral.700',
+          fontWeight: 'semibold',
+        },
+        body2: {
+          fontSize: '1.5rem',
+          color: 'neutral.900',
+          fontWeight: 'semibold',
+        },
+        body1: {
+          fontSize: '1.75rem',
+          color: 'neutral.900',
+          fontWeight: 'semibold',
+        },
+      },
+    },
+    Heading: {
+      variants: {
+        subheader: {
+          color: 'neutral.400',
+          fontWeight: 'semibold',
+          fontSize: '1.5rem',
+          letterSpacing: '4px',
+        },
+        header6: {
+          fontSize: '1.25rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        header5: {
+          fontSize: '1.5rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        header4: {
+          fontSize: '1.75rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        header3: {
+          fontSize: '2rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        header2: {
+          fontSize: '2.25rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        header1: {
+          fontSize: '2.5rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        big2: {
+          fontSize: '4rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        big1: {
+          fontSize: '5rem',
+          fontWeight: 'semibold',
+          color: 'neutral.900',
+        },
+        huge: {
+          fontSize: '8rem',
+          fontWeight: 'extrabold',
+        },
+      },
+    },
+    Button: {
+      variants: {
+        primary: {
+          bg: 'primary.700',
+          color: 'white',
+          _hover: { bg: 'primary.500' },
+        },
+        success: {
+          bg: 'success.700',
+          color: 'white',
+          _hover: { bg: 'success.600' },
+        },
+        info: {
+          bg: 'info.700',
+          color: 'white',
+          _hover: { bg: 'info.600' },
+        },
+        danger: {
+          bg: 'danger.700',
+          color: 'white',
+          _hover: { bg: 'danger.600' },
+        },
+        warning: {
+          bg: 'warning.700',
+          color: 'white',
+          _hover: { bg: 'warning.600' },
+        },
+        neutral: {
+          bg: 'neutral.700',
+          color: 'white',
+          _hover: { bg: 'neutral.500' },
+        },
+        morePadding: {
+          paddingLeft: 8,
+          paddingRight: 8,
+          paddingTop: 6,
+          paddingBottom: 6 
+        }
+      },
+    },
   },
 });

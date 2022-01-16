@@ -1,7 +1,5 @@
 import { Text } from '@chakra-ui/react';
 
-import { useEffect } from 'react';
-
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
@@ -9,9 +7,6 @@ export default function NavTitle() {
   const { t } = useTranslation('common');
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(router.pathname);
-  });
   const dynamicTitles: any = {
     '/': t('components.navigation.nav_title.dashboard'),
     '/developers': t('components.navigation.nav_title.devs_for_hire'),
@@ -20,7 +15,7 @@ export default function NavTitle() {
     '/create-profile': t('components.navigation.nav_title.create_profile'),
   };
   return (
-    <Text pl="1%" fontSize={{ lg: 'lg', sm: 'sm' }}>
+    <Text pl="1%" fontSize={{ lg: 'lg', sm: 'md' }}>
       {dynamicTitles[router.pathname]}
     </Text>
   );

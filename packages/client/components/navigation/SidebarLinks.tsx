@@ -1,4 +1,4 @@
-import { Stack, Link, Heading, Text } from '@chakra-ui/react';
+import { Button, Stack, Link, Heading, Text } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import { faClipboardList, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -64,6 +64,15 @@ export default function SidebarLinks() {
         >
           {t('components.navigation.dashboard.seeking')}
         </Heading>
+        <NextLink href={'/post-job'} passHref>
+          <Button
+              color="white"
+              bg="neutral.700"
+              _hover={{ bg: 'neutral.500' }}
+            >
+              Apply For This Job
+            </Button>
+        </NextLink>
         <NextLink href={'/jobs'} passHref>
           <Link
             p="2"

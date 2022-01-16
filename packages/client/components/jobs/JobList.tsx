@@ -1,32 +1,40 @@
 import JobCard from './JobCard';
-
 import { Job } from '@/types/job';
-import { Box, Grid } from '@chakra-ui/react';
+
+import { Grid, Spinner } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/common/supabase';
 
 export default function JobList() {
+  const [loading, setLoading] = useState(true);
+  const [jobs, setJobs] = useState<Job[]>([]);
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+  async function fetchJobs() {
+    const { data, error } = await supabase.from('jobs').select();
+    setJobs(data || []);
+    setLoading(false);
+  }
+
   return (
-    <Box
-      position="relative"
-      maxW={{ lg: '70%', md: '100%' }}
-      textAlign="center"
-      m="auto"
+    <Grid
+      templateColumns={{
+        '2xl': 'repeat(4, 1fr)',
+        xl: 'repeat(3, 1fr)',
+        lg: 'repeat(2, 1fr)',
+        md: 'repeat(2, 1fr)',
+        sm: 'repeat(1, 1fr)',
+        base: 'repeat(1, 1fr)',
+      }}
+      gap={8}
+      mx="auto"
+      p={10}
     >
-      <Grid
-        templateColumns={{
-          '2xl': 'repeat(4, 2fr)',
-          lg: 'repeat(2, 2fr)',
-          md: 'repeat(2, 2fr)',
-          sm: 'repeat(1, 1fr)',
-          base: 'repeat(1, 1fr)',
-        }}
-        gap="1"
-        mx="auto"
-        maxW="100vw"
-      >
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-        <JobCard {...({} as Job)} />
-      </Grid>
-    </Box>
+      {jobs.map((job) => {
+        return <JobCard key={job.id} {...job} />;
+      })}
+    </Grid>
   );
 }

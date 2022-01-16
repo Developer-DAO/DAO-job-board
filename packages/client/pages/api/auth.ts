@@ -58,7 +58,7 @@ export default async function handler(
       .single();
 
     if (result.data) {
-      res.status(200).json({ ...result.data, isNew: true });
+      res.status(200).json({ ...result.data });
     } else if (result.error) {
       res.status(result.status).json({ message: result.error.message });
     }

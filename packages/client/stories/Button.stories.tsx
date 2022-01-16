@@ -27,12 +27,7 @@ export default {
  */
 export const Primary: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button
-      bg="primary.700"
-      color="white"
-      _hover={{ bg: 'primary.500' }}
-      {...args}
-    >
+    <Button variant="primary" {...args}>
       Primary
     </Button>
   );
@@ -40,12 +35,7 @@ export const Primary: ComponentStory<typeof Button> = (args) => {
 
 export const Success: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button
-      bg="success.700"
-      color="white"
-      _hover={{ bg: 'success.500' }}
-      {...args}
-    >
+    <Button variant="success" {...args}>
       Success
     </Button>
   );
@@ -53,7 +43,7 @@ export const Success: ComponentStory<typeof Button> = (args) => {
 
 export const Info: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button bg="info.700" color="white" _hover={{ bg: 'info.500' }} {...args}>
+    <Button variant="info" {...args}>
       Info
     </Button>
   );
@@ -61,12 +51,7 @@ export const Info: ComponentStory<typeof Button> = (args) => {
 
 export const Danger: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button
-      bg="danger.700"
-      color="white"
-      _hover={{ bg: 'danger.500' }}
-      {...args}
-    >
+    <Button variant="danger" {...args}>
       Danger
     </Button>
   );
@@ -74,12 +59,7 @@ export const Danger: ComponentStory<typeof Button> = (args) => {
 
 export const Warning: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button
-      bg="warning.700"
-      color="white"
-      _hover={{ bg: 'warning.500' }}
-      {...args}
-    >
+    <Button variant="warning" {...args}>
       Warning
     </Button>
   );
@@ -87,12 +67,7 @@ export const Warning: ComponentStory<typeof Button> = (args) => {
 
 export const Neutral: ComponentStory<typeof Button> = (args) => {
   return (
-    <Button
-      bg="neutral.700"
-      color="white"
-      _hover={{ bg: 'neutral.500' }}
-      {...args}
-    >
+    <Button variant="neutral" {...args}>
       Neutral
     </Button>
   );
