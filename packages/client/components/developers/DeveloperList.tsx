@@ -1,8 +1,20 @@
 import { Box, Grid } from '@chakra-ui/react';
-
+import { useState, useEffect } from 'react';
+import { supabase } from '@/common/supabase';
+import { User } from '@/types/user';
 import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
+  const [devs, setDevs] = useState<User[]>([]);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    const { data, error } = await supabase.from('users').select();
+    setDevs(data || []);
+  };
+
   return (
     <Box textAlign="center" m="auto" h="100%">
       <Grid
@@ -18,12 +30,7 @@ export default function DeveloperList() {
         mx="auto"
         p={10}
       >
-        <DeveloperItem />
-        <DeveloperItem />
-        <DeveloperItem />
-        <DeveloperItem />
-        <DeveloperItem />
-        <DeveloperItem />
+        {devs && devs.map((dev) => <DeveloperItem key={dev.id} {...dev} />)}
       </Grid>
     </Box>
   );
