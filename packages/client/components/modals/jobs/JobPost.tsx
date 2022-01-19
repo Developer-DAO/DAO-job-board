@@ -86,7 +86,7 @@ const JobModalContent = ({ description, technologyTags }: any) => {
     <Grid
       gridTemplateColumns={{
         lg: 'repeat(2, 1fr)',
-        sm: 'repeat(1, minmax(150px, 1fr))',
+        base: 'repeat(1, minmax(150px, 1fr))',
       }}
       w="100%"
       bgColor="neutral.200"

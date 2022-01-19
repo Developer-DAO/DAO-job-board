@@ -27,22 +27,22 @@ const CategoryTag = chakra(Tag, {
 export default function JobDetails() {
   return (
     <Stack
-      maxW={{ sm: '100%', lg: '70%' }}
+      maxW={{ base: '100%', lg: '70%' }}
       mx="auto"
       px={3}
-      pt={{ '2xl': '5%', lg: '7%', sm: '10%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
+      pt={{ '2xl': '5%', lg: '7%', base: '10%' }}
+      pl={{ '2xl': '5%', lg: '12%', base: 'none' }}
       as="main"
-      align={{ sm: 'center', lg: 'flex-start' }}
+      align={{ base: 'center', lg: 'flex-start' }}
       justify="center"
       spacing={20}
-      direction={{ sm: 'column', lg: 'row' }}
+      direction={{ base: 'column', lg: 'row' }}
     >
       <Container
         as="article"
         mx="auto"
         maxW="90%"
-        ml={{ '2xl': '0', sm: 'auto' }}
+        ml={{ '2xl': '0', base: 'auto' }}
       >
         <Stack spacing="jumbo">
           <Stack spacing="medium">
@@ -111,7 +111,7 @@ export default function JobDetails() {
       <Stack
         as="aside"
         p={7}
-        w={{ sm: '70%', md: '70%', lg: '365px' }}
+        w={{ base: '70%', md: '70%', lg: '365px' }}
         spacing="xl"
         borderColor="gray.800"
         borderWidth={2}
@@ -126,7 +126,7 @@ export default function JobDetails() {
             <Link fontSize="sm">Visit Website</Link>
           </Stack>
           <ButtonGroup
-            display={{ lg: 'flex', sm: 'none' }}
+            display={{ lg: 'flex', base: 'none' }}
             flexDirection="column"
           >
             <Button
@@ -149,7 +149,7 @@ export default function JobDetails() {
       </Stack>
 
       <Stack
-        display={{ sm: 'flex', lg: 'none' }}
+        display={{ base: 'flex', lg: 'none' }}
         w="100vw"
         position="sticky"
         bottom={0}

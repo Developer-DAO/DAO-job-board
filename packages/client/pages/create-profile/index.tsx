@@ -149,11 +149,11 @@ export default function CreateProfile() {
       m="auto"
       minHeight="100vh"
       h="100%"
-      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
+      width={{ '2xl': '70%', md: '90%', base: '100%' }}
       pt={{ '2xl': '2%', lg: '10%', md: '15%', sm: '17%', base: '15%' }}
       pb={{ '2xl': '10%', lg: '10%', md: '15%', sm: '17%', base: '20%' }}
-      pl={{ '2xl': '5%', lg: '22.5%', sm: '5%', base: '5%' }}
-      pr={{ sm: '3%', base: '3%' }}
+      pl={{ '2xl': '5%', lg: '22.5%', base: '5%' }}
+      pr="3%"
     >
       {changeProfileLinks && (
         <Modal
@@ -279,7 +279,7 @@ export default function CreateProfile() {
           </Stack>
 
           <Stack direction="column" width="100%" flex={2}>
-            <Box p="0px" maxW={{ sm: '100%' }} display="inline-box">
+            <Box p="0px" maxW="100%" display="inline-box">
               <Stack spacing="xs" mt="2.5%">
                 <Heading size="md" textAlign="center">
                   {t('pages.create_profile.basic_details')}

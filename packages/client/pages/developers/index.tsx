@@ -5,11 +5,7 @@ import { Box } from '@chakra-ui/react';
 
 export default function Index() {
   return (
-    <Box
-      margin="auto"
-      ml={{ xl: '72', lg: '0' }}
-      mt={{ lg: 14, sm: 6 }}
-    >
+    <Box margin="auto" ml={{ xl: '72', base: '0' }} mt={{ lg: 14, base: 6 }}>
       <DeveloperList />
     </Box>
   );

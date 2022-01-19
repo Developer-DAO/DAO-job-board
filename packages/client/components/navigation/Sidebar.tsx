@@ -199,9 +199,6 @@ export default function Sidebar() {
       <SidebarContent
         display={{
           xl: 'flex',
-          lg: 'none',
-          md: 'none',
-          sm: 'none',
           base: 'none',
         }}
         flexFlow="column nowrap"
@@ -216,20 +213,12 @@ export default function Sidebar() {
         <DrawerOverlay
           display={{
             '2xl': 'none',
-            xl: 'unset',
-            lg: 'unset',
-            md: 'unset',
-            sm: 'unset',
             base: 'unset',
           }}
         />
         <DrawerContent
           display={{
             '2xl': 'none',
-            xl: 'unset',
-            lg: 'unset',
-            md: 'unset',
-            sm: 'unset',
             base: 'unset',
           }}
         >

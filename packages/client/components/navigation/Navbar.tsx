@@ -64,7 +64,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
   };
 
   return (
-    <Box ml={{ xl: '72', lg: '0' }}>
+    <Box ml={{ xl: '72', base: '0' }}>
       <Flex
         justifyContent="space-between"
         as="header"
@@ -91,7 +91,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
           />
 
           <Text m="none" w="96">
-            <Heading size="md" textAlign={{ xl: 'left', lg: 'center' }}>
+            <Heading size="md" textAlign={{ xl: 'left', base: 'center' }}>
               <NavTitle />
             </Heading>
           </Text>
@@ -115,12 +115,15 @@ function Navbar({ sidebar, setUserPurpose }: any) {
               align="center"
               color="neutral.400"
               w="100%"
-              justifyItems={{ sm: 'center', md: 'stretch' }}
+              justifyItems={{ base: 'center', md: 'stretch' }}
               h="full"
               borderRight="none"
               px={4}
             >
-              <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
+              <Divider
+                orientation="vertical"
+                d={{ base: 'none', md: 'unset' }}
+              />
               <Select
                 size="sm"
                 border="none"
@@ -145,7 +148,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                   whiteSpace="nowrap"
                   overflow="hidden"
                   textOverflow="ellipsis"
-                  d={{ sm: 'none', md: 'unset' }}
+                  d={{ base: 'none', md: 'unset' }}
                 >
                   {account.slice(0, 4)}...{account.slice(account.length - 4)}
                 </Text>
@@ -156,7 +159,7 @@ function Navbar({ sidebar, setUserPurpose }: any) {
                 )}
               </HStack>
               <Divider orientation="vertical" d={{ sm: 'none', md: 'unset' }} />
-              <Box px={3} d={{ sm: 'none', md: 'unset' }}>
+              <Box px={3} d={{ base: 'none', md: 'unset' }}>
                 <Settings size={24} />
               </Box>
             </HStack>

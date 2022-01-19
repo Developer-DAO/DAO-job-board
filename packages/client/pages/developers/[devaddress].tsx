@@ -20,10 +20,10 @@ export default function DeveloperPage() {
   return (
     <Box
       bg="none"
-      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
+      width={{ '2xl': '70%', md: '90%', sm: '100%' }}
       margin="auto"
       pt={{ '2xl': '5%', lg: '7%', sm: '17%', base: '25%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
+      pl={{ '2xl': '5%', lg: '12%', base: 'none' }}
       boxSizing="border-box"
       p="0.5%"
     >
@@ -59,11 +59,11 @@ export default function DeveloperPage() {
         boxShadow="none"
         flex={2}
       >
-        <Container p="0px" mt="5px" maxW={{ sm: '100%' }} display="inline-box">
+        <Container p="0px" mt="5px" maxW="100%" display="inline-box">
           <Heading
             fontSize="1.5rem"
             w="fit-content"
-            m={{ lg: '0px', md: '0px', sm: 'auto' }}
+            m={{ lg: '0px', md: '0px', base: 'auto' }}
           >
             New Dev<chakra.span fontWeight="100"> - Developer</chakra.span>
           </Heading>
@@ -75,10 +75,10 @@ export default function DeveloperPage() {
         <Container
           p="0px"
           m="0"
-          maxW={{ lg: 'auto', md: 'auto', sm: '100%' }}
+          maxW={{ lg: 'auto', md: 'auto', base: '100%' }}
           display="inline-box"
         >
-          <Text textAlign={{ lg: 'left', md: 'left', sm: 'center' }}>
+          <Text textAlign={{ lg: 'left', md: 'left', base: 'center' }}>
             Here goes a brief user description
           </Text>
         </Container>

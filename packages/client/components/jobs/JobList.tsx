@@ -23,9 +23,7 @@ export default function JobList() {
       templateColumns={{
         '2xl': 'repeat(4, 1fr)',
         xl: 'repeat(3, 1fr)',
-        lg: 'repeat(2, 1fr)',
         md: 'repeat(2, 1fr)',
-        sm: 'repeat(1, 1fr)',
         base: 'repeat(1, 1fr)',
       }}
       gap={8}

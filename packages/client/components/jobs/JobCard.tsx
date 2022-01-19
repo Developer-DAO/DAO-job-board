@@ -69,9 +69,7 @@ const JobCard = (props: Job) => {
           boxShadow: props.id ? '0px 16px 20px rgba(0, 0, 0, 0.1)' : '',
         }}
         height={{
-          lg: 'fit-content',
           md: 'fit-content',
-          sm: 'max-content',
           base: 'max-content',
         }}
         w="100%"
