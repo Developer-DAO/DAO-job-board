@@ -9,7 +9,16 @@ const MainComponent: React.FC = ({ children }) => {
   return (
     <Flex alignItems="center">
       {showSidebar && <Sidebar />}
-      <Box margin="auto" mt={14} ml={showSidebar ? 72 : ''}>
+      <Box
+        margin="auto"
+        mt={14}
+        ml={{
+          xl: showSidebar ? 72 : '',
+          lg: showSidebar ? 'auto' : '',
+          md: 0,
+          sm: 0,
+        }}
+      >
         {children}
       </Box>
     </Flex>

@@ -4,12 +4,7 @@ import DeveloperItem from './DeveloperItem';
 
 export default function DeveloperList() {
   return (
-    <Box
-      position="relative"
-      textAlign="center"
-      m="auto"
-      h="100%"
-    >
+    <Box textAlign="center" m="auto" h="100%">
       <Grid
         templateColumns={{
           '2xl': 'repeat(4, 2fr)',
