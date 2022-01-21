@@ -1,111 +1,71 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import {
-  chakra,
+  Avatar,
   Box,
+  Code,
   Heading,
-  Container,
-  Flex,
-  Text,
-  Link,
+  HStack,
   Image,
-  SimpleGrid,
-  Tag,
-  TagLabel,
+  Spacer,
+  Text,
+  VStack,
 } from '@chakra-ui/react';
+import { SocialBadge } from '@/components/profile-page/SocialBadge';
 
 export default function DeveloperPage() {
   const profileskills = ['Web3', 'Solidity', 'Rust', 'React', 'Full-Stack'];
 
   return (
-    <Box
-      bg="none"
-      width={{ '2xl': '70%', lg: '70%', md: '90%', sm: '100%' }}
-      margin="auto"
-      pt={{ '2xl': '5%', lg: '7%', sm: '17%', base: '25%' }}
-      pl={{ '2xl': '5%', lg: '12%', sm: 'none', base: 'none' }}
-      boxSizing="border-box"
-      p="0.5%"
-    >
-      <Flex
-        bg="none"
-        direction="column"
-        width="100%"
-        margin="auto"
-        textAlign="center"
-        boxSizing="border-box"
-        boxShadow="none"
-        flex={1}
-      >
-        <Image
-          w="8rem"
-          h="8rem"
-          margin="auto"
-          borderRadius="180px"
-          src="/DevDAO.png"
-          alt="developer"
-        ></Image>
+    <Box padding={12}>
+      <HStack w="100%">
+        <VStack alignItems="left" borderRight="0.5px solid #ccc" pr="5rem">
+          <Avatar size="xl" name="Ollie Martin" />
 
-        <Link>Social Icons</Link>
-        <Link>Website</Link>
-      </Flex>
+          <Heading>Ollie Martin</Heading>
+          <Text>Front-end developer @ abc.finance</Text>
 
-      <Flex
-        bg="none"
-        direction="column"
-        width="100%"
-        margin="auto"
-        boxSizing="border-box"
-        boxShadow="none"
-        flex={2}
-      >
-        <Container p="0px" mt="5px" maxW={{ sm: '100%' }} display="inline-box">
-          <Heading
-            fontSize="1.5rem"
-            w="fit-content"
-            m={{ lg: '0px', md: '0px', sm: 'auto' }}
-          >
-            New Dev<chakra.span fontWeight="100"> - Developer</chakra.span>
-          </Heading>
-          <Text mb="10px" textAlign={{ lg: 'left', md: 'left', sm: 'center' }}>
-            @devusername
+          <HStack>
+            <SocialBadge platform="twitter" username="ollie_martin" />
+            <SocialBadge platform="github" username="ollie_martin" />
+            <SocialBadge platform="discord" username="ollie_martin" />
+          </HStack>
+
+          <Text>Indonesia GMT+7</Text>
+
+          <Heading size="md">Portfolio</Heading>
+          <SocialBadge platform="github" username="ollie_martin" />
+          <SocialBadge platform="github" username="ollie_martin" />
+
+          <Code>olliemartin.eth (0x68b34...D8665Fc45)</Code>
+        </VStack>
+
+        <VStack alignItems="left" pl="3rem">
+          <Heading size="md">About Me</Heading>
+          <Text width="50%">
+            I caught fire coding. <br />
+            <br /> I love applying responsive design principles and watching my
+            web pages shrink into mobile screens and still look amazing.
+            It&apos;s oddly satisfying. I think in a way I’m kind of like those
+            web pages; I&apos;m moldable, but I still keep my creative flare
+            intact.
           </Text>
-        </Container>
 
-        <Container
-          p="0px"
-          m="0"
-          maxW={{ lg: 'auto', md: 'auto', sm: '100%' }}
-          display="inline-box"
-        >
-          <Text textAlign={{ lg: 'left', md: 'left', sm: 'center' }}>
-            Here goes a brief user description
-          </Text>
-        </Container>
+          <Spacer mt="20rem" />
 
-        <SimpleGrid
-          mt="15px"
-          templateColumns="repeat(5, 2fr)"
-          autoRows="fit-content"
-          gap="0.5rem"
-          spacing="micro"
-        >
-          {profileskills.map((skill, index) => (
-            <Tag
-              key={index}
-              size="md"
-              py="2.5%"
-              backgroundColor="transparent"
-              border="1px"
-              borderColor="neutral.200"
-              borderRadius="8px"
-              color="neutral.400"
-            >
-              <TagLabel m="auto">{skill}</TagLabel>
-            </Tag>
-          ))}
-        </SimpleGrid>
-      </Flex>
+          <HStack spacing={10}>
+            <VStack alignItems="left">
+              <Heading size="md">Achievements & POAPs</Heading>
+              <p>POAP Cards go here</p>
+            </VStack>
+
+            <VStack alignItems="left">
+              <Heading size="md">Skills</Heading>
+              <p>Skills here</p>
+            </VStack>
+          </HStack>
+        </VStack>
+      </HStack>
     </Box>
   );
 }
