@@ -13,7 +13,6 @@ import JobSummary from '@/components/forms/post-job/3_JobSummary';
 import JobPreview from '@/components/jobs/JobPreview';
 import { supabase } from '@/common/supabase';
 
-
 export default function CreateProject() {
   const [formData, setFormData] = useState({
     title: '',
@@ -84,13 +83,11 @@ export default function CreateProject() {
       bg={'none'}
       width="auto"
       margin="auto"
-      ml={{ xl: '72', lg: '0' }}
-      mt={{ lg: 14, sm: 6 }}
       boxSizing="border-box"
-      height={{ lg: "calc(100vh - var(--chakra-space-14))", sm: 'auto' }}
+      height={{ lg: 'calc(100vh - var(--chakra-space-14))', sm: 'auto' }}
     >
       <Grid
-        templateColumns={{ lg: "repeat(5, 1fr)", sm: "repeat(1, 1fr)" }}
+        templateColumns={{ lg: 'repeat(5, 1fr)', sm: 'repeat(1, 1fr)' }}
         gap={6}
         h="100%"
         as="header"
