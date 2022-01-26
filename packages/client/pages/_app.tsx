@@ -25,8 +25,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
           {account && <div>Welcome {account}</div>}
 
-          <MainComponent />
-          <Component {...pageProps} />
+          <MainComponent>
+            <Component {...pageProps} />
+          </MainComponent>
           <Footer />
         </ChakraProvider>
       </DAppProvider>
