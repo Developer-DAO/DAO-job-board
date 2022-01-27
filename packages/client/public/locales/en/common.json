@@ -119,6 +119,13 @@
     },
     "jobs": {
       "jobs_filter": {
+        "headers": {
+          "position": "Position",
+          "location": "Location",
+          "min_pay": "Minimum Monthly Payment",
+          "matches": "Matches",
+          "reset_filter": "Reset Filters"
+        },
         "placeholder": "Search a keyword (e.g. Solidity, Front-End, Full-Stack, etc.)"
       }
     },
