@@ -149,8 +149,8 @@
         "sign_up": "Registrarse",
         "seeking": "Estoy buscando empleos",
         "hiring": "Estoy reclutando",
-        "hire": "/hire",
-        "earn": "/earn"
+        "hire": "/reclutar",
+        "earn": "/buscar"
       },
       "nav_title": {
         "jobs_list": "Lista de Empleos",
