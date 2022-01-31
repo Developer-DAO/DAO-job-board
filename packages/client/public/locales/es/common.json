@@ -5,25 +5,201 @@
   "login": {
     "sign_up": "Registrarse"
   },
+  "landing": {
+    "looking_for_talent": "¿Busca talento en Web3?",
+    "looking_for_work": "¿Busca empleo en Web3?",
+    "search_devs": "Encontrar Devs",
+    "search_jobs": "Buscar empleos",
+    "post_job": "Publicar un Empleo",
+    "post_gig": "Publicar un Proyecto",
+    "search_gig": "Buscar un Proyecto"
+  },
   "components": {
+    "modals": {
+      "add_links": {
+        "input_placeholder": "Tu usuario de {{link}}",
+        "header": "Agregar Redes Sociales",
+        "save_button_text": "Guardar Enlaces",
+        "cancel_button_text": "Cancelar"
+      },
+      "select_keywords": {
+        "header": "Buscar Palabras Clave",
+        "placeholder": "Ingrese habilidades o puestos",
+        "keyword_count": "{{count}} Palabras Clave Seleccionadas",
+        "max": "(Máx 10)",
+        "save_button_text": "Guardar Palabras Clave",
+        "cancel_button_text": "Cancelar"
+      }
+    },
+    "create_profile": {
+      "project": {
+        "title": "Título",
+        "title_placeholder": "Ingrese Título",
+        "github_url": "URL de GitHub",
+        "enter_github_placeholder": "Ingrese URL de GitHub",
+        "description": "Descripción",
+        "description_placeholder": "Ingrese Descripción"
+      },
+      "add_avatar": {
+        "edit": "editar",
+        "set_profile_pic": "Elegir nueva foto de Perfil",
+        "close_button_text": "Cerrar",
+        "submit_button_text": "Enviar"
+      }
+    },
+    "developers": {
+      "developer_item": {
+        "button_text": "Ver Perfil"
+      },
+      "developer_list": {
+        "dev_list": "Lista de Desarrolladores"
+      }
+    },
+    "forms": {
+      "post_job": {
+        "continue_button_text": "Continuar",
+        "cancel_button_text": "Cancelar",
+        "back_button_text": "Atrás",
+        "job_basics": {
+          "header": "Fundamentos del Empleo",
+          "sub_header": "Cuéntenos que tipo de profesional está buscando",
+          "title_header": "Escriba un título claro para su publicación de empleo",
+          "title_placeholder": "p.ej. Full-Stack Blockchain Engineer",
+          "char_min_title": "Mínimo {{count}} caracteres",
+          "char_min_title_error": "Asegúrese que el título tenga un mínimo de {{count}} caracteres",
+          "position_header": "Elija un puesto de empleo",
+          "position_default": "Seleccionar un puesto de empleo",
+          "type_header": "¿Qué tipo de empleo es?",
+          "select_default": "Seleccionar tipo de empleo",
+          "description_header": "Describa el empleo",
+          "description_placeholder": "p.ej. Buscamos un ingeniero blockchain full-stack con un mínimo de 3 años de experiencia...",
+          "char_min_description": "Mínimo {{count}} caracteres",
+          "char_min_description_error": "Asegúrese que la descripción tenga un mínimo de {{count}} caracteres"
+        },
+        "job_details": {
+          "header": "Detalles del Empleo",
+          "sub_header": "Defina la categoría del empleo, ubicación y compensación",
+          "category_header": "Elija una categoría de palabra clave del empleo",
+          "category_sub_header": "Las Palabras Clave ayudan a categorizar su publicación de empleo (elija al menos 3)",
+          "category_error": "Asegúrese de elegir al menos 3 palabras clave",
+          "keyword_button_text": "Seleccionar Palabras Clave",
+          "compensation_header": "Explique la compensación (opcional)",
+          "compensation_sub_header": "Los empleos con información sobre compensación obtienen más aplicantes",
+          "token_default": "Token / Divisa",
+          "equity_header": "¿Ofrece acciones? (opcional)",
+          "equity_default": "Rango de Acciones",
+          "location_header": "Ubicación (opcional)",
+          "location_sub_header": "Predeterminado a remoto si está vacío",
+          "location_placeholder": "p.ej. California, US",
+          "min": "Mín",
+          "max": "Max"
+        },
+        "job_summary": {
+          "header": "Resumen del Empleo",
+          "header_sub_text": "Verifique que todo es correcto (pulse editar si no)",
+          "job_basics": "Fundamentos del Empleo",
+          "edit_button_text": "Editar",
+          "job_name": "Nombre del Empleo:",
+          "job_description": "Descripción del Empleo:",
+          "job_position": "Posición del Empleo:",
+          "job_type": "Tipo del Empleo:",
+          "job_details": "Detalles del Empleo",
+          "keywords": "Palabras Clave:",
+          "job_compensation": "Compensación del Empleo:",
+          "job_equity": "Oferta de Acciones:",
+          "job_location": "Ubicación del Empleo:",
+          "contact_header": "¿Cómo deben contactarse con ud. o su organización??",
+          "contact_sub_text": "Ingrese el enlace con la publicación del empleo en su sitio web o un correo electrónico",
+          "contact_placeholder": "p.ej. www.company.com/job o company@email.com",
+          "add_email_or_site": "Agregar un correo electrónico o enlace a sitio web",
+          "post_job": "Publicar Empleo",
+          "back_button_text": "Atrás"
+        }
+      }
+    },
+    "jobs": {
+      "jobs_filter": {
+        "headers": {
+          "position": "Posición",
+          "location": "Ubicación",
+          "min_pay": "Pago Mensual Mínimo",
+          "matches": "Coincidencias",
+          "reset_filter": "Restablecer Filtros"
+        },
+        "placeholder": "Buscar una palabra clave (p.ej. Solidity, Front-End, Full-Stack, etc.)"
+      }
+    },
     "navigation": {
+      "connect_button": {
+        "connect": "Conectar Wallet"
+      },
       "dashboard": {
         "header": "Empleos Web3",
         "hiring": "RECLUTANDO",
         "seeking": "BUSCANDO",
-        "jobs_list": "Lista de Empleos",
-        "devs": "Devs"
+        "jobs_list": " Lista de Empleos",
+        "devs": " Desarrolladores Para Contratar"
       },
       "navbar": {
-        "sign_up": "Registrarse"
+        "alt_home": "Inicio",
+        "job_board": "Bolsa de Empleo",
+        "jobs": "Empleos",
+        "devs": "Desarrolladores",
+        "about": "Acerca de",
+        "sign_up": "Registrarse",
+        "seeking": "Estoy buscando empleos",
+        "hiring": "Estoy reclutando",
+        "hire": "/hire",
+        "earn": "/earn"
+      },
+      "nav_title": {
+        "jobs_list": "Lista de Empleos",
+        "devs_for_hire": "Desarrolladores Para Contratar",
+        "post_job": "Publicar un Empleo",
+        "create_profile": "Crear Perfil",
+        "dashboard": "Panel"
       }
     }
   },
-  "landing": {
-    "looking_for_talent": "¿Busca talento en Web3?",
-    "looking_for_work": "¿Busca trabajo en Web3?",
-    "post_job": "Publica un Empleo",
-    "search_devs": "Encuentra Devs",
-    "search_jobs": "Buscar empleos"
+  "pages": {
+    "create_profile": {
+      "identity": "Identidad",
+      "basic_details": "Detalles",
+      "pfp": "PFP",
+      "username": "Usuario",
+      "min_chars": "Haga saber fácilmente que es ud. (mín 3 caracteres)",
+      "username_placeholder": "Ingrese su nombre de usuario favorito",
+      "professional_title": "Título Profesional",
+      "profession_type": "¿Qué tipo de profesional es ud.? (mín 3 caracteres)",
+      "profession_placeholder": "Ingrese un título de perfil (p.ej. Developer, Designer, Marketer)",
+      "status": "Status",
+      "status_sub_text": "Haga saber su status actual",
+      "select_status": "Seleccionar Status",
+      "full_time": "Disponible Full-Time",
+      "part_time": "Disponible Part Time",
+      "contract": "Busco Contratos",
+      "na": "No Disponible",
+      "profile_keywords": "Palabras Clave del Perfil",
+      "keywords_sub_text": "Las Palabras Clave ayudan a categorizar su perfil en habilidades y sectores",
+      "choose_keywords": "Elija Palabras Clave",
+      "name": "Nombre",
+      "name_sub_text": "¿Cómo prefiere que lo encuentren?",
+      "description": "Descripción",
+      "description_sub_text": "Describa qué pasa en su vida actualmente",
+      "name_placeholder": "El nombre que se mostrará en su perfil",
+      "self_description": "Aquí va una breve descripción suya",
+      "location": "Ubicación",
+      "location_sub_text": "¿Dónde está ubicado actualmente?",
+      "location_placeholder": "p.ej. Madrid, Spain o Nomad",
+      "links_header": "Enlaces y Redes Sociales",
+      "website": "Sitio Web",
+      "website_placeholder": "p.ej. developer.com",
+      "social_links": "Enlaces Sociales",
+      "social_button_text": "Agregar Enlaces",
+      "projects": "Proyectos",
+      "projects_button_text": "Agregar Proyecto",
+      "save_button_text": "Guardar Perfil",
+      "dismiss_button_text": "Descartar Cambios"
+    }
   }
 }
