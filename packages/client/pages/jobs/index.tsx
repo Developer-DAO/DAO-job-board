@@ -1,8 +1,7 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
+import JobFilter from '@/components/jobs/JobFilter';
 import JobList from '@/components/jobs/JobList';
-
-import { Box } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Index() {
   return (
