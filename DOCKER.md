@@ -31,6 +31,12 @@ apt-get update
 apt-get install postgresql
 ```
 
+On host terminal. Run this command to persist the postgres update after the container is shutdown.
+
+```
+docker commit supabase-db
+```
+
 ## schema
 
 ### copy schema to postgres container
