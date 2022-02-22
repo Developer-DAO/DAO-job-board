@@ -23,7 +23,7 @@ supabase start
 ## update postgres
 
 Use docker ps to get the name of the existing container. supabase-db</br>
-Use the command docker exec -it <container name> /bin/bash to get a bash shell in the container
+Use the command docker exec -it "container name" /bin/bash to get a bash shell in the container
 
 ```
 docker exec -it supabase-db /bin/bash
