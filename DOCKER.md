@@ -42,7 +42,7 @@ docker cp database/schema.sql supabase-db:/schema.sql
 ### load schema
 
 ```
-docker exec -it supabase-db /bin/bashß
+docker exec -it supabase-db /bin/bash
 psql -U postgres -d postgres -f schema.sql
 ```
 
