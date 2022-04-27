@@ -14,6 +14,7 @@ import {
 import React from 'react';
 
 export default function DeveloperItem() {
+  /** @todo Handle UserProps and pass attributes to elements **/
   const userdata = {
     skills: ['Solidity', 'EthersJS', 'React', 'Rust'],
     name: 'Developer',
