@@ -107,9 +107,9 @@ export default function CreateProfile() {
     // issue: width to be fixed.
     <Box
       bg={'none'}
-      width="1200px"
+      width="137vh"
       boxSizing="border-box"
-      ml="50px"
+      ml="25px"
       height={{ lg: 'calc(100vh - var(--chakra-space-14))', sm: 'auto' }}
     >
       <Grid height="100vh" templateColumns="repeat(4, 1fr)">
@@ -118,11 +118,10 @@ export default function CreateProfile() {
           borderRightWidth="1px"
           borderColor="gray.200"
           colSpan={3}
-          pr="100px"
+          pr="120px"
         >
           <Grid height="100vh" templateRows="repeat(7, 1fr)">
             <GridItem rowSpan={6}>
-              {/* to be fixed */}
               <Box>{renderSwitch(pageIndex)}</Box>
             </GridItem>
             <GridItem pb="-7vh" rowSpan={1}>

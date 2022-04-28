@@ -1,5 +1,5 @@
 import { pageNumber } from '@/pages/create-profile';
-import styled from '@emotion/styled';
+import ConnectLine from './ConnectLine';
 import ProgressStep from './ProgressStep';
 
 type ProgressGroupProps = {
@@ -11,30 +11,11 @@ export const ProgressGroup: React.FC<ProgressGroupProps> = ({
 }: ProgressGroupProps) => {
   return (
     <>
-      <ProgressStep
-        isCurrentPage={pageIndex === 0}
-        content="Your details"
-        id="firstStep"
-      />
+      <ProgressStep isCurrentPage={pageIndex === 0} content="Your details" />
       <ConnectLine />
-      <ProgressStep
-        isCurrentPage={pageIndex === 1}
-        content="Basic details"
-        id="secondStep"
-      />
+      <ProgressStep isCurrentPage={pageIndex === 1} content="Basic details" />
       <ConnectLine />
-      <ProgressStep
-        isCurrentPage={pageIndex === 2}
-        content="Social links"
-        id="thirdStep"
-      />
+      <ProgressStep isCurrentPage={pageIndex === 2} content="Social links" />
     </>
   );
 };
-
-const ConnectLine = styled.div`
-  background-color: #4e00ec;
-  width: 2px;
-  height: 20px;
-  margin-left: 30px;
-`;

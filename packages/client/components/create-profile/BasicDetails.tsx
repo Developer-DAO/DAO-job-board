@@ -1,13 +1,4 @@
-import {
-  Stack,
-  Box,
-  Heading,
-  Text,
-  Input,
-  Textarea,
-  ButtonGroup,
-  Button,
-} from '@chakra-ui/react';
+import { Stack, Box, Heading, Text, Input, Textarea } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import { FormProps } from '@/pages/create-profile';
 

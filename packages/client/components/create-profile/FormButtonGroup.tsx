@@ -1,13 +1,5 @@
 import { formData, pageNumber } from '@/pages/create-profile';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  ButtonGroupProps,
-  Flex,
-  Heading,
-  Spacer,
-} from '@chakra-ui/react';
+import { Button, Flex, Spacer } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'next-i18next';
 

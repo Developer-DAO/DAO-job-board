@@ -76,7 +76,7 @@ export const YourDetails = ({
               h="20vh"
               opacity="20%"
             ></Box>
-            <Box pos="relative" top="-5rem" left="-15rem">
+            <Box pos="relative" top="-5rem" left="-18rem">
               <AddAvatar src="/DevDAO.png" />
             </Box>
           </Stack>
