@@ -13,6 +13,7 @@ import { appWithTranslation } from 'next-i18next';
 import { useEthers } from '@usedapp/core';
 
 import '@fontsource/inter/variable-full.css';
+import styled from '@emotion/styled';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { account } = useEthers();
@@ -25,14 +26,22 @@ function MyApp({ Component, pageProps }: AppProps) {
 
           {account && <div>Welcome {account}</div>}
 
-          <MainComponent>
-            <Component {...pageProps} />
-          </MainComponent>
+          <FooterWrapper>
+            <MainComponent>
+              <Component {...pageProps} />
+            </MainComponent>
+          </FooterWrapper>
           <Footer />
         </ChakraProvider>
       </DAppProvider>
     </AuthProvider>
   );
 }
+
+const FooterWrapper = styled.div`
+  display: flex;
+  min-height: 93vh;
+  flex-direction: column;
+`;
 
 export default appWithTranslation(MyApp);

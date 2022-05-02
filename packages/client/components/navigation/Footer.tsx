@@ -1,13 +1,9 @@
 import { Box, HStack, Image, Flex, Text } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
 export default function Footer() {
   return (
-    <Flex
-      pos="absolute"
-      bottom={0}
-      left={0}
-      right={0}
-      h="14"
+    <StickyFooterFlex
       as="footer"
       bg="utility.light80"
       borderTopWidth="1px"
@@ -29,6 +25,14 @@ export default function Footer() {
           />
         </Flex>
       </HStack>
-    </Flex>
+    </StickyFooterFlex>
   );
 }
+
+// keep the footer at bottom even when scrolling
+const StickyFooterFlex = styled(Flex)`
+  position: 'relative';
+  height: 20;
+  margin-top: -20;
+  clear: both;
+`;
